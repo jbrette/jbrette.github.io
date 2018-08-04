@@ -46,7 +46,13 @@
 					</a>
 				</div>
 			</div>
-			<div class="divider"></div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT HUGO</a></li>
+	</ul>
+</nav>
+
 		</header>
 		<div class="wrapper clearfix">
 
@@ -54,6 +60,11 @@
 		<header class="page-header">
 			<h1 class="page-header__title">Update</h1>
 		</header><article class="list__item post">
+	<figure class="list__thumbnail">
+		<a href="/posts/2018-07-28-a/">
+			<img src="/img/placeholder.jpg" alt="WIP: Deploy Cassandra on Raspberry-PI 3" />
+		</a>
+	</figure>
 	<div class="list__content clearfix">
 		<header class="list__header">
 			<h3 class="list__title post__title ">
@@ -63,11 +74,14 @@
 <time class="post__meta-date meta-date" datetime="2018-07-28T00:00:00">July 28, 2018</time>
 <span class="post__meta-categories meta-categories">
 	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/kubernetes" rel="category">Kubernetes</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
 </span></div>
 		</header>
 		<div class="list__excerpt post__content">
 			Goal  The main goal is to use statefulset and local persistency volume. The arm32v7 image are not available on kubernetes example repository The arm32v7 images are not available either on the docker hub, probably because Cassandra advises to use 64 bits when PI 3 are still mainly 32 bits OS and that the amount of memory available is limited to 1Gbi.  Build Cassandra for PI 3 Cassandra 1 Based on various Cassandra running on RPI projects
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-28-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -102,6 +116,9 @@
 		</header>
 		<div class="list__excerpt post__content">
 			Goal  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary  Run notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine  $ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine NAME DIGEST SIZE (BYTES) ROLE ---- ------ ------------ ---- 2.6 9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b 528 targets 2.7 9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a 1374 targets 3.1 2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79 433 targets 3.2 4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6 433 targets 3.3 37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a 433 targets 3.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-18-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -154,6 +171,9 @@
 		<div class="list__excerpt post__content">
 			Goal  During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. (Strangely did not encounter the issue on RPI Cluster 2)&gt; The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1.11.1 The goal is to learn how to recompile Kubernetes from the source to be able to contribute when possible and address problems as soon as possible  Build Kubernetes executables for AMD64 and ARM Cross Compiling from Ubuntu Machine First check the go setup.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-15-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -172,6 +192,9 @@
 			Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &quot;s/amd64/arm/g&quot; &gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
 Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the WLAN and LAN interfaces were activated.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-14-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -188,6 +211,9 @@ Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the
 		</header>
 		<div class="list__excerpt post__content">
 			Goal  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide&hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-13-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -208,6 +234,9 @@ Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the
 Generating the server certs In the case this Kubernetes cluster, the master is running on master-pi with IP address 192.168.1.95
 as root
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-12-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -225,6 +254,9 @@ as root
 		<div class="list__excerpt post__content">
 			Goal  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready
 git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm package charts/kubeplay-arm32v7/ --app-version 0.1.0 --destination ./helmrepo/ cd helmrepo/ helm repo index . git add .
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-11-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -262,6 +294,9 @@ git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm packa
 Ansible Installation on the master node Let&rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.
 sudo apt-get install ansible Reading package lists... Done Building dependency tree Reading state information... Done The following additional packages will be installed: ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml Suggested packages: cowsay sshpass python-crypto-dbg python-crypto-doc python-cryptography-doc python-cryptography-vectors python-enum34-doc python-jinja2-doc ipython python-netaddr-docs python-gssapi doc-base python-setuptools-doc Recommended packages: python-winrm The following NEW packages will be installed: ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml 0 upgraded, 22 newly installed, 0 to remove and 6 not upgraded.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-07-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -279,6 +314,9 @@ sudo apt-get install ansible Reading package lists... Done Building dependency t
 		<div class="list__excerpt post__content">
 			Goal  Transform Raspberry-PI + Dongle into a SUC ZWave controller Try to use with OpenHAB or HomeAssistant  Testing on the OpenHAB Container The OpenHAB architecture is Java based.
 Testing on the HomeAssistant Container HomeAssistant is Python based and relies on OpenZWave. Some of the data is also saved in SQLite. In both cases developping small Python scripts to investigate the setup seems to be the easiest way.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-06-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -299,6 +337,9 @@ Testing on the HomeAssistant Container HomeAssistant is Python based and relies 
 ~~~~ lsusb
 Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-05-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -315,6 +356,9 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.
 		</header>
 		<div class="list__excerpt post__content">
 			Goal  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle. Install Home Assistant on node 2 of the cluster  What OS  Home Assistant haas.io does not support Raspberry 3 B+ yet. haas.io is based on ResinOS. ResinOS is not using docker anymore but balena which does not support kubernetes yet See Issue Continue to use HyperiotOS  Install AppArmor and download docker container cat newpgklist apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common  for i in `cat newpgklist` do sudo apt-get install -y $i done  Download and run the installation script.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-04-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -333,6 +377,9 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.
 		<div class="list__excerpt post__content">
 			Goal  Build a Raspberry 3B+ Cluster Deploy Kubernetes on that Cluster  Hardware Reference Links  Video  Procedure  Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B+ (1Gb card instead of 100Mb card)  Result Cluster 1: 5 nodes cluster Cluster 2: 3 nodes cluster OS Reference Links  Video HypriotOS  Procedure  Use HypriotOS because the quickest to set up.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-03-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -350,6 +397,9 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.
 		<div class="list__excerpt post__content">
 			Goal  Fork Sonobuoy Compile the tools Test it  Clone and Compile mkdir -p $HOME/src/github.com/heptio cd $HOME/src/github.com/heptio git clone git@github.com:jbrette/sonobuoy.git  export GOPATH=$HOME go version go version go1.10.1 linux/amd64  go get -u -v github.com/heptio/sonobuoy  sonobuoy run sonobuoy status  kubectl get all -n heptio-sonobuoy NAME READY STATUS RESTARTS AGE pod/sonobuoy 1/1 Running 0 14m pod/sonobuoy-e2e-job-5fff584d11364ca1 2/2 Running 0 12m pod/sonobuoy-systemd-logs-daemon-set-1c53f31cf14246ca-mhztp 2/2 Running 0 12m NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/sonobuoy-master ClusterIP 10.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-02-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -366,6 +416,9 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.
 		</header>
 		<div class="list__excerpt post__content">
 			Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld Python web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Simple Python Server The pythonhttpserver repo showcases: - How to create a simple Python3 server - How to leverage Travis to compile for amd64 and arm32v7. - Branch amd64 is for normal PC and HP server. - Branch arm32v7 produces software usable on Raspberry PI 3B+
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-07-01-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -385,6 +438,9 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.
 			Initial set up Kubernetes 1.10.4 is installed
 cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent  sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-30-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -401,6 +457,9 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
 		</header>
 		<div class="list__excerpt post__content">
 			Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld GO web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Simple GO Server compilation The gohttpserver repo showcases: - How to compile a GO process - How to leverage Travis to compile for amd64 and arm32v7. - Branch amd64 is for normal PC and HP server. - Branch arm32v7 produces software usable on Raspberry PI 3B+
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-29-a/">Read more…</a>
 		</div>
 	</div>
 </article>
@@ -434,11 +493,6 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
 			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-18-a/">WIP: Compile and Test Portieris</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-16-a/">WIP: Rebuild Hyperkube images</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-12-a/">Enable docker remote API</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-11-a/">Use github repo as helm chart repository</a></li>
 		</ul>
 	</div>
 </div>
@@ -449,12 +503,43 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/categories/hugo">Hugo</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/jekyll">Jekyll</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/kubernetes">Kubernetes</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/update">Update</a></li>
 		</ul>
 	</div>
 </div>
 	
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/jebrette" target="_blank">
+				<svg class="widget-social__link-icon icon-twitter" viewBox="0 0 384 312" width="24" height="24" fill="#fff"><path d="m384 36.9c-14.1 6.3-29.3 10.5-45.2 12.4 16.3-9.7 28.8-25.2 34.6-43.6-15.2 9-32.1 15.6-50 19.1-14.4-15.2-34.9-24.8-57.5-24.8-43.5 0-78.8 35.3-78.8 78.8 0 6.2.7 12.2 2 17.9-65.5-3.3-123.5-34.6-162.4-82.3-6.7 11.6-10.6 25.2-10.6 39.6 0 27.3 13.9 51.4 35 65.6-12.9-.4-25.1-4-35.7-9.9v1c0 38.2 27.2 70 63.2 77.2-6.6 1.8-13.6 2.8-20.8 2.8-5.1 0-10-.5-14.8-1.4 10 31.3 39.1 54.1 73.6 54.7-27 21.1-60.9 33.7-97.8 33.7-6.4 0-12.6-.4-18.8-1.1 34.9 22.4 76.3 35.4 120.8 35.4 144.9 0 224.1-120 224.1-224.1 0-3.4-.1-6.8-.2-10.2 15.4-11.1 28.7-25 39.3-40.8z"/></svg>
+				<span>Twitter</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/jbrette" target="_blank">
+				<svg class="widget-social__link-icon icon-linkedin" viewBox="0 0 352 352" width="24" height="24" fill="#fff"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/jbrette" target="_blank">
+				<svg class="widget-social__link-icon icon-github" viewBox="0 0 384 374" width="24" height="24" fill="#fff"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
 	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/cassandra" title="Cassandra">Cassandra</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes" title="Kubernetes">Kubernetes</a>
+	</div>
+</div>
 </aside>
 	</div>
 		<footer class="footer">

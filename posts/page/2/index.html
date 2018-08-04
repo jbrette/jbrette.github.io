@@ -46,7 +46,13 @@
 					</a>
 				</div>
 			</div>
-			<div class="divider"></div>
+			
+<nav class="menu">
+	<ul class="menu__list">
+		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT HUGO</a></li>
+	</ul>
+</nav>
+
 		</header>
 		<div class="wrapper clearfix">
 
@@ -69,6 +75,9 @@
 		<div class="list__excerpt post__content">
 			Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld Java 10 web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Install Java 10 on dev machine sudo add-apt-repository ppa:linuxuprising/java Oracle Java 10 installer Java binaries are not hosted in this PPA due to licensing. The packages in this PPA download and install Oracle Java 10 (JDK 10), so a working Internet connection is required.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-28-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -88,6 +97,9 @@
 Setup of the cluster TBD
 Update of the cluster I found the following link
 sudo bash -c 'mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&quot; EOF '  sudo bash -ec 'uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-27-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -142,6 +154,9 @@ Links TBD
 			Installing the right version of Docker Wondering why you have a strange error such as &lsquo;from &hellip;&rsquo; when running docker build. The reason is linked to an older version of docker installed. You need to remove the current docker.io.
 sudo apt-cache policy docker.io curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; sudo apt-get update sudo apt-cache policy docker-ce sudo apt-get remove docker docker-engine docker.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-24-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -179,6 +194,9 @@ Usefull Links  Link1
 If you are still running Ubuntu 16.04 LTS
 sudo add-apt-repository ppa:longsleep/golang-backports sudo apt-get update sudo apt-get install golang-go  How to setup your GOPATH A lot of things seems to work much better if you edit your .
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-22-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -196,6 +214,9 @@ sudo add-apt-repository ppa:longsleep/golang-backports sudo apt-get update sudo 
 		<div class="list__excerpt post__content">
 			Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
 sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl  sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false  sudo kubeadm version kubeadm version: &amp;version.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-21-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -216,6 +237,9 @@ sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl  sudo 
 Hopefully the new PI3 B and B+ are able to boot from USB, hence the idea of creating a Rescue Dongle
 Consideration regarding USB boot.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-20-a/">Read more…</a>
+		</div>
 	</div>
 </article><article class="list__item post">
 	<div class="list__content clearfix">
@@ -232,6 +256,9 @@ Consideration regarding USB boot.
 		</header>
 		<div class="list__excerpt post__content">
 			During some of the manipulation of the partition table of my SD card, I ended up screwing up both my SD card and my backup Win32DiskImage backup. Moreover if your SD card is 32G, it takes around 30 minute to restore from backup. Hence the idea to come up with a way to build more resiliency in the cluster. Recreating a node from scratch should not take more than 10 mn.
+		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-06-19-a/">Read more…</a>
 		</div>
 	</div>
 </article><article class="list__item post">
@@ -268,6 +295,9 @@ Consideration regarding USB boot.
 			You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
 To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.
 		</div>
+		<div class="list__footer">
+			<a class="list__footer-readmore btn" href="/posts/2018-01-01-a/">Read more…</a>
+		</div>
 	</div>
 </article>
 
@@ -300,11 +330,6 @@ To add new posts, simply add a file in the _posts directory that follows the con
 			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-18-a/">WIP: Compile and Test Portieris</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-16-a/">WIP: Rebuild Hyperkube images</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-12-a/">Enable docker remote API</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-11-a/">Use github repo as helm chart repository</a></li>
 		</ul>
 	</div>
 </div>
@@ -315,12 +340,43 @@ To add new posts, simply add a file in the _posts directory that follows the con
 		<ul class="widget__list">
 			<li class="widget__item"><a class="widget__link" href="/categories/hugo">Hugo</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/jekyll">Jekyll</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/kubernetes">Kubernetes</a></li>
 			<li class="widget__item"><a class="widget__link" href="/categories/update">Update</a></li>
 		</ul>
 	</div>
 </div>
 	
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/jebrette" target="_blank">
+				<svg class="widget-social__link-icon icon-twitter" viewBox="0 0 384 312" width="24" height="24" fill="#fff"><path d="m384 36.9c-14.1 6.3-29.3 10.5-45.2 12.4 16.3-9.7 28.8-25.2 34.6-43.6-15.2 9-32.1 15.6-50 19.1-14.4-15.2-34.9-24.8-57.5-24.8-43.5 0-78.8 35.3-78.8 78.8 0 6.2.7 12.2 2 17.9-65.5-3.3-123.5-34.6-162.4-82.3-6.7 11.6-10.6 25.2-10.6 39.6 0 27.3 13.9 51.4 35 65.6-12.9-.4-25.1-4-35.7-9.9v1c0 38.2 27.2 70 63.2 77.2-6.6 1.8-13.6 2.8-20.8 2.8-5.1 0-10-.5-14.8-1.4 10 31.3 39.1 54.1 73.6 54.7-27 21.1-60.9 33.7-97.8 33.7-6.4 0-12.6-.4-18.8-1.1 34.9 22.4 76.3 35.4 120.8 35.4 144.9 0 224.1-120 224.1-224.1 0-3.4-.1-6.8-.2-10.2 15.4-11.1 28.7-25 39.3-40.8z"/></svg>
+				<span>Twitter</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/jbrette" target="_blank">
+				<svg class="widget-social__link-icon icon-linkedin" viewBox="0 0 352 352" width="24" height="24" fill="#fff"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
+				<span>LinkedIn</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/jbrette" target="_blank">
+				<svg class="widget-social__link-icon icon-github" viewBox="0 0 384 374" width="24" height="24" fill="#fff"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+	</div>
+</div>
 	
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/cassandra" title="Cassandra">Cassandra</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes" title="Kubernetes">Kubernetes</a>
+	</div>
+</div>
 </aside>
 	</div>
 		<footer class="footer">
