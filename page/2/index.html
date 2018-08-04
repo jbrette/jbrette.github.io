@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Jerome Brette&#39;s Blog</title>
+	<meta name="description" content=" Jerome Brette&#39;s Personal blog about everything">
+	<meta name="generator" content="Hugo 0.46" />
+	<meta property="og:title" content="Jerome Brette&#39;s Blog" />
+<meta property="og:description" content=" Jerome Brette&#39;s Personal blog about everything" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/" />
+
+
+
+<meta property="og:updated_time" content="2018-06-28T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="alternate" type="application/rss&#43;xml" href="/index.xml">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="Jerome Brette&#39;s Blog" rel="home">
+						<div class="logo__title">Jerome Brette&#39;s Blog</div>
+						<div class="logo__tagline">Just another site</div>
+					</a>
+				</div>
+			</div>
+			<div class="divider"></div>
+		</header>
+		<div class="wrapper clearfix">
+
+	<main class="main list content" role="main"><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-28-a/" rel="bookmark">Creating simple Java 10 server container</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-28T00:00:00">June 28, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld Java 10 web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Install Java 10 on dev machine sudo add-apt-repository ppa:linuxuprising/java Oracle Java 10 installer Java binaries are not hosted in this PPA due to licensing. The packages in this PPA download and install Oracle Java 10 (JDK 10), so a working Internet connection is required.
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-27-a/" rel="bookmark">Manual Update of CoreOS</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-27T00:00:00">June 27, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			Manual Update Of CoreOS To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
+Setup of the cluster TBD
+Update of the cluster I found the following link
+sudo bash -c 'mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&quot; EOF '  sudo bash -ec 'uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update.
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-26-a/" rel="bookmark">WIP: Zuul</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-26T00:00:00">June 26, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			 Understanding Zuul  WIP  Usefull Links  WIP  
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-25-a/" rel="bookmark">WIP: Setup github/gerrit behind a corporate http proxy</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-25T00:00:00">June 25, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			Access GitHub/Gerrit from behind a corporate http proxy TBD
+Links TBD
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-24-a/" rel="bookmark">docker.io versus docker-ce</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-24T00:00:00">June 24, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			Installing the right version of Docker Wondering why you have a strange error such as &lsquo;from &hellip;&rsquo; when running docker build. The reason is linked to an older version of docker installed. You need to remove the current docker.io.
+sudo apt-cache policy docker.io curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; sudo apt-get update sudo apt-cache policy docker-ce sudo apt-get remove docker docker-engine docker.
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-23-a/" rel="bookmark">Setup multiple GitHub account on a single machine</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-23T00:00:00">June 23, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			 Setup multiple GitHub account TBD
+Usefull Links  Link1  
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-22-a/" rel="bookmark">Setup your GOLANG environment</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-22T00:00:00">June 22, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			Installing the right version of GO If you have strange errors, when running go get &hellip;., chances are that your version of GO is old. On Ubuntu, it is actually quite simple to address the issue.
+If you are still running Ubuntu 16.04 LTS
+sudo add-apt-repository ppa:longsleep/golang-backports sudo apt-get update sudo apt-get install golang-go  How to setup your GOPATH A lot of things seems to work much better if you edit your .
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-21-a/" rel="bookmark">Setup SingleNode Kubernetes Cluster using kubeadm</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-21T00:00:00">June 21, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
+sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl  sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false  sudo kubeadm version kubeadm version: &amp;version.
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-20-a/" rel="bookmark">Create a Rapsberry PI Rescue Dongle</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-20T00:00:00">June 20, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			Goal I encountered multiple issues trying to repartition my SD on my PI. Because the / directory is mounted, it never really worked safely for me to use fdisk. Morevoer some of the powerfull tools such as gparted need X11 installed, which I don&rsquo;t have by default.
+Hopefully the new PI3 B and B+ are able to boot from USB, hence the idea of creating a Rescue Dongle
+Consideration regarding USB boot.
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-06-19-a/" rel="bookmark">Add Raspberry PI node to Kubernetes Cluster in 10 min</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-19T00:00:00">June 19, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			During some of the manipulation of the partition table of my SD card, I ended up screwing up both my SD card and my backup Win32DiskImage backup. Moreover if your SD card is 32G, it takes around 30 minute to restore from backup. Hence the idea to come up with a way to build more resiliency in the cluster. Recreating a node from scratch should not take more than 10 mn.
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-01-02-a/" rel="bookmark">Welcome to Hugo!</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-01-02T00:00:00">January 02, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/hugo" rel="category">hugo</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
+		</div>
+	</div>
+</article><article class="list__item post">
+	<div class="list__content clearfix">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2018-01-01-a/" rel="bookmark">Welcome to Jekyll!</a>
+			</h3><div class="list__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-01-01T00:00:00">January 01, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header>
+		<div class="list__excerpt post__content">
+			You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
+To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.
+		</div>
+	</div>
+</article>
+		
+
+		
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/">«</a>
+	<span class="pagination__item pagination__item--current">2/2</span>
+</div>
+
+	</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-28-a/">WIP: Deploy Cassandra on Raspberry-PI 3</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-19-a/">WIP: Build and Deploy MachineLearning Kubeflow Framework</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-18-a/">WIP: Compile and Test Portieris</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-16-a/">WIP: Rebuild Hyperkube images</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-12-a/">Enable docker remote API</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-11-a/">Use github repo as helm chart repository</a></li>
+		</ul>
+	</div>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/hugo">Hugo</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/jekyll">Jekyll</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/update">Update</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 Jerome Brette&#39;s Blog. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script></body>
+</html>

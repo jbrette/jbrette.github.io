@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Setup SingleNode Kubernetes Cluster using kubeadm</title>
+	<meta name="description" content="">
+	<meta name="generator" content="Hugo 0.46" />
+	<meta property="og:title" content="Setup SingleNode Kubernetes Cluster using kubeadm" />
+<meta property="og:description" content="Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
+sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl  sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false  sudo kubeadm version kubeadm version: &amp;version." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2018-06-21-a/" />
+
+
+
+<meta property="article:published_time" content="2018-06-21T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-06-21T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/scripts.js"></script>
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body body-right-sidebar">
+	<div class="container container-outer">
+		<header class="header">
+			<div class="container container-inner">
+				<div class="logo" role="banner">
+					<a class="logo__link" href="/" title="Jerome Brette&#39;s Blog" rel="home">
+						<div class="logo__title">Jerome Brette&#39;s Blog</div>
+						<div class="logo__tagline">Just another site</div>
+					</a>
+				</div>
+			</div>
+			<div class="divider"></div>
+		</header>
+		<div class="wrapper clearfix">
+
+<main class="main content">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Setup SingleNode Kubernetes Cluster using kubeadm</h1><div class="post__meta meta">
+<svg class="icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
+<time class="post__meta-date meta-date" datetime="2018-06-21T00:00:00">June 21, 2018</time>
+<span class="post__meta-categories meta-categories">
+	<svg class="icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta-categories__list"><a class="meta-categories__link" href="/categories/jekyll" rel="category">jekyll</a>, <a class="meta-categories__link" href="/categories/update" rel="category">update</a></span>
+</span></div>
+		</header><div class="post__content clearfix">
+			
+
+<h2 id="add-kubernetes-apt-repo">Add Kubernetes APT Repo</h2>
+
+<p>If you are still running Ubuntu 16.04 LTS</p>
+
+<pre><code>sudo xxx 
+sudo apt-get update
+sudo apt-get install kubeadm kubelet kubectl
+</code></pre>
+
+<pre><code>sudo docker version
+Client:
+ Version:      1.13.1
+ API version:  1.26
+ Go version:   go1.6.2
+ Git commit:   092cba3
+ Built:        Thu Nov  2 20:40:23 2017
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      1.13.1
+ API version:  1.26 (minimum version 1.12)
+ Go version:   go1.6.2
+ Git commit:   092cba3
+ Built:        Thu Nov  2 20:40:23 2017
+ OS/Arch:      linux/amd64
+ Experimental: false
+</code></pre>
+
+<pre><code>sudo kubeadm version
+
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;11&quot;, GitVersion:&quot;v1.11.0&quot;, GitCommit:&quot;91e7b4fd31fcd3d5f436da26c980becec37ceefe&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-06-27T20:14:41Z&quot;, GoVersion:&quot;go1.10.2&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+</code></pre>
+
+<h2 id="run-kubeadm">Run Kubeadm</h2>
+
+<p>First command needs to use sudo</p>
+
+<pre><code>sudo kubeadm config images pull
+sudo kubeadm init
+</code></pre>
+
+<p>Let copy the .kube config into current user home directoru</p>
+
+<pre><code>mkdir -p $HOME/.kube
+sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl get all --all-namespaces
+</code></pre>
+
+<p>From that point don&rsquo;t really need sudo anymore</p>
+
+<h2 id="add-calico">Add Calico</h2>
+
+<p>At that point most of the node will stay in mode &ldquo;NotReady&rdquo;</p>
+
+<pre><code>kubectl get nodes
+
+NAME       STATUS     ROLES     AGE       VERSION
+allinone   NotReady   master    1m        v1.11.0
+</code></pre>
+
+<p>To install Calico</p>
+
+<pre><code>kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/kubeadm/1.7/calico.yaml
+
+configmap/calico-config created
+daemonset.extensions/calico-etcd created
+service/calico-etcd created
+daemonset.extensions/calico-node created
+deployment.extensions/calico-kube-controllers created
+clusterrolebinding.rbac.authorization.k8s.io/calico-cni-plugin created
+clusterrole.rbac.authorization.k8s.io/calico-cni-plugin created
+serviceaccount/calico-cni-plugin created
+clusterrolebinding.rbac.authorization.k8s.io/calico-kube-controllers created
+clusterrole.rbac.authorization.k8s.io/calico-kube-controllers created
+serviceaccount/calico-kube-controllers created
+</code></pre>
+
+<p>Check again</p>
+
+<pre><code>kubectl get nodes
+
+NAME       STATUS    ROLES     AGE       VERSION
+allinone   Ready     master    2m        v1.11.0
+</code></pre>
+
+<h2 id="allow-payload-on-master-node">Allow payload on master node</h2>
+
+<pre><code>kubectl get all --all-namespaces
+
+NAMESPACE     NAME                                           READY     STATUS    RESTARTS   AGE
+kube-system   pod/calico-etcd-d6gn7                          1/1       Running   0          1m
+kube-system   pod/calico-kube-controllers-84fd4db7cd-ctctz   1/1       Running   0          1m
+kube-system   pod/calico-node-bg4w8                          2/2       Running   0          1m
+kube-system   pod/coredns-78fcdf6894-7d5mf                   1/1       Running   0          2m
+kube-system   pod/coredns-78fcdf6894-xv9lm                   1/1       Running   0          2m
+kube-system   pod/etcd-allinone                              1/1       Running   0          1m
+kube-system   pod/kube-apiserver-allinone                    1/1       Running   0          1m
+kube-system   pod/kube-controller-manager-allinone           1/1       Running   0          1m
+kube-system   pod/kube-proxy-zz9t9                           1/1       Running   0          2m
+kube-system   pod/kube-scheduler-allinone                    1/1       Running   0          1m
+
+NAMESPACE     NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         AGE
+default       service/kubernetes    ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP         2m
+kube-system   service/calico-etcd   ClusterIP   10.96.232.136   &lt;none&gt;        6666/TCP        1m
+kube-system   service/kube-dns      ClusterIP   10.96.0.10      &lt;none&gt;        53/UDP,53/TCP   2m
+
+NAMESPACE     NAME                         DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                     AGE
+kube-system   daemonset.apps/calico-etcd   1         1         1         1            1           node-role.kubernetes.io/master=   1m
+kube-system   daemonset.apps/calico-node   1         1         1         1            1           &lt;none&gt;                            1m
+kube-system   daemonset.apps/kube-proxy    1         1         1         1            1           beta.kubernetes.io/arch=amd64     2m
+
+NAMESPACE     NAME                                      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+kube-system   deployment.apps/calico-kube-controllers   1         1         1            1           1m
+kube-system   deployment.apps/coredns                   2         2         2            2           2m
+
+NAMESPACE     NAME                                                 DESIRED   CURRENT   READY     AGE
+kube-system   replicaset.apps/calico-kube-controllers-84fd4db7cd   1         1         1         1m
+kube-system   replicaset.apps/coredns-78fcdf6894 
+</code></pre>
+
+<p>To remove the taint:</p>
+
+<pre><code>kubectl taint node allinone node-role.kubernetes.io/master:NoSchedule-
+</code></pre>
+
+<h2 id="install-helm">Install Helm</h2>
+
+<p>Create the service account</p>
+
+<pre><code>kubectl create serviceaccount tiller --namespace kube-system
+serviceaccount/tiller created
+</code></pre>
+
+<pre><code>kubectl replace -f rbac-config.yaml
+serviceaccount/tiller replaced
+clusterrolebinding.rbac.authorization.k8s.io/tiller replaced
+</code></pre>
+
+<p>Init Tiller</p>
+
+<pre><code>helm init --service-account tiller
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster
+</code></pre>
+
+<pre><code>kubectl get all -n kube-system
+
+NAME                                           READY     STATUS    RESTARTS   AGE
+pod/calico-etcd-d6gn7                          1/1       Running   0          4m
+pod/calico-kube-controllers-84fd4db7cd-ctctz   1/1       Running   0          4m
+pod/calico-node-bg4w8                          2/2       Running   0          4m
+pod/coredns-78fcdf6894-7d5mf                   1/1       Running   0          5m
+pod/coredns-78fcdf6894-xv9lm                   1/1       Running   0          5m
+pod/etcd-allinone                              1/1       Running   0          5m
+pod/kube-apiserver-allinone                    1/1       Running   0          4m
+pod/kube-controller-manager-allinone           1/1       Running   0          5m
+pod/kube-proxy-zz9t9                           1/1       Running   0          5m
+pod/kube-scheduler-allinone                    1/1       Running   0          4m
+pod/tiller-deploy-759cb9df9-wrznl              1/1       Running   0          46s
+
+NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)         AGE
+service/calico-etcd     ClusterIP   10.96.232.136   &lt;none&gt;        6666/TCP        4m
+service/kube-dns        ClusterIP   10.96.0.10      &lt;none&gt;        53/UDP,53/TCP   6m
+service/tiller-deploy   ClusterIP   10.103.151.9    &lt;none&gt;        44134/TCP       46s
+
+NAME                         DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                     AGE
+daemonset.apps/calico-etcd   1         1         1         1            1           node-role.kubernetes.io/master=   4m
+daemonset.apps/calico-node   1         1         1         1            1           &lt;none&gt;                            4m
+daemonset.apps/kube-proxy    1         1         1         1            1           beta.kubernetes.io/arch=amd64     6m
+
+NAME                                      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/calico-kube-controllers   1         1         1            1           4m
+deployment.apps/coredns                   2         2         2            2           6m
+deployment.apps/tiller-deploy             1         1         1            1           46s
+
+NAME                                                 DESIRED   CURRENT   READY     AGE
+replicaset.apps/calico-kube-controllers-84fd4db7cd   1         1         1         4m
+replicaset.apps/coredns-78fcdf6894                   2         2         2         5m
+replicaset.apps/tiller-deploy-759cb9df9              1         1         1         46s
+</code></pre>
+
+<p>Update the repo</p>
+
+<pre><code>helm repo add stable https://kubernetes-charts.storage.googleapis.com
+
+&quot;stable&quot; has been added to your repositories
+</code></pre>
+
+<p>Install and remove nginx</p>
+
+<pre><code>helm install stable/nginx-ingress
+
+NAME:   messy-snake
+LAST DEPLOYED: Sat Jun 30 18:05:58 2018
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==&gt; v1beta1/ClusterRoleBinding
+NAME                       AGE
+messy-snake-nginx-ingress  1s
+
+==&gt; v1beta1/Role
+NAME                       AGE
+messy-snake-nginx-ingress  1s
+
+==&gt; v1/ServiceAccount
+NAME                       SECRETS  AGE
+messy-snake-nginx-ingress  1        1s
+
+==&gt; v1beta1/ClusterRole
+NAME                       AGE
+messy-snake-nginx-ingress  1s
+
+==&gt; v1/Service
+NAME                                       TYPE          CLUSTER-IP     EXTERNAL-IP  PORT(S)                     AGE
+messy-snake-nginx-ingress-controller       LoadBalancer  10.98.107.113  &lt;pending&gt;    80:31098/TCP,443:32158/TCP  1s
+messy-snake-nginx-ingress-default-backend  ClusterIP     10.105.239.60  &lt;none&gt;       80/TCP                      1s
+
+==&gt; v1beta1/Deployment
+NAME                                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+messy-snake-nginx-ingress-controller       1        1        1           0          1s
+messy-snake-nginx-ingress-default-backend  1        1        1           0          1s
+
+==&gt; v1beta1/PodDisruptionBudget
+NAME                                       MIN AVAILABLE  MAX UNAVAILABLE  ALLOWED DISRUPTIONS  AGE
+messy-snake-nginx-ingress-controller       1              N/A              0                    1s
+messy-snake-nginx-ingress-default-backend  1              N/A              0                    1s
+
+==&gt; v1/Pod(related)
+NAME                                                        READY  STATUS             RESTARTS  AGE
+messy-snake-nginx-ingress-controller-5db5f96774-ql6nf       0/1    ContainerCreating  0         1s
+messy-snake-nginx-ingress-default-backend-7f877996b6-zzp82  0/1    ContainerCreating  0         1s
+
+==&gt; v1/ConfigMap
+NAME                                  DATA  AGE
+messy-snake-nginx-ingress-controller  1     1s
+
+==&gt; v1beta1/RoleBinding
+NAME                       AGE
+messy-snake-nginx-ingress  1s
+
+
+NOTES:
+The nginx-ingress controller has been installed.
+It may take a few minutes for the LoadBalancer IP to be available.
+You can watch the status by running 'kubectl --namespace default get services -o wide -w messy-snake-nginx-ingress-controller'
+
+An example Ingress that makes use of the controller:
+
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    name: example
+    namespace: foo
+  spec:
+    rules:
+      - host: www.example.com
+        http:
+          paths:
+            - backend:
+                serviceName: exampleService
+                servicePort: 80
+              path: /
+    # This section is only required if TLS is to be enabled for the Ingress
+    tls:
+        - hosts:
+            - www.example.com
+          secretName: example-tls
+
+If TLS is enabled for the Ingress, a Secret containing the certificate and key must also be provided:
+
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: example-tls
+    namespace: foo
+  data:
+    tls.crt: &lt;base64 encoded cert&gt;
+    tls.key: &lt;base64 encoded key&gt;
+  type: kubernetes.io/tls
+</code></pre>
+
+<pre><code>helm ls
+NAME            REVISION        UPDATED                         STATUS          CHART                   NAMESPACE
+messy-snake     1               Sat Jun 30 18:05:58 2018        DEPLOYED        nginx-ingress-0.22.0    default
+</code></pre>
+
+<pre><code>kubectl get all
+
+NAME                                                             READY     STATUS    RESTARTS   AGE
+pod/messy-snake-nginx-ingress-controller-5db5f96774-ql6nf        1/1       Running   0          1m
+pod/messy-snake-nginx-ingress-default-backend-7f877996b6-zzp82   1/1       Running   0          1m
+
+NAME                                                TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+service/kubernetes                                  ClusterIP      10.96.0.1       &lt;none&gt;        443/TCP                      9m
+service/messy-snake-nginx-ingress-controller        LoadBalancer   10.98.107.113   &lt;pending&gt;     80:31098/TCP,443:32158/TCP   1m
+service/messy-snake-nginx-ingress-default-backend   ClusterIP      10.105.239.60   &lt;none&gt;        80/TCP                       1m
+
+NAME                                                        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/messy-snake-nginx-ingress-controller        1         1         1            1           1m
+deployment.apps/messy-snake-nginx-ingress-default-backend   1         1         1            1           1m
+
+NAME                                                                   DESIRED   CURRENT   READY     AGE
+replicaset.apps/messy-snake-nginx-ingress-controller-5db5f96774        1         1         1         1m
+replicaset.apps/messy-snake-nginx-ingress-default-backend-7f877996b6   1         1         1         1m
+</code></pre>
+
+<p>Remove the test chart</p>
+
+<pre><code>helm delete messy-snake
+release &quot;messy-snake&quot; deleted
+</code></pre>
+
+<h2 id="use-kubeadm-to-remove-everything">Use kubeadm to remove everything</h2>
+
+<pre><code>sudo kubeadm reset
+sudo docker rm $(sudo docker ps -qa)
+sudo docker image rm -f $(sudo docker image list -qa)
+</code></pre>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li>TBD</li>
+</ul>
+
+		</div>
+		
+	</article>
+	
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Jerome Brette avatar" src="/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Jerome Brette</span>
+	</div>
+	<div class="authorbox__description">
+		Jerome Brette&#39;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+	
+<nav class="post-nav row clearfix">
+	<div class="post-nav__item post-nav__item--prev col-1-2">
+		<a class="post-nav__link" href="/posts/2018-06-20-a/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">Create a Rapsberry PI Rescue Dongle</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next col-1-2">
+		<a class="post-nav__link" href="/posts/2018-06-22-a/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">Setup your GOLANG environment</p></a>
+	</div>
+</nav>
+	
+</main>
+
+<aside class="sidebar">
+	
+<div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+	
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-28-a/">WIP: Deploy Cassandra on Raspberry-PI 3</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-19-a/">WIP: Build and Deploy MachineLearning Kubeflow Framework</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-18-a/">WIP: Compile and Test Portieris</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-16-a/">WIP: Rebuild Hyperkube images</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-12-a/">Enable docker remote API</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-07-11-a/">Use github repo as helm chart repository</a></li>
+		</ul>
+	</div>
+</div>
+	
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/hugo">Hugo</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/jekyll">Jekyll</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/update">Update</a></li>
+		</ul>
+	</div>
+</div>
+	
+	
+</aside>
+	</div>
+		<footer class="footer">
+			<div class="container container-inner">
+				<div class="footer__copyright">&copy; 2018 Jerome Brette&#39;s Blog. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
+			</div>
+		</footer>
+	</div>
+
+<script>
+	var navigation = responsiveNav(".menu", {
+		navClass: "menu--collapse",
+	});
+</script></body>
+</html>
