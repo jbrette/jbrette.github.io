@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Helm on Jerome Brette&#39;s Blog</title>
+    <link>/tags/helm/</link>
+    <description>Recent content in Helm on Jerome Brette&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/helm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy Helm and Tiller on Rasberry PI Cluster</title>
+      <link>/post/2018-07-13-a/</link>
+      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-07-13-a/</guid>
+      <description>Goal  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide&amp;hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller.</description>
+    </item>
+    
+  </channel>
+</rss>

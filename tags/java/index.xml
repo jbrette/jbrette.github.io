@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Jerome Brette&#39;s Blog</title>
+    <link>/tags/java/</link>
+    <description>Recent content in Java on Jerome Brette&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating simple Java 10 server container</title>
+      <link>/post/2018-06-28-a/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-06-28-a/</guid>
+      <description>Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld Java 10 web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Install Java 10 on dev machine sudo add-apt-repository ppa:linuxuprising/java Oracle Java 10 installer Java binaries are not hosted in this PPA due to licensing. The packages in this PPA download and install Oracle Java 10 (JDK 10), so a working Internet connection is required.</description>
+    </item>
+    
+  </channel>
+</rss>

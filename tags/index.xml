@@ -6,10 +6,127 @@
     <description>Recent content in Tags on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ansible</title>
+      <link>/tags/ansible/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bigdata</title>
+      <link>/tags/bigdata/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bigdata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Calico</title>
+      <link>/tags/calico/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/calico/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cni</title>
+      <link>/tags/cni/</link>
+      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cni/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coreos</title>
+      <link>/tags/coreos/</link>
+      <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/coreos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>/tags/github/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>/tags/golang/</link>
+      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Helm</title>
+      <link>/tags/helm/</link>
+      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Helm. Kubernetes</title>
+      <link>/tags/helm.-kubernetes/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/helm.-kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Homeautomation</title>
+      <link>/tags/homeautomation/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/homeautomation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>/tags/java/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubeadm</title>
+      <link>/tags/kubeadm/</link>
+      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/kubeadm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Kubernetes</title>
@@ -17,6 +134,60 @@
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machinelearning</title>
+      <link>/tags/machinelearning/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/machinelearning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Portieris</title>
+      <link>/tags/portieris/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/portieris/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rpi</title>
+      <link>/tags/rpi/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rpi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sonobuoy</title>
+      <link>/tags/sonobuoy/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sonobuoy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zuul</title>
+      <link>/tags/zuul/</link>
+      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/zuul/</guid>
       <description></description>
     </item>
     
