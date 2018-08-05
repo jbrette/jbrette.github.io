@@ -22,18 +22,9 @@
     <item>
       <title>Jekyll</title>
       <link>/categories/jekyll/</link>
-      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/jekyll/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>/categories/kubernetes/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/kubernetes/</guid>
+      <guid>/categories/jekyll/</guid>
       <description></description>
     </item>
     
