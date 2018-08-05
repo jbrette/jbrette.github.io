@@ -35,7 +35,7 @@
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-07-14-a/</guid>
-      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;quot;s/amd64/arm/g&amp;quot; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
+      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;#34;s/amd64/arm/g&amp;#34; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
 Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the WLAN and LAN interfaces were activated.</description>
     </item>
     
@@ -54,7 +54,7 @@ Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the
       <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-07-07-a/</guid>
-      <description>Goal Even if the ultimat goal is to manage completly the cluster using Kubernetes, the ability to use Ansible during debug process is very usefull. The goal here is to setup ansible inventory, basic playbooks.
+      <description>Goal Even if the ultimate goal is to manage completly the cluster using Kubernetes, the ability to use Ansible during debug process is very usefull. The goal here is to setup ansible inventory, basic playbooks.
 Ansible Installation on the master node Let&amp;rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.
 sudo apt-get install ansible Reading package lists... Done Building dependency tree Reading state information... Done The following additional packages will be installed: ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml Suggested packages: cowsay sshpass python-crypto-dbg python-crypto-doc python-cryptography-doc python-cryptography-vectors python-enum34-doc python-jinja2-doc ipython python-netaddr-docs python-gssapi doc-base python-setuptools-doc Recommended packages: python-winrm The following NEW packages will be installed: ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml 0 upgraded, 22 newly installed, 0 to remove and 6 not upgraded.</description>
     </item>

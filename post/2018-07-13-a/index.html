@@ -349,11 +349,7 @@ cd  ~/kube-deployments/tiller
 </code></pre>
 
 <p>Create the kubectl file for tiller service account</p>
-
-<pre><code class="language-sh">cat tiller-serviceaccount.yaml
-</code></pre>
-
-<pre><code class="language-yaml">---
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat tiller-serviceaccount.yaml</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -373,9 +369,7 @@ subjects:
   - kind: ServiceAccount
     name: tiller
     namespace: kube-system
-...
-</code></pre>
-
+...</code></pre></div>
 <p>Create the tiller service account</p>
 
 <pre><code>kubectl create -f tiller-serviceaccount.yaml
@@ -390,22 +384,21 @@ clusterrolebinding.rbac.authorization.k8s.io/tiller created
 </code></pre>
 
 <p>Edit the image and replace <code>gcr.io/kubernetes-helm/tiller:2.9</code> by <code>jbrette/tiller-arm32v7:2.9</code></p>
-
-<pre><code class="language-yaml">apiVersion: extensions/v1beta1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  creationTimestamp: null
+  creationTimestamp: <span style="color:#66d9ef">null</span>
   labels:
     app: helm
     name: tiller
   name: tiller-deploy
   namespace: kube-system
 spec:
-  replicas: 1
+  replicas: <span style="color:#ae81ff">1</span>
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
+      creationTimestamp: <span style="color:#66d9ef">null</span>
       labels:
         app: helm
         name: tiller
@@ -415,32 +408,30 @@ spec:
         - name: TILLER_NAMESPACE
           value: kube-system
         - name: TILLER_HISTORY_MAX
-          value: &quot;0&quot;
-        image: gcr.io/kubernetes-helm/tiller:2.9
+          value: <span style="color:#e6db74">&#34;0&#34;</span>
+        image: gcr.io/kubernetes-helm/tiller:<span style="color:#ae81ff">2.9</span>
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /liveness
-            port: 44135
-          initialDelaySeconds: 1
-          timeoutSeconds: 1
+            port: <span style="color:#ae81ff">44135</span>
+          initialDelaySeconds: <span style="color:#ae81ff">1</span>
+          timeoutSeconds: <span style="color:#ae81ff">1</span>
         name: tiller
         ports:
-        - containerPort: 44134
+        - containerPort: <span style="color:#ae81ff">44134</span>
           name: tiller
-        - containerPort: 44135
+        - containerPort: <span style="color:#ae81ff">44135</span>
           name: http
         readinessProbe:
           httpGet:
             path: /readiness
-            port: 44135
-          initialDelaySeconds: 1
-          timeoutSeconds: 1
+            port: <span style="color:#ae81ff">44135</span>
+          initialDelaySeconds: <span style="color:#ae81ff">1</span>
+          timeoutSeconds: <span style="color:#ae81ff">1</span>
         resources: {}
       serviceAccountName: tiller
-status: {}
-</code></pre>
-
+status: {}</code></pre></div>
 <p>Deploy tiller in the kubernetes cluster</p>
 
 <pre><code>kubectl create -f tiller.yaml

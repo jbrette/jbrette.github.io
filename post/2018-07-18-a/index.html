@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.46" />
 	<meta property="og:title" content="WIP: Compile and Test Portieris" />
-<meta property="og:description" content="Goal  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary  Run notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine  $ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine NAME DIGEST SIZE (BYTES) ROLE ---- ------ ------------ ---- 2.6 9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b 528 targets 2.7 9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a 1374 targets 3.1 2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79 433 targets 3.2 4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6 433 targets 3.3 37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a 433 targets 3." />
+<meta property="og:description" content="Goal  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary Run notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine$ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine NAME DIGEST SIZE (BYTES) ROLE ---- ------ ------------ ---- 2.6 9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b 528 targets 2.7 9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a 1374 targets 3.1 2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79 433 targets 3.2 4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6 433 targets 3.3 37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a 433 targets 3.4 c1aa0f93d13258dc8b4e87391f02432dc214736c3f176e2e433629c2afe96aa0 433 targets 3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/2018-07-18-a/" />
 
@@ -120,92 +120,71 @@ if (!doNotTrack) {
 <h2 id="build-notary">Build Notary</h2>
 
 <h3 id="clone">Clone</h3>
-
-<pre><code class="language-bash">go get github.com/theupdateframework/notary
-go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go get github.com/theupdateframework/notary
+go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary</code></pre></div>
 <h3 id="run">Run</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine
 
-<pre><code class="language-bash">notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine
-</code></pre>
-
-<pre><code class="language-bash">$ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine
-
-NAME               DIGEST                                                              SIZE (BYTES)    ROLE
+NAME               DIGEST                                                              SIZE <span style="color:#f92672">(</span>BYTES<span style="color:#f92672">)</span>    ROLE
 ----               ------                                                              ------------    ----
-2.6                9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b    528             targets
-2.7                9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a    1374            targets
-3.1                2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79    433             targets
-3.2                4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6    433             targets
-3.3                37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a    433             targets
-3.4                c1aa0f93d13258dc8b4e87391f02432dc214736c3f176e2e433629c2afe96aa0    433             targets
-3.5                4d3ec631cdde98a03b91477b411a1fb42a9cadd8139c2e78029e44e199e58433    433             targets
-3.6                de5701d6a3a36dc6a5db260d21be0422fd30dd2d158c1e048b34263e73205cb6    2029            targets
-3.7                56e2f91ef15847a2b02a5a03cbfa483949d67a242c37e33ea178e3e7e01e0dfd    2029            targets
-3.8                7043076348bf5040220df6ad703798fd8593a0918d06d3ce30c6c93be117e430    2029            targets
-edge               8d9872bf7dc946db1b3cd2bf70752f59085ec3c5035ca1d820d30f1d1267d65d    2029            targets
-integ-test-base    3952dc48dcc4136ccdde37fbef7e250346538a55a0366e3fccc683336377e372    528             targets
-latest             7043076348bf5040220df6ad703798fd8593a0918d06d3ce30c6c93be117e430    2029            targets
-</code></pre>
+<span style="color:#ae81ff">2</span>.6                9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b    <span style="color:#ae81ff">528</span>             targets
+<span style="color:#ae81ff">2</span>.7                9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a    <span style="color:#ae81ff">1374</span>            targets
+<span style="color:#ae81ff">3</span>.1                2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79    <span style="color:#ae81ff">433</span>             targets
+<span style="color:#ae81ff">3</span>.2                4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6    <span style="color:#ae81ff">433</span>             targets
+<span style="color:#ae81ff">3</span>.3                37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a    <span style="color:#ae81ff">433</span>             targets
+<span style="color:#ae81ff">3</span>.4                c1aa0f93d13258dc8b4e87391f02432dc214736c3f176e2e433629c2afe96aa0    <span style="color:#ae81ff">433</span>             targets
+<span style="color:#ae81ff">3</span>.5                4d3ec631cdde98a03b91477b411a1fb42a9cadd8139c2e78029e44e199e58433    <span style="color:#ae81ff">433</span>             targets
+<span style="color:#ae81ff">3</span>.6                de5701d6a3a36dc6a5db260d21be0422fd30dd2d158c1e048b34263e73205cb6    <span style="color:#ae81ff">2029</span>            targets
+<span style="color:#ae81ff">3</span>.7                56e2f91ef15847a2b02a5a03cbfa483949d67a242c37e33ea178e3e7e01e0dfd    <span style="color:#ae81ff">2029</span>            targets
+<span style="color:#ae81ff">3</span>.8                7043076348bf5040220df6ad703798fd8593a0918d06d3ce30c6c93be117e430    <span style="color:#ae81ff">2029</span>            targets
+edge               8d9872bf7dc946db1b3cd2bf70752f59085ec3c5035ca1d820d30f1d1267d65d    <span style="color:#ae81ff">2029</span>            targets
+integ-test-base    3952dc48dcc4136ccdde37fbef7e250346538a55a0366e3fccc683336377e372    <span style="color:#ae81ff">528</span>             targets
+latest             7043076348bf5040220df6ad703798fd8593a0918d06d3ce30c6c93be117e430    <span style="color:#ae81ff">2029</span>            targets</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/nginx
 
-<pre><code class="language-bash">$ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/nginx
-
-NAME                    DIGEST                                                              SIZE (BYTES)    ROLE
+NAME                    DIGEST                                                              SIZE <span style="color:#f92672">(</span>BYTES<span style="color:#f92672">)</span>    ROLE
 ----                    ------                                                              ------------    ----
-1                       4a5573037f358b6cdfa2f3e8a9c33a5cf11bcd1675ca72ca76fbe5bd77d0d682    2029            targets
-1-alpine                56a9367b64eaef37894842a6f7a19a0ef8e7bd5de964aa844a70b3e2d758033c    2035            targets
-1-alpine-perl           26f3b1633ad04d85b76c867d0c46b309b41c5a8d42d5c5b9652769ba9e2c578e    2035            targets
-1-perl                  a070af1e88c071310080cbe4d7b03e06d7fd2b9d982f520edccc8f93af5c641c    2029            targets
-1.10                    6202beb06ea61f44179e02ca965e8e13b961d12640101fca213efbfd145d7575    948             targets
-1.10-alpine             4aacdcf186934dcb02f642579314075910f1855590fd3039d8fa4c9f96e48315    1154            targets
-1.10.0-alpine           5b99c2a3ec2b3273a7f77b661941a94e6fa2aa38e5a94c1d90e0924eceefb1e6    13412           targets
-1.10.1                  35779791c05d119df4fe476db8f47c0bee5943c83eba5656a15fc046db48178b    948             targets
-1.10.1-alpine           dabd1d182f12e2a7d372338dfd0cde303ef042a6ba01cc829ef464982f9c9e2c    1154            targets
-1.10.2                  06f933c3fceac34b87bba85074fe7b24fe18ae5e4439d8f9dd038371f02947c3    948             targets
-1.10.2-alpine           ce50816e7216a66ff1e0d99e7d74891c4019952c9e38c690b3c5407f7af57555    1154            targets
-1.10.3                  6202beb06ea61f44179e02ca965e8e13b961d12640101fca213efbfd145d7575    948             targets
-1.10.3-alpine           4aacdcf186934dcb02f642579314075910f1855590fd3039d8fa4c9f96e48315    1154            targets
-1.11                    e6693c20186f837fc393390135d8a598a96a833917917789d63766cab6c59582    1156            targets
-1.11-alpine             5aadb68304a38a8e2719605e4e180413f390cd6647602bee9bdedd59753c3590    1154            targets
-1.11.0                  b2e588a4486786239561d73a14ec546cf5ac508bc1890b097dcc60fede1825b8    1956            targets
-1.11.0-alpine           ddafab6770f3f604672143757000fa1614dcf6afb1d5308dcc47153252fd0817    2369            targets
-1.11.1                  0fe6413f3e30fcc5920bc8fa769280975b10b1c26721de956e1428b9e2f29d04    1956            targets
-1.11.1-alpine           23f809e7fd5952e7d5be065b4d3643fbbceccd349d537b62a123ef2201bc886f    1133            targets
-</code></pre>
-
+<span style="color:#ae81ff">1</span>                       4a5573037f358b6cdfa2f3e8a9c33a5cf11bcd1675ca72ca76fbe5bd77d0d682    <span style="color:#ae81ff">2029</span>            targets
+<span style="color:#ae81ff">1</span>-alpine                56a9367b64eaef37894842a6f7a19a0ef8e7bd5de964aa844a70b3e2d758033c    <span style="color:#ae81ff">2035</span>            targets
+<span style="color:#ae81ff">1</span>-alpine-perl           26f3b1633ad04d85b76c867d0c46b309b41c5a8d42d5c5b9652769ba9e2c578e    <span style="color:#ae81ff">2035</span>            targets
+<span style="color:#ae81ff">1</span>-perl                  a070af1e88c071310080cbe4d7b03e06d7fd2b9d982f520edccc8f93af5c641c    <span style="color:#ae81ff">2029</span>            targets
+<span style="color:#ae81ff">1</span>.10                    6202beb06ea61f44179e02ca965e8e13b961d12640101fca213efbfd145d7575    <span style="color:#ae81ff">948</span>             targets
+<span style="color:#ae81ff">1</span>.10-alpine             4aacdcf186934dcb02f642579314075910f1855590fd3039d8fa4c9f96e48315    <span style="color:#ae81ff">1154</span>            targets
+<span style="color:#ae81ff">1</span>.10.0-alpine           5b99c2a3ec2b3273a7f77b661941a94e6fa2aa38e5a94c1d90e0924eceefb1e6    <span style="color:#ae81ff">13412</span>           targets
+<span style="color:#ae81ff">1</span>.10.1                  35779791c05d119df4fe476db8f47c0bee5943c83eba5656a15fc046db48178b    <span style="color:#ae81ff">948</span>             targets
+<span style="color:#ae81ff">1</span>.10.1-alpine           dabd1d182f12e2a7d372338dfd0cde303ef042a6ba01cc829ef464982f9c9e2c    <span style="color:#ae81ff">1154</span>            targets
+<span style="color:#ae81ff">1</span>.10.2                  06f933c3fceac34b87bba85074fe7b24fe18ae5e4439d8f9dd038371f02947c3    <span style="color:#ae81ff">948</span>             targets
+<span style="color:#ae81ff">1</span>.10.2-alpine           ce50816e7216a66ff1e0d99e7d74891c4019952c9e38c690b3c5407f7af57555    <span style="color:#ae81ff">1154</span>            targets
+<span style="color:#ae81ff">1</span>.10.3                  6202beb06ea61f44179e02ca965e8e13b961d12640101fca213efbfd145d7575    <span style="color:#ae81ff">948</span>             targets
+<span style="color:#ae81ff">1</span>.10.3-alpine           4aacdcf186934dcb02f642579314075910f1855590fd3039d8fa4c9f96e48315    <span style="color:#ae81ff">1154</span>            targets
+<span style="color:#ae81ff">1</span>.11                    e6693c20186f837fc393390135d8a598a96a833917917789d63766cab6c59582    <span style="color:#ae81ff">1156</span>            targets
+<span style="color:#ae81ff">1</span>.11-alpine             5aadb68304a38a8e2719605e4e180413f390cd6647602bee9bdedd59753c3590    <span style="color:#ae81ff">1154</span>            targets
+<span style="color:#ae81ff">1</span>.11.0                  b2e588a4486786239561d73a14ec546cf5ac508bc1890b097dcc60fede1825b8    <span style="color:#ae81ff">1956</span>            targets
+<span style="color:#ae81ff">1</span>.11.0-alpine           ddafab6770f3f604672143757000fa1614dcf6afb1d5308dcc47153252fd0817    <span style="color:#ae81ff">2369</span>            targets
+<span style="color:#ae81ff">1</span>.11.1                  0fe6413f3e30fcc5920bc8fa769280975b10b1c26721de956e1428b9e2f29d04    <span style="color:#ae81ff">1956</span>            targets
+<span style="color:#ae81ff">1</span>.11.1-alpine           23f809e7fd5952e7d5be065b4d3643fbbceccd349d537b62a123ef2201bc886f    <span style="color:#ae81ff">1133</span>            targets</code></pre></div>
 <h2 id="build-and-deploy-portieris">Build and Deploy Portieris</h2>
 
 <h3 id="clone-1">Clone</h3>
-
-<pre><code class="language-bash">$ mkdir -p ~/src/github.com/IBM
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p ~/src/github.com/IBM
 $ cd ~/src/github.com/IBM
-$ git clone https://github.com/jbrette/portieris.git
-</code></pre>
-
+$ git clone https://github.com/jbrette/portieris.git</code></pre></div>
 <h3 id="install-helm-package">Install helm package</h3>
-
-<pre><code class="language-bash">$ cd portieris/helm/portieris
-$ helm install -n portieris . --set IBMContainerService=false --debug
-</code></pre>
-
-<pre><code class="language-bash">$ kubectl get all -n ibm-system
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd portieris/helm/portieris
+$ helm install -n portieris . --set IBMContainerService<span style="color:#f92672">=</span>false --debug</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get all -n ibm-system
 
 NAME                             READY     STATUS    RESTARTS   AGE
-pod/portieris-7b7cbf58c5-gmpwm   1/1       Running   0          1h
-pod/portieris-7b7cbf58c5-r5vvv   1/1       Running   0          1h
-pod/portieris-7b7cbf58c5-vkhkh   1/1       Running   0          1h
+pod/portieris-7b7cbf58c5-gmpwm   <span style="color:#ae81ff">1</span>/1       Running   <span style="color:#ae81ff">0</span>          1h
+pod/portieris-7b7cbf58c5-r5vvv   <span style="color:#ae81ff">1</span>/1       Running   <span style="color:#ae81ff">0</span>          1h
+pod/portieris-7b7cbf58c5-vkhkh   <span style="color:#ae81ff">1</span>/1       Running   <span style="color:#ae81ff">0</span>          1h
 
-NAME                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
-service/portieris   ClusterIP   10.101.194.144   &lt;none&gt;        443/TCP   1h
+NAME                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>   AGE
+service/portieris   ClusterIP   <span style="color:#ae81ff">10</span>.101.194.144   &lt;none&gt;        <span style="color:#ae81ff">443</span>/TCP   1h
 
 NAME                        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/portieris   3         3         3            3           1h
+deployment.apps/portieris   <span style="color:#ae81ff">3</span>         <span style="color:#ae81ff">3</span>         <span style="color:#ae81ff">3</span>            <span style="color:#ae81ff">3</span>           1h
 
 NAME                                   DESIRED   CURRENT   READY     AGE
-replicaset.apps/portieris-7b7cbf58c5   3         3         3         1h
-</code></pre>
-
+replicaset.apps/portieris-7b7cbf58c5   <span style="color:#ae81ff">3</span>         <span style="color:#ae81ff">3</span>         <span style="color:#ae81ff">3</span>         1h</code></pre></div>
 <h2 id="reference-links">Reference Links</h2>
 
 <ul>

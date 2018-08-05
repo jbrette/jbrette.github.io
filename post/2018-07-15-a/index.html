@@ -137,160 +137,120 @@ go version go1.10.1 linux/amd64
 </code></pre>
 
 <p>Clone the code</p>
-
-<pre><code class="language-bash">$ export GOPATH=$HOME/src
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export GOPATH<span style="color:#f92672">=</span>$HOME/src
 $ mkdir -p src/k8s.io
 $ cd src/k8s.io
 $ git clone -b release-1.11 git@github.com:kubernetes/kubernetes.git
-$ cd kubernertes
-</code></pre>
-
+$ cd kubernertes</code></pre></div>
 <p>To save time, I removed platforms I had not use of and only kept amd64 and arm on linux</p>
-
-<pre><code class="language-bash">$ cat hack/lib/golang.sh
-</code></pre>
-
-<pre><code class="language-bash">  # The server platform we are building on.
-  readonly KUBE_SERVER_PLATFORMS=(
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat hack/lib/golang.sh</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#75715e"># The server platform we are building on.
+</span><span style="color:#75715e"></span>  readonly KUBE_SERVER_PLATFORMS<span style="color:#f92672">=(</span>
     linux/amd64
     linux/arm
-  )
+  <span style="color:#f92672">)</span>
 
-  # The node platforms we build for
-  readonly KUBE_NODE_PLATFORMS=(
+  <span style="color:#75715e"># The node platforms we build for
+</span><span style="color:#75715e"></span>  readonly KUBE_NODE_PLATFORMS<span style="color:#f92672">=(</span>
     linux/amd64
     linux/arm
-  )
+  <span style="color:#f92672">)</span>
 
-  # If we update this we should also update the set of platforms whose standard library is precompiled for in build/build-image/cross/Dockerfile
-  readonly KUBE_CLIENT_PLATFORMS=(
+  <span style="color:#75715e"># If we update this we should also update the set of platforms whose standard library is precompiled for in build/build-image/cross/Dockerfile
+</span><span style="color:#75715e"></span>  readonly KUBE_CLIENT_PLATFORMS<span style="color:#f92672">=(</span>
     linux/amd64
     linux/arm
-  )
+  <span style="color:#f92672">)</span>
 
-  # Which platforms we should compile test targets for. Not all client platforms need these tests
-  readonly KUBE_TEST_PLATFORMS=(
+  <span style="color:#75715e"># Which platforms we should compile test targets for. Not all client platforms need these tests
+</span><span style="color:#75715e"></span>  readonly KUBE_TEST_PLATFORMS<span style="color:#f92672">=(</span>
     linux/amd64
     linux/arm
-  )
-
-</code></pre>
-
+  <span style="color:#f92672">)</span></code></pre></div>
 <p>Double check your Docker setup is correct</p>
-
-<pre><code class="language-bash">$ docker run hello-world
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker run hello-world</code></pre></div>
 <p>Clean the directory</p>
-
-<pre><code class="language-bash">$ ./build/make-clean.sh
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./build/make-clean.sh</code></pre></div>
 <p>Rebuild the amd64 and arm executable</p>
-
-<pre><code class="language-bash">$ ./build/run.sh make cross
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./build/run.sh make cross</code></pre></div>
 <p>Check the executables transfered from the docker build container to your vm by rsync</p>
-
-<pre><code class="language-bash">$ cd _output/dockerized/bin/linux
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd _output/dockerized/bin/linux</code></pre></div>
 <p>Check the amd64 executables</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ls -lt amd64
 
-<pre><code class="language-bash">ls -lt amd64
-
-total 2322696
--rwxr-xr-x 1 xxxxxx yyyyyy 209961168 Jul 16 01:57 e2e_node.test
--rwxr-xr-x 1 xxxxxx yyyyyy  10645252 Jul 16 01:57 ginkgo
--rwxr-xr-x 1 xxxxxx yyyyyy 160051600 Jul 16 01:57 kubemark
--rwxr-xr-x 1 xxxxxx yyyyyy 231997872 Jul 16 01:55 genman
--rwxr-xr-x 1 xxxxxx yyyyyy  54099081 Jul 16 01:55 gendocs
--rwxr-xr-x 1 xxxxxx yyyyyy  54039865 Jul 16 01:55 genyaml
--rwxr-xr-x 1 xxxxxx yyyyyy   6694536 Jul 16 01:55 linkcheck
--rwxr-xr-x 1 xxxxxx yyyyyy   5481582 Jul 16 01:55 genswaggertypedocs
--rwxr-xr-x 1 xxxxxx yyyyyy 226061456 Jul 16 01:55 genkubedocs
--rwxr-xr-x 1 xxxxxx yyyyyy 173411368 Jul 16 01:55 e2e.test
--rwxr-xr-x 1 xxxxxx yyyyyy  55241186 Jul 16 01:52 kubectl
--rwxr-xr-x 1 xxxxxx yyyyyy  51912114 Jul 16 01:52 kube-proxy
--rwxr-xr-x 1 xxxxxx yyyyyy  57246829 Jul 16 01:51 kubeadm
--rwxr-xr-x 1 xxxxxx yyyyyy 162716256 Jul 16 01:51 kubelet
--rwxr-xr-x 1 xxxxxx yyyyyy  57908740 Jul 16 01:50 kube-aggregator
--rwxr-xr-x 1 xxxxxx yyyyyy 185152632 Jul 16 01:50 kube-apiserver
--rwxr-xr-x 1 xxxxxx yyyyyy   2330265 Jul 16 01:50 mounter
--rwxr-xr-x 1 xxxxxx yyyyyy 138048783 Jul 16 01:50 cloud-controller-manager
--rwxr-xr-x 1 xxxxxx yyyyyy 153798994 Jul 16 01:50 kube-controller-manager
--rwxr-xr-x 1 xxxxxx yyyyyy 227283184 Jul 16 01:50 hyperkube
--rwxr-xr-x 1 xxxxxx yyyyyy  59296776 Jul 16 01:50 apiextensions-apiserver
--rwxr-xr-x 1 xxxxxx yyyyyy  55471235 Jul 16 01:50 kube-scheduler
--rwxr-xr-x 1 xxxxxx yyyyyy   2835466 Jul 16 01:40 go-bindata
--rwxr-xr-x 1 xxxxxx yyyyyy  13630237 Jul 16 01:40 openapi-gen
--rwxr-xr-x 1 xxxxxx yyyyyy   7699847 Jul 16 01:40 conversion-gen
--rwxr-xr-x 1 xxxxxx yyyyyy   7669238 Jul 16 01:39 defaulter-gen
--rwxr-xr-x 1 xxxxxx yyyyyy   7695690 Jul 16 01:39 deepcopy-gen
-</code></pre>
-
+total <span style="color:#ae81ff">2322696</span>
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">209961168</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:57 e2e_node.test
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">10645252</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:57 ginkgo
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">160051600</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:57 kubemark
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">231997872</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genman
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">54099081</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 gendocs
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">54039865</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genyaml
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6694536</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 linkcheck
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">5481582</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genswaggertypedocs
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">226061456</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genkubedocs
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">173411368</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 e2e.test
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">55241186</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:52 kubectl
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">51912114</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:52 kube-proxy
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">57246829</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:51 kubeadm
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">162716256</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:51 kubelet
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">57908740</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-aggregator
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">185152632</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-apiserver
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2330265</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 mounter
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">138048783</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 cloud-controller-manager
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">153798994</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-controller-manager
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">227283184</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 hyperkube
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">59296776</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 apiextensions-apiserver
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">55471235</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-scheduler
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2835466</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:40 go-bindata
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">13630237</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:40 openapi-gen
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7699847</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:40 conversion-gen
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7669238</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:39 defaulter-gen
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7695690</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:39 deepcopy-gen</code></pre></div>
 <p>Check the RPI executables</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -lt arm
 
-<pre><code class="language-bash">$ ls -lt arm
-
-total 2089216
--rwxr-xr-x 1 xxxxxx yyyyyy 191189688 Jul 16 01:58 e2e_node.test
--rwxr-xr-x 1 xxxxxx yyyyyy   9286102 Jul 16 01:58 ginkgo
--rwxr-xr-x 1 xxxxxx yyyyyy 142111524 Jul 16 01:58 kubemark
--rwxr-xr-x 1 xxxxxx yyyyyy 210989712 Jul 16 01:55 genman
--rwxr-xr-x 1 xxxxxx yyyyyy  48169969 Jul 16 01:55 gendocs
--rwxr-xr-x 1 xxxxxx yyyyyy  48102745 Jul 16 01:55 genyaml
--rwxr-xr-x 1 xxxxxx yyyyyy   5847821 Jul 16 01:55 linkcheck
--rwxr-xr-x 1 xxxxxx yyyyyy   4927730 Jul 16 01:55 genswaggertypedocs
--rwxr-xr-x 1 xxxxxx yyyyyy 205458748 Jul 16 01:55 genkubedocs
--rwxr-xr-x 1 xxxxxx yyyyyy 155653412 Jul 16 01:55 e2e.test
--rwxr-xr-x 1 xxxxxx yyyyyy  49252169 Jul 16 01:52 kubectl
--rwxr-xr-x 1 xxxxxx yyyyyy  46156229 Jul 16 01:52 kube-proxy
--rwxr-xr-x 1 xxxxxx yyyyyy  50989514 Jul 16 01:52 kubeadm
--rwxr-xr-x 1 xxxxxx yyyyyy 144291264 Jul 16 01:52 kubelet
--rwxr-xr-x 1 xxxxxx yyyyyy  52024300 Jul 16 01:50 kube-aggregator
--rwxr-xr-x 1 xxxxxx yyyyyy 168751462 Jul 16 01:50 kube-apiserver
--rwxr-xr-x 1 xxxxxx yyyyyy   2231154 Jul 16 01:50 mounter
--rwxr-xr-x 1 xxxxxx yyyyyy 122701327 Jul 16 01:50 cloud-controller-manager
--rwxr-xr-x 1 xxxxxx yyyyyy 136828051 Jul 16 01:50 kube-controller-manager
--rwxr-xr-x 1 xxxxxx yyyyyy 206769888 Jul 16 01:50 hyperkube
--rwxr-xr-x 1 xxxxxx yyyyyy  53220784 Jul 16 01:50 apiextensions-apiserver
--rwxr-xr-x 1 xxxxxx yyyyyy  49501810 Jul 16 01:50 kube-scheduler
--rwxr-xr-x 1 xxxxxx yyyyyy   2649635 Jul 16 01:40 go-bindata
--rwxr-xr-x 1 xxxxxx yyyyyy  11885551 Jul 16 01:40 openapi-gen
--rwxr-xr-x 1 xxxxxx yyyyyy   6770458 Jul 16 01:40 conversion-gen
--rwxr-xr-x 1 xxxxxx yyyyyy   6764729 Jul 16 01:39 defaulter-gen
--rwxr-xr-x 1 xxxxxx yyyyyy   6770309 Jul 16 01:39 deepcopy-gen
-</code></pre>
-
+total <span style="color:#ae81ff">2089216</span>
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">191189688</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:58 e2e_node.test
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">9286102</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:58 ginkgo
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">142111524</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:58 kubemark
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">210989712</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genman
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">48169969</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 gendocs
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">48102745</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genyaml
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">5847821</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 linkcheck
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">4927730</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genswaggertypedocs
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">205458748</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 genkubedocs
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">155653412</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:55 e2e.test
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">49252169</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:52 kubectl
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">46156229</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:52 kube-proxy
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">50989514</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:52 kubeadm
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">144291264</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:52 kubelet
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">52024300</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-aggregator
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">168751462</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-apiserver
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2231154</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 mounter
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">122701327</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 cloud-controller-manager
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">136828051</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-controller-manager
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">206769888</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 hyperkube
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">53220784</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 apiextensions-apiserver
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">49501810</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:50 kube-scheduler
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2649635</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:40 go-bindata
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">11885551</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:40 openapi-gen
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6770458</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:40 conversion-gen
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6764729</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:39 defaulter-gen
+-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6770309</span> Jul <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">01</span>:39 deepcopy-gen</code></pre></div>
 <p>Transfer the binaries to RPI machine</p>
-
-<pre><code class="language-bash">scp -r arm  rpiuser@192.168.1.94:/home/rpiuser/kubernetes_binaries
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">scp -r arm  rpiuser@192.168.1.94:/home/rpiuser/kubernetes_binaries</code></pre></div>
 <h2 id="build-the-docker-image">Build the docker image</h2>
-
-<pre><code class="language-bash">$ mkdir -p images/kube-controller-manager
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p images/kube-controller-manager
 $ cd images/kube-controller-manager
-$ cp $HOME/kubernetes_binaries/kube-controller-manager
-</code></pre>
-
+$ cp $HOME/kubernetes_binaries/kube-controller-manager</code></pre></div>
 <p>Create a simple Dockerfile to update the executable</p>
-
-<pre><code class="language-bash">$ cat Dockerfile
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat Dockerfile</code></pre></div>
 <pre><code>FROM k8s.gcr.io/kube-controller-manager-arm:v1.11.0
 
 COPY kube-controller-manager /usr/local/bin/kube-controller-manager
 </code></pre>
 
 <p>Build the image</p>
-
-<pre><code class="language-bash">$ docker build -t jbrette/kube-controller-manager-arm:v1.11.1
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker build -t jbrette/kube-controller-manager-arm:v1.11.1</code></pre></div>
 <p>Because of the brute force approach the image is twice as big since the executable (130MB) is
 contained in two layers of the container image</p>
 
@@ -310,26 +270,19 @@ k8s.gcr.io/pause                         3.1                 e11a8cbeda86       
 </code></pre>
 
 <p>First push the controller-manager docker image to the repo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker login
 
-<pre><code class="language-bash">$ docker login
-
-$ docker push jbrette/kube-controller-manager-arm:v1.11.1
-</code></pre>
-
+$ docker push jbrette/kube-controller-manager-arm:v1.11.1</code></pre></div>
 <h2 id="updating-kubeadm-and-kubernetes-configuration-to-use-the-patched-images">Updating Kubeadm and Kubernetes configuration to use the patched images</h2>
 
 <p>Because I only rebuild one image, I can not use the kubeadm feature which
 allows to point to a different repo. Have to edit manually the configuration.</p>
-
-<pre><code class="language-bash">$ more kube-controller-manager.yaml
-</code></pre>
-
-<pre><code class="language-yaml">apiVersion: v1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ more kube-controller-manager.yaml</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion: v1
 kind: Pod
 metadata:
   annotations:
-    scheduler.alpha.kubernetes.io/critical-pod: &quot;&quot;
-  creationTimestamp: null
+    scheduler.alpha.kubernetes.io/critical-pod: <span style="color:#e6db74">&#34;&#34;</span>
+  creationTimestamp: <span style="color:#66d9ef">null</span>
   labels:
     component: kube-controller-manager
     tier: control-plane
@@ -339,29 +292,29 @@ spec:
   containers:
   - command:
     - kube-controller-manager
-    - --address=127.0.0.1
-    - --allocate-node-cidrs=true
-    - --cluster-cidr=10.244.0.0/16
+    - --address=<span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
+    - --allocate-node-cidrs=<span style="color:#66d9ef">true</span>
+    - --cluster-cidr=<span style="color:#ae81ff">10.244</span>.<span style="color:#ae81ff">0.0</span>/<span style="color:#ae81ff">16</span>
     - --cluster-signing-cert-file=/etc/kubernetes/pki/ca.crt
     - --cluster-signing-key-file=/etc/kubernetes/pki/ca.key
-    - --controllers=*,bootstrapsigner,tokencleaner
+    - --controllers=<span style="color:#75715e">*,bootstrapsigner,tokencleaner</span>
     - --kubeconfig=/etc/kubernetes/controller-manager.conf
-    - --leader-elect=true
-    - --node-cidr-mask-size=24
+    - --leader-elect=<span style="color:#66d9ef">true</span>
+    - --node-cidr-mask-size=<span style="color:#ae81ff">24</span>
     - --root-ca-file=/etc/kubernetes/pki/ca.crt
     - --service-account-private-key-file=/etc/kubernetes/pki/sa.key
-    - --use-service-account-credentials=true
-    image: jbrette/kube-controller-manager-arm:v1.11.1
+    - --use-service-account-credentials=<span style="color:#66d9ef">true</span>
+    image: jbrette/kube-controller-manager-arm:v1.<span style="color:#ae81ff">11.1</span>
     imagePullPolicy: IfNotPresent
     livenessProbe:
-      failureThreshold: 8
+      failureThreshold: <span style="color:#ae81ff">8</span>
       httpGet:
-        host: 127.0.0.1
+        host: <span style="color:#ae81ff">127.0</span>.<span style="color:#ae81ff">0.1</span>
         path: /healthz
-        port: 10252
+        port: <span style="color:#ae81ff">10252</span>
         scheme: HTTP
-      initialDelaySeconds: 15
-      timeoutSeconds: 15
+      initialDelaySeconds: <span style="color:#ae81ff">15</span>
+      timeoutSeconds: <span style="color:#ae81ff">15</span>
     name: kube-controller-manager
     resources:
       requests:
@@ -369,25 +322,25 @@ spec:
     volumeMounts:
     - mountPath: /etc/ssl/certs
       name: ca-certs
-      readOnly: true
+      readOnly: <span style="color:#66d9ef">true</span>
     - mountPath: /etc/kubernetes/controller-manager.conf
       name: kubeconfig
-      readOnly: true
+      readOnly: <span style="color:#66d9ef">true</span>
     - mountPath: /usr/libexec/kubernetes/kubelet-plugins/volume/exec
       name: flexvolume-dir
     - mountPath: /usr/share/ca-certificates
       name: usr-share-ca-certificates
-      readOnly: true
+      readOnly: <span style="color:#66d9ef">true</span>
     - mountPath: /usr/local/share/ca-certificates
       name: usr-local-share-ca-certificates
-      readOnly: true
+      readOnly: <span style="color:#66d9ef">true</span>
     - mountPath: /etc/ca-certificates
       name: etc-ca-certificates
-      readOnly: true
+      readOnly: <span style="color:#66d9ef">true</span>
     - mountPath: /etc/kubernetes/pki
       name: k8s-certs
-      readOnly: true
-  hostNetwork: true
+      readOnly: <span style="color:#66d9ef">true</span>
+  hostNetwork: <span style="color:#66d9ef">true</span>
   priorityClassName: system-cluster-critical
   volumes:
   - hostPath:
@@ -418,9 +371,7 @@ spec:
       path: /etc/ca-certificates
       type: DirectoryOrCreate
     name: etc-ca-certificates
-status: {}
-</code></pre>
-
+status: {}</code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 
 <ul>

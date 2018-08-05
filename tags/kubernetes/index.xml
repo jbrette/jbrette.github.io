@@ -35,7 +35,7 @@
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-07-18-a/</guid>
-      <description>Goal  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary  Run notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine  $ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine NAME DIGEST SIZE (BYTES) ROLE ---- ------ ------------ ---- 2.6 9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b 528 targets 2.7 9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a 1374 targets 3.1 2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79 433 targets 3.2 4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6 433 targets 3.3 37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a 433 targets 3.</description>
+      <description>Goal  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary Run notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine$ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine NAME DIGEST SIZE (BYTES) ROLE ---- ------ ------------ ---- 2.6 9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b 528 targets 2.7 9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a 1374 targets 3.1 2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79 433 targets 3.2 4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6 433 targets 3.3 37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a 433 targets 3.4 c1aa0f93d13258dc8b4e87391f02432dc214736c3f176e2e433629c2afe96aa0 433 targets 3.</description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-07-14-a/</guid>
-      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;quot;s/amd64/arm/g&amp;quot; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
+      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;#34;s/amd64/arm/g&amp;#34; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
 Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the WLAN and LAN interfaces were activated.</description>
     </item>
     

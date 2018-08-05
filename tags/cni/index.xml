@@ -26,7 +26,7 @@
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-07-14-a/</guid>
-      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;quot;s/amd64/arm/g&amp;quot; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
+      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;#34;s/amd64/arm/g&amp;#34; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
 Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the WLAN and LAN interfaces were activated.</description>
     </item>
     

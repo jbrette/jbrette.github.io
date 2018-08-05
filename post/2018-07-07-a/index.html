@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="generator" content="Hugo 0.46" />
 	<meta property="og:title" content="Using Ansible to manage Raspberry PI cluster" />
-<meta property="og:description" content="Goal Even if the ultimat goal is to manage completly the cluster using Kubernetes, the ability to use Ansible during debug process is very usefull. The goal here is to setup ansible inventory, basic playbooks.
+<meta property="og:description" content="Goal Even if the ultimate goal is to manage completly the cluster using Kubernetes, the ability to use Ansible during debug process is very usefull. The goal here is to setup ansible inventory, basic playbooks.
 Ansible Installation on the master node Let&rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.
 sudo apt-get install ansible Reading package lists... Done Building dependency tree Reading state information... Done The following additional packages will be installed: ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml Suggested packages: cowsay sshpass python-crypto-dbg python-crypto-doc python-cryptography-doc python-cryptography-vectors python-enum34-doc python-jinja2-doc ipython python-netaddr-docs python-gssapi doc-base python-setuptools-doc Recommended packages: python-winrm The following NEW packages will be installed: ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml 0 upgraded, 22 newly installed, 0 to remove and 6 not upgraded." />
 <meta property="og:type" content="article" />
@@ -118,15 +118,14 @@ if (!doNotTrack) {
 
 <h2 id="goal">Goal</h2>
 
-<p>Even if the ultimat goal is to manage completly the cluster using Kubernetes,
+<p>Even if the ultimate goal is to manage completly the cluster using Kubernetes,
 the ability to use Ansible during debug process is very usefull.
 The goal here is to setup ansible inventory, basic playbooks.</p>
 
 <h2 id="ansible-installation-on-the-master-node">Ansible Installation on the master node</h2>
 
 <p>Let&rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.</p>
-
-<pre><code class="language-bash">sudo apt-get install ansible
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install ansible
 
 Reading package lists... Done
 Building dependency tree
@@ -142,12 +141,10 @@ Recommended packages:
 The following NEW packages will be installed:
   ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos
   python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml
-0 upgraded, 22 newly installed, 0 to remove and 6 not upgraded.
-Need to get 4,556 kB of archives.
-After this operation, 28.4 MB of additional disk space will be used.
-Do you want to continue? [Y/n] y
-</code></pre>
-
+<span style="color:#ae81ff">0</span> upgraded, <span style="color:#ae81ff">22</span> newly installed, <span style="color:#ae81ff">0</span> to remove and <span style="color:#ae81ff">6</span> not upgraded.
+Need to get <span style="color:#ae81ff">4</span>,556 kB of archives.
+After this operation, <span style="color:#ae81ff">28</span>.4 MB of additional disk space will be used.
+Do you want to <span style="color:#66d9ef">continue</span>? <span style="color:#f92672">[</span>Y/n<span style="color:#f92672">]</span> y</code></pre></div>
 <pre><code>$ ansible --version
 
 ansible 2.2.1.0
