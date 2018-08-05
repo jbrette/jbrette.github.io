@@ -85,6 +85,16 @@ Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the
     </item>
     
     <item>
+      <title>Use github repo as helm chart repository</title>
+      <link>/post/2018-07-11-a/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-07-11-a/</guid>
+      <description>Goal  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready
+git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm package charts/kubeplay-arm32v7/ --app-version 0.1.0 --destination ./helmrepo/ cd helmrepo/ helm repo index . git add .</description>
+    </item>
+    
+    <item>
       <title>WIP: Add Persistency Volume to PI Clusters</title>
       <link>/post/2018-07-08-a/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
