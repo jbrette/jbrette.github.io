@@ -17,7 +17,7 @@
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-28-a/</guid>
-      <description>Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld Java 10 web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Install Java 10 on dev machine sudo add-apt-repository ppa:linuxuprising/java Oracle Java 10 installer Java binaries are not hosted in this PPA due to licensing. The packages in this PPA download and install Oracle Java 10 (JDK 10), so a working Internet connection is required.</description>
+      <description>Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java.</description>
     </item>
     
   </channel>
