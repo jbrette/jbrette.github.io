@@ -1,167 +1,367 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>404 Page not found</title>
-	<meta name="description" content="">
-	<meta name="generator" content="Hugo 0.46" />
-	<meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content=" Jerome Brette&#39;s Personal blog about everything" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="" />
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 
+    <style>
+     * {
+         -moz-box-sizing:border-box;
+         -webkit-box-sizing:border-box;
+         box-sizing:border-box;
+     }
+
+     html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+     abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+     small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+     fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
+     menu, nav, section, summary, time, mark, audio, video {
+         margin:0;
+         padding:0;
+         border:0;
+         outline:0;
+         vertical-align:baseline;
+         background:transparent;
+     }
+
+     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+         display: block;
+     }
+
+     html {
+         font-size: 16px;
+         line-height: 24px;
+         width:100%;
+         height:100%;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         overflow-y:scroll;
+         overflow-x:hidden;
+     }
+
+     img {
+         vertical-align:middle;
+         max-width: 100%;
+         height: auto;
+         border: 0;
+         -ms-interpolation-mode: bicubic;
+     }
+
+     body {
+         min-height:100%;
+         -webkit-font-smoothing: subpixel-antialiased;
+     }
+
+     .clearfix {
+	       clear:both;
+	       zoom: 1;
+     }
+     .clearfix:before, .clearfix:after {
+         content: "\0020";
+         display: block;
+         height: 0;
+         visibility: hidden;
+     }
+     .clearfix:after {
+         clear: both;
+     }
+    </style>
+    <style>
+  .plain.error-page-wrapper {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color:#6355bc;
+    padding:0 5%;
+    position:relative;
+  }
+
+  .plain.error-page-wrapper .content-container {
+    -webkit-transition: left .5s ease-out, opacity .5s ease-out;
+    -moz-transition: left .5s ease-out, opacity .5s ease-out;
+    -ms-transition: left .5s ease-out, opacity .5s ease-out;
+    -o-transition: left .5s ease-out, opacity .5s ease-out;
+    transition: left .5s ease-out, opacity .5s ease-out;
+    max-width:400px;
+    position:relative;
+    left:-30px;
+    opacity:0;
+  }
+
+  .plain.error-page-wrapper .content-container.in {
+    left: 0px;
+    opacity:1;
+  }
+
+  .plain.error-page-wrapper .head-line {
+    transition: color .2s linear;
+    font-size:48px;
+    line-height:60px;
+    color:rgba(255,255,255,.2);
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+  }
+  .plain.error-page-wrapper .subheader {
+    transition: color .2s linear;
+    font-size:36px;
+    line-height:46px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper hr {
+    height:1px;
+    background-color: rgba(255,255,255,.2);
+    border:none;
+    width:250px;
+    margin:35px 0;
+  }
+  .plain.error-page-wrapper .context {
+    transition: color .2s linear;
+    font-size:18px;
+    line-height:27px;
+    color:#fff;
+  }
+  .plain.error-page-wrapper .context p {
+    margin:0;
+  }
+  .plain.error-page-wrapper .context p:nth-child(n+2) {
+    margin-top:12px;
+  }
+  .plain.error-page-wrapper .buttons-container {
+    margin-top: 45px;
+    overflow: hidden;
+  }
+  .plain.error-page-wrapper .buttons-container a {
+    transition: color .2s linear, border-color .2s linear;
+    font-size:14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:#fff;
+    border:2px solid white;
+    border-radius: 99px;
+    padding:8px 30px 9px;
+    display: inline-block;
+    float:left;
+  }
+  .plain.error-page-wrapper .buttons-container a:hover {
+    background-color:rgba(255,255,255,.05);
+  }
+  .plain.error-page-wrapper .buttons-container a:first-child {
+    margin-right:25px;
+  }
+
+  @media screen and (max-width: 485px) {
+    .plain.error-page-wrapper .header {
+      font-size:36px;
+     }
+    .plain.error-page-wrapper .subheader {
+      font-size:27px;
+      line-height:38px;
+     }
+    .plain.error-page-wrapper hr {
+      width:185px;
+      margin:25px 0;
+     }
+
+    .plain.error-page-wrapper .context {
+      font-size:16px;
+      line-height: 24px;
+     }
+    .plain.error-page-wrapper .buttons-container {
+      margin-top:35px;
+    }
+
+    .plain.error-page-wrapper .buttons-container a {
+      font-size:13px;
+      padding:8px 0 7px;
+      width:45%;
+      text-align: center;
+    }
+    .plain.error-page-wrapper .buttons-container a:first-child {
+      margin-right:10%;
+    }
+  }
+</style>
+    <style>
+
+    .background-color {
+      background-color: rgba(244, 244, 244, 1) !important;
+    }
 
 
+    .primary-text-color {
+      color: rgba(171, 171, 171, 1) !important;
+    }
 
+    .secondary-text-color {
+      color: rgba(0, 0, 0, 1) !important;
+    }
 
+    .sign-text-color {
+      color: #FFBA00 !important;
+    }
 
+    .sign-frame-color {
+      color: #343C3F;
+    }
 
+    .pane {
+      background-color: #FFFFFF !important;
+    }
 
+    .border-button {
+      color: rgba(46, 186, 174, 1) !important;
+      border-color: rgba(46, 186, 174, 1) !important;
+    }
+    .button {
+      background-color: rgba(46, 186, 174, 1) !important;
+      color: #FFFFFF !important;
+    }
 
+    .shadow {
+      box-shadow: 0 0 60px #000000;
+    }
 
-
-
-
-	
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
-	<link rel="stylesheet" href="/css/style.css">
-	<script type="text/javascript" src="/js/scripts.js"></script>
-	<link rel="shortcut icon" href="/favicon.ico">
+</style>
+  </head>
+  <body class="plain error-page-wrapper background-color background-image">
+    <div class="content-container">
+	<div class="head-line secondary-text-color">
+		404
+	</div>
+	<div class="subheader primary-text-color">
+		Oops, the page you're <br>
+		looking for does not exist.
+	</div>
+	<hr>
+	<div class="clearfix"></div>
+	<div class="context primary-text-color">
 		
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-</head>
-<body class="body body-right-sidebar">
-	<div class="container container-outer">
-		<header class="header">
-			<div class="container container-inner">
-				<div class="logo" role="banner">
-					<a class="logo__link" href="/" title="Jerome Brette&#39;s Blog" rel="home">
-						<div class="logo__title">Jerome Brette&#39;s Blog</div>
-						<div class="logo__tagline">Staying sharp by leveraging Raspberry PI as play and training grounds</div>
-					</a>
-				</div>
-			</div>
-			
-<nav class="menu">
-	<ul class="menu__list">
-		<li class="menu__item"><a class="menu__link" href="/about/">ABOUT HUGO</a></li>
-	</ul>
-</nav>
-
-		</header>
-		<div class="wrapper clearfix">
-
-<main class="main content" role="main">
-	<div class="warning">
-		<h1 class="warning__headline">404. Page not found</h1>
-		<p class="warning__text">The page you were looking for appears to have been moved, deleted or does not exist. Please, use search or go to <a href="/">main page</a>.</p>
+    <p>
+      You may want to head back to the homepage.<br />
+      If you think something is broken, report a problem.
+    </p>
 	</div>
-</main>
-
-<aside class="sidebar">
-	
-<div class="widget-search widget">
-	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
-		<label>
-			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q">
-		</label>
-		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
-	</form>
-</div>
-	
-<div class="widget-recent widget">
-	<h4 class="widget__title">Recent Posts</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/post/2018-07-28-a/">WIP: Deploy Cassandra on Raspberry-PI 3</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2018-07-19-a/">WIP: Build and Deploy MachineLearning Kubeflow Framework</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2018-07-18-a/">WIP: Compile and Test Portieris</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a></li>
-			<li class="widget__item"><a class="widget__link" href="/post/2018-07-16-a/">WIP: Rebuild Hyperkube images</a></li>
-		</ul>
+	<div class="buttons-container">
+		<a class="border-button" href="https://jbrette.github.io/">Go To Homepage</a>
+		<a class="border-button" href="mailto:">Report A Problem</a>
 	</div>
 </div>
-	
-<div class="widget-categories widget">
-	<h4 class="widget__title">Categories</h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/categories/news">News</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/wiki">Wiki</a></li>
-		</ul>
-	</div>
-</div>
-	
-<div class="widget-social widget">
-	<h4 class="widget-social__title widget__title">Social</h4>
-	<div class="widget-social__content widget__content">
-		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="LinkedIn" rel="noopener noreferrer" href="https://linkedin.com/in/jerome-brette-109b8711" target="_blank">
-				<svg class="widget-social__link-icon icon-linkedin" viewBox="0 0 352 352" width="24" height="24" fill="#fff"><path d="M0,40v272c0,21.9,18.1,40,40,40h272c21.9,0,40-18.1,40-40V40c0-21.9-18.1-40-40-40H40C18.1,0,0,18.1,0,40z M312,32 c4.6,0,8,3.4,8,8v272c0,4.6-3.4,8-8,8H40c-4.6,0-8-3.4-8-8V40c0-4.6,3.4-8,8-8H312z M59.5,87c0,15.2,12.3,27.5,27.5,27.5 c15.2,0,27.5-12.3,27.5-27.5c0-15.2-12.3-27.5-27.5-27.5C71.8,59.5,59.5,71.8,59.5,87z M187,157h-1v-21h-45v152h47v-75 c0-19.8,3.9-39,28.5-39c24.2,0,24.5,22.4,24.5,40v74h47v-83.5c0-40.9-8.7-72-56.5-72C208.5,132.5,193.3,145.1,187,157z M64,288h47.5 V136H64V288z"/></svg>
-				<span>LinkedIn</span>
-			</a>
-		</div>
-		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/jbrette" target="_blank">
-				<svg class="widget-social__link-icon icon-github" viewBox="0 0 384 374" width="24" height="24" fill="#fff"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
-				<span>GitHub</span>
-			</a>
-		</div>
-	</div>
-</div>
-	
-<div class="widget-taglist widget">
-	<h4 class="widget__title">Tags</h4>
-	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/tags/ansible" title="Ansible">Ansible</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/bigdata" title="Bigdata">Bigdata</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/calico" title="Calico">Calico</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cni" title="Cni">Cni</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/coreos" title="Coreos">Coreos</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/docker" title="Docker">Docker</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/github" title="Github">Github</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/golang" title="Golang">Golang</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/helm" title="Helm">Helm</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/homeautomation" title="Homeautomation">Homeautomation</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/java" title="Java">Java</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/kubeadm" title="Kubeadm">Kubeadm</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes" title="Kubernetes">Kubernetes</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/machinelearning" title="Machinelearning">Machinelearning</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/portieris" title="Portieris">Portieris</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/rpi" title="Rpi">Rpi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sonobuoy" title="Sonobuoy">Sonobuoy</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/zuul" title="Zuul">Zuul</a>
-	</div>
-</div>
-</aside>
-	</div>
-		<footer class="footer">
-			<div class="container container-inner">
-				<div class="footer__copyright">&copy; 2018 Jerome Brette&#39;s Blog. <span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span></div>
-			</div>
-		</footer>
-	</div>
 
-<script>
-	var navigation = responsiveNav(".menu", {
-		navClass: "menu--collapse",
-	});
-</script></body>
+    <script>
+     function ErrorPage(container, pageType, templateName) {
+       this.$container = $(container);
+       this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
+       this.pageType = pageType;
+       this.templateName = templateName;
+     }
+
+     ErrorPage.prototype.centerContent = function () {
+       var containerHeight = this.$container.outerHeight()
+         , contentContainerHeight = this.$contentContainer.outerHeight()
+         , top = (containerHeight - contentContainerHeight) / 2
+         , offset = this.templateName == 'sign' ? -100 : 0;
+
+       this.$contentContainer.css('top', top + offset);
+     };
+
+     ErrorPage.prototype.initialize = function () {
+       var self = this;
+
+       this.centerContent();
+       this.$container.on('resize', function (e) {
+         e.preventDefault();
+         e.stopPropagation();
+         self.centerContent();
+       });
+
+       
+       if (this.templateName == 'plain') {
+         window.setTimeout(function () {
+           self.$contentContainer.addClass('in');
+         }, 500);
+       }
+
+       
+       if (this.templateName == 'sign') {
+         $('.sign-container').animate({textIndent : 0}, {
+           step : function (now) {
+             $(this).css({
+               transform : 'rotate(' + now + 'deg)',
+               'transform-origin' : 'top center'
+             });
+           },
+           duration : 1000,
+           easing : 'easeOutBounce'
+         });
+       }
+     };
+
+
+     ErrorPage.prototype.createTimeRangeTag = function(start, end) {
+       return (
+         '<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
+       )
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
+       if (pageType == '503') {
+         $('#replace-with-fetched-data').html(data.status.description);
+       } else {
+         if (!!data.scheduled_maintenances.length) {
+           var maint = data.scheduled_maintenances[0];
+           $('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
+           $.fn.localizeTime();
+         }
+         else {
+           $('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
+         }
+       }
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
+       $('#replace-with-fetched-data').html('<em>(enter a valid StatusPage.io url)</em>');
+     };
+
+
+     ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
+       
+       if (!pageUrl || !pageType || pageType == '404') return;
+
+       var url = ''
+         , self = this;
+
+       if (pageType == '503') {
+         url = pageUrl + '/api/v2/status.json';
+       }
+       else {
+         url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
+       }
+
+       $.ajax({
+         type : "GET",
+         url : url,
+       }).success(function (data, status) {
+         
+         self.handleStatusFetchSuccess(pageType, data);
+       }).fail(function (xhr, msg) {
+         
+         self.handleStatusFetchFail(pageType);
+       });
+
+     };
+     var ep = new ErrorPage('body', "404", "plain");
+     ep.initialize();
+
+     
+     $(window).on('resize', function() {
+       $('body').trigger('resize')
+     });
+
+    </script>
+
+
+  </body>
 </html>

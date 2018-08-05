@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cni on Jerome Brette&#39;s Blog</title>
-    <link>/tags/cni/</link>
+    <link>https://jbrette.github.io/tags/cni/</link>
     <description>Recent content in Cni on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 17 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/cni/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jbrette.github.io/tags/cni/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WIP: Rebuild Calico for AMD64 ad ARM32V7</title>
-      <link>/post/2018-07-17-a/</link>
+      <link>https://jbrette.github.io/post/2018-07-17-a/</link>
       <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-17-a/</guid>
+      <guid>https://jbrette.github.io/post/2018-07-17-a/</guid>
       <description> Goal  Rebuild the Calico  Build Kubernetes executables for AMD64 and ARM  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
     </item>
     
     <item>
       <title>Deploy Flannel in Raspberry PI cluster</title>
-      <link>/post/2018-07-14-a/</link>
+      <link>https://jbrette.github.io/post/2018-07-14-a/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-14-a/</guid>
-      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;#34;s/amd64/arm/g&amp;#34; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
+      <guid>https://jbrette.github.io/post/2018-07-14-a/</guid>
+      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;quot;s/amd64/arm/g&amp;quot; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
 Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the WLAN and LAN interfaces were activated.</description>
     </item>
     

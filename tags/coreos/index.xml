@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Coreos on Jerome Brette&#39;s Blog</title>
-    <link>/tags/coreos/</link>
+    <link>https://jbrette.github.io/tags/coreos/</link>
     <description>Recent content in Coreos on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 27 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jbrette.github.io/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Manual Update of CoreOS</title>
-      <link>/post/2018-06-27-a/</link>
+      <link>https://jbrette.github.io/post/2018-06-27-a/</link>
       <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-06-27-a/</guid>
+      <guid>https://jbrette.github.io/post/2018-06-27-a/</guid>
       <description>Manual Update Of CoreOS To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
 Setup of the cluster TBD
 Update of the cluster I found the following link
