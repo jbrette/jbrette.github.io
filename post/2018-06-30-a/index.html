@@ -13,8 +13,9 @@
         "articleSection" : "post",
         "name" : "Update Kubernetes to 1.11 on Ubuntu",
         "headline" : "Update Kubernetes to 1.11 on Ubuntu",
-        "description" : "Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent  sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?",
+        "description" : "Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+Initial set up Kubernetes 1.10.4 is installed
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubelet 1.",
         "inLanguage" : "en",
         "author" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
         "creator" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
@@ -25,7 +26,7 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
         "datePublished": "2018-06-30 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-06-30 00:00:00 &#43;0000 UTC",
         "url" : "https://jbrette.github.io/post/2018-06-30-a/",
-        "wordCount" : "992",
+        "wordCount" : "1010",
         "keywords" : [ "kubernetes","Blog" ]
     }
     </script>
@@ -44,18 +45,20 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
         
         
             
-                <meta name="description" content=" Jerome Brette&#39;s Personal blog about everything">
+                <meta name="description" content=" Jerome Brette&#39;s Blog">
             
         
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Update Kubernetes to 1.11 on Ubuntu"/>
-<meta name="twitter:description" content="Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent  sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?"/>
+<meta name="twitter:description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+Initial set up Kubernetes 1.10.4 is installed
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1."/>
 
         <meta property="og:title" content="Update Kubernetes to 1.11 on Ubuntu" />
-<meta property="og:description" content="Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent  sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?" />
+<meta property="og:description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+Initial set up Kubernetes 1.10.4 is installed
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jbrette.github.io/post/2018-06-30-a/" />
 
@@ -81,13 +84,14 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
         <meta property="og:image:height" content="512">
         
 <meta itemprop="name" content="Update Kubernetes to 1.11 on Ubuntu">
-<meta itemprop="description" content="Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent  sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?">
+<meta itemprop="description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+Initial set up Kubernetes 1.10.4 is installed
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1.">
 
 
 <meta itemprop="datePublished" content="2018-06-30T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-06-30T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="992">
+<meta itemprop="wordCount" content="1010">
 
 
 
@@ -115,6 +119,8 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
 
   
     
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
 
 
       
@@ -141,7 +147,7 @@ if (!doNotTrack) {
     
 <header id="header">
     
-      <h1><a href="https://jbrette.github.io/"></a></h1>
+      <h1><a href="https://jbrette.github.io/">post</a></h1>
     
 
     <nav class="links">
@@ -154,7 +160,7 @@ if (!doNotTrack) {
                 </li>
             
                 <li>
-                    <a href="https://jbrette.github.io/post/">
+                    <a href="https://jbrette.github.io/post/page/1/">
                             <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                     </a>
                 </li>
@@ -224,7 +230,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="https://jbrette.github.io/post/">
+                        <a href="https://jbrette.github.io/post/page/1/">
                             <h3>
                                 <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                             </h3>
@@ -273,7 +279,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-28-a/">WIP: Deploy Cassandra on Raspberry-PI 3</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-28'>
@@ -285,7 +291,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-19-a/">WIP: Build and Deploy MachineLearning Kubeflow Framework</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-19'>
@@ -297,7 +303,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-18-a/">WIP: Compile and Test Portieris</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-18-a/">Compile and Test Portieris</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-18'>
@@ -309,7 +315,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-17'>
@@ -321,7 +327,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-16-a/">WIP: Rebuild Hyperkube images</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-16-a/">Rebuild Hyperkube images</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-16'>
@@ -395,7 +401,7 @@ if (!doNotTrack) {
                 
                     <a href=
                         
-                            "/post/"
+                            /post/page/1/
                         
                         class="button">View more posts</a>
                 
@@ -526,11 +532,103 @@ if (!doNotTrack) {
 
 
   
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f&amp;text=Update%20Kubernetes%20to%201.11%20on%20Ubuntu&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f&amp;title=Update%20Kubernetes%20to%201.11%20on%20Ubuntu" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f&amp;title=Update%20Kubernetes%20to%201.11%20on%20Ubuntu" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f&amp;title=Update%20Kubernetes%20to%201.11%20on%20Ubuntu" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f&amp;description=Update%20Kubernetes%20to%201.11%20on%20Ubuntu" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-30-a%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
 
   
 
   <div id="content">
     
+
+<h1 id="goal">Goal</h1>
+
+<p>Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.</p>
 
 <h2 id="initial-set-up">Initial set up</h2>
 
@@ -849,7 +947,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-28-a/">WIP: Deploy Cassandra on Raspberry-PI 3</a>
+                <a href="https://jbrette.github.io/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a>
               </h3>
               
               <time class="published" datetime='2018-07-28'>
@@ -863,7 +961,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-19-a/">WIP: Build and Deploy MachineLearning Kubeflow Framework</a>
+                <a href="https://jbrette.github.io/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a>
               </h3>
               
               <time class="published" datetime='2018-07-19'>
@@ -877,7 +975,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-18-a/">WIP: Compile and Test Portieris</a>
+                <a href="https://jbrette.github.io/post/2018-07-18-a/">Compile and Test Portieris</a>
               </h3>
               
               <time class="published" datetime='2018-07-18'>
@@ -891,7 +989,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a>
+                <a href="https://jbrette.github.io/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a>
               </h3>
               
               <time class="published" datetime='2018-07-17'>
@@ -905,7 +1003,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-16-a/">WIP: Rebuild Hyperkube images</a>
+                <a href="https://jbrette.github.io/post/2018-07-16-a/">Rebuild Hyperkube images</a>
               </h3>
               
               <time class="published" datetime='2018-07-16'>
@@ -991,7 +1089,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
       
         <a href=
           
-            "/post/"
+            /post/page/1/
           
         class="button">View more posts</a>
       
@@ -1007,6 +1105,88 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
 
   
   <section id="footer">
+    
+      <ul class="icons">
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
     
     <p class="copyright">
       
@@ -1032,10 +1212,15 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
       
       
       
-        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
         
         
         
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/json.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/go.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
         <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
       
     

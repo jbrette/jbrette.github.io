@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>WIP: Rebuild Calico for AMD64 ad ARM32V7</title>
+      <title>Rebuild Calico for AMD64 ad ARM32V7</title>
       <link>https://jbrette.github.io/post/2018-07-17-a/</link>
       <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-17-a/</guid>
-      <description> Goal  Rebuild the Calico  Build Kubernetes executables for AMD64 and ARM  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
+      <description> Goal Neither calico nor canal seems to be available for usage yet on ARM32V7 for PI. The attempt here is to cross-compile the calico containers and use them on the PI cluster.
+Key Aspects  Rebuild the Calico  Build Kubernetes executables for AMD64 and ARM  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
     </item>
     
   </channel>

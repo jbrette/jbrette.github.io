@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>WIP: Build and Deploy MachineLearning Kubeflow Framework</title>
+      <title>Build and Deploy MachineLearning Kubeflow Framework</title>
       <link>https://jbrette.github.io/post/2018-07-19-a/</link>
       <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-19-a/</guid>
-      <description> Goal  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
+      <description> Goal Kubeflow is a process that allows you to deploy machine learning infrastructure on top of a Kubernetes cluster. The goal here is to deploy Kubeflow first on a local simple Kubernetes cluster running in a VM and then deploy it in the Kubernetes PI Cluster
+Key Aspects  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
     </item>
     
   </channel>

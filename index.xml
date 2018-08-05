@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>WIP: Deploy Cassandra on Raspberry-PI 3</title>
+      <title>Deploy Cassandra on Raspberry-PI 3</title>
       <link>https://jbrette.github.io/post/2018-07-28-a/</link>
       <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -21,39 +21,43 @@
     </item>
     
     <item>
-      <title>WIP: Build and Deploy MachineLearning Kubeflow Framework</title>
+      <title>Build and Deploy MachineLearning Kubeflow Framework</title>
       <link>https://jbrette.github.io/post/2018-07-19-a/</link>
       <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-19-a/</guid>
-      <description> Goal  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
+      <description> Goal Kubeflow is a process that allows you to deploy machine learning infrastructure on top of a Kubernetes cluster. The goal here is to deploy Kubeflow first on a local simple Kubernetes cluster running in a VM and then deploy it in the Kubernetes PI Cluster
+Key Aspects  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
     </item>
     
     <item>
-      <title>WIP: Compile and Test Portieris</title>
+      <title>Compile and Test Portieris</title>
       <link>https://jbrette.github.io/post/2018-07-18-a/</link>
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-18-a/</guid>
-      <description>Goal  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.com/theupdateframework/notary/cmd/notary  Run notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine  $ notary -s https://notary.docker.io -d ~/.docker/trust list docker.io/library/alpine NAME DIGEST SIZE (BYTES) ROLE ---- ------ ------------ ---- 2.6 9ace551613070689a12857d62c30ef0daa9a376107ec0fff0e34786cedb3399b 528 targets 2.7 9f08005dff552038f0ad2f46b8e65ff3d25641747d3912e3ea8da6785046561a 1374 targets 3.1 2f9dfa6adf602d3d7379f11f3d4fd0b7b4d1c526616ee7c0fd5e553a72e4bf79 433 targets 3.2 4b02d27451aabdf2b6bcd09888deed56b2a3b645aab3b77bc9511cf80d0820a6 433 targets 3.3 37f4d7bb352bde58797d0f0c4e6c4e69a9ed44d4e47a8ab4461888d117d14c6a 433 targets 3.</description>
+      <description>Goal One of the biggest security risks related to Kubernetes are often linked to the fact that it is really hard to ensure that only &amp;ldquo;approved&amp;rdquo; images are deployed in your Kubernetes cluster. The goal here is to leverage Notary and the a project called &amp;ldquo;Portieris&amp;rdquo; created by IBM.
+Key Aspects  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.</description>
     </item>
     
     <item>
-      <title>WIP: Rebuild Calico for AMD64 ad ARM32V7</title>
+      <title>Rebuild Calico for AMD64 ad ARM32V7</title>
       <link>https://jbrette.github.io/post/2018-07-17-a/</link>
       <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-17-a/</guid>
-      <description> Goal  Rebuild the Calico  Build Kubernetes executables for AMD64 and ARM  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
+      <description> Goal Neither calico nor canal seems to be available for usage yet on ARM32V7 for PI. The attempt here is to cross-compile the calico containers and use them on the PI cluster.
+Key Aspects  Rebuild the Calico  Build Kubernetes executables for AMD64 and ARM  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
     </item>
     
     <item>
-      <title>WIP: Rebuild Hyperkube images</title>
+      <title>Rebuild Hyperkube images</title>
       <link>https://jbrette.github.io/post/2018-07-16-a/</link>
       <pubDate>Mon, 16 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-16-a/</guid>
-      <description> Goal  Rebuild Hyperkube images for amd64 and arm32v7 Rebuild the individual images deployed by kubeadm  Build Kubernetes executables for AMD64 and ARM  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
+      <description> Goal This post is to validate that it would be possible if urgency dictates it to rebuild the hyperkube Kubernetes image.
+Key Aspects  Rebuild Hyperkube images for amd64 and arm32v7 Rebuild the individual images deployed by kubeadm  Build Kubernetes executables for AMD64 and ARM  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
     </item>
     
     <item>
@@ -62,7 +66,8 @@
       <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-15-a/</guid>
-      <description>Goal  During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. (Strangely did not encounter the issue on RPI Cluster 2)&amp;gt; The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1.11.1 The goal is to learn how to recompile Kubernetes from the source to be able to contribute when possible and address problems as soon as possible  Build Kubernetes executables for AMD64 and ARM Cross Compiling from Ubuntu Machine First check the go setup.</description>
+      <description>Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.
+Key Aspects  The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1.</description>
     </item>
     
     <item>
@@ -71,8 +76,8 @@
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-14-a/</guid>
-      <description>Goal  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &amp;quot;s/amd64/arm/g&amp;quot; &amp;gt; flannel.yaml $ kubectl create -f flannel.yaml  Note: realized that should be using flannel v0.10.0 instead of v0.9.1
-Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the WLAN and LAN interfaces were activated.</description>
+      <description>Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).
+Key Aspects  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.</description>
     </item>
     
     <item>
@@ -81,7 +86,8 @@ Flannel Issue 1: flannel.1. Link has incompatible address on master-pi, both the
       <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-13-a/</guid>
-      <description>Goal  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide&amp;hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller.</description>
+      <description>Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.
+Key Aspects  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide&amp;hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller.</description>
     </item>
     
     <item>
@@ -101,17 +107,18 @@ as root</description>
       <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-11-a/</guid>
-      <description>Goal  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready
-git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm package charts/kubeplay-arm32v7/ --app-version 0.1.0 --destination ./helmrepo/ cd helmrepo/ helm repo index . git add .</description>
+      <description>Goal In order to be able use Helm charts the &amp;ldquo;normal&amp;rdquo; way, it is need to buid your own helm repository. The goal of this post is to transform a github repo into a helm repo.
+Key Aspects  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready</description>
     </item>
     
     <item>
-      <title>WIP: Add Persistency Volume to PI Clusters</title>
+      <title>Add Persistency Volume to PI Clusters</title>
       <link>https://jbrette.github.io/post/2018-07-08-a/</link>
       <pubDate>Sun, 08 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-08-a/</guid>
-      <description> Goal  In order to install OpenHAB or HomeAssistent using Kubernetes, we need to first create Persistency Volumes  Procedures  WIP  Results    Reference Links  TBD  </description>
+      <description> Goal In order to install OpenHAB, HomeAssistent or even promoteheus using Kubernetes, we need to first create Persistency Volumes
+Procedures  WIP  Results    Reference Links  TBD  </description>
     </item>
     
     <item>
@@ -131,8 +138,9 @@ sudo apt-get install ansible Reading package lists... Done Building dependency t
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-06-a/</guid>
-      <description>Goal  Transform Raspberry-PI + Dongle into a SUC ZWave controller Try to use with OpenHAB or HomeAssistant  Testing on the OpenHAB Container The OpenHAB architecture is Java based.
-Testing on the HomeAssistant Container HomeAssistant is Python based and relies on OpenZWave. Some of the data is also saved in SQLite. In both cases developping small Python scripts to investigate the setup seems to be the easiest way.</description>
+      <description>Goal In order to transforme a PI into a home automation controller, it is necessary to add Zwave and ZigBee capabilities to the the Wifi and Bluetooth capabilities of the PI.
+Key  Transform Raspberry-PI + Dongle into a SUC ZWave controller Try to use with OpenHAB or HomeAssistant  Testing on the OpenHAB Container The OpenHAB architecture is Java based.
+Testing on the HomeAssistant Container HomeAssistant is Python based and relies on OpenZWave.</description>
     </item>
     
     <item>
@@ -141,9 +149,8 @@ Testing on the HomeAssistant Container HomeAssistant is Python based and relies 
       <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-05-a/</guid>
-      <description>Goal  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle. Try to install OpenHab on node 3 of the cluster (Picture to be update with Dongle on bottom node).  Setup the host operating system Moved the dongle to the third node of the cluster. Check it is present
-~~~~ lsusb
-Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
+      <description>Goal OpenHAB running on Raspberry PI is one of way where you don&amp;rsquo;t have to rely on outside services to orchestrate your IOT. Then comes the issues of high availability of the software if only running on one PI. By dockerizing the software first, this open the doors to leverage a kubernetes cluster to ensure HA of the software
+Key Aspects  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle.</description>
     </item>
     
     <item>
@@ -152,7 +159,8 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-04-a/</guid>
-      <description>Goal  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle. Install Home Assistant on node 2 of the cluster  What OS  Home Assistant haas.io does not support Raspberry 3 B+ yet. haas.io is based on ResinOS. ResinOS is not using docker anymore but balena which does not support kubernetes yet See Issue Continue to use HyperiotOS  Install AppArmor and download docker container cat newpgklist apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common  for i in `cat newpgklist` do sudo apt-get install -y $i done  Download and run the installation script.</description>
+      <description>Goal HomeAssistant running on Raspberry PI is one of way where you don&amp;rsquo;t have to rely on outside services to orchestrate your IOT. Then comes the issues of high availability of the software if only running on one PI. By dockerizing the software first, this open the doors to leverage a kubernetes cluster to ensure HA of the software
+Key Aspects  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle.</description>
     </item>
     
     <item>
@@ -161,7 +169,8 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
       <pubDate>Tue, 03 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-03-a/</guid>
-      <description>Goal  Build a Raspberry 3B+ Cluster Deploy Kubernetes on that Cluster  Hardware Reference Links  Video  Procedure  Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B+ (1Gb card instead of 100Mb card)  Result Cluster 1: 5 nodes cluster Cluster 2: 3 nodes cluster OS Reference Links  Video HypriotOS  Procedure  Use HypriotOS because the quickest to set up.</description>
+      <description>Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.
+Key Aspects  Build a Raspberry 3B+ Cluster Deploy Kubernetes on that Cluster  Hardware Reference Links  Video  Procedure  Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B+ (1Gb card instead of 100Mb card)  Result Cluster 1: 5 nodes cluster Cluster 2: 3 nodes cluster OS Reference Links  Video HypriotOS  Procedure  Use HypriotOS because the quickest to set up.</description>
     </item>
     
     <item>
@@ -170,7 +179,8 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
       <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-02-a/</guid>
-      <description>Goal  Fork Sonobuoy Compile the tools Test it  Clone and Compile mkdir -p $HOME/src/github.com/heptio cd $HOME/src/github.com/heptio git clone git@github.com:jbrette/sonobuoy.git  export GOPATH=$HOME go version go version go1.10.1 linux/amd64  go get -u -v github.com/heptio/sonobuoy  sonobuoy run sonobuoy status  kubectl get all -n heptio-sonobuoy NAME READY STATUS RESTARTS AGE pod/sonobuoy 1/1 Running 0 14m pod/sonobuoy-e2e-job-5fff584d11364ca1 2/2 Running 0 12m pod/sonobuoy-systemd-logs-daemon-set-1c53f31cf14246ca-mhztp 2/2 Running 0 12m NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/sonobuoy-master ClusterIP 10.</description>
+      <description>Goal Sonobouy, deploys in a Kubernetes cluster and helps to assesse the compliance of that cluster
+Key Aspects  Fork Sonobuoy Compile the tools Test it  Clone and Compile mkdir -p $HOME/src/github.com/heptio cd $HOME/src/github.com/heptio git clone git@github.com:jbrette/sonobuoy.git  export GOPATH=$HOME go version go version go1.10.1 linux/amd64  go get -u -v github.com/heptio/sonobuoy  sonobuoy run sonobuoy status  kubectl get all -n heptio-sonobuoy NAME READY STATUS RESTARTS AGE pod/sonobuoy 1/1 Running 0 14m pod/sonobuoy-e2e-job-5fff584d11364ca1 2/2 Running 0 12m pod/sonobuoy-systemd-logs-daemon-set-1c53f31cf14246ca-mhztp 2/2 Running 0 12m NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/sonobuoy-master ClusterIP 10.</description>
     </item>
     
     <item>
@@ -179,7 +189,8 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-01-a/</guid>
-      <description>Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld Python web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Simple Python Server The pythonhttpserver repo showcases: - How to create a simple Python3 server - How to leverage Travis to compile for amd64 and arm32v7. - Branch amd64 is for normal PC and HP server. - Branch arm32v7 produces software usable on Raspberry PI 3B+</description>
+      <description>Goal As we did for Go and Java, where is was possible to create an Dockerfile starting from &amp;ldquo;scratch&amp;rdquo;, the goal of this post is to create a python base server container with a minimum about of packages (debian and python) to reduce the security exposure of the container as well as the image size.
+Key Aspects  Use SCRATCH has base image to keep size minimum Simple HelloWorld Python web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Simple Python Server The pythonhttpserver repo showcases: - How to create a simple Python3 server - How to leverage Travis to compile for amd64 and arm32v7.</description>
     </item>
     
     <item>
@@ -188,8 +199,9 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
       <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-30-a/</guid>
-      <description>Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent  sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?</description>
+      <description>Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+Initial set up Kubernetes 1.10.4 is installed
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubelet 1.</description>
     </item>
     
     <item>
@@ -216,28 +228,30 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
       <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-27-a/</guid>
-      <description>Manual Update Of CoreOS To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
+      <description>Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
 Setup of the cluster TBD
 Update of the cluster I found the following link
 sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &amp;lt;&amp;lt;EOF &amp;gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&amp;quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&amp;quot; EOF &#39;  sudo bash -ec &#39;uname -a &amp;amp;&amp;amp; cat /etc/lsb-release &amp;amp;&amp;amp; \ echo GROUP=stable &amp;gt; /etc/coreos/update.</description>
     </item>
     
     <item>
-      <title>WIP: Zuul</title>
+      <title>Zuul</title>
       <link>https://jbrette.github.io/post/2018-06-26-a/</link>
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-26-a/</guid>
-      <description> Understanding Zuul  WIP  Usefull Links  WIP  </description>
+      <description> Goal OpenStack project are using Zuul for CI/CD process. Zuul itself is based on Ansible to perform the tasks. This post is the collection of notes and tips used during the couple of update I did to some openstack projects.
+Understanding Zuul  WIP  Usefull Links  WIP  </description>
     </item>
     
     <item>
-      <title>WIP: Setup github/gerrit behind a corporate http proxy</title>
+      <title>Setup github/gerrit behind a corporate http proxy</title>
       <link>https://jbrette.github.io/post/2018-06-25-a/</link>
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-25-a/</guid>
-      <description>Access GitHub/Gerrit from behind a corporate http proxy TBD
+      <description>Goal This is a post of the small set of notes taken to setup gerrit review behind corporate proxy.
+Access GitHub/Gerrit from behind a corporate http proxy TBD
 Links TBD</description>
     </item>
     
@@ -247,7 +261,8 @@ Links TBD</description>
       <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-24-a/</guid>
-      <description>Installing the right version of Docker Wondering why you have a strange error such as &amp;lsquo;from &amp;hellip;&amp;rsquo; when running docker build. The reason is linked to an older version of docker installed. You need to remove the current docker.io.
+      <description>Goal Wondering why you have a strange error such as &amp;lsquo;from &amp;hellip;&amp;rsquo; when running docker build. The reason is linked to an older version of docker installed.
+Remove the current docker.io You need to remove the current docker.io.
 sudo apt-cache policy docker.io curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; sudo apt-get update sudo apt-cache policy docker-ce sudo apt-get remove docker docker-engine docker.</description>
     </item>
     
@@ -257,7 +272,8 @@ sudo apt-cache policy docker.io curl -fsSL https://download.docker.com/linux/ubu
       <pubDate>Sat, 23 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-23-a/</guid>
-      <description> Setup multiple GitHub account TBD
+      <description> Goal In orderer to manage your personal GitHub projects or an your compagny projects, it is usefull to be able to conigure your .ssh directory.
+Setup multiple GitHub account TBD
 Usefull Links  Link1  </description>
     </item>
     
@@ -267,9 +283,9 @@ Usefull Links  Link1  </description>
       <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-22-a/</guid>
-      <description>Installing the right version of GO If you have strange errors, when running go get &amp;hellip;., chances are that your version of GO is old. On Ubuntu, it is actually quite simple to address the issue.
-If you are still running Ubuntu 16.04 LTS
-sudo add-apt-repository ppa:longsleep/golang-backports sudo apt-get update sudo apt-get install golang-go  How to setup your GOPATH A lot of things seems to work much better if you edit your .</description>
+      <description>Goal A lot of the opensource projects evolvoving around Kubernetes are written in go. It is very usefull to be able to rebuild so projects using go get or go build.
+Installing the right version of GO If you have strange errors, when running go get &amp;hellip;., chances are that your version of GO is old. On Ubuntu, it is actually quite simple to address the issue.
+If you are still running Ubuntu 16.</description>
     </item>
     
     <item>
@@ -278,7 +294,8 @@ sudo add-apt-repository ppa:longsleep/golang-backports sudo apt-get update sudo 
       <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-21-a/</guid>
-      <description>Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
+      <description>Goal Setup simple kubernetes cluster for test purposes.
+Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
 sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl  sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false  sudo kubeadm version kubeadm version: &amp;amp;version.</description>
     </item>
     
@@ -299,7 +316,7 @@ Consideration regarding USB boot.</description>
       <pubDate>Tue, 19 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-06-19-a/</guid>
-      <description>During some of the manipulation of the partition table of my SD card, I ended up screwing up both my SD card and my backup Win32DiskImage backup. Moreover if your SD card is 32G, it takes around 30 minute to restore from backup. Hence the idea to come up with a way to build more resiliency in the cluster. Recreating a node from scratch should not take more than 10 mn.</description>
+      <description>Goal During some of the manipulation of the partition table of my SD card, I ended up screwing up both my SD card and my backup Win32DiskImage backup. Moreover if your SD card is 32G, it takes around 30 minute to restore from backup. Hence the idea to come up with a way to build more resiliency in the cluster. Recreating a node from scratch should not take more than 10 mn.</description>
     </item>
     
     <item>

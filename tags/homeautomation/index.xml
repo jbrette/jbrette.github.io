@@ -17,8 +17,9 @@
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-06-a/</guid>
-      <description>Goal  Transform Raspberry-PI + Dongle into a SUC ZWave controller Try to use with OpenHAB or HomeAssistant  Testing on the OpenHAB Container The OpenHAB architecture is Java based.
-Testing on the HomeAssistant Container HomeAssistant is Python based and relies on OpenZWave. Some of the data is also saved in SQLite. In both cases developping small Python scripts to investigate the setup seems to be the easiest way.</description>
+      <description>Goal In order to transforme a PI into a home automation controller, it is necessary to add Zwave and ZigBee capabilities to the the Wifi and Bluetooth capabilities of the PI.
+Key  Transform Raspberry-PI + Dongle into a SUC ZWave controller Try to use with OpenHAB or HomeAssistant  Testing on the OpenHAB Container The OpenHAB architecture is Java based.
+Testing on the HomeAssistant Container HomeAssistant is Python based and relies on OpenZWave.</description>
     </item>
     
     <item>
@@ -27,9 +28,8 @@ Testing on the HomeAssistant Container HomeAssistant is Python based and relies 
       <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-05-a/</guid>
-      <description>Goal  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle. Try to install OpenHab on node 3 of the cluster (Picture to be update with Dongle on bottom node).  Setup the host operating system Moved the dongle to the third node of the cluster. Check it is present
-~~~~ lsusb
-Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
+      <description>Goal OpenHAB running on Raspberry PI is one of way where you don&amp;rsquo;t have to rely on outside services to orchestrate your IOT. Then comes the issues of high availability of the software if only running on one PI. By dockerizing the software first, this open the doors to leverage a kubernetes cluster to ensure HA of the software
+Key Aspects  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle.</description>
     </item>
     
     <item>
@@ -38,7 +38,8 @@ Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.</description>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-07-04-a/</guid>
-      <description>Goal  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle. Install Home Assistant on node 2 of the cluster  What OS  Home Assistant haas.io does not support Raspberry 3 B+ yet. haas.io is based on ResinOS. ResinOS is not using docker anymore but balena which does not support kubernetes yet See Issue Continue to use HyperiotOS  Install AppArmor and download docker container cat newpgklist apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common  for i in `cat newpgklist` do sudo apt-get install -y $i done  Download and run the installation script.</description>
+      <description>Goal HomeAssistant running on Raspberry PI is one of way where you don&amp;rsquo;t have to rely on outside services to orchestrate your IOT. Then comes the issues of high availability of the software if only running on one PI. By dockerizing the software first, this open the doors to leverage a kubernetes cluster to ensure HA of the software
+Key Aspects  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle.</description>
     </item>
     
   </channel>

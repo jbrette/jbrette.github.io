@@ -13,8 +13,8 @@
         "articleSection" : "post",
         "name" : "Use github repo as helm chart repository",
         "headline" : "Use github repo as helm chart repository",
-        "description" : "Goal  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready
-git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm package charts/kubeplay-arm32v7/ --app-version 0.1.0 --destination ./helmrepo/ cd helmrepo/ helm repo index . git add .",
+        "description" : "Goal In order to be able use Helm charts the &ldquo;normal&rdquo; way, it is need to buid your own helm repository. The goal of this post is to transform a github repo into a helm repo.
+Key Aspects  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready",
         "inLanguage" : "en",
         "author" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
         "creator" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
@@ -25,7 +25,7 @@ git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm packa
         "datePublished": "2018-07-11 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-07-11 00:00:00 &#43;0000 UTC",
         "url" : "https://jbrette.github.io/post/2018-07-11-a/",
-        "wordCount" : "141",
+        "wordCount" : "178",
         "keywords" : [ "github","helm","kubernetes","Blog" ]
     }
     </script>
@@ -44,18 +44,18 @@ git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm packa
         
         
             
-                <meta name="description" content=" Jerome Brette&#39;s Personal blog about everything">
+                <meta name="description" content=" Jerome Brette&#39;s Blog">
             
         
 
         <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Use github repo as helm chart repository"/>
-<meta name="twitter:description" content="Goal  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready
-git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm package charts/kubeplay-arm32v7/ --app-version 0.1.0 --destination ./helmrepo/ cd helmrepo/ helm repo index . git add ."/>
+<meta name="twitter:description" content="Goal In order to be able use Helm charts the &ldquo;normal&rdquo; way, it is need to buid your own helm repository. The goal of this post is to transform a github repo into a helm repo.
+Key Aspects  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready"/>
 
         <meta property="og:title" content="Use github repo as helm chart repository" />
-<meta property="og:description" content="Goal  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready
-git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm package charts/kubeplay-arm32v7/ --app-version 0.1.0 --destination ./helmrepo/ cd helmrepo/ helm repo index . git add ." />
+<meta property="og:description" content="Goal In order to be able use Helm charts the &ldquo;normal&rdquo; way, it is need to buid your own helm repository. The goal of this post is to transform a github repo into a helm repo.
+Key Aspects  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jbrette.github.io/post/2018-07-11-a/" />
 
@@ -81,13 +81,13 @@ git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm packa
         <meta property="og:image:height" content="512">
         
 <meta itemprop="name" content="Use github repo as helm chart repository">
-<meta itemprop="description" content="Goal  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready
-git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm package charts/kubeplay-arm32v7/ --app-version 0.1.0 --destination ./helmrepo/ cd helmrepo/ helm repo index . git add .">
+<meta itemprop="description" content="Goal In order to be able use Helm charts the &ldquo;normal&rdquo; way, it is need to buid your own helm repository. The goal of this post is to transform a github repo into a helm repo.
+Key Aspects  Save the helm charts on github mainly for the RPI Kubernetes cluster Figure out a way to access them  Build the chart and upload it to the helm repo For that purpose I used by kubeplay repo where I had helm charts and container ready">
 
 
 <meta itemprop="datePublished" content="2018-07-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="141">
+<meta itemprop="wordCount" content="178">
 
 
 
@@ -115,6 +115,8 @@ git clone -b arm32v7 git@github.com:jbrette/kubeplay.git cd kubeplay/ helm packa
 
   
     
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
 
 
       
@@ -141,7 +143,7 @@ if (!doNotTrack) {
     
 <header id="header">
     
-      <h1><a href="https://jbrette.github.io/"></a></h1>
+      <h1><a href="https://jbrette.github.io/">post</a></h1>
     
 
     <nav class="links">
@@ -154,7 +156,7 @@ if (!doNotTrack) {
                 </li>
             
                 <li>
-                    <a href="https://jbrette.github.io/post/">
+                    <a href="https://jbrette.github.io/post/page/1/">
                             <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                     </a>
                 </li>
@@ -224,7 +226,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="https://jbrette.github.io/post/">
+                        <a href="https://jbrette.github.io/post/page/1/">
                             <h3>
                                 <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                             </h3>
@@ -273,7 +275,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-28-a/">WIP: Deploy Cassandra on Raspberry-PI 3</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-28'>
@@ -285,7 +287,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-19-a/">WIP: Build and Deploy MachineLearning Kubeflow Framework</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-19'>
@@ -297,7 +299,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-18-a/">WIP: Compile and Test Portieris</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-18-a/">Compile and Test Portieris</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-18'>
@@ -309,7 +311,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-17'>
@@ -321,7 +323,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-16-a/">WIP: Rebuild Hyperkube images</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-07-16-a/">Rebuild Hyperkube images</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-16'>
@@ -395,7 +397,7 @@ if (!doNotTrack) {
                 
                     <a href=
                         
-                            "/post/"
+                            /post/page/1/
                         
                         class="button">View more posts</a>
                 
@@ -526,13 +528,106 @@ if (!doNotTrack) {
 
 
   
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f&amp;text=Use%20github%20repo%20as%20helm%20chart%20repository&amp;via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f&amp;title=Use%20github%20repo%20as%20helm%20chart%20repository" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f&amp;title=Use%20github%20repo%20as%20helm%20chart%20repository" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f&amp;title=Use%20github%20repo%20as%20helm%20chart%20repository" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f&amp;description=Use%20github%20repo%20as%20helm%20chart%20repository" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-07-11-a%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
 
   
 
   <div id="content">
     
 
-<h2 id="goal">Goal</h2>
+<h1 id="goal">Goal</h1>
+
+<p>In order to be able use Helm charts the &ldquo;normal&rdquo; way, it is need to buid your own helm repository.
+The goal of this post is to transform a github repo into a helm repo.</p>
+
+<h2 id="key-aspects">Key Aspects</h2>
 
 <ul>
 <li>Save the helm charts on github mainly for the RPI Kubernetes cluster</li>
@@ -635,7 +730,7 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
 <ul class="actions pagination">
     
         <li><a href="https://jbrette.github.io/post/2018-07-08-a/"
-                class="button big previous">WIP: Add Persistency Volume to PI Clusters</a></li>
+                class="button big previous">Add Persistency Volume to PI Clusters</a></li>
     
 
     
@@ -674,7 +769,7 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-28-a/">WIP: Deploy Cassandra on Raspberry-PI 3</a>
+                <a href="https://jbrette.github.io/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a>
               </h3>
               
               <time class="published" datetime='2018-07-28'>
@@ -688,7 +783,7 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-19-a/">WIP: Build and Deploy MachineLearning Kubeflow Framework</a>
+                <a href="https://jbrette.github.io/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a>
               </h3>
               
               <time class="published" datetime='2018-07-19'>
@@ -702,7 +797,7 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-18-a/">WIP: Compile and Test Portieris</a>
+                <a href="https://jbrette.github.io/post/2018-07-18-a/">Compile and Test Portieris</a>
               </h3>
               
               <time class="published" datetime='2018-07-18'>
@@ -716,7 +811,7 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-17-a/">WIP: Rebuild Calico for AMD64 ad ARM32V7</a>
+                <a href="https://jbrette.github.io/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a>
               </h3>
               
               <time class="published" datetime='2018-07-17'>
@@ -730,7 +825,7 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-16-a/">WIP: Rebuild Hyperkube images</a>
+                <a href="https://jbrette.github.io/post/2018-07-16-a/">Rebuild Hyperkube images</a>
               </h3>
               
               <time class="published" datetime='2018-07-16'>
@@ -816,7 +911,7 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
       
         <a href=
           
-            "/post/"
+            /post/page/1/
           
         class="button">View more posts</a>
       
@@ -832,6 +927,88 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
 
   
   <section id="footer">
+    
+      <ul class="icons">
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
     
     <p class="copyright">
       
@@ -857,10 +1034,15 @@ kubeplay/kubeplay-arm32v7       0.1.0           0.1.0           A Helm chart for
       
       
       
-        <script src="//cdn.bootcss.com/highlight.js//highlight.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
         
         
         
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/json.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/go.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
         <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
       
     
