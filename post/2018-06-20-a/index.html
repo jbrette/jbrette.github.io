@@ -8,7 +8,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "https://jbrette.github.io/"
+             "@id": ""
         },
         "articleSection" : "post",
         "name" : "Create a Rapsberry PI Rescue Dongle",
@@ -17,15 +17,15 @@
 Hopefully the new PI3 B and B+ are able to boot from USB, hence the idea of creating a Rescue Dongle
 Consideration regarding USB boot.",
         "inLanguage" : "en",
-        "author" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
-        "creator" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
-        "publisher": "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
-        "accountablePerson" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
-        "copyrightHolder" : "img/avatar.pngJerome Brette is a Principal Architect at Ericsson particularly interested in edge network ecosystems, machine learning, big data.Jerome Brette",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
         "copyrightYear" : "2018",
         "datePublished": "2018-06-20 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-06-20 00:00:00 &#43;0000 UTC",
-        "url" : "https://jbrette.github.io/post/2018-06-20-a/",
+        "url" : "/post/2018-06-20-a/",
         "wordCount" : "469",
         "keywords" : [ "rpi","Blog" ]
     }
@@ -45,7 +45,7 @@ Consideration regarding USB boot.",
         
         
             
-                <meta name="description" content=" Jerome Brette&#39;s Blog">
+                <meta name="description" content="Jerome Brette&#39;s Blog">
             
         
 
@@ -54,13 +54,14 @@ Consideration regarding USB boot.",
 <meta name="twitter:description" content="Goal I encountered multiple issues trying to repartition my SD on my PI. Because the / directory is mounted, it never really worked safely for me to use fdisk. Morevoer some of the powerfull tools such as gparted need X11 installed, which I don&rsquo;t have by default.
 Hopefully the new PI3 B and B&#43; are able to boot from USB, hence the idea of creating a Rescue Dongle
 Consideration regarding USB boot."/>
+<meta name="twitter:site" content="@example"/>
 
         <meta property="og:title" content="Create a Rapsberry PI Rescue Dongle" />
 <meta property="og:description" content="Goal I encountered multiple issues trying to repartition my SD on my PI. Because the / directory is mounted, it never really worked safely for me to use fdisk. Morevoer some of the powerfull tools such as gparted need X11 installed, which I don&rsquo;t have by default.
 Hopefully the new PI3 B and B&#43; are able to boot from USB, hence the idea of creating a Rescue Dongle
 Consideration regarding USB boot." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/post/2018-06-20-a/" />
+<meta property="og:url" content="/post/2018-06-20-a/" />
 
 
 
@@ -78,7 +79,7 @@ Consideration regarding USB boot." />
 
 
 
-        <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
+        <meta property="og:image" content="/images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
@@ -109,11 +110,15 @@ Consideration regarding USB boot.">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/main.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/add-on.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/academicons.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
         
 
+        
+            
+                
+            
         
 
 
@@ -147,33 +152,39 @@ if (!doNotTrack) {
     
 <header id="header">
     
-      <h1><a href="https://jbrette.github.io/">post</a></h1>
+      <h1><a href="/">post</a></h1>
     
 
     <nav class="links">
         <ul>
             
                 <li>
-                    <a href="https://jbrette.github.io/">
+                    <a href="/">
                             <i class="fa fa-home">&nbsp;</i>Home
                     </a>
                 </li>
             
                 <li>
-                    <a href="https://jbrette.github.io/post/">
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/post/">
                             <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                     </a>
                 </li>
             
                 <li>
-                    <a href="https://jbrette.github.io/categories/">
-                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    <a href="/tags/">
+                            <i class="fa fa-list">&nbsp;</i>Tags
                     </a>
                 </li>
             
                 <li>
-                    <a href="https://jbrette.github.io/about/">
-                            <i class="">&nbsp;</i>About me
+                    <a href="/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
                     </a>
                 </li>
             
@@ -190,7 +201,7 @@ if (!doNotTrack) {
                 <a class="fa-search" href="#search">Search</a>
                 <form id="search" method="get" action="//google.com/search">
                     <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
+                    <input type="hidden" name="as_sitesearch" value="">
                 </form>
             </li>
             <li class="menu">
@@ -207,7 +218,7 @@ if (!doNotTrack) {
         <section>
             <form class="search" method="get" action="//google.com/search">
                 <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
+                <input type="hidden" name="as_sitesearch" value="">
             </form>
         </section>
 
@@ -216,7 +227,7 @@ if (!doNotTrack) {
             <ul class="links">
                 
                     <li>
-                        <a href="https://jbrette.github.io/">
+                        <a href="/">
                             <h3>
                                 <i class="fa fa-home">&nbsp;</i>Home
                             </h3>
@@ -224,7 +235,15 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="https://jbrette.github.io/post/">
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/">
                             <h3>
                                 <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                             </h3>
@@ -232,17 +251,17 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="https://jbrette.github.io/categories/">
+                        <a href="/tags/">
                             <h3>
-                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                                <i class="fa fa-list">&nbsp;</i>Tags
                             </h3>
                         </a>
                     </li>
                 
                     <li>
-                        <a href="https://jbrette.github.io/about/">
+                        <a href="/categories/">
                             <h3>
-                                <i class="">&nbsp;</i>About me
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
                             </h3>
                         </a>
                     </li>
@@ -265,7 +284,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></h3>
+                                <h3><a href="/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-28'>
@@ -277,7 +296,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a></h3>
+                                <h3><a href="/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-19'>
@@ -289,7 +308,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-18-a/">Compile and Test Portieris</a></h3>
+                                <h3><a href="/post/2018-07-18-a/">Compile and Test Portieris</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-18'>
@@ -301,7 +320,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></h3>
+                                <h3><a href="/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-17'>
@@ -313,7 +332,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-16-a/">Rebuild Hyperkube images</a></h3>
+                                <h3><a href="/post/2018-07-16-a/">Rebuild Hyperkube images</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-16'>
@@ -325,7 +344,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></h3>
+                                <h3><a href="/post/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-15'>
@@ -337,7 +356,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></h3>
+                                <h3><a href="/post/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-14'>
@@ -349,7 +368,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></h3>
+                                <h3><a href="/post/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-13'>
@@ -361,7 +380,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-12-a/">Enable docker remote API</a></h3>
+                                <h3><a href="/post/2018-07-12-a/">Enable docker remote API</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-12'>
@@ -373,7 +392,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-07-11-a/">Use github repo as helm chart repository</a></h3>
+                                <h3><a href="/post/2018-07-11-a/">Use github repo as helm chart repository</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-07-11'>
@@ -409,7 +428,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;text=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle&amp;via=" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fpost%2f2018-06-20-a%2f&amp;text=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle&amp;via=example" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -419,7 +438,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -430,7 +449,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -440,7 +459,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -450,7 +469,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -460,7 +479,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -470,7 +489,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;description=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-06-20-a%2f&amp;description=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -480,7 +499,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -499,7 +518,7 @@ if (!doNotTrack) {
   <header>
     <div class="title">
         
-            <h1><a href="https://jbrette.github.io/post/2018-06-20-a/">Create a Rapsberry PI Rescue Dongle</a></h1>
+            <h1><a href="/post/2018-06-20-a/">Create a Rapsberry PI Rescue Dongle</a></h1>
             
         
         
@@ -511,6 +530,8 @@ if (!doNotTrack) {
             datetime='2018-06-20'>
             June 20, 2018</time>
         <span class="author"></span>
+        
+            <p>3 minute read</p>
         
         
     </div>
@@ -525,7 +546,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;text=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle&amp;via=" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fpost%2f2018-06-20-a%2f&amp;text=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle&amp;via=example" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -535,7 +556,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -546,7 +567,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -556,7 +577,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -566,7 +587,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -576,7 +597,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2f2018-06-20-a%2f&amp;title=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -586,7 +607,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f&amp;description=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2f2018-06-20-a%2f&amp;description=Create%20a%20Rapsberry%20PI%20Rescue%20Dongle" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -596,7 +617,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2f2018-06-20-a%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -686,7 +707,7 @@ home-pi.kubedge.cloud | SUCCESS | rc=0 &gt;&gt;
 <li>Reboot the PI.</li>
 <li>Connect to the PI using the VNC or SSH. The PI has started from the OS installed on the Dongle.</li>
 <li>Insert the SD card into the PI. You will most likely have a popup and the filesystem from the SD card is automatically mounted.</li>
-<li>Start to use the tools to fix your SD card. For instance: <img src="https://jbrette.github.io/images/rescuepi/rescuing_sd.png" alt="" /></li>
+<li>Start to use the tools to fix your SD card. For instance: <img src="/images/rescuepi/rescuing_sd.png" alt="" /></li>
 <li>Shutdown and reboot. The PI will restart from the SD card.</li>
 </ul>
 
@@ -695,7 +716,7 @@ home-pi.kubedge.cloud | SUCCESS | rc=0 &gt;&gt;
 <p>First step is to reboot a PI without SD card from the Dongle and connect VNC Viewer to it.</p>
 
 <p>First insert the SD and close the popups
-<img src="https://jbrette.github.io/images/rescuepi/insert_sd.png" alt="" /></p>
+<img src="/images/rescuepi/insert_sd.png" alt="" /></p>
 
 <p>In a terminal run, sudo gparted</p>
 
@@ -704,22 +725,22 @@ home-pi.kubedge.cloud | SUCCESS | rc=0 &gt;&gt;
 unmount the mmc root partition
 </code></pre>
 
-<p><img src="https://jbrette.github.io/images/rescuepi/unmount_partition.png" alt="" /></p>
+<p><img src="/images/rescuepi/unmount_partition.png" alt="" /></p>
 
 <pre><code>Resize the current partition (down to 16G), create an extended one and 7*2G logical partition in that 14G partition)
 </code></pre>
 
-<p><img src="https://jbrette.github.io/images/rescuepi/create_partitions.png" alt="" /></p>
+<p><img src="/images/rescuepi/create_partitions.png" alt="" /></p>
 
 <pre><code>Apply the changes
 </code></pre>
 
-<p><img src="https://jbrette.github.io/images/rescuepi/applying_changes.png" alt="" /></p>
+<p><img src="/images/rescuepi/applying_changes.png" alt="" /></p>
 
 <pre><code>Shutdown or Reboot. The PI should restart from the SD anyway.
 </code></pre>
 
-<p><img src="https://jbrette.github.io/images/rescuepi/shutdown.png" alt="" /></p>
+<p><img src="/images/rescuepi/shutdown.png" alt="" /></p>
 
 <h3 id="reference-links">Reference Links</h3>
 
@@ -739,7 +760,7 @@ unmount the mmc root partition
                 <i class="fa fa-folder"></i>
                 
                 
-                <li><a class="article-category-link" href="https://jbrette.github.io/categories/wiki">wiki</a></li>
+                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
                 
             
         
@@ -753,7 +774,7 @@ unmount the mmc root partition
                 <i class="fa fa-tags"></i>
                 
                 
-                <li><a class="article-category-link" href="https://jbrette.github.io/tags/rpi">rpi</a></li>
+                <li><a class="article-category-link" href="tags/rpi">rpi</a></li>
                 
             
         
@@ -765,15 +786,38 @@ unmount the mmc root partition
 
 </article>
 
+    <article class="post">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
 
 <ul class="actions pagination">
     
-        <li><a href="https://jbrette.github.io/post/2018-06-19-a/"
+        <li><a href="/post/2018-06-19-a/"
                 class="button big previous">Add Raspberry PI node to Kubernetes Cluster in 10 min</a></li>
     
 
     
-        <li><a href="https://jbrette.github.io/post/2018-06-21-a/"
+        <li><a href="/post/2018-06-21-a/"
                 class="button big next">Setup SingleNode Kubernetes Cluster using kubeadm</a></li>
     
 </ul>
@@ -787,7 +831,109 @@ unmount the mmc root partition
   <section id="intro">
     
     
+      
+        <a href='/' class="logo"><img src="/images/logo.jpg" alt="avatar" /></a>
+      
     
+    
+      <header>
+        <h2>Jerome&#39;s Blog</h2>
+        <p>Building my edge cloud using using Raspberry PI, keep learning from the opensource community</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
     
   </section>
 
@@ -808,7 +954,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a>
+                <a href="/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a>
               </h3>
               
               <time class="published" datetime='2018-07-28'>
@@ -822,7 +968,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a>
+                <a href="/post/2018-07-19-a/">Build and Deploy MachineLearning Kubeflow Framework</a>
               </h3>
               
               <time class="published" datetime='2018-07-19'>
@@ -836,7 +982,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-18-a/">Compile and Test Portieris</a>
+                <a href="/post/2018-07-18-a/">Compile and Test Portieris</a>
               </h3>
               
               <time class="published" datetime='2018-07-18'>
@@ -850,7 +996,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a>
+                <a href="/post/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a>
               </h3>
               
               <time class="published" datetime='2018-07-17'>
@@ -864,7 +1010,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-16-a/">Rebuild Hyperkube images</a>
+                <a href="/post/2018-07-16-a/">Rebuild Hyperkube images</a>
               </h3>
               
               <time class="published" datetime='2018-07-16'>
@@ -878,7 +1024,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a>
+                <a href="/post/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a>
               </h3>
               
               <time class="published" datetime='2018-07-15'>
@@ -892,7 +1038,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a>
+                <a href="/post/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a>
               </h3>
               
               <time class="published" datetime='2018-07-14'>
@@ -906,7 +1052,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a>
+                <a href="/post/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a>
               </h3>
               
               <time class="published" datetime='2018-07-13'>
@@ -920,7 +1066,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-12-a/">Enable docker remote API</a>
+                <a href="/post/2018-07-12-a/">Enable docker remote API</a>
               </h3>
               
               <time class="published" datetime='2018-07-12'>
@@ -934,7 +1080,7 @@ unmount the mmc root partition
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2018-07-11-a/">Use github repo as helm chart repository</a>
+                <a href="/post/2018-07-11-a/">Use github repo as helm chart repository</a>
               </h3>
               
               <time class="published" datetime='2018-07-11'>
@@ -960,8 +1106,63 @@ unmount the mmc root partition
   
   
   
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/wiki/">wiki</a>
+                <span style="float:right;">30</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/wip/">wip</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/news/">news</a>
+                <span style="float:right;">2</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
 
   
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>About the author</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
   
 
   
@@ -969,7 +1170,39 @@ unmount the mmc root partition
     
       <ul class="icons">
         
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
         
+        
+  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
 
 
 
@@ -1005,28 +1238,7 @@ unmount the mmc root partition
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
 
 
 
@@ -1077,11 +1289,9 @@ unmount the mmc root partition
         
         
         
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/json.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
         <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
         <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/go.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
         <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
       
     
@@ -1090,11 +1300,15 @@ unmount the mmc root partition
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="https://jbrette.github.io/js/util.js"></script>
-      <script src="https://jbrette.github.io/js/main.js"></script>
-      <script src="https://jbrette.github.io/js/backToTop.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
     
 
+    
+      
+        
+      
     
 
     
