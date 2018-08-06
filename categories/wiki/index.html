@@ -31,8 +31,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-07-31 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-07-31 00:00:00 &#43;0000 UTC",
+        "datePublished": "2018-08-01 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-08-01 00:00:00 &#43;0000 UTC",
         "url" : "/categories/wiki/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -67,7 +67,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-07-31T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-08-01T00:00:00&#43;00:00"/>
 
 
 
@@ -268,6 +268,18 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/post/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-01'>
+                                    August 1, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/post/2018-07-31-a/">Build and Deploy Kubernetes Istio</a></h3>
                                 
                                 <time class="published" datetime=
@@ -374,18 +386,6 @@ if (!doNotTrack) {
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-14'>
-                                    July 14, 2018</time>
-                            </header>
-                            
-
-                        </article>
-                
 
                 
                     <a href=
@@ -405,6 +405,85 @@ if (!doNotTrack) {
     <div id="main">
         <h1>Wiki</h1>
         
+        
+            <article class="post">
+  <header>
+    <div class="title">
+        
+            <h2><a href="/post/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-08-01'>
+            August 1, 2018</time>
+        <span class="author"></span>
+        
+            <p>1 minute read</p>
+        
+        
+    </div>
+</header>
+
+  
+
+  
+  <p>Vault is aiming at improving security of the containers by rotating token and credential
+much more often than usual. Looks like it is especially effectiv to help rotate passwords
+used to access internal databases.</p>
+  <footer>
+    <ul class="actions">
+      <li><a href="/post/2018-08-01-a/" class="button big">Continue Reading</a></li>
+    </ul>
+  <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
+                
+                
+                <li><a class="article-category-link" href="categories/wip">wip</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="tags/kubernetes">kubernetes</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/security">security</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/vault">vault</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/rpi">rpi</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+</article>
+
         
             <article class="post">
   <header>
@@ -1082,79 +1161,6 @@ The problem here was to be able to cross compiled the latest version of Kubernet
 </article>
 
         
-            <article class="post">
-  <header>
-    <div class="title">
-        
-            <h2><a href="/post/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2018-07-14'>
-            July 14, 2018</time>
-        <span class="author"></span>
-        
-            <p>6 minute read</p>
-        
-        
-    </div>
-</header>
-
-  
-
-  
-  <p>In order to get the nodes and pods interface with each other accross the cluster.
-This post describes how I deployed Flannel acounting with the fact that some of the
-nodes have multiple interfaces (wlan0 and eth0).</p>
-  <footer>
-    <ul class="actions">
-      <li><a href="/post/2018-07-14-a/" class="button big">Continue Reading</a></li>
-    </ul>
-  <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-            
-            
-                <i class="fa fa-folder"></i>
-                
-                
-                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
-                
-            
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="tags/kubernetes">kubernetes</a></li>
-                
-                
-                <li><a class="article-category-link" href="tags/rpi">rpi</a></li>
-                
-                
-                <li><a class="article-category-link" href="tags/cni">cni</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
-
-  </footer>
-</article>
-
-        
 
         
 <ul class="actions pagination">
@@ -1299,6 +1305,20 @@ nodes have multiple interfaces (wlan0 and eth0).</p>
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/post/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-01'>
+                August 1, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/post/2018-07-31-a/">Build and Deploy Kubernetes Istio</a>
               </h3>
               
@@ -1422,20 +1442,6 @@ nodes have multiple interfaces (wlan0 and eth0).</p>
 
           </article>
         
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-14'>
-                July 14, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
       </div>
 
       
@@ -1469,7 +1475,7 @@ nodes have multiple interfaces (wlan0 and eth0).</p>
             <header>
               
                 <a href="/categories/wiki/">wiki</a>
-                <span style="float:right;">33</span>
+                <span style="float:right;">34</span>
               
             </header>
           </article>
@@ -1480,7 +1486,7 @@ nodes have multiple interfaces (wlan0 and eth0).</p>
             <header>
               
                 <a href="/categories/wip/">wip</a>
-                <span style="float:right;">11</span>
+                <span style="float:right;">12</span>
               
             </header>
           </article>
