@@ -29,8 +29,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-07-28 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-07-28 00:00:00 &#43;0000 UTC",
+        "datePublished": "2018-07-30 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-07-30 00:00:00 &#43;0000 UTC",
         "url" : "/tags/rpi/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -65,7 +65,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-07-28T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-07-30T00:00:00&#43;00:00"/>
 
 
 
@@ -266,6 +266,30 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/post/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-30'>
+                                    July 30, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-29'>
+                                    July 29, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></h3>
                                 
                                 <time class="published" datetime=
@@ -360,30 +384,6 @@ if (!doNotTrack) {
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/2018-07-12-a/">Enable docker remote API</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-12'>
-                                    July 12, 2018</time>
-                            </header>
-                            
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/2018-07-11-a/">Use github repo as helm chart repository</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-11'>
-                                    July 11, 2018</time>
-                            </header>
-                            
-
-                        </article>
-                
 
                 
                     <a href=
@@ -403,6 +403,163 @@ if (!doNotTrack) {
     <div id="main">
         <h1>Rpi</h1>
         
+        
+            <article class="post">
+  <header>
+    <div class="title">
+        
+            <h2><a href="/post/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-07-30'>
+            July 30, 2018</time>
+        <span class="author"></span>
+        
+            <p>1 minute read</p>
+        
+        
+    </div>
+</header>
+
+  
+
+  
+  <p>test-infra seems to somewhat overlap with sonobuoy features. The purpose of this post is
+to fetch the code, compile and deploy it on a Kubernetes cluster.</p>
+  <footer>
+    <ul class="actions">
+      <li><a href="/post/2018-07-30-a/" class="button big">Continue Reading</a></li>
+    </ul>
+  <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
+                
+                
+                <li><a class="article-category-link" href="categories/wip">wip</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="tags/kubernetes">kubernetes</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/test-infra">test-infra</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/sonobuoy">sonobuoy</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/testing">testing</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/rpi">rpi</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+</article>
+
+        
+            <article class="post">
+  <header>
+    <div class="title">
+        
+            <h2><a href="/post/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-07-29'>
+            July 29, 2018</time>
+        <span class="author"></span>
+        
+            <p>1 minute read</p>
+        
+        
+    </div>
+</header>
+
+  
+
+  
+  <p>kustomize seems to help the setup of multiple clusters by removing copy paste accross cluster
+and still keeping the configuration file has plain yaml instead of the template like it
+is often the case with t</p>
+  <footer>
+    <ul class="actions">
+      <li><a href="/post/2018-07-29-a/" class="button big">Continue Reading</a></li>
+    </ul>
+  <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
+                
+                
+                <li><a class="article-category-link" href="categories/wip">wip</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="tags/kubernetes">kubernetes</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/kustomize">kustomize</a></li>
+                
+                
+                <li><a class="article-category-link" href="tags/rpi">rpi</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+</article>
+
         
             <article class="post">
   <header>
@@ -989,149 +1146,6 @@ a kubernetes cluster to ensure HA of the software</p>
 </article>
 
         
-            <article class="post">
-  <header>
-    <div class="title">
-        
-            <h2><a href="/post/2018-07-04-a/">Install HomeAssistant on docker &#43; Raspberry PI3</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2018-07-04'>
-            July 4, 2018</time>
-        <span class="author"></span>
-        
-            <p>6 minute read</p>
-        
-        
-    </div>
-</header>
-
-  
-
-  
-  <p>HomeAssistant running on Raspberry PI is one of way where you don&rsquo;t have to rely on outside
-services to orchestrate your IOT. Then comes the issues of high availability of the software
-if only running on one PI. By dockerizing the software first, this open the doors to leverage
-a kubernetes cluster to ensure HA of the software</p>
-  <footer>
-    <ul class="actions">
-      <li><a href="/post/2018-07-04-a/" class="button big">Continue Reading</a></li>
-    </ul>
-  <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-            
-            
-                <i class="fa fa-folder"></i>
-                
-                
-                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
-                
-            
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="tags/docker">docker</a></li>
-                
-                
-                <li><a class="article-category-link" href="tags/rpi">rpi</a></li>
-                
-                
-                <li><a class="article-category-link" href="tags/homeautomation">homeautomation</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
-
-  </footer>
-</article>
-
-        
-            <article class="post">
-  <header>
-    <div class="title">
-        
-            <h2><a href="/post/2018-07-03-a/">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2018-07-03'>
-            July 3, 2018</time>
-        <span class="author"></span>
-        
-            <p>7 minute read</p>
-        
-        
-    </div>
-</header>
-
-  
-
-  
-  <p>Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning,
-from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.</p>
-  <footer>
-    <ul class="actions">
-      <li><a href="/post/2018-07-03-a/" class="button big">Continue Reading</a></li>
-    </ul>
-  <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-            
-            
-                <i class="fa fa-folder"></i>
-                
-                
-                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
-                
-            
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="tags/kubernetes">kubernetes</a></li>
-                
-                
-                <li><a class="article-category-link" href="tags/rpi">rpi</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
-
-  </footer>
-</article>
-
-        
 
         
 <ul class="actions pagination">
@@ -1276,6 +1290,34 @@ from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/post/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-30'>
+                July 30, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-29'>
+                July 29, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/post/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a>
               </h3>
               
@@ -1385,34 +1427,6 @@ from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the
 
           </article>
         
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/2018-07-12-a/">Enable docker remote API</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-12'>
-                July 12, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/2018-07-11-a/">Use github repo as helm chart repository</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-11'>
-                July 11, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
       </div>
 
       
@@ -1446,7 +1460,7 @@ from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the
             <header>
               
                 <a href="/categories/wiki/">wiki</a>
-                <span style="float:right;">30</span>
+                <span style="float:right;">32</span>
               
             </header>
           </article>
@@ -1457,7 +1471,7 @@ from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the
             <header>
               
                 <a href="/categories/wip/">wip</a>
-                <span style="float:right;">8</span>
+                <span style="float:right;">10</span>
               
             </header>
           </article>
