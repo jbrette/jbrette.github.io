@@ -837,10 +837,11 @@ kube-apiserver-master-pi                1/1     Running            2          53
 kube-controller-manager-master-pi       1/1     Running            1          53m
 kube-flannel-ds-4495g                   0/1     CrashLoopBackOff   10         75d
 ...
+</code></pre>
 
-same hack to fix the issue
-```bash
-sudo ip link delete flannel.1
+<p>same hack to fix the issue</p>
+
+<pre><code class="language-bash">sudo ip link delete flannel.1
 </code></pre>
 
 <p>same hack seems to be effective</p>
@@ -854,6 +855,17 @@ kube-apiserver-master-pi                1/1     Running   2          77m
 kube-controller-manager-master-pi       1/1     Running   1          77m
 kube-flannel-ds-4495g                   1/1     Running   11         75d
 ...
+</code></pre>
+
+<h3 id="other-slave-node">Other slave node</h3>
+
+<pre><code>sudo apt-get clean
+sudo apt-get update
+sudo apt-get install kubeadm
+sudo apt-get install kubelet
+sudo kubeadm upgrade node config --kubelet-version $(kubelet --version | cut -d ' ' -f 2)
+sudo systemctl restart kubelet
+sudo ip link delete flannel.1
 </code></pre>
 
 <h2 id="conclusion">Conclusion</h2>
