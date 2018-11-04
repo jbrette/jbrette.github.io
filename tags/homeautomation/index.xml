@@ -12,32 +12,32 @@
     
     
     <item>
-      <title>ZWave/ZigBee network and Linear HUSBZB‑1</title>
-      <link>/post/2018-07-06-a/</link>
+      <title>ZWave/ZigBee</title>
+      <link>/iot/2018-07-06-a/</link>
       <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-06-a/</guid>
+      <guid>/iot/2018-07-06-a/</guid>
       <description>Goal In order to transforme a PI into a home automation controller, it is necessary to add Zwave and ZigBee capabilities to the the Wifi and Bluetooth capabilities of the PI.
 Key  Transform Raspberry-PI + Dongle into a SUC ZWave controller Try to use with OpenHAB or HomeAssistant  Testing on the OpenHAB Container The OpenHAB architecture is Java based.
 Testing on the HomeAssistant Container HomeAssistant is Python based and relies on OpenZWave.</description>
     </item>
     
     <item>
-      <title>Install OpenHAB on docker &#43; Raspberry PI3</title>
-      <link>/post/2018-07-05-a/</link>
+      <title>OpenHAB</title>
+      <link>/iot/2018-07-05-a/</link>
       <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-05-a/</guid>
+      <guid>/iot/2018-07-05-a/</guid>
       <description>Goal OpenHAB running on Raspberry PI is one of way where you don&amp;rsquo;t have to rely on outside services to orchestrate your IOT. Then comes the issues of high availability of the software if only running on one PI. By dockerizing the software first, this open the doors to leverage a kubernetes cluster to ensure HA of the software
 Key Aspects  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle.</description>
     </item>
     
     <item>
-      <title>Install HomeAssistant on docker &#43; Raspberry PI3</title>
-      <link>/post/2018-07-04-a/</link>
+      <title>HomeAssistant</title>
+      <link>/iot/2018-07-04-a/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-04-a/</guid>
+      <guid>/iot/2018-07-04-a/</guid>
       <description>Goal HomeAssistant running on Raspberry PI is one of way where you don&amp;rsquo;t have to rely on outside services to orchestrate your IOT. Then comes the issues of high availability of the software if only running on one PI. By dockerizing the software first, this open the doors to leverage a kubernetes cluster to ensure HA of the software
 Key Aspects  Use the 3 nodes Raspeberry Cluster Access the WIFI, ZWave and Zigbee network Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle.</description>
     </item>

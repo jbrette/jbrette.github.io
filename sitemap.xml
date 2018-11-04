@@ -33,7 +33,12 @@
   </url>
   
   <url>
-    <loc>/post/2018-07-19-a/</loc>
+    <loc>/blockchain/2018-07-20-a/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/ai_ml/2018-07-19-a/</loc>
     <lastmod>2018-07-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -88,17 +93,17 @@
   </url>
   
   <url>
-    <loc>/post/2018-07-06-a/</loc>
+    <loc>/iot/2018-07-06-a/</loc>
     <lastmod>2018-07-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-07-05-a/</loc>
+    <loc>/iot/2018-07-05-a/</loc>
     <lastmod>2018-07-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-07-04-a/</loc>
+    <loc>/iot/2018-07-04-a/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -203,7 +208,25 @@
   </url>
   
   <url>
+    <loc>/ai_ml/</loc>
+    <lastmod>2018-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blockchain/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/iot/</loc>
+    <lastmod>2018-07-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -225,6 +248,12 @@
   </url>
   
   <url>
+    <loc>/categories/ai/</loc>
+    <lastmod>2018-07-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/ansible/</loc>
     <lastmod>2018-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -233,6 +262,18 @@
   <url>
     <loc>/tags/bigdata/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/blockchain/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/blockchain/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -285,6 +326,12 @@
   </url>
   
   <url>
+    <loc>/categories/iot/</loc>
+    <lastmod>2018-07-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/istio/</loc>
     <lastmod>2018-07-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -304,6 +351,12 @@
   
   <url>
     <loc>/tags/kubedge/</loc>
+    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/kubedge/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -389,6 +442,12 @@
   <url>
     <loc>/categories/wiki/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/wiki-kubedge/</loc>
+    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

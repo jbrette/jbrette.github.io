@@ -62,11 +62,21 @@ Key Aspects  Compile and deploy the Kustomize code in Kustomize  Deploy  WIP  Co
     </item>
     
     <item>
-      <title>Build and Deploy MachineLearning Kubeflow Framework</title>
-      <link>/post/2018-07-19-a/</link>
+      <title>Ethereum</title>
+      <link>/blockchain/2018-07-20-a/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blockchain/2018-07-20-a/</guid>
+      <description> Goal Install Ethereum on Kubernetes and PI
+Key Aspects  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  Part3  </description>
+    </item>
+    
+    <item>
+      <title>Kubeflow</title>
+      <link>/ai_ml/2018-07-19-a/</link>
       <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-19-a/</guid>
+      <guid>/ai_ml/2018-07-19-a/</guid>
       <description> Goal Kubeflow is a process that allows you to deploy machine learning infrastructure on top of a Kubernetes cluster. The goal here is to deploy Kubeflow first on a local simple Kubernetes cluster running in a VM and then deploy it in the Kubernetes PI Cluster
 Key Aspects  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  [Kubernetes cross build]()  </description>
     </item>

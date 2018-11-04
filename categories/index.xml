@@ -11,6 +11,42 @@
     
     
     <item>
+      <title>ai</title>
+      <link>/categories/ai/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blockchain</title>
+      <link>/categories/blockchain/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/blockchain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>/categories/iot/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubedge</title>
+      <link>/categories/kubedge/</link>
+      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/kubedge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>news</title>
       <link>/categories/news/</link>
       <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate>
@@ -25,6 +61,15 @@
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/categories/wiki/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wiki, kubedge</title>
+      <link>/categories/wiki-kubedge/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/wiki-kubedge/</guid>
       <description></description>
     </item>
     
