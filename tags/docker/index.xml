@@ -6,10 +6,21 @@
     <description>Recent content in docker on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Enable docker remote API</title>
+      <link>/kubedge/2018-07-12-a/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/kubedge/2018-07-12-a/</guid>
+      <description>Goal In order to build image for Raspberry PI, it is sometimes usefull to be able to leverate infrastruture from a remote VM. For instance you can cross-build golang executable for ARM32v7 and transfer it to build an image on the remote PI. (used for Tiller docker image)
+Generating the server certs In the case this Kubernetes cluster, the master is running on master-pi with IP address 192.168.1.95
+as root</description>
+    </item>
     
     <item>
       <title>Install OpenHAB on docker &#43; Raspberry PI3</title>
