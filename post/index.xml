@@ -1,179 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jerome Brette&#39;s Blog</title>
+    <title>Post on Jerome Brette&#39;s Blog</title>
     <link>/post/</link>
-    <description>Recent content on Jerome Brette&#39;s Blog</description>
+    <description>Recent content in Post on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Build and Deploy Kubernetes Hashicorp Vault</title>
-      <link>/post/2018-08-01-a/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      <title>Prometheus</title>
+      <link>/post/2018-10-03-a/</link>
+      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-08-01-a/</guid>
-      <description> Goal Vault is aiming at improving security of the containers by rotating token and credential much more often than usual. Looks like it is especially effectiv to help rotate passwords used to access internal databases.
-Key Aspects  Compile and deploy the vault code in vault  Deploy  WIP  Conclusion  WIP  Reference Links  Official HashiCorp Code  </description>
+      <guid>/post/2018-10-03-a/</guid>
+      <description>Prometheus deploys on Kubedge using Helm Charts.
+Kubedge</description>
     </item>
     
     <item>
-      <title>Build and Deploy Kubernetes Istio</title>
-      <link>/post/2018-07-31-a/</link>
-      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      <title>Rolling Upgrade</title>
+      <link>/post/2018-09-28-a/</link>
+      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-31-a/</guid>
-      <description> Goal Istio is aiming at improving security of the containers. One of the key aspects is the end to end encryption of the commnucation, the role of citadel to ensure the management of the certificates, the renewal of the certificates. As always, the goal of this post is to study that new tool and figure out I can leverage it in my day to day work.
-Key Aspects  Compile and deploy the istio code in istio  Deploy  WIP  Conclusion  WIP  Reference Links  Official istio Code  </description>
+      <guid>/post/2018-09-28-a/</guid>
+      <description>Blinkt on Kubedge used to demonstrate Kubernetes Rolling Upgrade
+Kubedge</description>
     </item>
     
     <item>
-      <title>Build and Deploy Kubernetes test-infra</title>
-      <link>/post/2018-07-30-a/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      <title>Kubernetes Replicas using Blinkt</title>
+      <link>/post/2018-09-26-a/</link>
+      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-30-a/</guid>
-      <description> Goal test-infra seems to somewhat overlap with sonobuoy features. The purpose of this post is to fetch the code, compile and deploy it on a Kubernetes cluster.
-Key Aspects  Compile and deploy the test-infra code in test-infra  Deploy  WIP  Conclusion  WIP  Reference Links  Official test-infra Code  </description>
-    </item>
-    
-    <item>
-      <title>Build and Deploy Kubernetes Kustomize</title>
-      <link>/post/2018-07-29-a/</link>
-      <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-07-29-a/</guid>
-      <description> Goal kustomize seems to help the setup of multiple clusters by removing copy paste accross cluster and still keeping the configuration file has plain yaml instead of the template like it is often the case with t
-Key Aspects  Compile and deploy the Kustomize code in Kustomize  Deploy  WIP  Conclusion  WIP  Reference Links  Kustomize Description Official Kustomize Code  </description>
-    </item>
-    
-    <item>
-      <title>Compile and Test Portieris</title>
-      <link>/post/2018-07-18-a/</link>
-      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-07-18-a/</guid>
-      <description>Goal One of the biggest security risks related to Kubernetes are often linked to the fact that it is really hard to ensure that only &amp;ldquo;approved&amp;rdquo; images are deployed in your Kubernetes cluster. The goal here is to leverage Notary and the a project called &amp;ldquo;Portieris&amp;rdquo; created by IBM.
-Key Aspects  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.</description>
-    </item>
-    
-    <item>
-      <title>Compile and Test SONOBUOY</title>
-      <link>/post/2018-07-02-a/</link>
-      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-07-02-a/</guid>
-      <description>Goal Sonobouy, deploys in a Kubernetes cluster and helps to assesse the compliance of that cluster
-Key Aspects  Fork Sonobuoy Compile the tools Test it  Clone and Compile mkdir -p $HOME/src/github.com/heptio cd $HOME/src/github.com/heptio git clone git@github.com:jbrette/sonobuoy.git  export GOPATH=$HOME go version go version go1.10.1 linux/amd64  go get -u -v github.com/heptio/sonobuoy  sonobuoy run sonobuoy status  kubectl get all -n heptio-sonobuoy NAME READY STATUS RESTARTS AGE pod/sonobuoy 1/1 Running 0 14m pod/sonobuoy-e2e-job-5fff584d11364ca1 2/2 Running 0 12m pod/sonobuoy-systemd-logs-daemon-set-1c53f31cf14246ca-mhztp 2/2 Running 0 12m NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/sonobuoy-master ClusterIP 10.</description>
-    </item>
-    
-    <item>
-      <title>Creating simple Python server container</title>
-      <link>/post/2018-07-01-a/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-07-01-a/</guid>
-      <description>Goal As we did for Go and Java, where is was possible to create an Dockerfile starting from &amp;ldquo;scratch&amp;rdquo;, the goal of this post is to create a python base server container with a minimum about of packages (debian and python) to reduce the security exposure of the container as well as the image size.
-Key Aspects  Use SCRATCH has base image to keep size minimum Simple HelloWorld Python web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Simple Python Server The pythonhttpserver repo showcases: - How to create a simple Python3 server - How to leverage Travis to compile for amd64 and arm32v7.</description>
-    </item>
-    
-    <item>
-      <title>Update Kubernetes to 1.11 on Ubuntu</title>
-      <link>/post/2018-06-30-a/</link>
-      <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-30-a/</guid>
-      <description>Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
-Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubelet 1.</description>
-    </item>
-    
-    <item>
-      <title>Creating simple GO server container</title>
-      <link>/post/2018-06-29-a/</link>
-      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-29-a/</guid>
-      <description>Goal  Use SCRATCH has base image to keep size minimum Simple HelloWorld GO web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Simple GO Server compilation The gohttpserver repo showcases: - How to compile a GO process - How to leverage Travis to compile for amd64 and arm32v7. - Branch amd64 is for normal PC and HP server. - Branch arm32v7 produces software usable on Raspberry PI 3B+</description>
-    </item>
-    
-    <item>
-      <title>Creating simple Java 10 server container</title>
-      <link>/post/2018-06-28-a/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-28-a/</guid>
-      <description>Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java.</description>
-    </item>
-    
-    <item>
-      <title>Manual Update of CoreOS</title>
-      <link>/post/2018-06-27-a/</link>
-      <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-27-a/</guid>
-      <description>Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
-Setup of the cluster TBD
-Update of the cluster I found the following link
-sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &amp;lt;&amp;lt;EOF &amp;gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&amp;quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&amp;quot; EOF &#39;  sudo bash -ec &#39;uname -a &amp;amp;&amp;amp; cat /etc/lsb-release &amp;amp;&amp;amp; \ echo GROUP=stable &amp;gt; /etc/coreos/update.</description>
-    </item>
-    
-    <item>
-      <title>Zuul</title>
-      <link>/post/2018-06-26-a/</link>
-      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-26-a/</guid>
-      <description> Goal OpenStack project are using Zuul for CI/CD process. Zuul itself is based on Ansible to perform the tasks. This post is the collection of notes and tips used during the couple of update I did to some openstack projects.
-Understanding Zuul  WIP  Usefull Links  WIP  </description>
-    </item>
-    
-    <item>
-      <title>Setup github/gerrit behind a corporate http proxy</title>
-      <link>/post/2018-06-25-a/</link>
-      <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-25-a/</guid>
-      <description>Goal This is a post of the small set of notes taken to setup gerrit review behind corporate proxy.
-Access GitHub/Gerrit from behind a corporate http proxy TBD
-Links TBD</description>
-    </item>
-    
-    <item>
-      <title>docker.io versus docker-ce</title>
-      <link>/post/2018-06-24-a/</link>
-      <pubDate>Sun, 24 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-24-a/</guid>
-      <description>Goal Wondering why you have a strange error such as &amp;lsquo;from &amp;hellip;&amp;rsquo; when running docker build. The reason is linked to an older version of docker installed.
-Remove the current docker.io You need to remove the current docker.io.
-sudo apt-cache policy docker.io curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;quot; sudo apt-get update sudo apt-cache policy docker-ce sudo apt-get remove docker docker-engine docker.</description>
-    </item>
-    
-    <item>
-      <title>Setup multiple GitHub account on a single machine</title>
-      <link>/post/2018-06-23-a/</link>
-      <pubDate>Sat, 23 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-23-a/</guid>
-      <description> Goal In orderer to manage your personal GitHub projects or an your compagny projects, it is usefull to be able to conigure your .ssh directory.
-Setup multiple GitHub account TBD
-Usefull Links  Link1  </description>
-    </item>
-    
-    <item>
-      <title>Setup your GOLANG environment</title>
-      <link>/post/2018-06-22-a/</link>
-      <pubDate>Fri, 22 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018-06-22-a/</guid>
-      <description>Goal A lot of the opensource projects evolvoving around Kubernetes are written in go. It is very usefull to be able to rebuild so projects using go get or go build.
-Installing the right version of GO If you have strange errors, when running go get &amp;hellip;., chances are that your version of GO is old. On Ubuntu, it is actually quite simple to address the issue.
-If you are still running Ubuntu 16.</description>
+      <guid>/post/2018-09-26-a/</guid>
+      <description>Blinkt on Kubedge used to demonstrate Kubernetes replicas and the configuration as code.
+Kubedge</description>
     </item>
     
   </channel>

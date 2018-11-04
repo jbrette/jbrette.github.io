@@ -23,40 +23,40 @@ Master node upgrade using kubeadm # apt-mark unhold kubeadm &amp;amp;&amp;amp; \
     
     <item>
       <title>Build and Deploy Kubernetes Hashicorp Vault</title>
-      <link>/post/2018-08-01-a/</link>
+      <link>/misc/2018-08-01-a/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-08-01-a/</guid>
+      <guid>/misc/2018-08-01-a/</guid>
       <description> Goal Vault is aiming at improving security of the containers by rotating token and credential much more often than usual. Looks like it is especially effectiv to help rotate passwords used to access internal databases.
 Key Aspects  Compile and deploy the vault code in vault  Deploy  WIP  Conclusion  WIP  Reference Links  Official HashiCorp Code  </description>
     </item>
     
     <item>
       <title>Build and Deploy Kubernetes Istio</title>
-      <link>/post/2018-07-31-a/</link>
+      <link>/misc/2018-07-31-a/</link>
       <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-31-a/</guid>
+      <guid>/misc/2018-07-31-a/</guid>
       <description> Goal Istio is aiming at improving security of the containers. One of the key aspects is the end to end encryption of the commnucation, the role of citadel to ensure the management of the certificates, the renewal of the certificates. As always, the goal of this post is to study that new tool and figure out I can leverage it in my day to day work.
 Key Aspects  Compile and deploy the istio code in istio  Deploy  WIP  Conclusion  WIP  Reference Links  Official istio Code  </description>
     </item>
     
     <item>
       <title>Build and Deploy Kubernetes test-infra</title>
-      <link>/post/2018-07-30-a/</link>
+      <link>/misc/2018-07-30-a/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-30-a/</guid>
+      <guid>/misc/2018-07-30-a/</guid>
       <description> Goal test-infra seems to somewhat overlap with sonobuoy features. The purpose of this post is to fetch the code, compile and deploy it on a Kubernetes cluster.
 Key Aspects  Compile and deploy the test-infra code in test-infra  Deploy  WIP  Conclusion  WIP  Reference Links  Official test-infra Code  </description>
     </item>
     
     <item>
       <title>Build and Deploy Kubernetes Kustomize</title>
-      <link>/post/2018-07-29-a/</link>
+      <link>/misc/2018-07-29-a/</link>
       <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-29-a/</guid>
+      <guid>/misc/2018-07-29-a/</guid>
       <description> Goal kustomize seems to help the setup of multiple clusters by removing copy paste accross cluster and still keeping the configuration file has plain yaml instead of the template like it is often the case with t
 Key Aspects  Compile and deploy the Kustomize code in Kustomize  Deploy  WIP  Conclusion  WIP  Reference Links  Kustomize Description Official Kustomize Code  </description>
     </item>
@@ -83,10 +83,10 @@ Key Aspects  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  [Kubernetes cro
     
     <item>
       <title>Compile and Test Portieris</title>
-      <link>/post/2018-07-18-a/</link>
+      <link>/misc/2018-07-18-a/</link>
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-18-a/</guid>
+      <guid>/misc/2018-07-18-a/</guid>
       <description>Goal One of the biggest security risks related to Kubernetes are often linked to the fact that it is really hard to ensure that only &amp;ldquo;approved&amp;rdquo; images are deployed in your Kubernetes cluster. The goal here is to leverage Notary and the a project called &amp;ldquo;Portieris&amp;rdquo; created by IBM.
 Key Aspects  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.</description>
     </item>
@@ -123,20 +123,20 @@ Procedures  WIP  Results    Reference Links  TBD  </description>
     
     <item>
       <title>Zuul</title>
-      <link>/post/2018-06-26-a/</link>
+      <link>/misc/2018-06-26-a/</link>
       <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-06-26-a/</guid>
+      <guid>/misc/2018-06-26-a/</guid>
       <description> Goal OpenStack project are using Zuul for CI/CD process. Zuul itself is based on Ansible to perform the tasks. This post is the collection of notes and tips used during the couple of update I did to some openstack projects.
 Understanding Zuul  WIP  Usefull Links  WIP  </description>
     </item>
     
     <item>
       <title>Setup github/gerrit behind a corporate http proxy</title>
-      <link>/post/2018-06-25-a/</link>
+      <link>/misc/2018-06-25-a/</link>
       <pubDate>Mon, 25 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-06-25-a/</guid>
+      <guid>/misc/2018-06-25-a/</guid>
       <description>Goal This is a post of the small set of notes taken to setup gerrit review behind corporate proxy.
 Access GitHub/Gerrit from behind a corporate http proxy TBD
 Links TBD</description>
@@ -144,10 +144,10 @@ Links TBD</description>
     
     <item>
       <title>Setup multiple GitHub account on a single machine</title>
-      <link>/post/2018-06-23-a/</link>
+      <link>/misc/2018-06-23-a/</link>
       <pubDate>Sat, 23 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-06-23-a/</guid>
+      <guid>/misc/2018-06-23-a/</guid>
       <description> Goal In orderer to manage your personal GitHub projects or an your compagny projects, it is usefull to be able to conigure your .ssh directory.
 Setup multiple GitHub account TBD
 Usefull Links  Link1  </description>

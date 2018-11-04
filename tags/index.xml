@@ -29,6 +29,15 @@
     </item>
     
     <item>
+      <title>blinkt</title>
+      <link>/tags/blinkt/</link>
+      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/blinkt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>blockchain</title>
       <link>/tags/blockchain/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
@@ -139,7 +148,7 @@
     <item>
       <title>kubedge</title>
       <link>/tags/kubedge/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/kubedge/</guid>
       <description></description>
@@ -178,6 +187,15 @@
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/portieris/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prometheus</title>
+      <link>/tags/prometheus/</link>
+      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/prometheus/</guid>
       <description></description>
     </item>
     

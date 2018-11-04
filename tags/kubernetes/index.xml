@@ -23,40 +23,40 @@ Master node upgrade using kubeadm # apt-mark unhold kubeadm &amp;amp;&amp;amp; \
     
     <item>
       <title>Build and Deploy Kubernetes Hashicorp Vault</title>
-      <link>/post/2018-08-01-a/</link>
+      <link>/misc/2018-08-01-a/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-08-01-a/</guid>
+      <guid>/misc/2018-08-01-a/</guid>
       <description> Goal Vault is aiming at improving security of the containers by rotating token and credential much more often than usual. Looks like it is especially effectiv to help rotate passwords used to access internal databases.
 Key Aspects  Compile and deploy the vault code in vault  Deploy  WIP  Conclusion  WIP  Reference Links  Official HashiCorp Code  </description>
     </item>
     
     <item>
       <title>Build and Deploy Kubernetes Istio</title>
-      <link>/post/2018-07-31-a/</link>
+      <link>/misc/2018-07-31-a/</link>
       <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-31-a/</guid>
+      <guid>/misc/2018-07-31-a/</guid>
       <description> Goal Istio is aiming at improving security of the containers. One of the key aspects is the end to end encryption of the commnucation, the role of citadel to ensure the management of the certificates, the renewal of the certificates. As always, the goal of this post is to study that new tool and figure out I can leverage it in my day to day work.
 Key Aspects  Compile and deploy the istio code in istio  Deploy  WIP  Conclusion  WIP  Reference Links  Official istio Code  </description>
     </item>
     
     <item>
       <title>Build and Deploy Kubernetes test-infra</title>
-      <link>/post/2018-07-30-a/</link>
+      <link>/misc/2018-07-30-a/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-30-a/</guid>
+      <guid>/misc/2018-07-30-a/</guid>
       <description> Goal test-infra seems to somewhat overlap with sonobuoy features. The purpose of this post is to fetch the code, compile and deploy it on a Kubernetes cluster.
 Key Aspects  Compile and deploy the test-infra code in test-infra  Deploy  WIP  Conclusion  WIP  Reference Links  Official test-infra Code  </description>
     </item>
     
     <item>
       <title>Build and Deploy Kubernetes Kustomize</title>
-      <link>/post/2018-07-29-a/</link>
+      <link>/misc/2018-07-29-a/</link>
       <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-29-a/</guid>
+      <guid>/misc/2018-07-29-a/</guid>
       <description> Goal kustomize seems to help the setup of multiple clusters by removing copy paste accross cluster and still keeping the configuration file has plain yaml instead of the template like it is often the case with t
 Key Aspects  Compile and deploy the Kustomize code in Kustomize  Deploy  WIP  Conclusion  WIP  Reference Links  Kustomize Description Official Kustomize Code  </description>
     </item>
@@ -92,10 +92,10 @@ Key Aspects  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  [Kubernetes cro
     
     <item>
       <title>Compile and Test Portieris</title>
-      <link>/post/2018-07-18-a/</link>
+      <link>/misc/2018-07-18-a/</link>
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-18-a/</guid>
+      <guid>/misc/2018-07-18-a/</guid>
       <description>Goal One of the biggest security risks related to Kubernetes are often linked to the fact that it is really hard to ensure that only &amp;ldquo;approved&amp;rdquo; images are deployed in your Kubernetes cluster. The goal here is to leverage Notary and the a project called &amp;ldquo;Portieris&amp;rdquo; created by IBM.
 Key Aspects  Rebuild the Notary Rebuild and Deploy Portieris using Helm  Build Notary Clone go get github.com/theupdateframework/notary go install -tags pkcs11 github.</description>
     </item>
@@ -182,20 +182,20 @@ Key Aspects  Build a Raspberry 3B+ Cluster Deploy Kubernetes on that Cluster  Ha
     
     <item>
       <title>Compile and Test SONOBUOY</title>
-      <link>/post/2018-07-02-a/</link>
+      <link>/misc/2018-07-02-a/</link>
       <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-07-02-a/</guid>
+      <guid>/misc/2018-07-02-a/</guid>
       <description>Goal Sonobouy, deploys in a Kubernetes cluster and helps to assesse the compliance of that cluster
 Key Aspects  Fork Sonobuoy Compile the tools Test it  Clone and Compile mkdir -p $HOME/src/github.com/heptio cd $HOME/src/github.com/heptio git clone git@github.com:jbrette/sonobuoy.git  export GOPATH=$HOME go version go version go1.10.1 linux/amd64  go get -u -v github.com/heptio/sonobuoy  sonobuoy run sonobuoy status  kubectl get all -n heptio-sonobuoy NAME READY STATUS RESTARTS AGE pod/sonobuoy 1/1 Running 0 14m pod/sonobuoy-e2e-job-5fff584d11364ca1 2/2 Running 0 12m pod/sonobuoy-systemd-logs-daemon-set-1c53f31cf14246ca-mhztp 2/2 Running 0 12m NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/sonobuoy-master ClusterIP 10.</description>
     </item>
     
     <item>
       <title>Update Kubernetes to 1.11 on Ubuntu</title>
-      <link>/post/2018-06-30-a/</link>
+      <link>/misc/2018-06-30-a/</link>
       <pubDate>Sat, 30 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-06-30-a/</guid>
+      <guid>/misc/2018-06-30-a/</guid>
       <description>Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
 Initial set up Kubernetes 1.10.4 is installed
 cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main  sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool  sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description +++-======================================-========================-========================-================================================================================= ii kubelet 1.</description>
@@ -219,25 +219,6 @@ sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl  sudo 
       
       <guid>/kubedge/2018-06-19-a/</guid>
       <description>Goal During some of the manipulation of the partition table of my SD card, I ended up screwing up both my SD card and my backup Win32DiskImage backup. Moreover if your SD card is 32G, it takes around 30 minute to restore from backup. Hence the idea to come up with a way to build more resiliency in the cluster. Recreating a node from scratch should not take more than 10 mn.</description>
-    </item>
-    
-    <item>
-      <title>Welcome to Hugo!</title>
-      <link>/news/2018-01-02-a/</link>
-      <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/news/2018-01-02-a/</guid>
-      <description>You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</description>
-    </item>
-    
-    <item>
-      <title>Welcome to Jekyll!</title>
-      <link>/news/2018-01-01-a/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/news/2018-01-01-a/</guid>
-      <description>You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
-To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.</description>
     </item>
     
   </channel>

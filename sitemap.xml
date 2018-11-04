@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/2018-10-03-a/</loc>
+    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/kubedge/2018-09-28-a/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-08-01-a/</loc>
+    <loc>/post/2018-09-28-a/</loc>
+    <lastmod>2018-09-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2018-09-26-a/</loc>
+    <lastmod>2018-09-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/misc/2018-08-01-a/</loc>
     <lastmod>2018-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-07-31-a/</loc>
+    <loc>/misc/2018-07-31-a/</loc>
     <lastmod>2018-07-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-07-30-a/</loc>
+    <loc>/misc/2018-07-30-a/</loc>
     <lastmod>2018-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-07-29-a/</loc>
+    <loc>/misc/2018-07-29-a/</loc>
     <lastmod>2018-07-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,7 +58,7 @@
   </url>
   
   <url>
-    <loc>/post/2018-07-18-a/</loc>
+    <loc>/misc/2018-07-18-a/</loc>
     <lastmod>2018-07-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -113,57 +128,57 @@
   </url>
   
   <url>
-    <loc>/post/2018-07-02-a/</loc>
+    <loc>/misc/2018-07-02-a/</loc>
     <lastmod>2018-07-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-07-01-a/</loc>
+    <loc>/misc/2018-07-01-a/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-30-a/</loc>
+    <loc>/misc/2018-06-30-a/</loc>
     <lastmod>2018-06-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-29-a/</loc>
+    <loc>/misc/2018-06-29-a/</loc>
     <lastmod>2018-06-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-28-a/</loc>
+    <loc>/misc/2018-06-28-a/</loc>
     <lastmod>2018-06-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-27-a/</loc>
+    <loc>/misc/2018-06-27-a/</loc>
     <lastmod>2018-06-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-26-a/</loc>
+    <loc>/misc/2018-06-26-a/</loc>
     <lastmod>2018-06-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-25-a/</loc>
+    <loc>/misc/2018-06-25-a/</loc>
     <lastmod>2018-06-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-24-a/</loc>
+    <loc>/misc/2018-06-24-a/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-23-a/</loc>
+    <loc>/misc/2018-06-23-a/</loc>
     <lastmod>2018-06-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/2018-06-22-a/</loc>
+    <loc>/misc/2018-06-22-a/</loc>
     <lastmod>2018-06-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -183,28 +198,8 @@
   </url>
   
   <url>
-    <loc>/news/2018-01-02-a/</loc>
-    <lastmod>2018-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/news/2018-01-01-a/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/news/</loc>
-    <lastmod>2018-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -232,13 +227,25 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/kubedge/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/misc/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -266,13 +273,19 @@
   </url>
   
   <url>
-    <loc>/tags/blockchain/</loc>
-    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+    <loc>/tags/blinkt/</loc>
+    <lastmod>2018-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/blockchain/</loc>
+    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/blockchain/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -350,14 +363,14 @@
   </url>
   
   <url>
-    <loc>/tags/kubedge/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <loc>/categories/kubedge/</loc>
+    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/kubedge/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <loc>/tags/kubedge/</loc>
+    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -380,14 +393,14 @@
   </url>
   
   <url>
-    <loc>/categories/news/</loc>
-    <lastmod>2018-01-02T00:00:00+00:00</lastmod>
+    <loc>/tags/portieris/</loc>
+    <lastmod>2018-07-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/portieris/</loc>
-    <lastmod>2018-07-18T00:00:00+00:00</lastmod>
+    <loc>/tags/prometheus/</loc>
+    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -442,12 +455,6 @@
   <url>
     <loc>/categories/wiki/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/wiki-kubedge/</loc>
-    <lastmod>2018-07-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
