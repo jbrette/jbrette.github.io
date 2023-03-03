@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kustomize on Jerome Brette&#39;s Blog</title>
-    <link>/tags/kustomize/</link>
+    <link>https://jbrette.github.io/tags/kustomize/</link>
     <description>Recent content in kustomize on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 Jul 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/kustomize/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 29 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/kustomize/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build and Deploy Kubernetes Kustomize</title>
-      <link>/misc/2018-07-29-a/</link>
+      <link>https://jbrette.github.io/misc/2018-07-29-a/</link>
       <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/misc/2018-07-29-a/</guid>
-      <description> Goal kustomize seems to help the setup of multiple clusters by removing copy paste accross cluster and still keeping the configuration file has plain yaml instead of the template like it is often the case with t
+      <guid>https://jbrette.github.io/misc/2018-07-29-a/</guid>
+      <description>Goal kustomize seems to help the setup of multiple clusters by removing copy paste accross cluster and still keeping the configuration file has plain yaml instead of the template like it is often the case with t
 Key Aspects  Compile and deploy the Kustomize code in Kustomize  Deploy  WIP  Conclusion  WIP  Reference Links  Kustomize Description Official Kustomize Code  </description>
     </item>
     

@@ -8,7 +8,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": ""
+             "@id": "https:\/\/jbrette.github.io\/"
         },
         "articleSection" : "misc",
         "name" : "Creating simple Java 10 server container",
@@ -21,9 +21,9 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-06-28 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-06-28 00:00:00 &#43;0000 UTC",
-        "url" : "/misc/2018-06-28-a/",
+        "datePublished": "2018-06-28 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-06-28 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/jbrette.github.io\/misc\/2018-06-28-a\/",
         "wordCount" : "2549",
         "keywords" : [ "java","Blog" ]
     }
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.49" />
+        <meta name="generator" content="Hugo 0.92.2" />
         
 
 
@@ -55,26 +55,20 @@
         <meta property="og:title" content="Creating simple Java 10 server container" />
 <meta property="og:description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/misc/2018-06-28-a/" /><meta property="article:published_time" content="2018-06-28T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-06-28T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://jbrette.github.io/misc/2018-06-28-a/" /><meta property="article:section" content="misc" />
+<meta property="article:published_time" content="2018-06-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-28T00:00:00+00:00" />
 
-        <meta property="og:image" content="/images/logo.png">
+
+        <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        
-<meta itemprop="name" content="Creating simple Java 10 server container">
-<meta itemprop="description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java.">
-
-
-<meta itemprop="datePublished" content="2018-06-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-06-28T00:00:00&#43;00:00" />
+        <meta itemprop="name" content="Creating simple Java 10 server container">
+<meta itemprop="description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java."><meta itemprop="datePublished" content="2018-06-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-06-28T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2549">
-
-
-
 <meta itemprop="keywords" content="java," />
-
         
 
         
@@ -87,9 +81,9 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/add-on.css">
-            <link rel="stylesheet" href="/css/academicons.min.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/main.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/academicons.min.css">
         
 
         
@@ -118,7 +112,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     </head>
     <body>
 
@@ -129,62 +122,62 @@ if (!doNotTrack) {
     
 <header id="header">
     
-      <h1><a href="/">misc</a></h1>
+      <h1><a href="https://jbrette.github.io/">misc</a></h1>
     
 
     <nav class="links">
         <ul>
             
                 <li>
-                    <a href="/">
+                    <a href="https://jbrette.github.io/">
                             <i class="fa fa-home">&nbsp;</i>Home
                     </a>
                 </li>
             
                 <li>
-                    <a href="/about/">
+                    <a href="https://jbrette.github.io/about/">
                             <i class="fa fa-id-card-o">&nbsp;</i>About
                     </a>
                 </li>
             
                 <li>
-                    <a href="/post/">
+                    <a href="https://jbrette.github.io/post/">
                             <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                     </a>
                 </li>
             
                 <li>
-                    <a href="/kubedge/">
+                    <a href="https://jbrette.github.io/kubedge/">
                             <i class="fas fa-atom">&nbsp;</i>Kubedge
                     </a>
                 </li>
             
                 <li>
-                    <a href="/iot/">
+                    <a href="https://jbrette.github.io/iot/">
                             <i class="">&nbsp;</i>IoT
                     </a>
                 </li>
             
                 <li>
-                    <a href="/ai_ml/">
+                    <a href="https://jbrette.github.io/ai_ml/">
                             <i class="">&nbsp;</i>AI &amp; ML
                     </a>
                 </li>
             
                 <li>
-                    <a href="/blockchain/">
+                    <a href="https://jbrette.github.io/blockchain/">
                             <i class="">&nbsp;</i>BlockChain
                     </a>
                 </li>
             
                 <li>
-                    <a href="/misc/">
+                    <a href="https://jbrette.github.io/misc/">
                             <i class="">&nbsp;</i>Other
                     </a>
                 </li>
             
                 <li>
-                    <a href="/tags/">
+                    <a href="https://jbrette.github.io/tags/">
                             <i class="fa fa-list">&nbsp;</i>Tags
                     </a>
                 </li>
@@ -202,7 +195,7 @@ if (!doNotTrack) {
                 <a class="fa-search" href="#search">Search</a>
                 <form id="search" method="get" action="//google.com/search">
                     <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="">
+                    <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
                 </form>
             </li>
             <li class="menu">
@@ -219,7 +212,7 @@ if (!doNotTrack) {
         <section>
             <form class="search" method="get" action="//google.com/search">
                 <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="">
+                <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
             </form>
         </section>
 
@@ -228,7 +221,7 @@ if (!doNotTrack) {
             <ul class="links">
                 
                     <li>
-                        <a href="/">
+                        <a href="https://jbrette.github.io/">
                             <h3>
                                 <i class="fa fa-home">&nbsp;</i>Home
                             </h3>
@@ -236,7 +229,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/about/">
+                        <a href="https://jbrette.github.io/about/">
                             <h3>
                                 <i class="fa fa-id-card-o">&nbsp;</i>About
                             </h3>
@@ -244,7 +237,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/post/">
+                        <a href="https://jbrette.github.io/post/">
                             <h3>
                                 <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                             </h3>
@@ -252,7 +245,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/kubedge/">
+                        <a href="https://jbrette.github.io/kubedge/">
                             <h3>
                                 <i class="fas fa-atom">&nbsp;</i>Kubedge
                             </h3>
@@ -260,7 +253,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/iot/">
+                        <a href="https://jbrette.github.io/iot/">
                             <h3>
                                 <i class="">&nbsp;</i>IoT
                             </h3>
@@ -268,7 +261,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/ai_ml/">
+                        <a href="https://jbrette.github.io/ai_ml/">
                             <h3>
                                 <i class="">&nbsp;</i>AI &amp; ML
                             </h3>
@@ -276,7 +269,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/blockchain/">
+                        <a href="https://jbrette.github.io/blockchain/">
                             <h3>
                                 <i class="">&nbsp;</i>BlockChain
                             </h3>
@@ -284,7 +277,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/misc/">
+                        <a href="https://jbrette.github.io/misc/">
                             <h3>
                                 <i class="">&nbsp;</i>Other
                             </h3>
@@ -292,7 +285,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/tags/">
+                        <a href="https://jbrette.github.io/tags/">
                             <h3>
                                 <i class="fa fa-list">&nbsp;</i>Tags
                             </h3>
@@ -317,7 +310,19 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/post/2018-10-03-a/">Prometheus</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-03'>
+                                    October 3, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-10-03'>
@@ -346,8 +351,8 @@ if (!doNotTrack) {
         
         
 
-        <a href="/post/2018-10-03-a/" class="image featured">
-            <img src="/img/2018/10/load-node-stack1.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/102018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -356,7 +361,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/post/2018-09-28-a/">Rolling Upgrade</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-09-28'>
@@ -385,47 +390,8 @@ if (!doNotTrack) {
         
         
 
-        <a href="/post/2018-09-28-a/" class="image featured">
-            <img src="/img/2018/09/rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/2018-09-26-a/">Kubernetes Replicas using Blinkt</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-26'>
-                                    September 26, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="/post/2018-09-26-a/" class="image featured">
-            <img src="/img/2018/09/replicas.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -458,7 +424,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fmisc%2f2018-06-28-a%2f&amp;text=Creating%20simple%20Java%2010%20server%20container&amp;via=example" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;text=Creating%20simple%20Java%2010%20server%20container&amp;via=example" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -468,7 +434,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//plus.google.com/share?url=%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -479,7 +445,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -489,7 +455,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//reddit.com/submit?url=%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -499,7 +465,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -509,7 +475,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -519,7 +485,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fmisc%2f2018-06-28-a%2f&amp;description=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;description=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -529,7 +495,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -548,7 +514,7 @@ if (!doNotTrack) {
   <header>
     <div class="title">
         
-            <h1><a href="/misc/2018-06-28-a/">Creating simple Java 10 server container</a></h1>
+            <h1><a href="https://jbrette.github.io/misc/2018-06-28-a/">Creating simple Java 10 server container</a></h1>
             
         
         
@@ -576,7 +542,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fmisc%2f2018-06-28-a%2f&amp;text=Creating%20simple%20Java%2010%20server%20container&amp;via=example" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;text=Creating%20simple%20Java%2010%20server%20container&amp;via=example" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -586,7 +552,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//plus.google.com/share?url=%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -597,7 +563,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -607,7 +573,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//reddit.com/submit?url=%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -617,7 +583,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -627,7 +593,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;title=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -637,7 +603,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fmisc%2f2018-06-28-a%2f&amp;description=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f&amp;description=Creating%20simple%20Java%2010%20server%20container" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -647,7 +613,7 @@ if (!doNotTrack) {
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fmisc%2f2018-06-28-a%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -661,28 +627,21 @@ if (!doNotTrack) {
   
 
   <div id="content">
-    
-
-<h1 id="goal">Goal</h1>
-
+    <h1 id="goal">Goal</h1>
 <p>Very often people associated Java to quite bulky and difficult to use in the microservice context,
 unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with
 golang on the subject. Where you can obtain a standalone executable when we running <code>go build</code>,
 java is now proposing <code>jlink</code> which always you to acheive a very similar result. The goal
 of this post is to build a container image as small as possible running Java.</p>
-
 <h2 id="key-aspects">Key Aspects</h2>
-
 <ul>
 <li>Use SCRATCH has base image to keep size minimum</li>
 <li>Simple HelloWorld Java 10 web server</li>
 <li>Create associated HELM chart for Kubernetes deployment</li>
 <li>Provide deployment for both amd64 and arm32v7</li>
 </ul>
-
 <h2 id="install-java-10-on-dev-machine">Install Java 10 on dev machine</h2>
-
-<pre><code>sudo add-apt-repository ppa:linuxuprising/java
+<pre tabindex="0"><code>sudo add-apt-repository ppa:linuxuprising/java
  Oracle Java 10 installer
 
 Java binaries are not hosted in this PPA due to licensing. The packages in this PPA download and install Oracle Java 10 (JDK 10), so a working Internet connection is required.
@@ -701,9 +660,7 @@ gpg: key 73C3DB2A: public key &quot;Launchpad PPA for Linux Uprising&quot; impor
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
 OK
-</code></pre>
-
-<pre><code>sudo apt-get update
+</code></pre><pre tabindex="0"><code>sudo apt-get update
 
 Hit:1 http://ppa.launchpad.net/gophers/archive/ubuntu xenial InRelease
 Hit:2 https://download.docker.com/linux/ubuntu xenial InRelease
@@ -735,12 +692,9 @@ Get:27 http://us.archive.ubuntu.com/ubuntu xenial-backports/main amd64 DEP-11 Me
 Get:28 http://us.archive.ubuntu.com/ubuntu xenial-backports/universe amd64 DEP-11 Metadata [5,100 B]
 Fetched 4,630 kB in 3s (1,333 kB/s)
 Reading package lists... Done
-</code></pre>
-
-<p>Download the package and install it. Note the download speed was at time really slow. Could not
+</code></pre><p>Download the package and install it. Note the download speed was at time really slow. Could not
 figure where the source of the issue was.</p>
-
-<pre><code>sudo apt-get install oracle-java10-installer
+<pre tabindex="0"><code>sudo apt-get install oracle-java10-installer
 
 Reading package lists... Done
 Building dependency tree
@@ -980,9 +934,7 @@ Unpacking gsfonts-x11 (0.24) ...
 Processing triggers for fontconfig (2.11.94-0ubuntu1.1) ...
 Setting up oracle-java10-set-default (10.0.1-1~linuxuprising+1) ...
 Setting up gsfonts-x11 (0.24) ...
-</code></pre>
-
-<pre><code>sudo apt-get install oracle-java10-set-default
+</code></pre><pre tabindex="0"><code>sudo apt-get install oracle-java10-set-default
 
 Reading package lists... Done
 Building dependency tree
@@ -990,25 +942,16 @@ Reading state information... Done
 oracle-java10-set-default is already the newest version (10.0.1-1~linuxuprising+1).
 oracle-java10-set-default set to manually installed.
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-</code></pre>
-
-<pre><code>java --version
+</code></pre><pre tabindex="0"><code>java --version
 java 10.0.1 2018-04-17
 Java(TM) SE Runtime Environment 18.3 (build 10.0.1+10)
 Java HotSpot(TM) 64-Bit Server VM 18.3 (build 10.0.1+10, mixed mode)
-</code></pre>
-
-<pre><code>javac --version
+</code></pre><pre tabindex="0"><code>javac --version
 
 javac 10.0.1
-</code></pre>
-
-<h2 id="create-a-micro-service-on-the-host">Create a micro service on the host</h2>
-
+</code></pre><h2 id="create-a-micro-service-on-the-host">Create a micro service on the host</h2>
 <p>Details on how to use the new java 10 to create the service are given in the following <a href="https://github.com/jbrette/javahttpserv/blob/master/README.md">repo</a></p>
-
 <h2 id="usefull-links">Usefull Links</h2>
-
 <ul>
 <li><a href="http://www.codebind.com/java-tutorials/install-java-jdk-10-ubuntu-18-04-ubuntu-16-04/">Link1</a></li>
 <li><a href="https://github.com/jbrette/javahttpserv/blob/master/README.md">Link2</a></li>
@@ -1026,7 +969,7 @@ javac 10.0.1
                 <i class="fa fa-folder"></i>
                 
                 
-                <li><a class="article-category-link" href="categories/wiki">wiki</a></li>
+                <li><a class="article-category-link" href="https://jbrette.github.io/categories/wiki">wiki</a></li>
                 
             
         
@@ -1040,7 +983,7 @@ javac 10.0.1
                 <i class="fa fa-tags"></i>
                 
                 
-                <li><a class="article-category-link" href="tags/java">java</a></li>
+                <li><a class="article-category-link" href="https://jbrette.github.io/tags/java">java</a></li>
                 
             
         
@@ -1078,12 +1021,12 @@ javac 10.0.1
 
 <ul class="actions pagination">
     
-        <li><a href="/misc/2018-06-27-a/"
+        <li><a href="https://jbrette.github.io/misc/2018-06-27-a/"
                 class="button big previous">Manual Update of CoreOS</a></li>
     
 
     
-        <li><a href="/misc/2018-06-29-a/"
+        <li><a href="https://jbrette.github.io/misc/2018-06-29-a/"
                 class="button big next">Creating simple GO server container</a></li>
     
 </ul>
@@ -1098,7 +1041,7 @@ javac 10.0.1
     
     
       
-        <a href='/'><img src="/images/logo.png" class="intro-circle" width="" alt="avatar" /></a>
+        <a href='https://jbrette.github.io/'><img src="https://jbrette.github.io/images/logo.png" class="intro-circle" width="" alt="avatar" /></a>
       
     
     
@@ -1111,7 +1054,7 @@ javac 10.0.1
       <ul class="icons">
         
           
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
         
@@ -1220,7 +1163,21 @@ javac 10.0.1
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/post/2018-10-03-a/">Prometheus</a>
+                <a href="https://jbrette.github.io/post/">Post</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-03'>
+                October 3, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a>
               </h3>
               
               <time class="published" datetime='2018-10-03'>
@@ -1250,8 +1207,8 @@ javac 10.0.1
         
         
 
-        <a href="/post/2018-10-03-a/" class="image featured">
-            <img src="/img/2018/10/load-node-stack1.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -1261,7 +1218,7 @@ javac 10.0.1
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/post/2018-09-28-a/">Rolling Upgrade</a>
+                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
               </h3>
               
               <time class="published" datetime='2018-09-28'>
@@ -1291,49 +1248,8 @@ javac 10.0.1
         
         
 
-        <a href="/post/2018-09-28-a/" class="image featured">
-            <img src="/img/2018/09/rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/2018-09-26-a/">Kubernetes Replicas using Blinkt</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-26'>
-                September 26, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="/post/2018-09-26-a/" class="image featured">
-            <img src="/img/2018/09/replicas.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -1360,7 +1276,7 @@ javac 10.0.1
     <section id="categories">
       <header>
         <h3>
-          <a href="/categories/">Categories</a>
+          <a href="https://jbrette.github.io/categories/">Categories</a>
         </h3>
       </header>
         
@@ -1372,7 +1288,7 @@ javac 10.0.1
           <article>
             <header>
               
-                <a href="/categories/wiki/">wiki</a>
+                <a href="https://jbrette.github.io/categories/wiki/">wiki</a>
                 <span style="float:right;">36</span>
               
             </header>
@@ -1383,7 +1299,7 @@ javac 10.0.1
           <article>
             <header>
               
-                <a href="/categories/kubedge/">kubedge</a>
+                <a href="https://jbrette.github.io/categories/kubedge/">kubedge</a>
                 <span style="float:right;">18</span>
               
             </header>
@@ -1394,7 +1310,7 @@ javac 10.0.1
           <article>
             <header>
               
-                <a href="/categories/wip/">wip</a>
+                <a href="https://jbrette.github.io/categories/wip/">wip</a>
                 <span style="float:right;">14</span>
               
             </header>
@@ -1405,7 +1321,7 @@ javac 10.0.1
           <article>
             <header>
               
-                <a href="/categories/iot/">iot</a>
+                <a href="https://jbrette.github.io/categories/iot/">iot</a>
                 <span style="float:right;">3</span>
               
             </header>
@@ -1416,7 +1332,7 @@ javac 10.0.1
           <article>
             <header>
               
-                <a href="/categories/ai/">ai</a>
+                <a href="https://jbrette.github.io/categories/ai/">ai</a>
                 <span style="float:right;">1</span>
               
             </header>
@@ -1427,7 +1343,7 @@ javac 10.0.1
           <article>
             <header>
               
-                <a href="/categories/blockchain/">blockchain</a>
+                <a href="https://jbrette.github.io/categories/blockchain/">blockchain</a>
                 <span style="float:right;">1</span>
               
             </header>
@@ -1443,7 +1359,7 @@ javac 10.0.1
     <section id="mini-bio">
       <h3>About</h3>
       <p>About the author</p>
-      <a href="/about/" class="button">Learn More</a>
+      <a href="https://jbrette.github.io/about/" class="button">Learn More</a>
     </section>
   
 
@@ -1453,7 +1369,7 @@ javac 10.0.1
       <ul class="icons">
         
           
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
         
@@ -1585,9 +1501,9 @@ javac 10.0.1
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="/js/util.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/backToTop.js"></script>
+      <script src="https://jbrette.github.io/js/util.js"></script>
+      <script src="https://jbrette.github.io/js/main.js"></script>
+      <script src="https://jbrette.github.io/js/backToTop.js"></script>
     
 
     

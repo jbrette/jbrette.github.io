@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>prometheus on Jerome Brette&#39;s Blog</title>
-    <link>/tags/prometheus/</link>
+    <link>https://jbrette.github.io/tags/prometheus/</link>
     <description>Recent content in prometheus on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Oct 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 03 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prometheus</title>
-      <link>/post/2018-10-03-a/</link>
+      <link>https://jbrette.github.io/post/2018-10-03-a/</link>
       <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-10-03-a/</guid>
+      <guid>https://jbrette.github.io/post/2018-10-03-a/</guid>
       <description>Prometheus deploys on Kubedge using Helm Charts.
 Kubedge</description>
     </item>

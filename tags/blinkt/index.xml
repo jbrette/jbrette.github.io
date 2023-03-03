@@ -1,32 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blinkt on Jerome Brette&#39;s Blog</title>
-    <link>/tags/blinkt/</link>
+    <link>https://jbrette.github.io/tags/blinkt/</link>
     <description>Recent content in blinkt on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/blinkt/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/blinkt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rolling Upgrade</title>
-      <link>/post/2018-09-28-a/</link>
+      <link>https://jbrette.github.io/post/2018-09-28-a/</link>
       <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-09-28-a/</guid>
+      <guid>https://jbrette.github.io/post/2018-09-28-a/</guid>
       <description>Blinkt on Kubedge used to demonstrate Kubernetes Rolling Upgrade
 Kubedge</description>
     </item>
     
     <item>
       <title>Kubernetes Replicas using Blinkt</title>
-      <link>/post/2018-09-26-a/</link>
+      <link>https://jbrette.github.io/post/2018-09-26-a/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-09-26-a/</guid>
+      <guid>https://jbrette.github.io/post/2018-09-26-a/</guid>
       <description>Blinkt on Kubedge used to demonstrate Kubernetes replicas and the configuration as code.
 Kubedge</description>
     </item>

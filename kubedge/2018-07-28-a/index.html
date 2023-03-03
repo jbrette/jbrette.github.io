@@ -16,7 +16,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": ""
+             "@id": "https:\/\/jbrette.github.io\/"
         },
         "articleSection" : "kubedge",
         "name" : "Deploy Cassandra on Raspberry-PI 3",
@@ -29,10 +29,10 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-07-28 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-07-28 00:00:00 &#43;0000 UTC",
-        "url" : "/kubedge/2018-07-28-a/",
-        "wordCount" : "649",
+        "datePublished": "2018-07-28 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-07-28 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/jbrette.github.io\/kubedge\/2018-07-28-a\/",
+        "wordCount" : "646",
         "keywords" : [ "kubedge","kubernetes","rpi","bigdata","Blog" ]
     }
     </script>
@@ -42,7 +42,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.49" />
+        <meta name="generator" content="Hugo 0.92.2" />
         
 
 
@@ -63,26 +63,20 @@
         <meta property="og:title" content="Deploy Cassandra on Raspberry-PI 3" />
 <meta property="og:description" content="Goal  The main goal is to use statefulset and local persistency volume. The arm32v7 image are not available on kubernetes example repository The arm32v7 images are not available either on the docker hub, probably because Cassandra advises to use 64 bits when PI 3 are still mainly 32 bits OS and that the amount of memory available is limited to 1Gbi.  Build Cassandra for PI 3 Cassandra 1 Based on various Cassandra running on RPI projects" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/kubedge/2018-07-28-a/" /><meta property="article:published_time" content="2018-07-28T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-07-28T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-28-a/" /><meta property="article:section" content="kubedge" />
+<meta property="article:published_time" content="2018-07-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-28T00:00:00+00:00" />
 
-        <meta property="og:image" content="/images/logo.png">
+
+        <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        
-<meta itemprop="name" content="Deploy Cassandra on Raspberry-PI 3">
-<meta itemprop="description" content="Goal  The main goal is to use statefulset and local persistency volume. The arm32v7 image are not available on kubernetes example repository The arm32v7 images are not available either on the docker hub, probably because Cassandra advises to use 64 bits when PI 3 are still mainly 32 bits OS and that the amount of memory available is limited to 1Gbi.  Build Cassandra for PI 3 Cassandra 1 Based on various Cassandra running on RPI projects">
-
-
-<meta itemprop="datePublished" content="2018-07-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-07-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="649">
-
-
-
+        <meta itemprop="name" content="Deploy Cassandra on Raspberry-PI 3">
+<meta itemprop="description" content="Goal  The main goal is to use statefulset and local persistency volume. The arm32v7 image are not available on kubernetes example repository The arm32v7 images are not available either on the docker hub, probably because Cassandra advises to use 64 bits when PI 3 are still mainly 32 bits OS and that the amount of memory available is limited to 1Gbi.  Build Cassandra for PI 3 Cassandra 1 Based on various Cassandra running on RPI projects"><meta itemprop="datePublished" content="2018-07-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="646">
 <meta itemprop="keywords" content="kubedge,kubernetes,rpi,bigdata," />
-
         
 
         
@@ -95,9 +89,9 @@
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/add-on.css">
-            <link rel="stylesheet" href="/css/academicons.min.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/main.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/academicons.min.css">
         
 
         
@@ -126,7 +120,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     </head>
     <body>
 
@@ -136,62 +129,62 @@ if (!doNotTrack) {
     
 <header id="header">
     
-      <h1><a href="/">kubedge</a></h1>
+      <h1><a href="https://jbrette.github.io/">kubedge</a></h1>
     
 
     <nav class="links">
         <ul>
             
                 <li>
-                    <a href="/">
+                    <a href="https://jbrette.github.io/">
                             <i class="fa fa-home">&nbsp;</i>Home
                     </a>
                 </li>
             
                 <li>
-                    <a href="/about/">
+                    <a href="https://jbrette.github.io/about/">
                             <i class="fa fa-id-card-o">&nbsp;</i>About
                     </a>
                 </li>
             
                 <li>
-                    <a href="/post/">
+                    <a href="https://jbrette.github.io/post/">
                             <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                     </a>
                 </li>
             
                 <li>
-                    <a href="/kubedge/">
+                    <a href="https://jbrette.github.io/kubedge/">
                             <i class="fas fa-atom">&nbsp;</i>Kubedge
                     </a>
                 </li>
             
                 <li>
-                    <a href="/iot/">
+                    <a href="https://jbrette.github.io/iot/">
                             <i class="">&nbsp;</i>IoT
                     </a>
                 </li>
             
                 <li>
-                    <a href="/ai_ml/">
+                    <a href="https://jbrette.github.io/ai_ml/">
                             <i class="">&nbsp;</i>AI &amp; ML
                     </a>
                 </li>
             
                 <li>
-                    <a href="/blockchain/">
+                    <a href="https://jbrette.github.io/blockchain/">
                             <i class="">&nbsp;</i>BlockChain
                     </a>
                 </li>
             
                 <li>
-                    <a href="/misc/">
+                    <a href="https://jbrette.github.io/misc/">
                             <i class="">&nbsp;</i>Other
                     </a>
                 </li>
             
                 <li>
-                    <a href="/tags/">
+                    <a href="https://jbrette.github.io/tags/">
                             <i class="fa fa-list">&nbsp;</i>Tags
                     </a>
                 </li>
@@ -205,7 +198,7 @@ if (!doNotTrack) {
                 <a class="fa-search" href="#search">Search</a>
                 <form id="search" method="get" action="//google.com/search">
                     <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="">
+                    <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
                 </form>
             </li>
             <li class="menu">
@@ -222,7 +215,7 @@ if (!doNotTrack) {
         <section>
             <form class="search" method="get" action="//google.com/search">
                 <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="">
+                <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
             </form>
         </section>
 
@@ -231,7 +224,7 @@ if (!doNotTrack) {
             <ul class="links">
                 
                     <li>
-                        <a href="/">
+                        <a href="https://jbrette.github.io/">
                             <h3>
                                 <i class="fa fa-home">&nbsp;</i>Home
                             </h3>
@@ -239,7 +232,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/about/">
+                        <a href="https://jbrette.github.io/about/">
                             <h3>
                                 <i class="fa fa-id-card-o">&nbsp;</i>About
                             </h3>
@@ -247,7 +240,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/post/">
+                        <a href="https://jbrette.github.io/post/">
                             <h3>
                                 <i class="fa fa-newspaper-o">&nbsp;</i>Blog
                             </h3>
@@ -255,7 +248,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/kubedge/">
+                        <a href="https://jbrette.github.io/kubedge/">
                             <h3>
                                 <i class="fas fa-atom">&nbsp;</i>Kubedge
                             </h3>
@@ -263,7 +256,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/iot/">
+                        <a href="https://jbrette.github.io/iot/">
                             <h3>
                                 <i class="">&nbsp;</i>IoT
                             </h3>
@@ -271,7 +264,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/ai_ml/">
+                        <a href="https://jbrette.github.io/ai_ml/">
                             <h3>
                                 <i class="">&nbsp;</i>AI &amp; ML
                             </h3>
@@ -279,7 +272,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/blockchain/">
+                        <a href="https://jbrette.github.io/blockchain/">
                             <h3>
                                 <i class="">&nbsp;</i>BlockChain
                             </h3>
@@ -287,7 +280,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/misc/">
+                        <a href="https://jbrette.github.io/misc/">
                             <h3>
                                 <i class="">&nbsp;</i>Other
                             </h3>
@@ -295,7 +288,7 @@ if (!doNotTrack) {
                     </li>
                 
                     <li>
-                        <a href="/tags/">
+                        <a href="https://jbrette.github.io/tags/">
                             <h3>
                                 <i class="fa fa-list">&nbsp;</i>Tags
                             </h3>
@@ -320,7 +313,19 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/post/2018-10-03-a/">Prometheus</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-03'>
+                                    October 3, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-10-03'>
@@ -349,8 +354,8 @@ if (!doNotTrack) {
         
         
 
-        <a href="/post/2018-10-03-a/" class="image featured">
-            <img src="/img/2018/10/load-node-stack1.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -359,7 +364,7 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="/post/2018-09-28-a/">Rolling Upgrade</a></h3>
+                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
                                 
                                 <time class="published" datetime=
                                     '2018-09-28'>
@@ -388,47 +393,8 @@ if (!doNotTrack) {
         
         
 
-        <a href="/post/2018-09-28-a/" class="image featured">
-            <img src="/img/2018/09/rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/2018-09-26-a/">Kubernetes Replicas using Blinkt</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-26'>
-                                    September 26, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="/post/2018-09-26-a/" class="image featured">
-            <img src="/img/2018/09/replicas.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -457,7 +423,7 @@ if (!doNotTrack) {
             <header>
     <div class="title">
         
-            <h1><a href="/kubedge/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></h1>
+            <h1><a href="https://jbrette.github.io/kubedge/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></h1>
             
         
         
@@ -465,223 +431,191 @@ if (!doNotTrack) {
 </header>
 
             <div id="content">
-                
-
-<h1 id="goal">Goal</h1>
-
+                <h1 id="goal">Goal</h1>
 <ul>
 <li>The main goal is to use statefulset and local persistency volume.</li>
 <li>The arm32v7 image are not available on kubernetes example repository</li>
 <li>The arm32v7 images are not available either on the docker hub, probably because Cassandra advises to use 64 bits when PI 3 are still mainly 32 bits OS and that the amount of memory available is limited to 1Gbi.</li>
 </ul>
-
 <h2 id="build-cassandra-for-pi-3">Build Cassandra for PI 3</h2>
-
 <h3 id="cassandra-1">Cassandra 1</h3>
-
 <p>Based on various Cassandra running on RPI projects</p>
-
 <ul>
 <li><a href="https://hub.docker.com/r/charlesyan/rpi-cassandra/">rpi-cassandra</a></li>
 <li><a href="https://github.com/mcfongtw/docker-rpi-cassandra/">docker-rpi-cassandra</a></li>
 <li><a href="https://github.com/jbrette/kube-rpi/tree/master/images/cassandra1">Docker image adapted to Kubernetes</a></li>
 </ul>
-
 <h3 id="cassandra-2">Cassandra 2</h3>
-
 <p>This is a fork of Kubernetes example &ldquo;adapted&rdquo; to PI 3.</p>
-
 <ul>
 <li><a href="https://github.com/jbrette/examples/tree/master/cassandra">Official Kurnetes Example</a></li>
 <li><a href="https://github.com/jbrette/kube-rpi/tree/master/images/cassandra2">Official Example adpated to PI</a></li>
 </ul>
-
 <h2 id="build-process">Build process</h2>
-
 <p>Since travis cross build is not inplace, let&rsquo;s use a PI to build</p>
-
-<pre><code class="language-bash">$ git clone git@github.com:jbrette/kube-rpi.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone git@github.com:jbrette/kube-rpi.git
 $ cd kube-rpi/images/cassandra1
 $ docker build .
 $ docker image list
 $ docker tag 6b98a0ccef38 jbrette/cassandra-arm32v7:3.11.1
 $ docker push jbrette/cassandra-arm32v7:3.11.1
-</code></pre>
-
-<h2 id="deploy">Deploy</h2>
-
+</code></pre></div><h2 id="deploy">Deploy</h2>
 <p>The deployment of the services relies on the &ldquo;local-storage&rdquo; class</p>
-
 <p>The service description is identical to Kubernetes tutorial</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">cassandra</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cassandra</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">clusterIP</span>: <span style="color:#ae81ff">None</span>
+  <span style="color:#f92672">ports</span>:
+  - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">9042</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">cassandra</span>
+</code></pre></div><p>The main difference with official examples:</p>
+<ul>
+<li>Memory reduces to 256M. 1Gi is too big for the PI.</li>
+<li>Use the &ldquo;local-storage&rdquo; class which is accessing local partition on the SD card of the PI.</li>
+<li>Change the image to previously build images.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">StatefulSet</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cassandra</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">cassandra</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">serviceName</span>: <span style="color:#ae81ff">cassandra</span>
+  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">3</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">cassandra</span>
+  <span style="color:#f92672">template</span>:
+    <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">labels</span>:
+        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">cassandra</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">terminationGracePeriodSeconds</span>: <span style="color:#ae81ff">1800</span>
+      <span style="color:#f92672">containers</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cassandra</span>
+        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">jbrette/cassandra-arm32v7:3.11.1</span>
+        <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">Always</span>
+        <span style="color:#f92672">ports</span>:
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">7000</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">intra-node</span>
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">7001</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tls-intra-node</span>
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">7199</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">jmx</span>
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">9042</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cql</span>
+        <span style="color:#f92672">resources</span>:
+          <span style="color:#f92672">limits</span>:
+            <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;500m&#34;</span>
+            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">256M</span>
+          <span style="color:#f92672">requests</span>:
+           <span style="color:#f92672">cpu</span>: <span style="color:#e6db74">&#34;500m&#34;</span>
+           <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">256M</span>
+        <span style="color:#f92672">securityContext</span>:
+          <span style="color:#f92672">capabilities</span>:
+            <span style="color:#f92672">add</span>:
+              - <span style="color:#ae81ff">IPC_LOCK</span>
+        <span style="color:#f92672">lifecycle</span>:
+          <span style="color:#f92672">preStop</span>:
+            <span style="color:#f92672">exec</span>:
+              <span style="color:#f92672">command</span>:
+              - <span style="color:#ae81ff">/bin/sh</span>
+              - -<span style="color:#ae81ff">c</span>
+              - <span style="color:#ae81ff">nodetool drain</span>
+        <span style="color:#f92672">env</span>:
+          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">MAX_HEAP_SIZE</span>
+            <span style="color:#f92672">value</span>: <span style="color:#ae81ff">128M</span>
+          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">HEAP_NEWSIZE</span>
+            <span style="color:#f92672">value</span>: <span style="color:#ae81ff">50M</span>
+          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">CASSANDRA_SEEDS</span>
+            <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;cassandra-0.cassandra.default.svc.cluster.local&#34;</span>
+          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">CASSANDRA_CLUSTER_NAME</span>
+            <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;K8Demo&#34;</span>
+          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">CASSANDRA_DC</span>
+            <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;DC1-K8Demo&#34;</span>
+          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">CASSANDRA_RACK</span>
+            <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;Rack1-K8Demo&#34;</span>
+          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">POD_IP</span>
+            <span style="color:#f92672">valueFrom</span>:
+              <span style="color:#f92672">fieldRef</span>:
+                <span style="color:#f92672">fieldPath</span>: <span style="color:#ae81ff">status.podIP</span>
+        <span style="color:#f92672">readinessProbe</span>:
+          <span style="color:#f92672">exec</span>:
+            <span style="color:#f92672">command</span>:
+            - <span style="color:#ae81ff">/bin/bash</span>
+            - -<span style="color:#ae81ff">c</span>
+            - <span style="color:#ae81ff">/ready-probe.sh</span>
+          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">15</span>
+          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">5</span>
+        <span style="color:#75715e"># These volume mounts are persistent. They are like inline claims,</span>
+        <span style="color:#75715e"># but not exactly because the names need to match exactly one of</span>
+        <span style="color:#75715e"># the stateful pod volumes.</span>
+        <span style="color:#f92672">volumeMounts</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cassandra-data</span>
+          <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/cassandra_data</span>
+  <span style="color:#75715e"># These are converted to volume claims by the controller</span>
+  <span style="color:#75715e"># and mounted at the paths mentioned above.</span>
+  <span style="color:#75715e"># do not use these in production until ssd GCEPersistentDisk or other ssd pd</span>
+  <span style="color:#f92672">volumeClaimTemplates</span>:
+  - <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cassandra-data</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">accessModes</span>: [ <span style="color:#e6db74">&#34;ReadWriteOnce&#34;</span> ]
+      <span style="color:#f92672">storageClassName</span>: <span style="color:#ae81ff">local-storage</span>
+      <span style="color:#f92672">resources</span>:
+        <span style="color:#f92672">requests</span>:
+          <span style="color:#f92672">storage</span>: <span style="color:#ae81ff">1Gi</span>
 
-<pre><code class="language-yaml">apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: cassandra
-  name: cassandra
-spec:
-  clusterIP: None
-  ports:
-  - port: 9042
-  selector:
-    app: cassandra
-</code></pre>
-
-<p>The main difference with official examples:
-- Memory reduces to 256M. 1Gi is too big for the PI.
-- Use the &ldquo;local-storage&rdquo; class which is accessing local partition on the SD card of the PI.
-- Change the image to previously build images.</p>
-
-<pre><code class="language-yaml">apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: cassandra
-  labels:
-    app: cassandra
-spec:
-  serviceName: cassandra
-  replicas: 3
-  selector:
-    matchLabels:
-      app: cassandra
-  template:
-    metadata:
-      labels:
-        app: cassandra
-    spec:
-      terminationGracePeriodSeconds: 1800
-      containers:
-      - name: cassandra
-        image: jbrette/cassandra-arm32v7:3.11.1
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 7000
-          name: intra-node
-        - containerPort: 7001
-          name: tls-intra-node
-        - containerPort: 7199
-          name: jmx
-        - containerPort: 9042
-          name: cql
-        resources:
-          limits:
-            cpu: &quot;500m&quot;
-            memory: 256M
-          requests:
-           cpu: &quot;500m&quot;
-           memory: 256M
-        securityContext:
-          capabilities:
-            add:
-              - IPC_LOCK
-        lifecycle:
-          preStop:
-            exec:
-              command:
-              - /bin/sh
-              - -c
-              - nodetool drain
-        env:
-          - name: MAX_HEAP_SIZE
-            value: 128M
-          - name: HEAP_NEWSIZE
-            value: 50M
-          - name: CASSANDRA_SEEDS
-            value: &quot;cassandra-0.cassandra.default.svc.cluster.local&quot;
-          - name: CASSANDRA_CLUSTER_NAME
-            value: &quot;K8Demo&quot;
-          - name: CASSANDRA_DC
-            value: &quot;DC1-K8Demo&quot;
-          - name: CASSANDRA_RACK
-            value: &quot;Rack1-K8Demo&quot;
-          - name: POD_IP
-            valueFrom:
-              fieldRef:
-                fieldPath: status.podIP
-        readinessProbe:
-          exec:
-            command:
-            - /bin/bash
-            - -c
-            - /ready-probe.sh
-          initialDelaySeconds: 15
-          timeoutSeconds: 5
-        # These volume mounts are persistent. They are like inline claims,
-        # but not exactly because the names need to match exactly one of
-        # the stateful pod volumes.
-        volumeMounts:
-        - name: cassandra-data
-          mountPath: /cassandra_data
-  # These are converted to volume claims by the controller
-  # and mounted at the paths mentioned above.
-  # do not use these in production until ssd GCEPersistentDisk or other ssd pd
-  volumeClaimTemplates:
-  - metadata:
-      name: cassandra-data
-    spec:
-      accessModes: [ &quot;ReadWriteOnce&quot; ]
-      storageClassName: local-storage
-      resources:
-        requests:
-          storage: 1Gi
-
-</code></pre>
-
-<h2 id="testing">Testing</h2>
-
+</code></pre></div><h2 id="testing">Testing</h2>
 <p>Still work to be done on the image to get Cassandra operational</p>
-
-<pre><code class="language-bash">$ kubectl get all
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get all
 
 NAME                                             READY     STATUS             RESTARTS   AGE
-pod/cassandra-0                                  1/1       Running            0          2h
-pod/cassandra-1                                  0/1       CrashLoopBackOff   32         2h
-pod/cassandra-2                                  1/1       Running            0          2h
+pod/cassandra-0                                  1/1       Running            <span style="color:#ae81ff">0</span>          2h
+pod/cassandra-1                                  0/1       CrashLoopBackOff   <span style="color:#ae81ff">32</span>         2h
+pod/cassandra-2                                  1/1       Running            <span style="color:#ae81ff">0</span>          2h
 
-NAME                                TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
+NAME                                TYPE        CLUSTER-IP    EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>          AGE
 service/cassandra                   ClusterIP   None          &lt;none&gt;        9042/TCP         5h
 
 NAME                         DESIRED   CURRENT   AGE
-statefulset.apps/cassandra   3         3         2h
-</code></pre>
-
-<p>Let&rsquo;s check the PVC</p>
-
-<pre><code class="language-bash">$ kubectl get pvc
+statefulset.apps/cassandra   <span style="color:#ae81ff">3</span>         <span style="color:#ae81ff">3</span>         2h
+</code></pre></div><p>Let&rsquo;s check the PVC</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get pvc
 
 NAME                         STATUS    VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
 cassandra-data-cassandra-0   Bound     kube-node03-vol07   2Gi        RWO            local-storage   5h
 cassandra-data-cassandra-1   Bound     kube-node01-vol04   2Gi        RWO            local-storage   2h
 cassandra-data-cassandra-2   Bound     kube-node04-vol06   2Gi        RWO            local-storage   2h
-</code></pre>
-
-<p>Cassandra was able to create pvc using the local storage based pv</p>
-
-<pre><code class="language-bash">$ kubectl describe pvc/cassandra-data-cassandra-0
+</code></pre></div><p>Cassandra was able to create pvc using the local storage based pv</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl describe pvc/cassandra-data-cassandra-0
 
 Name:          cassandra-data-cassandra-0
 Namespace:     default
 StorageClass:  local-storage
 Status:        Bound
 Volume:        kube-node03-vol07
-Labels:        app=cassandra
-Annotations:   pv.kubernetes.io/bind-completed=yes
-               pv.kubernetes.io/bound-by-controller=yes
-Finalizers:    [kubernetes.io/pvc-protection]
+Labels:        app<span style="color:#f92672">=</span>cassandra
+Annotations:   pv.kubernetes.io/bind-completed<span style="color:#f92672">=</span>yes
+               pv.kubernetes.io/bound-by-controller<span style="color:#f92672">=</span>yes
+Finalizers:    <span style="color:#f92672">[</span>kubernetes.io/pvc-protection<span style="color:#f92672">]</span>
 Capacity:      2Gi
 Access Modes:  RWO
 Events:        &lt;none&gt;
-</code></pre>
-
-<p>Looks like a bug in the PV creation (using vol1 instead of vol7)</p>
-
-<pre><code class="language-bash">$ kubectl describe pv/kube-node03-vol07
+</code></pre></div><p>Looks like a bug in the PV creation (using vol1 instead of vol7)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl describe pv/kube-node03-vol07
 
 Name:              kube-node03-vol07
 Labels:            &lt;none&gt;
-Annotations:       pv.kubernetes.io/bound-by-controller=yes
-Finalizers:        [kubernetes.io/pv-protection]
+Annotations:       pv.kubernetes.io/bound-by-controller<span style="color:#f92672">=</span>yes
+Finalizers:        <span style="color:#f92672">[</span>kubernetes.io/pv-protection<span style="color:#f92672">]</span>
 StorageClass:      local-storage
 Status:            Bound
 Claim:             default/cassandra-data-cassandra-0
@@ -690,24 +624,19 @@ Access Modes:      RWO
 Capacity:          2Gi
 Node Affinity:
   Required Terms:
-    Term 0:        kubernetes.io/hostname in [kube-node03]
+    Term 0:        kubernetes.io/hostname in <span style="color:#f92672">[</span>kube-node03<span style="color:#f92672">]</span>
 Message:
 Source:
-    Type:  LocalVolume (a persistent volume backed by local storage on a node)
+    Type:  LocalVolume <span style="color:#f92672">(</span>a persistent volume backed by local storage on a node<span style="color:#f92672">)</span>
     Path:  /mnt/disks/vol1
 Events:    &lt;none&gt;
-</code></pre>
-
-<h2 id="conclusion">Conclusion</h2>
-
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>WIP</li>
 </ul>
-
 <h2 id="reference-links">Reference Links</h2>
-
 <ul>
-<li>[Kubernetes cross build]()</li>
+<li><a href="">Kubernetes cross build</a></li>
 </ul>
 
             </div>
@@ -721,7 +650,7 @@ Events:    &lt;none&gt;
     
     
       
-        <a href='/'><img src="/images/logo.png" class="intro-circle" width="" alt="avatar" /></a>
+        <a href='https://jbrette.github.io/'><img src="https://jbrette.github.io/images/logo.png" class="intro-circle" width="" alt="avatar" /></a>
       
     
     
@@ -734,7 +663,7 @@ Events:    &lt;none&gt;
       <ul class="icons">
         
           
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
         
@@ -843,7 +772,21 @@ Events:    &lt;none&gt;
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/post/2018-10-03-a/">Prometheus</a>
+                <a href="https://jbrette.github.io/post/">Post</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-03'>
+                October 3, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a>
               </h3>
               
               <time class="published" datetime='2018-10-03'>
@@ -873,8 +816,8 @@ Events:    &lt;none&gt;
         
         
 
-        <a href="/post/2018-10-03-a/" class="image featured">
-            <img src="/img/2018/10/load-node-stack1.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -884,7 +827,7 @@ Events:    &lt;none&gt;
           <article class="mini-post">
             <header>
               <h3>
-                <a href="/post/2018-09-28-a/">Rolling Upgrade</a>
+                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
               </h3>
               
               <time class="published" datetime='2018-09-28'>
@@ -914,49 +857,8 @@ Events:    &lt;none&gt;
         
         
 
-        <a href="/post/2018-09-28-a/" class="image featured">
-            <img src="/img/2018/09/rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/2018-09-26-a/">Kubernetes Replicas using Blinkt</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-26'>
-                September 26, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="/post/2018-09-26-a/" class="image featured">
-            <img src="/img/2018/09/replicas.png" alt="">
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -983,7 +885,7 @@ Events:    &lt;none&gt;
     <section id="categories">
       <header>
         <h3>
-          <a href="/categories/">Categories</a>
+          <a href="https://jbrette.github.io/categories/">Categories</a>
         </h3>
       </header>
         
@@ -995,7 +897,7 @@ Events:    &lt;none&gt;
           <article>
             <header>
               
-                <a href="/categories/wiki/">wiki</a>
+                <a href="https://jbrette.github.io/categories/wiki/">wiki</a>
                 <span style="float:right;">36</span>
               
             </header>
@@ -1006,7 +908,7 @@ Events:    &lt;none&gt;
           <article>
             <header>
               
-                <a href="/categories/kubedge/">kubedge</a>
+                <a href="https://jbrette.github.io/categories/kubedge/">kubedge</a>
                 <span style="float:right;">18</span>
               
             </header>
@@ -1017,7 +919,7 @@ Events:    &lt;none&gt;
           <article>
             <header>
               
-                <a href="/categories/wip/">wip</a>
+                <a href="https://jbrette.github.io/categories/wip/">wip</a>
                 <span style="float:right;">14</span>
               
             </header>
@@ -1028,7 +930,7 @@ Events:    &lt;none&gt;
           <article>
             <header>
               
-                <a href="/categories/iot/">iot</a>
+                <a href="https://jbrette.github.io/categories/iot/">iot</a>
                 <span style="float:right;">3</span>
               
             </header>
@@ -1039,7 +941,7 @@ Events:    &lt;none&gt;
           <article>
             <header>
               
-                <a href="/categories/ai/">ai</a>
+                <a href="https://jbrette.github.io/categories/ai/">ai</a>
                 <span style="float:right;">1</span>
               
             </header>
@@ -1050,7 +952,7 @@ Events:    &lt;none&gt;
           <article>
             <header>
               
-                <a href="/categories/blockchain/">blockchain</a>
+                <a href="https://jbrette.github.io/categories/blockchain/">blockchain</a>
                 <span style="float:right;">1</span>
               
             </header>
@@ -1066,7 +968,7 @@ Events:    &lt;none&gt;
     <section id="mini-bio">
       <h3>About</h3>
       <p>About the author</p>
-      <a href="/about/" class="button">Learn More</a>
+      <a href="https://jbrette.github.io/about/" class="button">Learn More</a>
     </section>
   
 
@@ -1076,7 +978,7 @@ Events:    &lt;none&gt;
       <ul class="icons">
         
           
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
         
@@ -1208,9 +1110,9 @@ Events:    &lt;none&gt;
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="/js/util.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/backToTop.js"></script>
+      <script src="https://jbrette.github.io/js/util.js"></script>
+      <script src="https://jbrette.github.io/js/main.js"></script>
+      <script src="https://jbrette.github.io/js/backToTop.js"></script>
     
 
     

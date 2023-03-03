@@ -1,66 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Jerome Brette&#39;s Blog</title>
-    <link>/categories/</link>
+    <link>https://jbrette.github.io/categories/</link>
     <description>Recent content in Categories on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>ai</title>
-      <link>/categories/ai/</link>
-      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/ai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blockchain</title>
-      <link>/categories/blockchain/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/blockchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iot</title>
-      <link>/categories/iot/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/iot/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 03 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kubedge</title>
-      <link>/categories/kubedge/</link>
+      <link>https://jbrette.github.io/categories/kubedge/</link>
       <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/kubedge/</guid>
+      <guid>https://jbrette.github.io/categories/kubedge/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wiki</title>
-      <link>/categories/wiki/</link>
+      <link>https://jbrette.github.io/categories/wiki/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/wiki/</guid>
+      <guid>https://jbrette.github.io/categories/wiki/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wip</title>
-      <link>/categories/wip/</link>
+      <link>https://jbrette.github.io/categories/wip/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/wip/</guid>
+      <guid>https://jbrette.github.io/categories/wip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blockchain</title>
+      <link>https://jbrette.github.io/categories/blockchain/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jbrette.github.io/categories/blockchain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ai</title>
+      <link>https://jbrette.github.io/categories/ai/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jbrette.github.io/categories/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>https://jbrette.github.io/categories/iot/</link>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jbrette.github.io/categories/iot/</guid>
       <description></description>
     </item>
     
