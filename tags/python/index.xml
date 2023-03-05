@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating simple Python server container</title>
-      <link>https://jbrette.github.io/misc/2018-07-01-a/</link>
+      <link>https://jbrette.github.io/kubernetes/apps/2018-07-01-a/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jbrette.github.io/misc/2018-07-01-a/</guid>
+      <guid>https://jbrette.github.io/kubernetes/apps/2018-07-01-a/</guid>
       <description>Goal As we did for Go and Java, where is was possible to create an Dockerfile starting from &amp;ldquo;scratch&amp;rdquo;, the goal of this post is to create a python base server container with a minimum about of packages (debian and python) to reduce the security exposure of the container as well as the image size.
 Key Aspects  Use SCRATCH has base image to keep size minimum Simple HelloWorld Python web server Create associated HELM chart for Kubernetes deployment Provide deployment for both amd64 and arm32v7  Simple Python Server The pythonhttpserver repo showcases:</description>
     </item>

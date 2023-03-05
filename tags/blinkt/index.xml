@@ -8,22 +8,22 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/blinkt/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Rolling Upgrade</title>
-      <link>https://jbrette.github.io/post/2018-09-28-a/</link>
-      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/post/2018-09-28-a/</guid>
-      <description>Blinkt on Kubedge used to demonstrate Kubernetes Rolling Upgrade
-Kubedge</description>
-    </item>
-    
-    <item>
       <title>Kubernetes Replicas using Blinkt</title>
       <link>https://jbrette.github.io/post/2018-09-26-a/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jbrette.github.io/post/2018-09-26-a/</guid>
       <description>Blinkt on Kubedge used to demonstrate Kubernetes replicas and the configuration as code.
+Kubedge</description>
+    </item>
+    
+    <item>
+      <title>Rolling Upgrade</title>
+      <link>https://jbrette.github.io/post/2018-09-28-a/</link>
+      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jbrette.github.io/post/2018-09-28-a/</guid>
+      <description>Blinkt on Kubedge used to demonstrate Kubernetes Rolling Upgrade
 Kubedge</description>
     </item>
     

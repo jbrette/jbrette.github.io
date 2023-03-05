@@ -2,10 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jbrette.github.io/categories/</loc>
-    <lastmod>2018-10-03T00:00:00+00:00</lastmod>
+    <loc>https://jbrette.github.io/archives/sample/markdown-syntax/</loc>
+    <lastmod>2020-11-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/post/2018-09-26-a/</loc>
+    <lastmod>2018-09-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/ai_ml/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/operators/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/sample/build-in-shortcodes/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/sample/custom-shortcodes/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/sample/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/sample/table-of-contents/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/creating-a-new-theme/</loc>
+    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/posts/hello_world/</loc>
+    <lastmod>2017-10-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/kustomize/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/devops/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/rpi/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/chapter4/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/sdk/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/iot/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/apps/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/kubernetes/misc/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/</loc>
+    <lastmod>2023-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/</loc>
+    <lastmod>2020-11-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/sample/search-shortcode/</loc>
+    <lastmod>2020-03-30T18:49:06+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/categories/</loc>
     <lastmod>2018-10-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/kubedge/</loc>
@@ -26,13 +89,10 @@
     <loc>https://jbrette.github.io/tags/</loc>
     <lastmod>2018-10-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/</loc>
-    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jbrette.github.io/tags/kubernetes/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-09-28-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/</loc>
     <lastmod>2018-09-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/rpi/</loc>
@@ -50,13 +110,7 @@
     <loc>https://jbrette.github.io/post/2018-09-28-a/</loc>
     <lastmod>2018-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/post/2018-09-26-a/</loc>
-    <lastmod>2018-09-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jbrette.github.io/misc/2018-08-01-a/</loc>
-    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jbrette.github.io/misc/</loc>
+    <loc>https://jbrette.github.io/kubernetes/misc/2018-08-01-a/</loc>
     <lastmod>2018-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/security/</loc>
@@ -65,13 +119,13 @@
     <loc>https://jbrette.github.io/tags/vault/</loc>
     <lastmod>2018-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-07-31-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/misc/2018-07-31-a/</loc>
     <lastmod>2018-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/istio/</loc>
     <lastmod>2018-07-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-07-30-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/misc/2018-07-30-a/</loc>
     <lastmod>2018-07-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/sonobuoy/</loc>
@@ -83,7 +137,7 @@
     <loc>https://jbrette.github.io/tags/testing/</loc>
     <lastmod>2018-07-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-07-29-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/misc/2018-07-29-a/</loc>
     <lastmod>2018-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/kustomize/</loc>
@@ -92,11 +146,8 @@
     <loc>https://jbrette.github.io/tags/bigdata/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-28-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-28-a/</loc>
     <lastmod>2018-07-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jbrette.github.io/blockchain/</loc>
-    <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/blockchain/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
@@ -104,13 +155,10 @@
     <loc>https://jbrette.github.io/categories/blockchain/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/blockchain/2018-07-20-a/</loc>
+    <loc>https://jbrette.github.io/archives/blockchain/2018-07-20-a/</loc>
     <lastmod>2018-07-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/categories/ai/</loc>
-    <lastmod>2018-07-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jbrette.github.io/ai_ml/</loc>
     <lastmod>2018-07-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/ai_ml/2018-07-19-a/</loc>
@@ -119,7 +167,7 @@
     <loc>https://jbrette.github.io/tags/machinelearning/</loc>
     <lastmod>2018-07-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-07-18-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/misc/2018-07-18-a/</loc>
     <lastmod>2018-07-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/portieris/</loc>
@@ -131,49 +179,46 @@
     <loc>https://jbrette.github.io/tags/cni/</loc>
     <lastmod>2018-07-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-17-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-17-a/</loc>
     <lastmod>2018-07-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-16-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-16-a/</loc>
     <lastmod>2018-07-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-15-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-15-a/</loc>
     <lastmod>2018-07-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-14-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-14-a/</loc>
     <lastmod>2018-07-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/helm/</loc>
     <lastmod>2018-07-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-13-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-13-a/</loc>
     <lastmod>2018-07-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/docker/</loc>
     <lastmod>2018-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-12-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-12-a/</loc>
     <lastmod>2018-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/github/</loc>
     <lastmod>2018-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-11-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/devops/2018-07-11-a/</loc>
     <lastmod>2018-07-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-08-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-08-a/</loc>
     <lastmod>2018-07-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/ansible/</loc>
     <lastmod>2018-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-07-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/</loc>
     <lastmod>2018-07-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/homeautomation/</loc>
-    <lastmod>2018-07-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jbrette.github.io/iot/</loc>
     <lastmod>2018-07-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/categories/iot/</loc>
@@ -197,28 +242,28 @@
     <loc>https://jbrette.github.io/iot/2018-07-04-a/</loc>
     <lastmod>2018-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-07-03-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-07-03-a/</loc>
     <lastmod>2018-07-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-07-02-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/misc/2018-07-02-a/</loc>
     <lastmod>2018-07-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-07-01-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/apps/2018-07-01-a/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/python/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-30-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/sdk/2018-06-30-a/</loc>
     <lastmod>2018-06-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-29-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/apps/2018-06-29-a/</loc>
     <lastmod>2018-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/golang/</loc>
     <lastmod>2018-06-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-28-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/apps/2018-06-28-a/</loc>
     <lastmod>2018-06-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/java/</loc>
@@ -227,40 +272,115 @@
     <loc>https://jbrette.github.io/tags/coreos/</loc>
     <lastmod>2018-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-27-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/sdk/2018-06-27-a/</loc>
     <lastmod>2018-06-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-26-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/misc/2018-06-26-a/</loc>
     <lastmod>2018-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/zuul/</loc>
     <lastmod>2018-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-25-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/devops/2018-06-25-a/</loc>
     <lastmod>2018-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-24-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/devops/2018-06-24-a/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-23-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/devops/2018-06-23-a/</loc>
     <lastmod>2018-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/misc/2018-06-22-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/devops/2018-06-22-a/</loc>
     <lastmod>2018-06-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/tags/kubeadm/</loc>
     <lastmod>2018-06-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-06-21-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/</loc>
     <lastmod>2018-06-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-06-20-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-06-20-a/</loc>
     <lastmod>2018-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbrette.github.io/kubedge/2018-06-19-a/</loc>
+    <loc>https://jbrette.github.io/kubernetes/rpi/2018-06-19-a/</loc>
     <lastmod>2018-06-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jbrette.github.io/about/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/blog/</loc>
+    <lastmod>2017-12-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/entry/</loc>
+    <lastmod>2017-12-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/blog/hello_world2/</loc>
+    <lastmod>2017-12-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/entry/hello_world2/</loc>
+    <lastmod>2017-12-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/blog/hello_world1/</loc>
+    <lastmod>2017-11-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/entry/hello_world1/</loc>
+    <lastmod>2017-11-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/chapter4/chapter4-1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/chapter4/chapter4-1/chapter4-1-1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/chapter4/chapter4-1/chapter4-1-1/chapter4-1-1-1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/chapter4/chapter4-1/chapter4-1-1/chapter4-1-1-1/chapter4-1-1-1-1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/chapter4/chapter4-1/chapter4-1-1/chapter4-1-1-1/chapter4-1-1-1-1/chapter4-1-1-1-1-1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/chapter4/chapter4-1/chapter4-1-1/chapter4-1-1-1/chapter4-1-1-1-1/chapter4-1-1-1-1-1/chapter4-1-1-1-1-1-1/</loc>
+    <lastmod>2017-10-17T15:26:15+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/blog/hello_world/</loc>
+    <lastmod>2017-10-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/entry/hello_world/</loc>
+    <lastmod>2017-10-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/posts/</loc>
+    <lastmod>2017-10-17T14:00:45+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/goisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/categories/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/tags/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/hugoisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/tags/go/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/categories/golang/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/tags/hugo/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/tags/templates/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/tags/themes/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jbrette.github.io/archives/migrate-from-jekyll/</loc>
+    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url>
 </urlset>

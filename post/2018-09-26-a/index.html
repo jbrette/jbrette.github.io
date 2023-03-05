@@ -1,1077 +1,188 @@
-<!DOCTYPE HTML>
-
-<html>
-    <head>
-        <script type="application/ld+json">
-    {
-        "@context" : "http://schema.org",
-        "@type" : "BlogPosting",
-        "mainEntityOfPage": {
-             "@type": "WebPage",
-             "@id": "https:\/\/jbrette.github.io\/"
-        },
-        "articleSection" : "post",
-        "name" : "Kubernetes Replicas using Blinkt",
-        "headline" : "Kubernetes Replicas using Blinkt",
-        "description" : "Replicas Control on Kubedge using Blinkt",
-        "inLanguage" : "en",
-        "author" : "",
-        "creator" : "",
-        "publisher": "",
-        "accountablePerson" : "",
-        "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-09-26 00:00:00 \u002b0000 UTC",
-        "dateModified" : "2018-09-26 00:00:00 \u002b0000 UTC",
-        "url" : "https:\/\/jbrette.github.io\/post\/2018-09-26-a\/",
-        "wordCount" : "14",
-        "keywords" : [ "kubedge","blinkt","Blog" ]
-    }
-    </script>
-        
-            
-                <title>Kubernetes Replicas using Blinkt</title>
-            
-        
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.92.2" />
-        
-
-
-        
-        
-            <meta name="description" content="Replicas Control on Kubedge using Blinkt">
-        
-
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kubernetes Replicas using Blinkt"/>
-<meta name="twitter:description" content="Replicas Control on Kubedge using Blinkt"/>
-<meta name="twitter:site" content="@example"/>
-
-        <meta property="og:title" content="Kubernetes Replicas using Blinkt" />
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Kubernetes Replicas using Blinkt - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="Replicas Control on Kubedge using Blinkt">
+<meta name="generator" content="Hugo 0.92.2" />
+<link href="https://jbrette.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/post/2018-09-26-a/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123357787-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-123357787-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="Kubernetes Replicas using Blinkt" />
 <meta property="og:description" content="Replicas Control on Kubedge using Blinkt" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/post/2018-09-26-a/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://jbrette.github.io/post/2018-09-26-a/" /><meta property="og:image" content="https://jbrette.github.io/images/og-image.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-09-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-09-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-26T00:00:00+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
 
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jbrette.github.io/images/og-image.png"/>
 
-        <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="512">
-        <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Kubernetes Replicas using Blinkt">
+<meta name="twitter:title" content="Kubernetes Replicas using Blinkt"/>
+<meta name="twitter:description" content="Replicas Control on Kubedge using Blinkt"/>
+<meta itemprop="name" content="Kubernetes Replicas using Blinkt">
 <meta itemprop="description" content="Replicas Control on Kubedge using Blinkt"><meta itemprop="datePublished" content="2018-09-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-09-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="14">
-<meta itemprop="keywords" content="kubedge,blinkt," />
-        
+<meta itemprop="wordCount" content="14"><meta itemprop="image" content="https://jbrette.github.io/images/og-image.png"/>
+<meta itemprop="keywords" content="kubedge,blinkt," /></head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
 
-        
-            
-        
-
-        
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/main.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/add-on.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/academicons.min.css">
-        
-
-        
-            
-                
-            
-        
-
-
-  
-    
-    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-  
-
-
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-    </head>
-    <body>
-
-      
-      <div id="wrapper">
-
-    
-    
-<header id="header">
-    
-      <h1><a href="https://jbrette.github.io/">post</a></h1>
-    
-
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="https://jbrette.github.io/">
-                            <i class="fa fa-home">&nbsp;</i>Home
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>About
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/post/">
-                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/kubedge/">
-                            <i class="fas fa-atom">&nbsp;</i>Kubedge
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/iot/">
-                            <i class="">&nbsp;</i>IoT
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/ai_ml/">
-                            <i class="">&nbsp;</i>AI &amp; ML
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/blockchain/">
-                            <i class="">&nbsp;</i>BlockChain
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/misc/">
-                            <i class="">&nbsp;</i>Other
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/tags/">
-                            <i class="fa fa-list">&nbsp;</i>Tags
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
 </header>
-
-
-<section id="menu">
-
-    
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                
-                    <li>
-                        <a href="https://jbrette.github.io/">
-                            <h3>
-                                <i class="fa fa-home">&nbsp;</i>Home
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/about/">
-                            <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>About
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/post/">
-                            <h3>
-                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/kubedge/">
-                            <h3>
-                                <i class="fas fa-atom">&nbsp;</i>Kubedge
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/iot/">
-                            <h3>
-                                <i class="">&nbsp;</i>IoT
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/ai_ml/">
-                            <h3>
-                                <i class="">&nbsp;</i>AI &amp; ML
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/blockchain/">
-                            <h3>
-                                <i class="">&nbsp;</i>BlockChain
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/misc/">
-                            <h3>
-                                <i class="">&nbsp;</i>Other
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/tags/">
-                            <h3>
-                                <i class="fa fa-list">&nbsp;</i>Tags
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section class="recent-posts">
-            <div class="mini-posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-
-                
-                    
-                
-
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
-                            </header>
-                            
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-28'>
-                                    September 28, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-
-                
-                    <a href=
-                        
-                            /post/
-                        
-                        class="button">View more posts</a>
-                
-            </div>
-        </section>
-
-    
-        
-</section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-
-<li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;text=Kubernetes%20Replicas%20using%20Blinkt&amp;via=example" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;title=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;title=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;title=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;description=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-        </ul>
-    </section>
-</section>
-
-    
-    <div id="main">
-        
-        
-        <article class="post">
-  <header>
-    <div class="title">
-        
-            <h1><a href="https://jbrette.github.io/post/2018-09-26-a/">Kubernetes Replicas using Blinkt</a></h1>
-            
-        
-        
-            <p>Replicas Control on Kubedge using Blinkt</p>
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2018-09-26'>
-            September 26, 2018</time>
-        <span class="author"></span>
-        
-            <p>1 minute read</p>
-        
-        
-    </div>
-</header>
-
-
-  
-    <section id="social-share">
-      <ul class="icons">
-        
-
-
-
-<li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;text=Kubernetes%20Replicas%20using%20Blinkt&amp;via=example" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;title=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;title=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;title=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f&amp;description=Kubernetes%20Replicas%20using%20Blinkt" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by &amp;body=https%3a%2f%2fjbrette.github.io%2fpost%2f2018-09-26-a%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-      </ul>
-    </section>
-  
-
-  
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-26-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/replicas.png" alt="">
-        </a>
-    
-
-
-  <div id="content">
-    <p>Blinkt on Kubedge used to demonstrate Kubernetes replicas and the configuration as code.</p>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/"><i class='fa fa-heart'></i>&nbsp;Home</a></li>
+<li id="medium" class="twitter-menu-item"><a href="https://medium.com/@jbrette">Medium</a></li>
+<li id="linkedin" class="twitter-menu-item"><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li>
+<li class=""><a href="/about/">About</a></li><li class="parent active "><a href="">Tutorials<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu">
+<li class="child "><a href="/post/2018-09-26-a/">Blinkt</a></li>
+</ul>
+</li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Kubernetes Replicas using Blinkt</h1>
+<p>Blinkt on Kubedge used to demonstrate Kubernetes replicas and the configuration as code.</p>
 <p><a href="https://kubedge.cloud/pi_cluster/applications/children/kubesim_blinkt/">Kubedge</a></p>
+<div class="edit-meta">
+Last updated on 26 Sep 2018
 
-  </div>
 
-  <footer>
-    <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-            
-            
-                <i class="fa fa-folder"></i>
-                
-                
-                <li><a class="article-category-link" href="https://jbrette.github.io/categories/kubedge">kubedge</a></li>
-                
-            
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="https://jbrette.github.io/tags/kubedge">kubedge</a></li>
-                
-                
-                <li><a class="article-category-link" href="https://jbrette.github.io/tags/blinkt">blinkt</a></li>
-                
-            
-        
-    </ul>
-  </li>
+<br>
+Published on 26 Sep 2018
+<br><a href="https://github.com/jbrette/blog/edit/master/post/2018-09-26-a.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/post/" title="Posts"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Posts</a>
+<a class="nav nav-next" href="https://jbrette.github.io/ai_ml/" title="AI &amp; ML">Next - AI &amp; ML <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://jbrette.github.io/">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/ai_ml/2018-07-19-a/">Kubeflow</a></li>
 </ul>
+  
+</li>
 
-  </footer>
-
-</article>
-
-    <article class="post">
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "jbrette" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </article>
-
-
-<ul class="actions pagination">
-    
-
-    
-        <li><a href="https://jbrette.github.io/post/2018-09-28-a/"
-                class="button big next">Rolling Upgrade</a></li>
-    
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/iot/">IOT<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-06-a/">ZWave/ZigBee</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-05-a/">OpenHAB</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-04-a/">HomeAssistant</a></li>
 </ul>
-
-
-    </div>
-    
-<section id="sidebar">
-
   
-  <section id="intro">
-    
-    
-      
-        <a href='https://jbrette.github.io/'><img src="https://jbrette.github.io/images/logo.png" class="intro-circle" width="" alt="avatar" /></a>
-      
-    
-    
-      <header>
-        <h2>Jerome&#39;s Blog</h2>
-        <p>Building my edge cloud using Raspberry PI, keep learning from the opensource community</p>
-      </header>
-    
-    
-      <ul class="icons">
-        
-          
-    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+</li>
 
-
-        
-        
-  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-  </section>
-
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/">Kubernetes<span class="mark closed">+</span></a>
   
-  <section class="recent-posts">
-    <div class="mini-posts">
-      <header>
-        <h3>Recent Posts</h3>
-      </header>
-      <div class="posts-container">
-        
+<ul class="sub-menu">
 
-        
-          
-        
-
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/">Post</a>
-              </h3>
-              
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a>
-              </h3>
-              
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
+<li class=""><a href="https://jbrette.github.io/kubernetes/operators/">Kubernetes Operators</a>
   
+</li>
+
+<li class=""><a href="https://jbrette.github.io/kubernetes/kustomize/">Kustomize</a>
   
-    
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/devops/">DEVOPS<span class="mark closed">+</span></a>
   
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-28'>
-                September 28, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-07-11-a/">Use github repo as helm chart repository</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-25-a/">Setup github/gerrit behind a corporate http proxy</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-24-a/">docker.io versus docker-ce</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-23-a/">Setup multiple GitHub account on a single machine</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-22-a/">Setup your GOLANG environment</a></li>
+</ul>
   
+</li>
 
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img//rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-      </div>
-
-      
-        <a href=
-          
-            /post/
-          
-        class="button">View more posts</a>
-      
-    </div>
-  </section>
-
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/rpi/">RASPBERRY PI<span class="mark closed">+</span></a>
   
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/">Upgrade RPI Kubernetes cluster to 1.12</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-16-a/">Rebuild Hyperkube images</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-12-a/">Enable docker remote API</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-08-a/">Add Persistency Volume to PI Clusters</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/">Using Ansible to manage Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-03-a/">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-20-a/">Create a Rapsberry PI Rescue Dongle</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-19-a/">Add Raspberry PI node to Kubernetes Cluster in 10 min</a></li>
+</ul>
   
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/sdk/">SDK<span class="mark closed">+</span></a>
   
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-30-a/">Update Kubernetes to 1.11 on Ubuntu</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-27-a/">Manual Update of CoreOS</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/">Setup SingleNode Kubernetes Cluster using kubeadm</a></li>
+</ul>
   
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/apps/">APPS<span class="mark closed">+</span></a>
   
-    <section id="categories">
-      <header>
-        <h3>
-          <a href="https://jbrette.github.io/categories/">Categories</a>
-        </h3>
-      </header>
-        
-          
-        
-
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/wiki/">wiki</a>
-                <span style="float:right;">36</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/kubedge/">kubedge</a>
-                <span style="float:right;">18</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/wip/">wip</a>
-                <span style="float:right;">14</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/iot/">iot</a>
-                <span style="float:right;">3</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/ai/">ai</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/blockchain/">blockchain</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-    </section>
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-07-01-a/">Creating simple Python server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-29-a/">Creating simple GO server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-28-a/">Creating simple Java 10 server container</a></li>
+</ul>
   
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/misc/">MISC<span class="mark closed">+</span></a>
   
-
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-31-a/">Build and Deploy Kubernetes Istio</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-18-a/">Compile and Test Portieris</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-02-a/">Compile and Test SONOBUOY</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-06-26-a/">Zuul</a></li>
+</ul>
   
+</li>
+</ul>
   
-    <section id="mini-bio">
-      <h3>About</h3>
-      <p>About the author</p>
-      <a href="https://jbrette.github.io/about/" class="button">Learn More</a>
-    </section>
-  
+</li>
 
-  
-  <section id="footer">
-    
-      <ul class="icons">
-        
-          
-    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
-        
-        
-  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
 
 
 
@@ -1079,144 +190,25 @@ if (!doNotTrack) {
 
 
 
+</ul>
+</nav>
 
 
 
+<div class="sidebar-footer"></div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-    <p class="copyright">
-      
-        &copy; 2018
-        
-          Jerome Brette&#39;s Blog
-        
-      .
-      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
-    </p>
-  </section>
-</section>
-
-    </div>
-    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-    
-
-    
-      
-    
-
-    
-      
-      
-      
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
-        
-        
-        
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/python.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/golang.min.js"></script>
-        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-      
-    
-    
-    
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="https://jbrette.github.io/js/util.js"></script>
-      <script src="https://jbrette.github.io/js/main.js"></script>
-      <script src="https://jbrette.github.io/js/backToTop.js"></script>
-    
-
-    
-      
-        
-      
-    
-
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-      <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-
-  </body>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
 </html>
-

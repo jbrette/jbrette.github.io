@@ -61,5 +61,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Development</title>
+      <link>https://jbrette.github.io/categories/development/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jbrette.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://jbrette.github.io/categories/golang/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jbrette.github.io/categories/golang/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

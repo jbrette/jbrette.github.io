@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 20 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ethereum</title>
-      <link>https://jbrette.github.io/blockchain/2018-07-20-a/</link>
+      <link>https://jbrette.github.io/archives/blockchain/2018-07-20-a/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jbrette.github.io/blockchain/2018-07-20-a/</guid>
+      <guid>https://jbrette.github.io/archives/blockchain/2018-07-20-a/</guid>
       <description>Goal Install Ethereum on Kubernetes and PI
 Key Aspects  WIP  Deploy  WIP  Conclusion  WIP  Reference Links  Part3  </description>
     </item>

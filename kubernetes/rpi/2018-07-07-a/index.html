@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Using Ansible to manage Raspberry PI cluster - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="Jerome Brette&#39;s Blog">
+<meta name="generator" content="Hugo 0.92.2" />
+<link href="https://jbrette.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123357787-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-123357787-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="Using Ansible to manage Raspberry PI cluster" />
+<meta property="og:description" content="Goal Even if the ultimate goal is to manage completly the cluster using Kubernetes, the ability to use Ansible during debug process is very usefull. The goal here is to setup ansible inventory, basic playbooks.
+Ansible Installation on the master node Let&rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.
+sudo apt-get install ansible Reading package lists... Done Building dependency tree Reading state information... Done The following additional packages will be installed: ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml Suggested packages: cowsay sshpass python-crypto-dbg python-crypto-doc python-cryptography-doc python-cryptography-vectors python-enum34-doc python-jinja2-doc ipython python-netaddr-docs python-gssapi doc-base python-setuptools-doc Recommended packages: python-winrm The following NEW packages will be installed: ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml 0 upgraded, 22 newly installed, 0 to remove and 6 not upgraded." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/" /><meta property="og:image" content="https://jbrette.github.io/images/og-image.png"/><meta property="article:section" content="kubernetes" />
+<meta property="article:published_time" content="2018-07-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-07T00:00:00+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jbrette.github.io/images/og-image.png"/>
+
+<meta name="twitter:title" content="Using Ansible to manage Raspberry PI cluster"/>
+<meta name="twitter:description" content="Goal Even if the ultimate goal is to manage completly the cluster using Kubernetes, the ability to use Ansible during debug process is very usefull. The goal here is to setup ansible inventory, basic playbooks.
+Ansible Installation on the master node Let&rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.
+sudo apt-get install ansible Reading package lists... Done Building dependency tree Reading state information... Done The following additional packages will be installed: ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml Suggested packages: cowsay sshpass python-crypto-dbg python-crypto-doc python-cryptography-doc python-cryptography-vectors python-enum34-doc python-jinja2-doc ipython python-netaddr-docs python-gssapi doc-base python-setuptools-doc Recommended packages: python-winrm The following NEW packages will be installed: ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml 0 upgraded, 22 newly installed, 0 to remove and 6 not upgraded."/>
+<meta itemprop="name" content="Using Ansible to manage Raspberry PI cluster">
+<meta itemprop="description" content="Goal Even if the ultimate goal is to manage completly the cluster using Kubernetes, the ability to use Ansible during debug process is very usefull. The goal here is to setup ansible inventory, basic playbooks.
+Ansible Installation on the master node Let&rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.
+sudo apt-get install ansible Reading package lists... Done Building dependency tree Reading state information... Done The following additional packages will be installed: ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml Suggested packages: cowsay sshpass python-crypto-dbg python-crypto-doc python-cryptography-doc python-cryptography-vectors python-enum34-doc python-jinja2-doc ipython python-netaddr-docs python-gssapi doc-base python-setuptools-doc Recommended packages: python-winrm The following NEW packages will be installed: ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml 0 upgraded, 22 newly installed, 0 to remove and 6 not upgraded."><meta itemprop="datePublished" content="2018-07-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1349"><meta itemprop="image" content="https://jbrette.github.io/images/og-image.png"/>
+<meta itemprop="keywords" content="kubedge,ansible,rpi," /></head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/"><i class='fa fa-heart'></i>&nbsp;Home</a></li>
+<li id="medium" class="twitter-menu-item"><a href="https://medium.com/@jbrette">Medium</a></li>
+<li id="linkedin" class="twitter-menu-item"><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li>
+<li class=""><a href="/about/">About</a></li><li class="parent "><a href="">Tutorials<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu">
+<li class="child "><a href="/post/2018-09-26-a/">Blinkt</a></li>
+</ul>
+</li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Using Ansible to manage Raspberry PI cluster</h1>
+<h1 id="goal">Goal</h1>
+<p>Even if the ultimate goal is to manage completly the cluster using Kubernetes,
+the ability to use Ansible during debug process is very usefull.
+The goal here is to setup ansible inventory, basic playbooks.</p>
+<h2 id="ansible-installation-on-the-master-node">Ansible Installation on the master node</h2>
+<p>Let&rsquo;s install ansible using apt-get. A lot of python related depedencies are also installed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install ansible
+
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos python-markupsafe
+  python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml
+Suggested packages:
+  cowsay sshpass python-crypto-dbg python-crypto-doc python-cryptography-doc python-cryptography-vectors python-enum34-doc python-jinja2-doc ipython python-netaddr-docs python-gssapi
+  doc-base python-setuptools-doc
+Recommended packages:
+  python-winrm
+The following NEW packages will be installed:
+  ansible ieee-data libyaml-0-2 python-cffi-backend python-crypto python-cryptography python-enum34 python-httplib2 python-idna python-ipaddress python-jinja2 python-kerberos
+  python-markupsafe python-netaddr python-paramiko python-pkg-resources python-pyasn1 python-selinux python-setuptools python-six python-xmltodict python-yaml
+<span style="color:#ae81ff">0</span> upgraded, <span style="color:#ae81ff">22</span> newly installed, <span style="color:#ae81ff">0</span> to remove and <span style="color:#ae81ff">6</span> not upgraded.
+Need to get 4,556 kB of archives.
+After this operation, 28.4 MB of additional disk space will be used.
+Do you want to <span style="color:#66d9ef">continue</span>? <span style="color:#f92672">[</span>Y/n<span style="color:#f92672">]</span> y
+</code></pre></div><pre tabindex="0"><code>$ ansible --version
+
+ansible 2.2.1.0
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = Default w/o overrides
+</code></pre><pre tabindex="0"><code>sudo apt-get install sshpass
+
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  sshpass
+0 upgraded, 1 newly installed, 0 to remove and 6 not upgraded.
+Need to get 11.2 kB of archives.
+After this operation, 30.7 kB of additional disk space will be used.
+Get:1 http://raspbian.mirrors.lucidnetworks.net/raspbian stretch/main armhf sshpass armhf 1.06-1 [11.2 kB]
+Fetched 11.2 kB in 2s (4,785 B/s)
+Selecting previously unselected package sshpass.
+(Reading database ... 26786 files and directories currently installed.)
+Preparing to unpack .../sshpass_1.06-1_armhf.deb ...
+Unpacking sshpass (1.06-1) ...
+Setting up sshpass (1.06-1) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+</code></pre><h2 id="configure-ansible">Configure ansible</h2>
+<p>Create directorties for ansible</p>
+<pre tabindex="0"><code>mkdir -p mgt/inventory
+mkdir -p mgt/playbooks
+mkdir -p mgt/rooles
+mkdir -p mgt/roles
+mkdir -p mgt/group_vars
+mkdir -p mgt/files
+mkdir -p mgt/inventory/host_vars
+</code></pre><p>Let&rsquo;s check the internal cluster network</p>
+<pre tabindex="0"><code>cat /etc/hosts
+
+192.168.2.1 kubemaster-pi.kubepi kubemaster-pi
+192.168.2.101 kube-node01.kubepi kube-node01
+192.168.2.102 kube-node02.kubepi kube-node02
+192.168.2.103 kube-node03.kubepi kube-node03
+192.168.2.104 kube-node04.kubepi kube-node04
+</code></pre><p>Let&rsquo;s create an rsa key for Ansible SSH. Note
+the cluster is still using the default pirate account
+created by HypriotOS. Will change is later
+once ansible is up.</p>
+<pre tabindex="0"><code>cd ~/mgt
+
+ssh-keygen -t rsa -f mgtkey
+
+ssh-copy-id -i mgtkey.pub pirate@kubemaster-pi
+ssh-copy-id -i mgtkey.pub pirate@kube-node01
+ssh-copy-id -i mgtkey.pub pirate@kube-node02
+ssh-copy-id -i mgtkey.pub pirate@kube-node03
+ssh-copy-id -i mgtkey.pub pirate@kube-node04
+</code></pre><p>Create a first ansible host_var. We will use the mgtkey for ssh/ansible.</p>
+<pre tabindex="0"><code>cd ~/mgt/inventory/host_vars
+cat kubemaster-pi.kubepi
+
+ansible_host: 192.168.2.FOOBAR
+ansible_port: 22
+ansible_user: pirate
+ansible_ssh_private_key_file: mgtkey
+</code></pre><pre tabindex="0"><code>for i in kube-node01 kube-node02 kube-node03 kube-node04
+do
+cp kubemaster-pi.kubepi $i.kubepi
+done
+</code></pre><p>Replace FOOBAR by the proper value</p>
+<pre tabindex="0"><code>vi *.kubepi
+</code></pre><p>Create the main inventory file</p>
+<pre tabindex="0"><code>cd ~/mgt/inventory
+cat hosts
+
+---
+[picluster:children]
+masters
+workers
+
+[masters]
+kubemaster-pi.kubepi
+
+[workers]
+kube-node01.kubepi
+kube-node02.kubepi
+kube-node03.kubepi
+kube-node04.kubepi
+</code></pre><h3 id="use-ansible">Use ansible</h3>
+<h4 id="simple-ping">Simple ping</h4>
+<pre tabindex="0"><code>ansible picluster -i inventory/ -m ping
+
+kube-node01.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+kube-node04.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+kube-node03.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+kubemaster-pi.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+kube-node02.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+</code></pre><pre tabindex="0"><code>ansible masters -i inventory/ -m ping
+
+kubemaster-pi.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+</code></pre><pre tabindex="0"><code>ansible workers -i inventory/ -m ping
+
+kube-node01.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+kube-node03.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+kube-node02.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}
+kube-node04.kubepi | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+</code></pre><h4 id="retrieve-facts">Retrieve Facts</h4>
+<pre tabindex="0"><code>ansible picluster -i inventory/ -m setup
+</code></pre><h4 id="update-all-the-nodes-in-the-cluster">Update all the nodes in the cluster</h4>
+<p>Create a simple playbook</p>
+<pre tabindex="0"><code>cat playbooks/aptupdate.yml
+
+---
+- hosts: picluster
+  tasks:
+  - name: update apt
+    become: true
+    apt:
+       update_cache: yes
+</code></pre><p>Run the simple aptupdate playbook</p>
+<pre tabindex="0"><code>ansible-playbook -i inventory/ playbooks/aptupdate.yml
+
+PLAY [picluster] ***************************************************************
+
+TASK [setup] *******************************************************************
+ok: [kubemaster-pi.kubepi]
+ok: [kube-node03.kubepi]
+ok: [kube-node04.kubepi]
+ok: [kube-node02.kubepi]
+ok: [kube-node01.kubepi]
+
+TASK [update apt] **************************************************************
+changed: [kube-node02.kubepi]
+changed: [kubemaster-pi.kubepi]
+changed: [kube-node01.kubepi]
+changed: [kube-node03.kubepi]
+changed: [kube-node04.kubepi]
+
+PLAY RECAP *********************************************************************
+kube-node01.kubepi         : ok=2    changed=1    unreachable=0    failed=0
+kube-node02.kubepi         : ok=2    changed=1    unreachable=0    failed=0
+kube-node03.kubepi         : ok=2    changed=1    unreachable=0    failed=0
+kube-node04.kubepi         : ok=2    changed=1    unreachable=0    failed=0
+kubemaster-pi.kubepi       : ok=2    changed=1    unreachable=0    failed=0
+</code></pre><h4 id="check-the-version--of-kubeadm">Check the version  of kubeadm</h4>
+<pre tabindex="0"><code>ansible picluster -i inventory -m shell -a &quot;kubeadm version&quot;
+
+kube-node04.kubepi | SUCCESS | rc=0 &gt;&gt;
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;9&quot;, GitVersion:&quot;v1.9.8&quot;, GitCommit:&quot;c138b85178156011dc934c2c9f4837476876fb07&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-05-21T18:53:18Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/arm&quot;}
+
+kube-node03.kubepi | SUCCESS | rc=0 &gt;&gt;
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;9&quot;, GitVersion:&quot;v1.9.8&quot;, GitCommit:&quot;c138b85178156011dc934c2c9f4837476876fb07&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-05-21T18:53:18Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/arm&quot;}
+
+kube-node01.kubepi | SUCCESS | rc=0 &gt;&gt;
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;9&quot;, GitVersion:&quot;v1.9.8&quot;, GitCommit:&quot;c138b85178156011dc934c2c9f4837476876fb07&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-05-21T18:53:18Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/arm&quot;}
+
+kubemaster-pi.kubepi | SUCCESS | rc=0 &gt;&gt;
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;9&quot;, GitVersion:&quot;v1.9.8&quot;, GitCommit:&quot;c138b85178156011dc934c2c9f4837476876fb07&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-05-21T18:53:18Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/arm&quot;}
+
+kube-node02.kubepi | SUCCESS | rc=0 &gt;&gt;
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;9&quot;, GitVersion:&quot;v1.9.8&quot;, GitCommit:&quot;c138b85178156011dc934c2c9f4837476876fb07&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-05-21T18:53:18Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/arm&quot;}
+</code></pre><h4 id="check-the-temperature">Check the temperature</h4>
+<pre tabindex="0"><code>ansible picluster -i inventory -m shell -a &quot;vcgencmd measure_temp&quot;
+
+kube-node03.kubepi | SUCCESS | rc=0 &gt;&gt;
+temp=36.5'C
+
+kubemaster-pi.kubepi | SUCCESS | rc=0 &gt;&gt;
+temp=49.4'C
+
+kube-node02.kubepi | SUCCESS | rc=0 &gt;&gt;
+temp=33.2'C
+
+kube-node04.kubepi | SUCCESS | rc=0 &gt;&gt;
+temp=34.3'C
+
+kube-node01.kubepi | SUCCESS | rc=0 &gt;&gt;
+temp=32.2'C
+</code></pre><h4 id="check-the-connected-devices">Check the connected devices</h4>
+<p>Check the components of the PI composing the cluster (Those are PI 3B+)</p>
+<pre tabindex="0"><code>ansible picluster -i inventory -m shell -a &quot;lsusb&quot;
+
+kubemaster-pi.kubepi | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 004: ID 0424:7800 Standard Microsystems Corp.
+Bus 001 Device 003: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+kube-node02.kubepi | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 004: ID 0424:7800 Standard Microsystems Corp.
+Bus 001 Device 003: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+kube-node01.kubepi | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 004: ID 0424:7800 Standard Microsystems Corp.
+Bus 001 Device 003: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+kube-node04.kubepi | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 004: ID 0424:7800 Standard Microsystems Corp.
+Bus 001 Device 003: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+kube-node03.kubepi | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 004: ID 0424:7800 Standard Microsystems Corp.
+Bus 001 Device 003: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre><p>On the second cluster, some of the nodes are PI 3B instead of PI 3B+. LAN and WLAN are different.</p>
+<pre tabindex="0"><code>ansible picluster -i inventory -m shell -s -a &quot;lsusb&quot;
+
+master-pi.kubedge.cloud | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 004: ID 0424:7800 Standard Microsystems Corp.
+Bus 001 Device 003: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+home-pi.kubedge.cloud | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 004: ID 10c4:8a2a Cygnal Integrated Products, Inc.
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp. SMC9514 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+nas-pi.kubedge.cloud | SUCCESS | rc=0 &gt;&gt;
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp. SMC9514 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre><h4 id="other-usefull-commands">Other usefull commands</h4>
+<pre tabindex="0"><code>ansible picluster -i inventory -m shell -a &quot;lsusb&quot;
+ansible picluster -i inventory -m shell -a &quot;dmesg&quot;
+ansible picluster -i inventory -m shell -a &quot;usb-devices&quot;
+ansible picluster -i inventory -m shell -a &quot;lsblk&quot;
+
+ansible picluster -i inventory -m shell -a &quot;blkid&quot;
+ansible picluster -i inventory -m shell -a &quot;fdisk -l&quot;
+</code></pre><h2 id="reference-links">Reference Links</h2>
+<ul>
+<li>TBD</li>
+</ul>
+<div class="edit-meta">
+Last updated on 7 Jul 2018
+
+
+<br>
+Published on 7 Jul 2018
+<br><a href="https://github.com/jbrette/blog/edit/master/kubernetes/rpi/2018-07-07-a.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/kubernetes/rpi/2018-07-08-a/" title="Add Persistency Volume to PI Clusters"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Add Persistency Volume to PI Clusters</a>
+<a class="nav nav-next" href="https://jbrette.github.io/kubernetes/rpi/2018-07-03-a/" title="Creating a Raspberry 3 B&#43; Kubernetes Cluster">Next - Creating a Raspberry 3 B&#43; Kubernetes Cluster <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://jbrette.github.io/">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/ai_ml/2018-07-19-a/">Kubeflow</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/iot/">IOT<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-06-a/">ZWave/ZigBee</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-05-a/">OpenHAB</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-04-a/">HomeAssistant</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://jbrette.github.io/kubernetes/">Kubernetes<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://jbrette.github.io/kubernetes/operators/">Kubernetes Operators</a>
+  
+</li>
+
+<li class=""><a href="https://jbrette.github.io/kubernetes/kustomize/">Kustomize</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/devops/">DEVOPS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-07-11-a/">Use github repo as helm chart repository</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-25-a/">Setup github/gerrit behind a corporate http proxy</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-24-a/">docker.io versus docker-ce</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-23-a/">Setup multiple GitHub account on a single machine</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-22-a/">Setup your GOLANG environment</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://jbrette.github.io/kubernetes/rpi/">RASPBERRY PI<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/">Upgrade RPI Kubernetes cluster to 1.12</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-16-a/">Rebuild Hyperkube images</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-12-a/">Enable docker remote API</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-08-a/">Add Persistency Volume to PI Clusters</a></li>
+<li class="active"><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/">Using Ansible to manage Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-03-a/">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-20-a/">Create a Rapsberry PI Rescue Dongle</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-19-a/">Add Raspberry PI node to Kubernetes Cluster in 10 min</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/sdk/">SDK<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-30-a/">Update Kubernetes to 1.11 on Ubuntu</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-27-a/">Manual Update of CoreOS</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/">Setup SingleNode Kubernetes Cluster using kubeadm</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/apps/">APPS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-07-01-a/">Creating simple Python server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-29-a/">Creating simple GO server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-28-a/">Creating simple Java 10 server container</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/misc/">MISC<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-31-a/">Build and Deploy Kubernetes Istio</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-18-a/">Compile and Test Portieris</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-02-a/">Compile and Test SONOBUOY</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-06-26-a/">Zuul</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

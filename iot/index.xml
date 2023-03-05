@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Iot on Jerome Brette&#39;s Blog</title>
+    <title>IOT on Jerome Brette&#39;s Blog</title>
     <link>https://jbrette.github.io/iot/</link>
-    <description>Recent content in Iot on Jerome Brette&#39;s Blog</description>
+    <description>Recent content in IOT on Jerome Brette&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/iot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/iot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ZWave/ZigBee</title>
       <link>https://jbrette.github.io/iot/2018-07-06-a/</link>
