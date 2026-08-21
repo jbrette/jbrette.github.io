@@ -13,7 +13,7 @@
         "articleSection" : "kubedge",
         "name" : "Deploy Flannel in Raspberry PI cluster",
         "headline" : "Deploy Flannel in Raspberry PI cluster",
-        "description" : "Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).\nKey Aspects  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME\/kube-deployments\/flannel $ cd $HOME\/kube-deployments\/flannel $ curl -sSL https:\/\/rawgit.",
+        "description" : "\u003ch1 id=\u0022goal\u0022\u003eGoal\u003c\/h1\u003e\n\u003cp\u003eIn order to get the nodes and pods interface with each other accross the cluster.\nThis post describes how I deployed Flannel acounting with the fact that some of the\nnodes have multiple interfaces (wlan0 and eth0).\u003c\/p\u003e\n\u003ch2 id=\u0022key-aspects\u0022\u003eKey Aspects\u003c\/h2\u003e\n\u003cul\u003e\n\u003cli\u003eFlannel seems to deploy ok. Looks like in trouble when multiple interfaces available\u003c\/li\u003e\n\u003cli\u003eCalico in not compiled by default for Rapsberry PI\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022flannel\u0022\u003eFlannel\u003c\/h2\u003e\n\u003ch3 id=\u0022setup-through-kubectl\u0022\u003eSetup through kubectl\u003c\/h3\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\u0022\u003e\u003ccode class=\u0022language-bash\u0022 data-lang=\u0022bash\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e$ mkdir -p $HOME\/kube-deployments\/flannel\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e$ cd $HOME\/kube-deployments\/flannel\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e$ curl -sSL https:\/\/rawgit.com\/coreos\/flannel\/v0.9.1\/Documentation\/kube-flannel.yml | sed \u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;s\/amd64\/arm\/g\u0026#34;\u003c\/span\u003e \u0026gt; flannel.yaml\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e$ kubectl create -f flannel.yaml \n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cp\u003eNote: realized that should be using flannel v0.10.0 instead of v0.9.1\u003c\/p\u003e",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.92.2" />
+        <meta name="generator" content="Hugo 0.165.0">
         
 
 
@@ -49,32 +49,40 @@
             
         
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Deploy Flannel in Raspberry PI cluster"/>
-<meta name="twitter:description" content="Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).
-Key Aspects  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit."/>
-<meta name="twitter:site" content="@example"/>
+        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Deploy Flannel in Raspberry PI cluster">
+	<meta name="twitter:description" content="Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).
+Key Aspects Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &#34;s/amd64/arm/g&#34; &gt; flannel.yaml $ kubectl create -f flannel.yaml Note: realized that should be using flannel v0.10.0 instead of v0.9.1">
+			<meta name="twitter:site" content="@example">
 
-        <meta property="og:title" content="Deploy Flannel in Raspberry PI cluster" />
-<meta property="og:description" content="Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).
-Key Aspects  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-14-a/" /><meta property="article:section" content="kubedge" />
-<meta property="article:published_time" content="2018-07-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-07-14T00:00:00+00:00" />
-
+        <meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-14-a/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Deploy Flannel in Raspberry PI cluster">
+	<meta property="og:description" content="Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).
+Key Aspects Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &#34;s/amd64/arm/g&#34; &gt; flannel.yaml $ kubectl create -f flannel.yaml Note: realized that should be using flannel v0.10.0 instead of v0.9.1">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="kubedge">
+		<meta property="article:published_time" content="2018-07-14T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-07-14T00:00:00+00:00">
+		<meta property="article:tag" content="Kubedge">
+		<meta property="article:tag" content="Kubernetes">
+		<meta property="article:tag" content="Rpi">
+		<meta property="article:tag" content="Cni">
 
         <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Deploy Flannel in Raspberry PI cluster">
-<meta itemprop="description" content="Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).
-Key Aspects  Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI  Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit."><meta itemprop="datePublished" content="2018-07-14T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-07-14T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1228">
-<meta itemprop="keywords" content="kubedge,kubernetes,rpi,cni," />
         
+	<meta itemprop="name" content="Deploy Flannel in Raspberry PI cluster">
+	<meta itemprop="description" content="Goal In order to get the nodes and pods interface with each other accross the cluster. This post describes how I deployed Flannel acounting with the fact that some of the nodes have multiple interfaces (wlan0 and eth0).
+Key Aspects Flannel seems to deploy ok. Looks like in trouble when multiple interfaces available Calico in not compiled by default for Rapsberry PI Flannel Setup through kubectl $ mkdir -p $HOME/kube-deployments/flannel $ cd $HOME/kube-deployments/flannel $ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &#34;s/amd64/arm/g&#34; &gt; flannel.yaml $ kubectl create -f flannel.yaml Note: realized that should be using flannel v0.10.0 instead of v0.9.1">
+	<meta itemprop="datePublished" content="2018-07-14T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2018-07-14T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1228">
+	<meta itemprop="keywords" content="Kubedge,Kubernetes,Rpi,Cni">
 
         
             
@@ -105,18 +113,6 @@ Key Aspects  Flannel seems to deploy ok. Looks like in trouble when multiple int
 
 
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
     </head>
     <body>
 
@@ -315,11 +311,23 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
                             </header>
                             
 
@@ -358,45 +366,6 @@ if (!doNotTrack) {
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
             <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-28'>
-                                    September 28, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -626,6 +595,7 @@ if (!doNotTrack) {
   
 
   
+
   <div id="content">
     <h1 id="goal">Goal</h1>
 <p>In order to get the nodes and pods interface with each other accross the cluster.
@@ -638,157 +608,157 @@ nodes have multiple interfaces (wlan0 and eth0).</p>
 </ul>
 <h2 id="flannel">Flannel</h2>
 <h3 id="setup-through-kubectl">Setup through kubectl</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p $HOME/kube-deployments/flannel
-$ cd $HOME/kube-deployments/flannel
-$ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed <span style="color:#e6db74">&#34;s/amd64/arm/g&#34;</span> &gt; flannel.yaml
-$ kubectl create -f flannel.yaml 
-</code></pre></div><p>Note: realized that should be using flannel v0.10.0 instead of v0.9.1</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p $HOME/kube-deployments/flannel
+</span></span><span style="display:flex;"><span>$ cd $HOME/kube-deployments/flannel
+</span></span><span style="display:flex;"><span>$ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed <span style="color:#e6db74">&#34;s/amd64/arm/g&#34;</span> &gt; flannel.yaml
+</span></span><span style="display:flex;"><span>$ kubectl create -f flannel.yaml 
+</span></span></code></pre></div><p>Note: realized that should be using flannel v0.10.0 instead of v0.9.1</p>
 <h3 id="flannel-issue-1-flannel1-link-has-incompatible-address">Flannel Issue 1: flannel.1. Link has incompatible address</h3>
 <p>on master-pi, both the WLAN and LAN interfaces were activated. After unplugging the CAT5,
 behavior was similar. Moreover this had some impact on the kube-apiserver (see the number of restarts).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get all --all-namespaces
-
-NAMESPACE     NAME                                             READY     STATUS             RESTARTS   AGE
-default       pod/helm-rpi-kubeplay-arm32v7-6cb66496c6-9w97m   1/1       Running            <span style="color:#ae81ff">0</span>          4h
-kube-system   pod/coredns-78fcdf6894-cw5p8                     1/1       Running            <span style="color:#ae81ff">15</span>         10d
-kube-system   pod/coredns-78fcdf6894-czjcj                     1/1       Running            <span style="color:#ae81ff">15</span>         10d
-kube-system   pod/etcd-master-pi                               1/1       Running            <span style="color:#ae81ff">11</span>         10d
-kube-system   pod/kube-apiserver-master-pi                     1/1       Running            <span style="color:#ae81ff">599</span>        10d
-kube-system   pod/kube-controller-manager-master-pi            1/1       Running            <span style="color:#ae81ff">38</span>         10d
-kube-system   pod/kube-flannel-ds-bhllh                        1/1       Running            <span style="color:#ae81ff">13</span>         9d
-kube-system   pod/kube-flannel-ds-q7cp2                        0/1       CrashLoopBackOff   <span style="color:#ae81ff">401</span>        9d
-kube-system   pod/kube-flannel-ds-wqxsz                        1/1       Running            <span style="color:#ae81ff">16</span>         9d
-kube-system   pod/kube-proxy-4chwh                             1/1       Running            <span style="color:#ae81ff">9</span>          9d
-kube-system   pod/kube-proxy-6r5mn                             1/1       Running            <span style="color:#ae81ff">5</span>          9d
-kube-system   pod/kube-proxy-vvj6j                             1/1       Running            <span style="color:#ae81ff">11</span>         10d
-kube-system   pod/kube-scheduler-master-pi                     1/1       Running            <span style="color:#ae81ff">13</span>         10d
-kube-system   pod/kubernetes-dashboard-7d59788d44-rchkk        1/1       Running            <span style="color:#ae81ff">20</span>         7d
-kube-system   pod/tiller-deploy-b59fcc885-66l7s                1/1       Running            <span style="color:#ae81ff">0</span>          6h
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl logs pod/kube-flannel-ds-q7cp2 -n kube-system
-
-I0716 00:42:46.596796       <span style="color:#ae81ff">1</span> main.go:474<span style="color:#f92672">]</span> Determining IP address of default interface
-I0716 00:42:46.598043       <span style="color:#ae81ff">1</span> main.go:487<span style="color:#f92672">]</span> Using interface with name wlan0 and address 192.168.1.95
-I0716 00:42:46.598138       <span style="color:#ae81ff">1</span> main.go:504<span style="color:#f92672">]</span> Defaulting external address to interface address <span style="color:#f92672">(</span>192.168.1.95<span style="color:#f92672">)</span>
-I0716 00:42:46.775936       <span style="color:#ae81ff">1</span> kube.go:283<span style="color:#f92672">]</span> Starting kube subnet manager
-I0716 00:42:46.775907       <span style="color:#ae81ff">1</span> kube.go:130<span style="color:#f92672">]</span> Waiting 10m0s <span style="color:#66d9ef">for</span> node controller to sync
-I0716 00:42:47.776280       <span style="color:#ae81ff">1</span> kube.go:137<span style="color:#f92672">]</span> Node controller sync successful
-I0716 00:42:47.776400       <span style="color:#ae81ff">1</span> main.go:234<span style="color:#f92672">]</span> Created subnet manager: Kubernetes Subnet Manager - master-pi
-I0716 00:42:47.776431       <span style="color:#ae81ff">1</span> main.go:237<span style="color:#f92672">]</span> Installing signal handlers
-I0716 00:42:47.776697       <span style="color:#ae81ff">1</span> main.go:352<span style="color:#f92672">]</span> Found network config - Backend type: vxlan
-I0716 00:42:47.776900       <span style="color:#ae81ff">1</span> vxlan.go:119<span style="color:#f92672">]</span> VXLAN config: VNI<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> Port<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GBP<span style="color:#f92672">=</span>false DirectRouting<span style="color:#f92672">=</span>false
-E0716 00:42:47.778884       <span style="color:#ae81ff">1</span> main.go:279<span style="color:#f92672">]</span> Error registering network: failed to configure interface flannel.1: link has incompatible addresses. Remove additional addresses and try again.... 
-I0716 00:42:47.778991       <span style="color:#ae81ff">1</span> main.go:332<span style="color:#f92672">]</span> Stopping shutdownHandler...
-</code></pre></div><p>Deleting the pod, did not help. After recreation same issue reappeared.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl delete pod/kube-flannel-ds-q7cp2 -n kube-system
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get all --all-namespaces
-
-NAMESPACE     NAME                                             READY     STATUS    RESTARTS   AGE
-kube-system   pod/kube-flannel-ds-z7w4f                        0/1       Error     <span style="color:#ae81ff">1</span>          17s
-</code></pre></div><p>Deleting the interface flannel.1 interface actually worked:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ip link delete flannel.1
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get all --all-namespaces
-
-NAMESPACE     NAME                                             READY     STATUS    RESTARTS   AGE
-kube-system   pod/kube-flannel-ds-z7w4f                        1/1       Running   <span style="color:#ae81ff">5</span>          3m
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl logs pod/kube-flannel-ds-z7w4f -n kube-system
-
-I0716 00:52:14.555290       <span style="color:#ae81ff">1</span> main.go:474<span style="color:#f92672">]</span> Determining IP address of default interface
-I0716 00:52:14.564490       <span style="color:#ae81ff">1</span> main.go:487<span style="color:#f92672">]</span> Using interface with name wlan0 and address 192.168.1.95
-I0716 00:52:14.564578       <span style="color:#ae81ff">1</span> main.go:504<span style="color:#f92672">]</span> Defaulting external address to interface address <span style="color:#f92672">(</span>192.168.1.95<span style="color:#f92672">)</span>
-I0716 00:52:14.802491       <span style="color:#ae81ff">1</span> kube.go:130<span style="color:#f92672">]</span> Waiting 10m0s <span style="color:#66d9ef">for</span> node controller to sync
-I0716 00:52:14.802544       <span style="color:#ae81ff">1</span> kube.go:283<span style="color:#f92672">]</span> Starting kube subnet manager
-I0716 00:52:15.803114       <span style="color:#ae81ff">1</span> kube.go:137<span style="color:#f92672">]</span> Node controller sync successful
-I0716 00:52:15.803308       <span style="color:#ae81ff">1</span> main.go:234<span style="color:#f92672">]</span> Created subnet manager: Kubernetes Subnet Manager - master-pi
-I0716 00:52:15.803909       <span style="color:#ae81ff">1</span> main.go:237<span style="color:#f92672">]</span> Installing signal handlers
-I0716 00:52:15.804662       <span style="color:#ae81ff">1</span> main.go:352<span style="color:#f92672">]</span> Found network config - Backend type: vxlan
-I0716 00:52:15.804985       <span style="color:#ae81ff">1</span> vxlan.go:119<span style="color:#f92672">]</span> VXLAN config: VNI<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> Port<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GBP<span style="color:#f92672">=</span>false DirectRouting<span style="color:#f92672">=</span>false
-I0716 00:52:15.875242       <span style="color:#ae81ff">1</span> main.go:299<span style="color:#f92672">]</span> Wrote subnet file to /run/flannel/subnet.env
-I0716 00:52:15.875367       <span style="color:#ae81ff">1</span> main.go:303<span style="color:#f92672">]</span> Running backend.
-I0716 00:52:15.875489       <span style="color:#ae81ff">1</span> main.go:321<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> all goroutines to exit
-I0716 00:52:15.875559       <span style="color:#ae81ff">1</span> vxlan_network.go:56<span style="color:#f92672">]</span> watching <span style="color:#66d9ef">for</span> new subnet leases
-</code></pre></div><h3 id="flannel-issue-2-multiple-interfaces">Flannel issue 2: Multiple interfaces</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl get all --all-namespaces
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                                             READY     STATUS             RESTARTS   AGE
+</span></span><span style="display:flex;"><span>default       pod/helm-rpi-kubeplay-arm32v7-6cb66496c6-9w97m   1/1       Running            <span style="color:#ae81ff">0</span>          4h
+</span></span><span style="display:flex;"><span>kube-system   pod/coredns-78fcdf6894-cw5p8                     1/1       Running            <span style="color:#ae81ff">15</span>         10d
+</span></span><span style="display:flex;"><span>kube-system   pod/coredns-78fcdf6894-czjcj                     1/1       Running            <span style="color:#ae81ff">15</span>         10d
+</span></span><span style="display:flex;"><span>kube-system   pod/etcd-master-pi                               1/1       Running            <span style="color:#ae81ff">11</span>         10d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-apiserver-master-pi                     1/1       Running            <span style="color:#ae81ff">599</span>        10d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-controller-manager-master-pi            1/1       Running            <span style="color:#ae81ff">38</span>         10d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-bhllh                        1/1       Running            <span style="color:#ae81ff">13</span>         9d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-q7cp2                        0/1       CrashLoopBackOff   <span style="color:#ae81ff">401</span>        9d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-wqxsz                        1/1       Running            <span style="color:#ae81ff">16</span>         9d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-4chwh                             1/1       Running            <span style="color:#ae81ff">9</span>          9d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-6r5mn                             1/1       Running            <span style="color:#ae81ff">5</span>          9d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-vvj6j                             1/1       Running            <span style="color:#ae81ff">11</span>         10d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-scheduler-master-pi                     1/1       Running            <span style="color:#ae81ff">13</span>         10d
+</span></span><span style="display:flex;"><span>kube-system   pod/kubernetes-dashboard-7d59788d44-rchkk        1/1       Running            <span style="color:#ae81ff">20</span>         7d
+</span></span><span style="display:flex;"><span>kube-system   pod/tiller-deploy-b59fcc885-66l7s                1/1       Running            <span style="color:#ae81ff">0</span>          6h
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl logs pod/kube-flannel-ds-q7cp2 -n kube-system
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>I0716 00:42:46.596796       <span style="color:#ae81ff">1</span> main.go:474<span style="color:#f92672">]</span> Determining IP address of default interface
+</span></span><span style="display:flex;"><span>I0716 00:42:46.598043       <span style="color:#ae81ff">1</span> main.go:487<span style="color:#f92672">]</span> Using interface with name wlan0 and address 192.168.1.95
+</span></span><span style="display:flex;"><span>I0716 00:42:46.598138       <span style="color:#ae81ff">1</span> main.go:504<span style="color:#f92672">]</span> Defaulting external address to interface address <span style="color:#f92672">(</span>192.168.1.95<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>I0716 00:42:46.775936       <span style="color:#ae81ff">1</span> kube.go:283<span style="color:#f92672">]</span> Starting kube subnet manager
+</span></span><span style="display:flex;"><span>I0716 00:42:46.775907       <span style="color:#ae81ff">1</span> kube.go:130<span style="color:#f92672">]</span> Waiting 10m0s <span style="color:#66d9ef">for</span> node controller to sync
+</span></span><span style="display:flex;"><span>I0716 00:42:47.776280       <span style="color:#ae81ff">1</span> kube.go:137<span style="color:#f92672">]</span> Node controller sync successful
+</span></span><span style="display:flex;"><span>I0716 00:42:47.776400       <span style="color:#ae81ff">1</span> main.go:234<span style="color:#f92672">]</span> Created subnet manager: Kubernetes Subnet Manager - master-pi
+</span></span><span style="display:flex;"><span>I0716 00:42:47.776431       <span style="color:#ae81ff">1</span> main.go:237<span style="color:#f92672">]</span> Installing signal handlers
+</span></span><span style="display:flex;"><span>I0716 00:42:47.776697       <span style="color:#ae81ff">1</span> main.go:352<span style="color:#f92672">]</span> Found network config - Backend type: vxlan
+</span></span><span style="display:flex;"><span>I0716 00:42:47.776900       <span style="color:#ae81ff">1</span> vxlan.go:119<span style="color:#f92672">]</span> VXLAN config: VNI<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> Port<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GBP<span style="color:#f92672">=</span>false DirectRouting<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span>E0716 00:42:47.778884       <span style="color:#ae81ff">1</span> main.go:279<span style="color:#f92672">]</span> Error registering network: failed to configure interface flannel.1: link has incompatible addresses. Remove additional addresses and try again.... 
+</span></span><span style="display:flex;"><span>I0716 00:42:47.778991       <span style="color:#ae81ff">1</span> main.go:332<span style="color:#f92672">]</span> Stopping shutdownHandler...
+</span></span></code></pre></div><p>Deleting the pod, did not help. After recreation same issue reappeared.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl delete pod/kube-flannel-ds-q7cp2 -n kube-system
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl get all --all-namespaces
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                                             READY     STATUS    RESTARTS   AGE
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-z7w4f                        0/1       Error     <span style="color:#ae81ff">1</span>          17s
+</span></span></code></pre></div><p>Deleting the interface flannel.1 interface actually worked:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo ip link delete flannel.1
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl get all --all-namespaces
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                                             READY     STATUS    RESTARTS   AGE
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-z7w4f                        1/1       Running   <span style="color:#ae81ff">5</span>          3m
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl logs pod/kube-flannel-ds-z7w4f -n kube-system
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>I0716 00:52:14.555290       <span style="color:#ae81ff">1</span> main.go:474<span style="color:#f92672">]</span> Determining IP address of default interface
+</span></span><span style="display:flex;"><span>I0716 00:52:14.564490       <span style="color:#ae81ff">1</span> main.go:487<span style="color:#f92672">]</span> Using interface with name wlan0 and address 192.168.1.95
+</span></span><span style="display:flex;"><span>I0716 00:52:14.564578       <span style="color:#ae81ff">1</span> main.go:504<span style="color:#f92672">]</span> Defaulting external address to interface address <span style="color:#f92672">(</span>192.168.1.95<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>I0716 00:52:14.802491       <span style="color:#ae81ff">1</span> kube.go:130<span style="color:#f92672">]</span> Waiting 10m0s <span style="color:#66d9ef">for</span> node controller to sync
+</span></span><span style="display:flex;"><span>I0716 00:52:14.802544       <span style="color:#ae81ff">1</span> kube.go:283<span style="color:#f92672">]</span> Starting kube subnet manager
+</span></span><span style="display:flex;"><span>I0716 00:52:15.803114       <span style="color:#ae81ff">1</span> kube.go:137<span style="color:#f92672">]</span> Node controller sync successful
+</span></span><span style="display:flex;"><span>I0716 00:52:15.803308       <span style="color:#ae81ff">1</span> main.go:234<span style="color:#f92672">]</span> Created subnet manager: Kubernetes Subnet Manager - master-pi
+</span></span><span style="display:flex;"><span>I0716 00:52:15.803909       <span style="color:#ae81ff">1</span> main.go:237<span style="color:#f92672">]</span> Installing signal handlers
+</span></span><span style="display:flex;"><span>I0716 00:52:15.804662       <span style="color:#ae81ff">1</span> main.go:352<span style="color:#f92672">]</span> Found network config - Backend type: vxlan
+</span></span><span style="display:flex;"><span>I0716 00:52:15.804985       <span style="color:#ae81ff">1</span> vxlan.go:119<span style="color:#f92672">]</span> VXLAN config: VNI<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> Port<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GBP<span style="color:#f92672">=</span>false DirectRouting<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span>I0716 00:52:15.875242       <span style="color:#ae81ff">1</span> main.go:299<span style="color:#f92672">]</span> Wrote subnet file to /run/flannel/subnet.env
+</span></span><span style="display:flex;"><span>I0716 00:52:15.875367       <span style="color:#ae81ff">1</span> main.go:303<span style="color:#f92672">]</span> Running backend.
+</span></span><span style="display:flex;"><span>I0716 00:52:15.875489       <span style="color:#ae81ff">1</span> main.go:321<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> all goroutines to exit
+</span></span><span style="display:flex;"><span>I0716 00:52:15.875559       <span style="color:#ae81ff">1</span> vxlan_network.go:56<span style="color:#f92672">]</span> watching <span style="color:#66d9ef">for</span> new subnet leases
+</span></span></code></pre></div><h3 id="flannel-issue-2-multiple-interfaces">Flannel issue 2: Multiple interfaces</h3>
 <p>Some of the PI have two interfaces running: wlan0 and eth0. The internal cluster network is using eth0.
 We need to force Flannel to use it.</p>
 <h3 id="setup-through-kubectl-1">Setup through kubectl</h3>
 <p>Realize I was using v0.9.1 instead of v0.10.0. Let&rsquo;s update the file</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p $HOME/kube-deployments/flannel
-$ cd $HOME/kube-deployments/flannel
-$ curl -sSL https://rawgit.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.yml | sed <span style="color:#e6db74">&#34;s/amd64/arm/g&#34;</span> &gt; flannel.yaml
-</code></pre></div><p>Let&rsquo;s add &ndash;iface=eth0 to the flanneld to in the flannel.yaml</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"></code></pre></div><p>Let&rsquo;s update flannel from 0.9.1 to 0.10.0 at the same time we specify which interface to use.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f flannel.yaml
-
-clusterrole.rbac.authorization.k8s.io/flannel configured
-clusterrolebinding.rbac.authorization.k8s.io/flannel configured
-serviceaccount/flannel unchanged
-configmap/kube-flannel-cfg configured
-daemonset.extensions/kube-flannel-ds configured
-</code></pre></div><p>It seems it solved the flannel issue. The bug in kube 1.11.0 still there (restart of kube-apiserver)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p $HOME/kube-deployments/flannel
+</span></span><span style="display:flex;"><span>$ cd $HOME/kube-deployments/flannel
+</span></span><span style="display:flex;"><span>$ curl -sSL https://rawgit.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.yml | sed <span style="color:#e6db74">&#34;s/amd64/arm/g&#34;</span> &gt; flannel.yaml
+</span></span></code></pre></div><p>Let&rsquo;s add &ndash;iface=eth0 to the flanneld to in the flannel.yaml</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"></code></pre></div><p>Let&rsquo;s update flannel from 0.9.1 to 0.10.0 at the same time we specify which interface to use.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl apply -f flannel.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>clusterrole.rbac.authorization.k8s.io/flannel configured
+</span></span><span style="display:flex;"><span>clusterrolebinding.rbac.authorization.k8s.io/flannel configured
+</span></span><span style="display:flex;"><span>serviceaccount/flannel unchanged
+</span></span><span style="display:flex;"><span>configmap/kube-flannel-cfg configured
+</span></span><span style="display:flex;"><span>daemonset.extensions/kube-flannel-ds configured
+</span></span></code></pre></div><p>It seems it solved the flannel issue. The bug in kube 1.11.0 still there (restart of kube-apiserver)
 Will update to 1.11.1 when it is published</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get all --all-namespaces
-
-NAMESPACE     NAME                                        READY     STATUS             RESTARTS   AGE
-kube-system   pod/coredns-78fcdf6894-bn6wl                1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/coredns-78fcdf6894-k52xb                1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/etcd-kubemaster-pi                      1/1       Running            <span style="color:#ae81ff">3</span>          6d
-kube-system   pod/kube-apiserver-kubemaster-pi            1/1       Running            <span style="color:#ae81ff">3</span>          6d
-kube-system   pod/kube-controller-manager-kubemaster-pi   0/1       CrashLoopBackOff   <span style="color:#ae81ff">1740</span>       6d
-kube-system   pod/kube-flannel-ds-62fz9                   1/1       Running            <span style="color:#ae81ff">984</span>        6d
-kube-system   pod/kube-flannel-ds-gwzdt                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-flannel-ds-h7ln5                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-flannel-ds-qs9lf                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-flannel-ds-vwsjk                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-proxy-45z5s                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-proxy-4trsd                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-proxy-ksj7c                        1/1       Running            <span style="color:#ae81ff">4</span>          6d
-kube-system   pod/kube-proxy-t7gmc                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-proxy-tfmqb                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
-kube-system   pod/kube-scheduler-kubemaster-pi            1/1       Running            <span style="color:#ae81ff">4</span>          6d
-
-NAMESPACE     NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>         AGE
-default       service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP         6d
-kube-system   service/kube-dns     ClusterIP   10.96.0.10   &lt;none&gt;        53/UDP,53/TCP   6d
-
-NAMESPACE     NAME                             DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-kube-system   daemonset.apps/kube-flannel-ds   <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">5</span>           beta.kubernetes.io/arch<span style="color:#f92672">=</span>arm   6d
-kube-system   daemonset.apps/kube-proxy        <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">5</span>           beta.kubernetes.io/arch<span style="color:#f92672">=</span>arm   6d
-
-NAMESPACE     NAME                      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-kube-system   deployment.apps/coredns   <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>            <span style="color:#ae81ff">2</span>           6d
-
-NAMESPACE     NAME                                 DESIRED   CURRENT   READY     AGE
-kube-system   replicaset.apps/coredns-78fcdf6894   <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>         6d
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl logs pod/kube-flannel-ds-62fz9 -n kube-system
-
-I0714 14:34:26.719081       <span style="color:#ae81ff">1</span> main.go:474<span style="color:#f92672">]</span> Determining IP address of default interface
-I0714 14:34:26.728184       <span style="color:#ae81ff">1</span> main.go:487<span style="color:#f92672">]</span> Using interface with name wlan0 and address 192.168.1.94
-I0714 14:34:26.728273       <span style="color:#ae81ff">1</span> main.go:504<span style="color:#f92672">]</span> Defaulting external address to interface address <span style="color:#f92672">(</span>192.168.1.94<span style="color:#f92672">)</span>
-I0714 14:34:26.942686       <span style="color:#ae81ff">1</span> kube.go:283<span style="color:#f92672">]</span> Starting kube subnet manager
-I0714 14:34:26.943203       <span style="color:#ae81ff">1</span> kube.go:130<span style="color:#f92672">]</span> Waiting 10m0s <span style="color:#66d9ef">for</span> node controller to sync
-I0714 14:34:27.943672       <span style="color:#ae81ff">1</span> kube.go:137<span style="color:#f92672">]</span> Node controller sync successful
-I0714 14:34:27.943771       <span style="color:#ae81ff">1</span> main.go:234<span style="color:#f92672">]</span> Created subnet manager: Kubernetes Subnet Manager - kubemaster-pi
-I0714 14:34:27.943819       <span style="color:#ae81ff">1</span> main.go:237<span style="color:#f92672">]</span> Installing signal handlers
-I0714 14:34:27.944064       <span style="color:#ae81ff">1</span> main.go:352<span style="color:#f92672">]</span> Found network config - Backend type: vxlan
-I0714 14:34:27.944222       <span style="color:#ae81ff">1</span> vxlan.go:119<span style="color:#f92672">]</span> VXLAN config: VNI<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> Port<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GBP<span style="color:#f92672">=</span>false DirectRouting<span style="color:#f92672">=</span>false
-I0714 14:34:28.004675       <span style="color:#ae81ff">1</span> main.go:299<span style="color:#f92672">]</span> Wrote subnet file to /run/flannel/subnet.env
-I0714 14:34:28.004748       <span style="color:#ae81ff">1</span> main.go:303<span style="color:#f92672">]</span> Running backend.
-I0714 14:34:28.004880       <span style="color:#ae81ff">1</span> main.go:321<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> all goroutines to exit
-I0714 14:34:28.004931       <span style="color:#ae81ff">1</span> vxlan_network.go:56<span style="color:#f92672">]</span> watching <span style="color:#66d9ef">for</span> new subnet leases
-I0714 14:34:28.049933       <span style="color:#ae81ff">1</span> iptables.go:114<span style="color:#f92672">]</span> Some iptables rules are missing; deleting and recreating rules
-I0714 14:34:28.050202       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -s 10.244.0.0/16 -j ACCEPT
-I0714 14:34:28.053918       <span style="color:#ae81ff">1</span> iptables.go:114<span style="color:#f92672">]</span> Some iptables rules are missing; deleting and recreating rules
-I0714 14:34:28.054003       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -s 10.244.0.0/16 -d 10.244.0.0/16 -j RETURN
-I0714 14:34:28.057332       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -d 10.244.0.0/16 -j ACCEPT
-I0714 14:34:28.061665       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -s 10.244.0.0/16 ! -d 224.0.0.0/4 -j MASQUERADE
-I0714 14:34:28.066452       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -s 10.244.0.0/16 -j ACCEPT
-I0714 14:34:28.069910       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/24 -j RETURN
-I0714 14:34:28.075067       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/16 -j MASQUERADE
-I0714 14:34:28.078310       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -d 10.244.0.0/16 -j ACCEPT
-I0714 14:34:28.082389       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -s 10.244.0.0/16 -d 10.244.0.0/16 -j RETURN
-I0714 14:34:28.098375       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -s 10.244.0.0/16 ! -d 224.0.0.0/4 -j MASQUERADE
-I0714 14:34:28.111379       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/24 -j RETURN
-I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/16 -j MASQUERADE
-</code></pre></div><h2 id="calico">Calico</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl get all --all-namespaces
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                                        READY     STATUS             RESTARTS   AGE
+</span></span><span style="display:flex;"><span>kube-system   pod/coredns-78fcdf6894-bn6wl                1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/coredns-78fcdf6894-k52xb                1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/etcd-kubemaster-pi                      1/1       Running            <span style="color:#ae81ff">3</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-apiserver-kubemaster-pi            1/1       Running            <span style="color:#ae81ff">3</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-controller-manager-kubemaster-pi   0/1       CrashLoopBackOff   <span style="color:#ae81ff">1740</span>       6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-62fz9                   1/1       Running            <span style="color:#ae81ff">984</span>        6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-gwzdt                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-h7ln5                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-qs9lf                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-flannel-ds-vwsjk                   1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-45z5s                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-4trsd                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-ksj7c                        1/1       Running            <span style="color:#ae81ff">4</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-t7gmc                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-proxy-tfmqb                        1/1       Running            <span style="color:#ae81ff">0</span>          6d
+</span></span><span style="display:flex;"><span>kube-system   pod/kube-scheduler-kubemaster-pi            1/1       Running            <span style="color:#ae81ff">4</span>          6d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>         AGE
+</span></span><span style="display:flex;"><span>default       service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP         6d
+</span></span><span style="display:flex;"><span>kube-system   service/kube-dns     ClusterIP   10.96.0.10   &lt;none&gt;        53/UDP,53/TCP   6d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                             DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+</span></span><span style="display:flex;"><span>kube-system   daemonset.apps/kube-flannel-ds   <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">5</span>           beta.kubernetes.io/arch<span style="color:#f92672">=</span>arm   6d
+</span></span><span style="display:flex;"><span>kube-system   daemonset.apps/kube-proxy        <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>         <span style="color:#ae81ff">5</span>            <span style="color:#ae81ff">5</span>           beta.kubernetes.io/arch<span style="color:#f92672">=</span>arm   6d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span style="display:flex;"><span>kube-system   deployment.apps/coredns   <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>            <span style="color:#ae81ff">2</span>           6d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>NAMESPACE     NAME                                 DESIRED   CURRENT   READY     AGE
+</span></span><span style="display:flex;"><span>kube-system   replicaset.apps/coredns-78fcdf6894   <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>         <span style="color:#ae81ff">2</span>         6d
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl logs pod/kube-flannel-ds-62fz9 -n kube-system
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>I0714 14:34:26.719081       <span style="color:#ae81ff">1</span> main.go:474<span style="color:#f92672">]</span> Determining IP address of default interface
+</span></span><span style="display:flex;"><span>I0714 14:34:26.728184       <span style="color:#ae81ff">1</span> main.go:487<span style="color:#f92672">]</span> Using interface with name wlan0 and address 192.168.1.94
+</span></span><span style="display:flex;"><span>I0714 14:34:26.728273       <span style="color:#ae81ff">1</span> main.go:504<span style="color:#f92672">]</span> Defaulting external address to interface address <span style="color:#f92672">(</span>192.168.1.94<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>I0714 14:34:26.942686       <span style="color:#ae81ff">1</span> kube.go:283<span style="color:#f92672">]</span> Starting kube subnet manager
+</span></span><span style="display:flex;"><span>I0714 14:34:26.943203       <span style="color:#ae81ff">1</span> kube.go:130<span style="color:#f92672">]</span> Waiting 10m0s <span style="color:#66d9ef">for</span> node controller to sync
+</span></span><span style="display:flex;"><span>I0714 14:34:27.943672       <span style="color:#ae81ff">1</span> kube.go:137<span style="color:#f92672">]</span> Node controller sync successful
+</span></span><span style="display:flex;"><span>I0714 14:34:27.943771       <span style="color:#ae81ff">1</span> main.go:234<span style="color:#f92672">]</span> Created subnet manager: Kubernetes Subnet Manager - kubemaster-pi
+</span></span><span style="display:flex;"><span>I0714 14:34:27.943819       <span style="color:#ae81ff">1</span> main.go:237<span style="color:#f92672">]</span> Installing signal handlers
+</span></span><span style="display:flex;"><span>I0714 14:34:27.944064       <span style="color:#ae81ff">1</span> main.go:352<span style="color:#f92672">]</span> Found network config - Backend type: vxlan
+</span></span><span style="display:flex;"><span>I0714 14:34:27.944222       <span style="color:#ae81ff">1</span> vxlan.go:119<span style="color:#f92672">]</span> VXLAN config: VNI<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> Port<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GBP<span style="color:#f92672">=</span>false DirectRouting<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span>I0714 14:34:28.004675       <span style="color:#ae81ff">1</span> main.go:299<span style="color:#f92672">]</span> Wrote subnet file to /run/flannel/subnet.env
+</span></span><span style="display:flex;"><span>I0714 14:34:28.004748       <span style="color:#ae81ff">1</span> main.go:303<span style="color:#f92672">]</span> Running backend.
+</span></span><span style="display:flex;"><span>I0714 14:34:28.004880       <span style="color:#ae81ff">1</span> main.go:321<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> all goroutines to exit
+</span></span><span style="display:flex;"><span>I0714 14:34:28.004931       <span style="color:#ae81ff">1</span> vxlan_network.go:56<span style="color:#f92672">]</span> watching <span style="color:#66d9ef">for</span> new subnet leases
+</span></span><span style="display:flex;"><span>I0714 14:34:28.049933       <span style="color:#ae81ff">1</span> iptables.go:114<span style="color:#f92672">]</span> Some iptables rules are missing; deleting and recreating rules
+</span></span><span style="display:flex;"><span>I0714 14:34:28.050202       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -s 10.244.0.0/16 -j ACCEPT
+</span></span><span style="display:flex;"><span>I0714 14:34:28.053918       <span style="color:#ae81ff">1</span> iptables.go:114<span style="color:#f92672">]</span> Some iptables rules are missing; deleting and recreating rules
+</span></span><span style="display:flex;"><span>I0714 14:34:28.054003       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -s 10.244.0.0/16 -d 10.244.0.0/16 -j RETURN
+</span></span><span style="display:flex;"><span>I0714 14:34:28.057332       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -d 10.244.0.0/16 -j ACCEPT
+</span></span><span style="display:flex;"><span>I0714 14:34:28.061665       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: -s 10.244.0.0/16 ! -d 224.0.0.0/4 -j MASQUERADE
+</span></span><span style="display:flex;"><span>I0714 14:34:28.066452       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -s 10.244.0.0/16 -j ACCEPT
+</span></span><span style="display:flex;"><span>I0714 14:34:28.069910       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/24 -j RETURN
+</span></span><span style="display:flex;"><span>I0714 14:34:28.075067       <span style="color:#ae81ff">1</span> iptables.go:136<span style="color:#f92672">]</span> Deleting iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/16 -j MASQUERADE
+</span></span><span style="display:flex;"><span>I0714 14:34:28.078310       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -d 10.244.0.0/16 -j ACCEPT
+</span></span><span style="display:flex;"><span>I0714 14:34:28.082389       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -s 10.244.0.0/16 -d 10.244.0.0/16 -j RETURN
+</span></span><span style="display:flex;"><span>I0714 14:34:28.098375       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: -s 10.244.0.0/16 ! -d 224.0.0.0/4 -j MASQUERADE
+</span></span><span style="display:flex;"><span>I0714 14:34:28.111379       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/24 -j RETURN
+</span></span><span style="display:flex;"><span>I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124<span style="color:#f92672">]</span> Adding iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/16 -j MASQUERADE
+</span></span></code></pre></div><h2 id="calico">Calico</h2>
 <h3 id="compile-calico-for-raspberry-pi">Compile Calico for Raspberry PI</h3>
 <ul>
 <li>WIP</li>
@@ -840,6 +810,17 @@ I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124
 
   </footer>
 </article>
+<ul class="actions pagination">
+    
+        <li><a href="https://jbrette.github.io/kubedge/2018-07-13-a/"
+                class="button big previous">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
+    
+
+    
+        <li><a href="https://jbrette.github.io/kubedge/2018-07-15-a/"
+                class="button big next">Recompile Kubernetes components for Raspberry PI</a></li>
+    
+</ul>
 
 
     </div>
@@ -864,7 +845,10 @@ I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -973,11 +957,25 @@ I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124
           <article class="mini-post">
             <header>
               <h3>
+                <a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a>
+              </h3>
+              
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="https://jbrette.github.io/post/">Post</a>
               </h3>
               
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
               </time>
             </header>
             
@@ -1018,48 +1016,7 @@ I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124
         
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-28'>
-                September 28, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
+            <img src="https://jbrette.github.io/img/2018/102018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -1160,6 +1117,17 @@ I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124
           </article>
         </p>
         
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/news/">news</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
     </section>
   
   
@@ -1179,7 +1147,10 @@ I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1271,7 +1242,7 @@ I0714 14:34:28.122424       <span style="color:#ae81ff">1</span> iptables.go:124
     
     <p class="copyright">
       
-        &copy; 2018
+        &copy; 2026
         
           Jerome Brette&#39;s Blog
         

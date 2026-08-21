@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>kubeadm on Jerome Brette&#39;s Blog</title>
-    <link>https://jbrette.github.io/tags/kubeadm/</link>
-    <description>Recent content in kubeadm on Jerome Brette&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 21 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/kubeadm/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Setup SingleNode Kubernetes Cluster using kubeadm</title>
-      <link>https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/</link>
-      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/</guid>
-      <description>Goal Setup simple kubernetes cluster for test purposes.
-Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
-sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false sudo kubeadm version kubeadm version: &amp;amp;version.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Kubeadm on Jerome Brette&#39;s Blog</title>
+		<link>https://jbrette.github.io/tags/kubeadm/</link>
+		<description>Recent content in Kubeadm on Jerome Brette&#39;s Blog</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 21 Jun 2018 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://jbrette.github.io/tags/kubeadm/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Setup SingleNode Kubernetes Cluster using kubeadm</title>
+				<link>https://jbrette.github.io/kubedge/2018-06-21-a/</link>
+				<pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/kubedge/2018-06-21-a/</guid>
+				<description>&lt;h1 id=&#34;goal&#34;&gt;Goal&lt;/h1&gt;&#xA;&lt;p&gt;Setup simple kubernetes cluster for test purposes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;add-kubernetes-apt-repo&#34;&gt;Add Kubernetes APT Repo&lt;/h2&gt;&#xA;&lt;p&gt;If you are still running Ubuntu 16.04 LTS&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo xxx &#xA;sudo apt-get update&#xA;sudo apt-get install kubeadm kubelet kubectl&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo docker version&#xA;Client:&#xA; Version:      1.13.1&#xA; API version:  1.26&#xA; Go version:   go1.6.2&#xA; Git commit:   092cba3&#xA; Built:        Thu Nov  2 20:40:23 2017&#xA; OS/Arch:      linux/amd64&#xA;&#xA;Server:&#xA; Version:      1.13.1&#xA; API version:  1.26 (minimum version 1.12)&#xA; Go version:   go1.6.2&#xA; Git commit:   092cba3&#xA; Built:        Thu Nov  2 20:40:23 2017&#xA; OS/Arch:      linux/amd64&#xA; Experimental: false&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo kubeadm version&#xA;&#xA;kubeadm version: &amp;amp;version.Info{Major:&amp;#34;1&amp;#34;, Minor:&amp;#34;11&amp;#34;, GitVersion:&amp;#34;v1.11.0&amp;#34;, GitCommit:&amp;#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe&amp;#34;, GitTreeState:&amp;#34;clean&amp;#34;, BuildDate:&amp;#34;2018-06-27T20:14:41Z&amp;#34;, GoVersion:&amp;#34;go1.10.2&amp;#34;, Compiler:&amp;#34;gc&amp;#34;, Platform:&amp;#34;linux/amd64&amp;#34;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;run-kubeadm&#34;&gt;Run Kubeadm&lt;/h2&gt;&#xA;&lt;p&gt;First command needs to use sudo&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

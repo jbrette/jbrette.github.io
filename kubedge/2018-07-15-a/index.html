@@ -13,7 +13,7 @@
         "articleSection" : "kubedge",
         "name" : "Recompile Kubernetes components for Raspberry PI",
         "headline" : "Recompile Kubernetes components for Raspberry PI",
-        "description" : "Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.\nKey Aspects  The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1.",
+        "description" : "\u003ch1 id=\u0022goal\u0022\u003eGoal\u003c\/h1\u003e\n\u003cp\u003eDuring the installation of official Kubernetes 1.11.0 on RPI Cluster 1,\nencountered a bug on the controller manager preventing the controller-manager from starting.\nThe problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.\u003c\/p\u003e\n\u003ch2 id=\u0022key-aspects\u0022\u003eKey Aspects\u003c\/h2\u003e\n\u003cul\u003e\n\u003cli\u003eThe bug had been fixed by the Kubernetes \u003ca href=\u0022https:\/\/github.com\/kubernetes\/kubernetes\/issues\/65674\u0022\u003ekube-controller-manager - panic: runtime error: index out of range\u003c\/a\u003e\nhas been fixed and will be built as part of 1.11.1\u003c\/li\u003e\n\u003cli\u003eThe goal is to learn how to recompile Kubernetes from the source to be able to contribute when possible and address problems as soon as possible\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022build-kubernetes-executables-for-amd64-and-arm\u0022\u003eBuild Kubernetes executables for AMD64 and ARM\u003c\/h2\u003e\n\u003ch3 id=\u0022cross-compiling-from-ubuntu-machine\u0022\u003eCross Compiling from Ubuntu Machine\u003c\/h3\u003e\n\u003cp\u003eFirst check the go setup. Fetch the code\u003c\/p\u003e",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.92.2" />
+        <meta name="generator" content="Hugo 0.165.0">
         
 
 
@@ -49,32 +49,39 @@
             
         
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Recompile Kubernetes components for Raspberry PI"/>
-<meta name="twitter:description" content="Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.
-Key Aspects  The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1."/>
-<meta name="twitter:site" content="@example"/>
+        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Recompile Kubernetes components for Raspberry PI">
+	<meta name="twitter:description" content="Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.
+Key Aspects The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1.11.1 The goal is to learn how to recompile Kubernetes from the source to be able to contribute when possible and address problems as soon as possible Build Kubernetes executables for AMD64 and ARM Cross Compiling from Ubuntu Machine First check the go setup. Fetch the code">
+			<meta name="twitter:site" content="@example">
 
-        <meta property="og:title" content="Recompile Kubernetes components for Raspberry PI" />
-<meta property="og:description" content="Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.
-Key Aspects  The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-15-a/" /><meta property="article:section" content="kubedge" />
-<meta property="article:published_time" content="2018-07-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-07-15T00:00:00+00:00" />
-
+        <meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-15-a/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Recompile Kubernetes components for Raspberry PI">
+	<meta property="og:description" content="Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.
+Key Aspects The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1.11.1 The goal is to learn how to recompile Kubernetes from the source to be able to contribute when possible and address problems as soon as possible Build Kubernetes executables for AMD64 and ARM Cross Compiling from Ubuntu Machine First check the go setup. Fetch the code">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="kubedge">
+		<meta property="article:published_time" content="2018-07-15T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-07-15T00:00:00+00:00">
+		<meta property="article:tag" content="Kubedge">
+		<meta property="article:tag" content="Kubernetes">
+		<meta property="article:tag" content="Rpi">
 
         <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Recompile Kubernetes components for Raspberry PI">
-<meta itemprop="description" content="Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.
-Key Aspects  The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1."><meta itemprop="datePublished" content="2018-07-15T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-07-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1226">
-<meta itemprop="keywords" content="kubedge,kubernetes,rpi," />
         
+	<meta itemprop="name" content="Recompile Kubernetes components for Raspberry PI">
+	<meta itemprop="description" content="Goal During the installation of official Kubernetes 1.11.0 on RPI Cluster 1, encountered a bug on the controller manager preventing the controller-manager from starting. The problem here was to be able to cross compiled the latest version of Kubernetes 1.11.1 before the code was officially released and of course rebuild the images.
+Key Aspects The bug had been fixed by the Kubernetes kube-controller-manager - panic: runtime error: index out of range has been fixed and will be built as part of 1.11.1 The goal is to learn how to recompile Kubernetes from the source to be able to contribute when possible and address problems as soon as possible Build Kubernetes executables for AMD64 and ARM Cross Compiling from Ubuntu Machine First check the go setup. Fetch the code">
+	<meta itemprop="datePublished" content="2018-07-15T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2018-07-15T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1226">
+	<meta itemprop="keywords" content="Kubedge,Kubernetes,Rpi">
 
         
             
@@ -105,18 +112,6 @@ Key Aspects  The bug had been fixed by the Kubernetes kube-controller-manager - 
 
 
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
     </head>
     <body>
 
@@ -315,11 +310,23 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
                             </header>
                             
 
@@ -358,45 +365,6 @@ if (!doNotTrack) {
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
             <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-28'>
-                                    September 28, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -626,6 +594,7 @@ if (!doNotTrack) {
   
 
   
+
   <div id="content">
     <h1 id="goal">Goal</h1>
 <p>During the installation of official Kubernetes 1.11.0 on RPI Cluster 1,
@@ -648,121 +617,120 @@ has been fixed and will be built as part of 1.11.1</li>
 
 go version go1.10.1 linux/amd64
 </code></pre><p>Clone the code</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export GOPATH<span style="color:#f92672">=</span>$HOME/src
-$ mkdir -p src/k8s.io
-$ cd src/k8s.io
-$ git clone -b release-1.11 git@github.com:kubernetes/kubernetes.git
-$ cd kubernertes
-</code></pre></div><p>To save time, I removed platforms I had not use of and only kept amd64 and arm on linux</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat hack/lib/golang.sh
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#75715e"># The server platform we are building on.</span>
-  readonly KUBE_SERVER_PLATFORMS<span style="color:#f92672">=(</span>
-    linux/amd64
-    linux/arm
-  <span style="color:#f92672">)</span>
-
-  <span style="color:#75715e"># The node platforms we build for</span>
-  readonly KUBE_NODE_PLATFORMS<span style="color:#f92672">=(</span>
-    linux/amd64
-    linux/arm
-  <span style="color:#f92672">)</span>
-
-  <span style="color:#75715e"># If we update this we should also update the set of platforms whose standard library is precompiled for in build/build-image/cross/Dockerfile</span>
-  readonly KUBE_CLIENT_PLATFORMS<span style="color:#f92672">=(</span>
-    linux/amd64
-    linux/arm
-  <span style="color:#f92672">)</span>
-
-  <span style="color:#75715e"># Which platforms we should compile test targets for. Not all client platforms need these tests</span>
-  readonly KUBE_TEST_PLATFORMS<span style="color:#f92672">=(</span>
-    linux/amd64
-    linux/arm
-  <span style="color:#f92672">)</span>
-
-</code></pre></div><p>Double check your Docker setup is correct</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker run hello-world
-</code></pre></div><p>Clean the directory</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./build/make-clean.sh
-</code></pre></div><p>Rebuild the amd64 and arm executable</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./build/run.sh make cross
-</code></pre></div><p>Check the executables transfered from the docker build container to your vm by rsync</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd _output/dockerized/bin/linux
-</code></pre></div><p>Check the amd64 executables</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ls -lt amd64
-
-total <span style="color:#ae81ff">2322696</span>
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">209961168</span> Jul <span style="color:#ae81ff">16</span> 01:57 e2e_node.test
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">10645252</span> Jul <span style="color:#ae81ff">16</span> 01:57 ginkgo
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">160051600</span> Jul <span style="color:#ae81ff">16</span> 01:57 kubemark
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">231997872</span> Jul <span style="color:#ae81ff">16</span> 01:55 genman
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">54099081</span> Jul <span style="color:#ae81ff">16</span> 01:55 gendocs
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">54039865</span> Jul <span style="color:#ae81ff">16</span> 01:55 genyaml
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6694536</span> Jul <span style="color:#ae81ff">16</span> 01:55 linkcheck
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">5481582</span> Jul <span style="color:#ae81ff">16</span> 01:55 genswaggertypedocs
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">226061456</span> Jul <span style="color:#ae81ff">16</span> 01:55 genkubedocs
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">173411368</span> Jul <span style="color:#ae81ff">16</span> 01:55 e2e.test
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">55241186</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubectl
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">51912114</span> Jul <span style="color:#ae81ff">16</span> 01:52 kube-proxy
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">57246829</span> Jul <span style="color:#ae81ff">16</span> 01:51 kubeadm
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">162716256</span> Jul <span style="color:#ae81ff">16</span> 01:51 kubelet
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">57908740</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-aggregator
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">185152632</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-apiserver
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2330265</span> Jul <span style="color:#ae81ff">16</span> 01:50 mounter
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">138048783</span> Jul <span style="color:#ae81ff">16</span> 01:50 cloud-controller-manager
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">153798994</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-controller-manager
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">227283184</span> Jul <span style="color:#ae81ff">16</span> 01:50 hyperkube
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">59296776</span> Jul <span style="color:#ae81ff">16</span> 01:50 apiextensions-apiserver
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">55471235</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-scheduler
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2835466</span> Jul <span style="color:#ae81ff">16</span> 01:40 go-bindata
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">13630237</span> Jul <span style="color:#ae81ff">16</span> 01:40 openapi-gen
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7699847</span> Jul <span style="color:#ae81ff">16</span> 01:40 conversion-gen
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7669238</span> Jul <span style="color:#ae81ff">16</span> 01:39 defaulter-gen
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7695690</span> Jul <span style="color:#ae81ff">16</span> 01:39 deepcopy-gen
-</code></pre></div><p>Check the RPI executables</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -lt arm
-
-total <span style="color:#ae81ff">2089216</span>
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">191189688</span> Jul <span style="color:#ae81ff">16</span> 01:58 e2e_node.test
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">9286102</span> Jul <span style="color:#ae81ff">16</span> 01:58 ginkgo
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">142111524</span> Jul <span style="color:#ae81ff">16</span> 01:58 kubemark
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">210989712</span> Jul <span style="color:#ae81ff">16</span> 01:55 genman
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">48169969</span> Jul <span style="color:#ae81ff">16</span> 01:55 gendocs
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">48102745</span> Jul <span style="color:#ae81ff">16</span> 01:55 genyaml
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">5847821</span> Jul <span style="color:#ae81ff">16</span> 01:55 linkcheck
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">4927730</span> Jul <span style="color:#ae81ff">16</span> 01:55 genswaggertypedocs
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">205458748</span> Jul <span style="color:#ae81ff">16</span> 01:55 genkubedocs
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">155653412</span> Jul <span style="color:#ae81ff">16</span> 01:55 e2e.test
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">49252169</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubectl
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">46156229</span> Jul <span style="color:#ae81ff">16</span> 01:52 kube-proxy
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">50989514</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubeadm
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">144291264</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubelet
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">52024300</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-aggregator
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">168751462</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-apiserver
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2231154</span> Jul <span style="color:#ae81ff">16</span> 01:50 mounter
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">122701327</span> Jul <span style="color:#ae81ff">16</span> 01:50 cloud-controller-manager
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">136828051</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-controller-manager
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">206769888</span> Jul <span style="color:#ae81ff">16</span> 01:50 hyperkube
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">53220784</span> Jul <span style="color:#ae81ff">16</span> 01:50 apiextensions-apiserver
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">49501810</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-scheduler
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2649635</span> Jul <span style="color:#ae81ff">16</span> 01:40 go-bindata
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">11885551</span> Jul <span style="color:#ae81ff">16</span> 01:40 openapi-gen
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6770458</span> Jul <span style="color:#ae81ff">16</span> 01:40 conversion-gen
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6764729</span> Jul <span style="color:#ae81ff">16</span> 01:39 defaulter-gen
--rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6770309</span> Jul <span style="color:#ae81ff">16</span> 01:39 deepcopy-gen
-</code></pre></div><p>Transfer the binaries to RPI machine</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">scp -r arm  rpiuser@192.168.1.94:/home/rpiuser/kubernetes_binaries
-</code></pre></div><h2 id="build-the-docker-image">Build the docker image</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p images/kube-controller-manager
-$ cd images/kube-controller-manager
-$ cp $HOME/kubernetes_binaries/kube-controller-manager
-</code></pre></div><p>Create a simple Dockerfile to update the executable</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat Dockerfile
-</code></pre></div><pre tabindex="0"><code>FROM k8s.gcr.io/kube-controller-manager-arm:v1.11.0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ export GOPATH<span style="color:#f92672">=</span>$HOME/src
+</span></span><span style="display:flex;"><span>$ mkdir -p src/k8s.io
+</span></span><span style="display:flex;"><span>$ cd src/k8s.io
+</span></span><span style="display:flex;"><span>$ git clone -b release-1.11 git@github.com:kubernetes/kubernetes.git
+</span></span><span style="display:flex;"><span>$ cd kubernertes
+</span></span></code></pre></div><p>To save time, I removed platforms I had not use of and only kept amd64 and arm on linux</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat hack/lib/golang.sh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  <span style="color:#75715e"># The server platform we are building on.</span>
+</span></span><span style="display:flex;"><span>  readonly KUBE_SERVER_PLATFORMS<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    linux/amd64
+</span></span><span style="display:flex;"><span>    linux/arm
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># The node platforms we build for</span>
+</span></span><span style="display:flex;"><span>  readonly KUBE_NODE_PLATFORMS<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    linux/amd64
+</span></span><span style="display:flex;"><span>    linux/arm
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># If we update this we should also update the set of platforms whose standard library is precompiled for in build/build-image/cross/Dockerfile</span>
+</span></span><span style="display:flex;"><span>  readonly KUBE_CLIENT_PLATFORMS<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    linux/amd64
+</span></span><span style="display:flex;"><span>    linux/arm
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Which platforms we should compile test targets for. Not all client platforms need these tests</span>
+</span></span><span style="display:flex;"><span>  readonly KUBE_TEST_PLATFORMS<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    linux/amd64
+</span></span><span style="display:flex;"><span>    linux/arm
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Double check your Docker setup is correct</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run hello-world
+</span></span></code></pre></div><p>Clean the directory</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./build/make-clean.sh
+</span></span></code></pre></div><p>Rebuild the amd64 and arm executable</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./build/run.sh make cross
+</span></span></code></pre></div><p>Check the executables transfered from the docker build container to your vm by rsync</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd _output/dockerized/bin/linux
+</span></span></code></pre></div><p>Check the amd64 executables</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -lt amd64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">2322696</span>
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">209961168</span> Jul <span style="color:#ae81ff">16</span> 01:57 e2e_node.test
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">10645252</span> Jul <span style="color:#ae81ff">16</span> 01:57 ginkgo
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">160051600</span> Jul <span style="color:#ae81ff">16</span> 01:57 kubemark
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">231997872</span> Jul <span style="color:#ae81ff">16</span> 01:55 genman
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">54099081</span> Jul <span style="color:#ae81ff">16</span> 01:55 gendocs
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">54039865</span> Jul <span style="color:#ae81ff">16</span> 01:55 genyaml
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6694536</span> Jul <span style="color:#ae81ff">16</span> 01:55 linkcheck
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">5481582</span> Jul <span style="color:#ae81ff">16</span> 01:55 genswaggertypedocs
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">226061456</span> Jul <span style="color:#ae81ff">16</span> 01:55 genkubedocs
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">173411368</span> Jul <span style="color:#ae81ff">16</span> 01:55 e2e.test
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">55241186</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubectl
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">51912114</span> Jul <span style="color:#ae81ff">16</span> 01:52 kube-proxy
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">57246829</span> Jul <span style="color:#ae81ff">16</span> 01:51 kubeadm
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">162716256</span> Jul <span style="color:#ae81ff">16</span> 01:51 kubelet
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">57908740</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-aggregator
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">185152632</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-apiserver
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2330265</span> Jul <span style="color:#ae81ff">16</span> 01:50 mounter
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">138048783</span> Jul <span style="color:#ae81ff">16</span> 01:50 cloud-controller-manager
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">153798994</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-controller-manager
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">227283184</span> Jul <span style="color:#ae81ff">16</span> 01:50 hyperkube
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">59296776</span> Jul <span style="color:#ae81ff">16</span> 01:50 apiextensions-apiserver
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">55471235</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-scheduler
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2835466</span> Jul <span style="color:#ae81ff">16</span> 01:40 go-bindata
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">13630237</span> Jul <span style="color:#ae81ff">16</span> 01:40 openapi-gen
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7699847</span> Jul <span style="color:#ae81ff">16</span> 01:40 conversion-gen
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7669238</span> Jul <span style="color:#ae81ff">16</span> 01:39 defaulter-gen
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">7695690</span> Jul <span style="color:#ae81ff">16</span> 01:39 deepcopy-gen
+</span></span></code></pre></div><p>Check the RPI executables</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -lt arm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">2089216</span>
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">191189688</span> Jul <span style="color:#ae81ff">16</span> 01:58 e2e_node.test
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">9286102</span> Jul <span style="color:#ae81ff">16</span> 01:58 ginkgo
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">142111524</span> Jul <span style="color:#ae81ff">16</span> 01:58 kubemark
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">210989712</span> Jul <span style="color:#ae81ff">16</span> 01:55 genman
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">48169969</span> Jul <span style="color:#ae81ff">16</span> 01:55 gendocs
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">48102745</span> Jul <span style="color:#ae81ff">16</span> 01:55 genyaml
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">5847821</span> Jul <span style="color:#ae81ff">16</span> 01:55 linkcheck
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">4927730</span> Jul <span style="color:#ae81ff">16</span> 01:55 genswaggertypedocs
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">205458748</span> Jul <span style="color:#ae81ff">16</span> 01:55 genkubedocs
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">155653412</span> Jul <span style="color:#ae81ff">16</span> 01:55 e2e.test
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">49252169</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubectl
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">46156229</span> Jul <span style="color:#ae81ff">16</span> 01:52 kube-proxy
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">50989514</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubeadm
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">144291264</span> Jul <span style="color:#ae81ff">16</span> 01:52 kubelet
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">52024300</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-aggregator
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">168751462</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-apiserver
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2231154</span> Jul <span style="color:#ae81ff">16</span> 01:50 mounter
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">122701327</span> Jul <span style="color:#ae81ff">16</span> 01:50 cloud-controller-manager
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">136828051</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-controller-manager
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy <span style="color:#ae81ff">206769888</span> Jul <span style="color:#ae81ff">16</span> 01:50 hyperkube
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">53220784</span> Jul <span style="color:#ae81ff">16</span> 01:50 apiextensions-apiserver
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">49501810</span> Jul <span style="color:#ae81ff">16</span> 01:50 kube-scheduler
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">2649635</span> Jul <span style="color:#ae81ff">16</span> 01:40 go-bindata
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy  <span style="color:#ae81ff">11885551</span> Jul <span style="color:#ae81ff">16</span> 01:40 openapi-gen
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6770458</span> Jul <span style="color:#ae81ff">16</span> 01:40 conversion-gen
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6764729</span> Jul <span style="color:#ae81ff">16</span> 01:39 defaulter-gen
+</span></span><span style="display:flex;"><span>-rwxr-xr-x <span style="color:#ae81ff">1</span> xxxxxx yyyyyy   <span style="color:#ae81ff">6770309</span> Jul <span style="color:#ae81ff">16</span> 01:39 deepcopy-gen
+</span></span></code></pre></div><p>Transfer the binaries to RPI machine</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>scp -r arm  rpiuser@192.168.1.94:/home/rpiuser/kubernetes_binaries
+</span></span></code></pre></div><h2 id="build-the-docker-image">Build the docker image</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p images/kube-controller-manager
+</span></span><span style="display:flex;"><span>$ cd images/kube-controller-manager
+</span></span><span style="display:flex;"><span>$ cp $HOME/kubernetes_binaries/kube-controller-manager
+</span></span></code></pre></div><p>Create a simple Dockerfile to update the executable</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat Dockerfile
+</span></span></code></pre></div><pre tabindex="0"><code>FROM k8s.gcr.io/kube-controller-manager-arm:v1.11.0
 
 COPY kube-controller-manager /usr/local/bin/kube-controller-manager
 </code></pre><p>Build the image</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker build -t jbrette/kube-controller-manager-arm:v1.11.1
-</code></pre></div><p>Because of the brute force approach the image is twice as big since the executable (130MB) is
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker build -t jbrette/kube-controller-manager-arm:v1.11.1
+</span></span></code></pre></div><p>Because of the brute force approach the image is twice as big since the executable (130MB) is
 contained in two layers of the container image</p>
 <pre tabindex="0"><code>$ docker image list
 
@@ -778,109 +746,109 @@ quay.io/coreos/flannel                   v0.10.0-arm         c663d02f7966       
 k8s.gcr.io/pause-arm                     3.1                 e11a8cbeda86        6 months ago        374kB
 k8s.gcr.io/pause                         3.1                 e11a8cbeda86        6 months ago        374kB
 </code></pre><p>First push the controller-manager docker image to the repo</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker login
-
-$ docker push jbrette/kube-controller-manager-arm:v1.11.1
-</code></pre></div><h2 id="updating-kubeadm-and-kubernetes-configuration-to-use-the-patched-images">Updating Kubeadm and Kubernetes configuration to use the patched images</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker login
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ docker push jbrette/kube-controller-manager-arm:v1.11.1
+</span></span></code></pre></div><h2 id="updating-kubeadm-and-kubernetes-configuration-to-use-the-patched-images">Updating Kubeadm and Kubernetes configuration to use the patched images</h2>
 <p>Because I only rebuild one image, I can not use the kubeadm feature which
 allows to point to a different repo. Have to edit manually the configuration.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ more kube-controller-manager.yaml
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">annotations</span>:
-    <span style="color:#f92672">scheduler.alpha.kubernetes.io/critical-pod</span>: <span style="color:#e6db74">&#34;&#34;</span>
-  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
-  <span style="color:#f92672">labels</span>:
-    <span style="color:#f92672">component</span>: <span style="color:#ae81ff">kube-controller-manager</span>
-    <span style="color:#f92672">tier</span>: <span style="color:#ae81ff">control-plane</span>
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kube-controller-manager</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">containers</span>:
-  - <span style="color:#f92672">command</span>:
-    - <span style="color:#ae81ff">kube-controller-manager</span>
-    - --<span style="color:#ae81ff">address=127.0.0.1</span>
-    - --<span style="color:#ae81ff">allocate-node-cidrs=true</span>
-    - --<span style="color:#ae81ff">cluster-cidr=10.244.0.0/16</span>
-    - --<span style="color:#ae81ff">cluster-signing-cert-file=/etc/kubernetes/pki/ca.crt</span>
-    - --<span style="color:#ae81ff">cluster-signing-key-file=/etc/kubernetes/pki/ca.key</span>
-    - --<span style="color:#ae81ff">controllers=*,bootstrapsigner,tokencleaner</span>
-    - --<span style="color:#ae81ff">kubeconfig=/etc/kubernetes/controller-manager.conf</span>
-    - --<span style="color:#ae81ff">leader-elect=true</span>
-    - --<span style="color:#ae81ff">node-cidr-mask-size=24</span>
-    - --<span style="color:#ae81ff">root-ca-file=/etc/kubernetes/pki/ca.crt</span>
-    - --<span style="color:#ae81ff">service-account-private-key-file=/etc/kubernetes/pki/sa.key</span>
-    - --<span style="color:#ae81ff">use-service-account-credentials=true</span>
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">jbrette/kube-controller-manager-arm:v1.11.1</span>
-    <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">IfNotPresent</span>
-    <span style="color:#f92672">livenessProbe</span>:
-      <span style="color:#f92672">failureThreshold</span>: <span style="color:#ae81ff">8</span>
-      <span style="color:#f92672">httpGet</span>:
-        <span style="color:#f92672">host</span>: <span style="color:#ae81ff">127.0.0.1</span>
-        <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/healthz</span>
-        <span style="color:#f92672">port</span>: <span style="color:#ae81ff">10252</span>
-        <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">HTTP</span>
-      <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">15</span>
-      <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">15</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kube-controller-manager</span>
-    <span style="color:#f92672">resources</span>:
-      <span style="color:#f92672">requests</span>:
-        <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">200m</span>
-    <span style="color:#f92672">volumeMounts</span>:
-    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/ssl/certs</span>
-      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ca-certs</span>
-      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
-    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/kubernetes/controller-manager.conf</span>
-      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubeconfig</span>
-      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
-    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/usr/libexec/kubernetes/kubelet-plugins/volume/exec</span>
-      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">flexvolume-dir</span>
-    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/usr/share/ca-certificates</span>
-      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-share-ca-certificates</span>
-      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
-    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/usr/local/share/ca-certificates</span>
-      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-local-share-ca-certificates</span>
-      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
-    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/ca-certificates</span>
-      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etc-ca-certificates</span>
-      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
-    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/kubernetes/pki</span>
-      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">k8s-certs</span>
-      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#f92672">hostNetwork</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#f92672">priorityClassName</span>: <span style="color:#ae81ff">system-cluster-critical</span>
-  <span style="color:#f92672">volumes</span>:
-  - <span style="color:#f92672">hostPath</span>:
-      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/kubernetes/pki</span>
-      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">k8s-certs</span>
-  - <span style="color:#f92672">hostPath</span>:
-      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/ssl/certs</span>
-      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ca-certs</span>
-  - <span style="color:#f92672">hostPath</span>:
-      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/kubernetes/controller-manager.conf</span>
-      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">FileOrCreate</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubeconfig</span>
-  - <span style="color:#f92672">hostPath</span>:
-      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/usr/libexec/kubernetes/kubelet-plugins/volume/exec</span>
-      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">flexvolume-dir</span>
-  - <span style="color:#f92672">hostPath</span>:
-      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/usr/share/ca-certificates</span>
-      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-share-ca-certificates</span>
-  - <span style="color:#f92672">hostPath</span>:
-      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/usr/local/share/ca-certificates</span>
-      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-local-share-ca-certificates</span>
-  - <span style="color:#f92672">hostPath</span>:
-      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/ca-certificates</span>
-      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
-    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etc-ca-certificates</span>
-<span style="color:#f92672">status</span>: {}
-</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ more kube-controller-manager.yaml
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scheduler.alpha.kubernetes.io/critical-pod</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">component</span>: <span style="color:#ae81ff">kube-controller-manager</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tier</span>: <span style="color:#ae81ff">control-plane</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kube-controller-manager</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">command</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">kube-controller-manager</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">address=127.0.0.1</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">allocate-node-cidrs=true</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">cluster-cidr=10.244.0.0/16</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">cluster-signing-cert-file=/etc/kubernetes/pki/ca.crt</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">cluster-signing-key-file=/etc/kubernetes/pki/ca.key</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">controllers=*,bootstrapsigner,tokencleaner</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">kubeconfig=/etc/kubernetes/controller-manager.conf</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">leader-elect=true</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">node-cidr-mask-size=24</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">root-ca-file=/etc/kubernetes/pki/ca.crt</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">service-account-private-key-file=/etc/kubernetes/pki/sa.key</span>
+</span></span><span style="display:flex;"><span>    - --<span style="color:#ae81ff">use-service-account-credentials=true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">jbrette/kube-controller-manager-arm:v1.11.1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">IfNotPresent</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">livenessProbe</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">failureThreshold</span>: <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">httpGet</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">host</span>: <span style="color:#ae81ff">127.0.0.1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/healthz</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">port</span>: <span style="color:#ae81ff">10252</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">HTTP</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kube-controller-manager</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">requests</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">200m</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/ssl/certs</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ca-certs</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/kubernetes/controller-manager.conf</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubeconfig</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/usr/libexec/kubernetes/kubelet-plugins/volume/exec</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">flexvolume-dir</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/usr/share/ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-share-ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/usr/local/share/ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-local-share-ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etc-ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/kubernetes/pki</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">k8s-certs</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">hostNetwork</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">priorityClassName</span>: <span style="color:#ae81ff">system-cluster-critical</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/kubernetes/pki</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">k8s-certs</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/ssl/certs</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ca-certs</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/kubernetes/controller-manager.conf</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">FileOrCreate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubeconfig</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/usr/libexec/kubernetes/kubelet-plugins/volume/exec</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">flexvolume-dir</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/usr/share/ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-share-ca-certificates</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/usr/local/share/ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">usr-local-share-ca-certificates</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/etc/ca-certificates</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">DirectoryOrCreate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">etc-ca-certificates</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">status</span>: {}
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>Need to streamline the build process</li>
 <li>Need to streamline the image patching processed</li>
@@ -922,6 +890,17 @@ allows to point to a different repo. Have to edit manually the configuration.</p
 
   </footer>
 </article>
+<ul class="actions pagination">
+    
+        <li><a href="https://jbrette.github.io/kubedge/2018-07-14-a/"
+                class="button big previous">Deploy Flannel in Raspberry PI cluster</a></li>
+    
+
+    
+        <li><a href="https://jbrette.github.io/kubedge/2018-07-16-a/"
+                class="button big next">Rebuild Hyperkube images</a></li>
+    
+</ul>
 
 
     </div>
@@ -946,7 +925,10 @@ allows to point to a different repo. Have to edit manually the configuration.</p
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1055,11 +1037,25 @@ allows to point to a different repo. Have to edit manually the configuration.</p
           <article class="mini-post">
             <header>
               <h3>
+                <a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a>
+              </h3>
+              
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="https://jbrette.github.io/post/">Post</a>
               </h3>
               
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
               </time>
             </header>
             
@@ -1101,47 +1097,6 @@ allows to point to a different repo. Have to edit manually the configuration.</p
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
             <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-28'>
-                September 28, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -1242,6 +1197,17 @@ allows to point to a different repo. Have to edit manually the configuration.</p
           </article>
         </p>
         
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/news/">news</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
     </section>
   
   
@@ -1261,7 +1227,10 @@ allows to point to a different repo. Have to edit manually the configuration.</p
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1353,7 +1322,7 @@ allows to point to a different repo. Have to edit manually the configuration.</p
     
     <p class="copyright">
       
-        &copy; 2018
+        &copy; 2026
         
           Jerome Brette&#39;s Blog
         

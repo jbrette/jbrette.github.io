@@ -13,7 +13,7 @@
         "articleSection" : "misc",
         "name" : "Creating simple Java 10 server container",
         "headline" : "Creating simple Java 10 server container",
-        "description" : "Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java.",
+        "description" : "\u003ch1 id=\u0022goal\u0022\u003eGoal\u003c\/h1\u003e\n\u003cp\u003eVery often people associated Java to quite bulky and difficult to use in the microservice context,\nunless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with\ngolang on the subject. Where you can obtain a standalone executable when we running \u003ccode\u003ego build\u003c\/code\u003e,\njava is now proposing \u003ccode\u003ejlink\u003c\/code\u003e which always you to acheive a very similar result. The goal\nof this post is to build a container image as small as possible running Java.\u003c\/p\u003e",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.92.2" />
+        <meta name="generator" content="Hugo 0.165.0">
         
 
 
@@ -47,29 +47,34 @@
             
         
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Creating simple Java 10 server container"/>
-<meta name="twitter:description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java."/>
-<meta name="twitter:site" content="@example"/>
+        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Creating simple Java 10 server container">
+	<meta name="twitter:description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java.">
+			<meta name="twitter:site" content="@example">
 
-        <meta property="og:title" content="Creating simple Java 10 server container" />
-<meta property="og:description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/misc/2018-06-28-a/" /><meta property="article:section" content="misc" />
-<meta property="article:published_time" content="2018-06-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-06-28T00:00:00+00:00" />
-
+        <meta property="og:url" content="https://jbrette.github.io/misc/2018-06-28-a/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Creating simple Java 10 server container">
+	<meta property="og:description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="misc">
+		<meta property="article:published_time" content="2018-06-28T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-06-28T00:00:00+00:00">
+		<meta property="article:tag" content="Java">
 
         <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Creating simple Java 10 server container">
-<meta itemprop="description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java."><meta itemprop="datePublished" content="2018-06-28T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-06-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2549">
-<meta itemprop="keywords" content="java," />
         
+	<meta itemprop="name" content="Creating simple Java 10 server container">
+	<meta itemprop="description" content="Goal Very often people associated Java to quite bulky and difficult to use in the microservice context, unless you have very large image containing the JRE. But since Java 9, Java did kind of catchup with golang on the subject. Where you can obtain a standalone executable when we running go build, java is now proposing jlink which always you to acheive a very similar result. The goal of this post is to build a container image as small as possible running Java.">
+	<meta itemprop="datePublished" content="2018-06-28T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2018-06-28T00:00:00+00:00">
+	<meta itemprop="wordCount" content="2549">
+	<meta itemprop="keywords" content="Java">
 
         
             
@@ -100,18 +105,6 @@
 
 
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
     </head>
     <body>
 
@@ -310,11 +303,23 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
                             </header>
                             
 
@@ -352,46 +357,7 @@ if (!doNotTrack) {
         
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/102018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-28'>
-                                    September 28, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -652,11 +618,11 @@ For feedback, see https://www.linuxuprising.com/2018/04/install-oracle-java-10-i
  More info: https://launchpad.net/~linuxuprising/+archive/ubuntu/java
 Press [ENTER] to continue or ctrl-c to cancel adding it
 
-gpg: keyring `/tmp/tmpf0lejdsg/secring.gpg' created
-gpg: keyring `/tmp/tmpf0lejdsg/pubring.gpg' created
+gpg: keyring `/tmp/tmpf0lejdsg/secring.gpg&#39; created
+gpg: keyring `/tmp/tmpf0lejdsg/pubring.gpg&#39; created
 gpg: requesting key 73C3DB2A from hkp server keyserver.ubuntu.com
 gpg: /tmp/tmpf0lejdsg/trustdb.gpg: trustdb created
-gpg: key 73C3DB2A: public key &quot;Launchpad PPA for Linux Uprising&quot; imported
+gpg: key 73C3DB2A: public key &#34;Launchpad PPA for Linux Uprising&#34; imported
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
 OK
@@ -922,7 +888,7 @@ update-alternatives: using /usr/lib/jvm/java-10-oracle/bin/javaws.real to provid
 Oracle JDK 10 installed
 
 #####Important########
-To set Oracle jdk10 as default, install the &quot;oracle-java10-set-default&quot; package.
+To set Oracle jdk10 as default, install the &#34;oracle-java10-set-default&#34; package.
 E.g.: sudo apt install oracle-java10-set-default.
 Selecting previously unselected package oracle-java10-set-default.
 (Reading database ... 239682 files and directories currently installed.)
@@ -997,8 +963,8 @@ javac 10.0.1
 
     <article class="post">
         <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+<script>
+    window.disqus_config = function () {
     
     
     
@@ -1014,8 +980,9 @@ javac 10.0.1
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
     </article>
 
 
@@ -1054,7 +1021,10 @@ javac 10.0.1
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1163,11 +1133,25 @@ javac 10.0.1
           <article class="mini-post">
             <header>
               <h3>
+                <a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a>
+              </h3>
+              
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="https://jbrette.github.io/post/">Post</a>
               </h3>
               
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
               </time>
             </header>
             
@@ -1209,47 +1193,6 @@ javac 10.0.1
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
             <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-28'>
-                September 28, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -1350,6 +1293,17 @@ javac 10.0.1
           </article>
         </p>
         
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/news/">news</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
     </section>
   
   
@@ -1369,7 +1323,10 @@ javac 10.0.1
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1461,7 +1418,7 @@ javac 10.0.1
     
     <p class="copyright">
       
-        &copy; 2018
+        &copy; 2026
         
           Jerome Brette&#39;s Blog
         

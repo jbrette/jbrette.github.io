@@ -1,344 +1,248 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Jerome Brette&#39;s Blog</title>
-    <link>https://jbrette.github.io/tags/</link>
-    <description>Recent content in Tags on Jerome Brette&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 03 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>kubedge</title>
-      <link>https://jbrette.github.io/tags/kubedge/</link>
-      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/kubedge/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>prometheus</title>
-      <link>https://jbrette.github.io/tags/prometheus/</link>
-      <pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/prometheus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>https://jbrette.github.io/tags/kubernetes/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rpi</title>
-      <link>https://jbrette.github.io/tags/rpi/</link>
-      <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/rpi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blinkt</title>
-      <link>https://jbrette.github.io/tags/blinkt/</link>
-      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/blinkt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://jbrette.github.io/tags/security/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vault</title>
-      <link>https://jbrette.github.io/tags/vault/</link>
-      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/vault/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>istio</title>
-      <link>https://jbrette.github.io/tags/istio/</link>
-      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/istio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sonobuoy</title>
-      <link>https://jbrette.github.io/tags/sonobuoy/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/sonobuoy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>test-infra</title>
-      <link>https://jbrette.github.io/tags/test-infra/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/test-infra/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>testing</title>
-      <link>https://jbrette.github.io/tags/testing/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kustomize</title>
-      <link>https://jbrette.github.io/tags/kustomize/</link>
-      <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/kustomize/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bigdata</title>
-      <link>https://jbrette.github.io/tags/bigdata/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/bigdata/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blockchain</title>
-      <link>https://jbrette.github.io/tags/blockchain/</link>
-      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/blockchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>machinelearning</title>
-      <link>https://jbrette.github.io/tags/machinelearning/</link>
-      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/machinelearning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>portieris</title>
-      <link>https://jbrette.github.io/tags/portieris/</link>
-      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/portieris/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>calico</title>
-      <link>https://jbrette.github.io/tags/calico/</link>
-      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/calico/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cni</title>
-      <link>https://jbrette.github.io/tags/cni/</link>
-      <pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/cni/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>helm</title>
-      <link>https://jbrette.github.io/tags/helm/</link>
-      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/helm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://jbrette.github.io/tags/docker/</link>
-      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github</title>
-      <link>https://jbrette.github.io/tags/github/</link>
-      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ansible</title>
-      <link>https://jbrette.github.io/tags/ansible/</link>
-      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/ansible/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>homeautomation</title>
-      <link>https://jbrette.github.io/tags/homeautomation/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/homeautomation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>wifi</title>
-      <link>https://jbrette.github.io/tags/wifi/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/wifi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zigbee</title>
-      <link>https://jbrette.github.io/tags/zigbee/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/zigbee/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zwave</title>
-      <link>https://jbrette.github.io/tags/zwave/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/zwave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://jbrette.github.io/tags/python/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://jbrette.github.io/tags/golang/</link>
-      <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>https://jbrette.github.io/tags/java/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coreos</title>
-      <link>https://jbrette.github.io/tags/coreos/</link>
-      <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/coreos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zuul</title>
-      <link>https://jbrette.github.io/tags/zuul/</link>
-      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/zuul/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubeadm</title>
-      <link>https://jbrette.github.io/tags/kubeadm/</link>
-      <pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/kubeadm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>development</title>
-      <link>https://jbrette.github.io/tags/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://jbrette.github.io/tags/go/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://jbrette.github.io/tags/hugo/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>templates</title>
-      <link>https://jbrette.github.io/tags/templates/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/templates/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>themes</title>
-      <link>https://jbrette.github.io/tags/themes/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/tags/themes/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Tags on Jerome Brette&#39;s Blog</title>
+		<link>https://jbrette.github.io/tags/</link>
+		<description>Recent content in Tags on Jerome Brette&#39;s Blog</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 16 Jan 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://jbrette.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Update</title>
+				<link>https://jbrette.github.io/tags/update/</link>
+				<pubDate>Fri, 16 Jan 2026 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/update/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Kubedge</title>
+				<link>https://jbrette.github.io/tags/kubedge/</link>
+				<pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/kubedge/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Prometheus</title>
+				<link>https://jbrette.github.io/tags/prometheus/</link>
+				<pubDate>Wed, 03 Oct 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/prometheus/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Kubernetes</title>
+				<link>https://jbrette.github.io/tags/kubernetes/</link>
+				<pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/kubernetes/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Rpi</title>
+				<link>https://jbrette.github.io/tags/rpi/</link>
+				<pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/rpi/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Blinkt</title>
+				<link>https://jbrette.github.io/tags/blinkt/</link>
+				<pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/blinkt/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Security</title>
+				<link>https://jbrette.github.io/tags/security/</link>
+				<pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/security/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vault</title>
+				<link>https://jbrette.github.io/tags/vault/</link>
+				<pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/vault/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Istio</title>
+				<link>https://jbrette.github.io/tags/istio/</link>
+				<pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/istio/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Sonobuoy</title>
+				<link>https://jbrette.github.io/tags/sonobuoy/</link>
+				<pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/sonobuoy/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Test-Infra</title>
+				<link>https://jbrette.github.io/tags/test-infra/</link>
+				<pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/test-infra/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Testing</title>
+				<link>https://jbrette.github.io/tags/testing/</link>
+				<pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/testing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Kustomize</title>
+				<link>https://jbrette.github.io/tags/kustomize/</link>
+				<pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/kustomize/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Bigdata</title>
+				<link>https://jbrette.github.io/tags/bigdata/</link>
+				<pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/bigdata/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Blockchain</title>
+				<link>https://jbrette.github.io/tags/blockchain/</link>
+				<pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/blockchain/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Machinelearning</title>
+				<link>https://jbrette.github.io/tags/machinelearning/</link>
+				<pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/machinelearning/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Portieris</title>
+				<link>https://jbrette.github.io/tags/portieris/</link>
+				<pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/portieris/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Calico</title>
+				<link>https://jbrette.github.io/tags/calico/</link>
+				<pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/calico/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Cni</title>
+				<link>https://jbrette.github.io/tags/cni/</link>
+				<pubDate>Tue, 17 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/cni/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Helm</title>
+				<link>https://jbrette.github.io/tags/helm/</link>
+				<pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/helm/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Docker</title>
+				<link>https://jbrette.github.io/tags/docker/</link>
+				<pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/docker/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Github</title>
+				<link>https://jbrette.github.io/tags/github/</link>
+				<pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/github/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ansible</title>
+				<link>https://jbrette.github.io/tags/ansible/</link>
+				<pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/ansible/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Homeautomation</title>
+				<link>https://jbrette.github.io/tags/homeautomation/</link>
+				<pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/homeautomation/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Wifi</title>
+				<link>https://jbrette.github.io/tags/wifi/</link>
+				<pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/wifi/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Zigbee</title>
+				<link>https://jbrette.github.io/tags/zigbee/</link>
+				<pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/zigbee/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Zwave</title>
+				<link>https://jbrette.github.io/tags/zwave/</link>
+				<pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/zwave/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Python</title>
+				<link>https://jbrette.github.io/tags/python/</link>
+				<pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/python/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Golang</title>
+				<link>https://jbrette.github.io/tags/golang/</link>
+				<pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/golang/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Java</title>
+				<link>https://jbrette.github.io/tags/java/</link>
+				<pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/java/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Coreos</title>
+				<link>https://jbrette.github.io/tags/coreos/</link>
+				<pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/coreos/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Zuul</title>
+				<link>https://jbrette.github.io/tags/zuul/</link>
+				<pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/zuul/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Kubeadm</title>
+				<link>https://jbrette.github.io/tags/kubeadm/</link>
+				<pubDate>Thu, 21 Jun 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/tags/kubeadm/</guid>
+				<description></description>
+			</item>
+	</channel>
 </rss>

@@ -13,7 +13,7 @@
         "articleSection" : "kubedge",
         "name" : "Setup SingleNode Kubernetes Cluster using kubeadm",
         "headline" : "Setup SingleNode Kubernetes Cluster using kubeadm",
-        "description" : "Goal Setup simple kubernetes cluster for test purposes.\nAdd Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS\nsudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS\/Arch: linux\/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS\/Arch: linux\/amd64 Experimental: false sudo kubeadm version kubeadm version: \u0026amp;version.",
+        "description" : "\u003ch1 id=\u0022goal\u0022\u003eGoal\u003c\/h1\u003e\n\u003cp\u003eSetup simple kubernetes cluster for test purposes.\u003c\/p\u003e\n\u003ch2 id=\u0022add-kubernetes-apt-repo\u0022\u003eAdd Kubernetes APT Repo\u003c\/h2\u003e\n\u003cp\u003eIf you are still running Ubuntu 16.04 LTS\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo xxx \nsudo apt-get update\nsudo apt-get install kubeadm kubelet kubectl\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo docker version\nClient:\n Version:      1.13.1\n API version:  1.26\n Go version:   go1.6.2\n Git commit:   092cba3\n Built:        Thu Nov  2 20:40:23 2017\n OS\/Arch:      linux\/amd64\n\nServer:\n Version:      1.13.1\n API version:  1.26 (minimum version 1.12)\n Go version:   go1.6.2\n Git commit:   092cba3\n Built:        Thu Nov  2 20:40:23 2017\n OS\/Arch:      linux\/amd64\n Experimental: false\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo kubeadm version\n\nkubeadm version: \u0026amp;version.Info{Major:\u0026#34;1\u0026#34;, Minor:\u0026#34;11\u0026#34;, GitVersion:\u0026#34;v1.11.0\u0026#34;, GitCommit:\u0026#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe\u0026#34;, GitTreeState:\u0026#34;clean\u0026#34;, BuildDate:\u0026#34;2018-06-27T20:14:41Z\u0026#34;, GoVersion:\u0026#34;go1.10.2\u0026#34;, Compiler:\u0026#34;gc\u0026#34;, Platform:\u0026#34;linux\/amd64\u0026#34;}\n\u003c\/code\u003e\u003c\/pre\u003e\u003ch2 id=\u0022run-kubeadm\u0022\u003eRun Kubeadm\u003c\/h2\u003e\n\u003cp\u003eFirst command needs to use sudo\u003c\/p\u003e",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.92.2" />
+        <meta name="generator" content="Hugo 0.165.0">
         
 
 
@@ -49,35 +49,42 @@
             
         
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Setup SingleNode Kubernetes Cluster using kubeadm"/>
-<meta name="twitter:description" content="Goal Setup simple kubernetes cluster for test purposes.
+        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Setup SingleNode Kubernetes Cluster using kubeadm">
+	<meta name="twitter:description" content="Goal Setup simple kubernetes cluster for test purposes.
 Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
-sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false sudo kubeadm version kubeadm version: &amp;version."/>
-<meta name="twitter:site" content="@example"/>
+sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false sudo kubeadm version kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;11&#34;, GitVersion:&#34;v1.11.0&#34;, GitCommit:&#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-27T20:14:41Z&#34;, GoVersion:&#34;go1.10.2&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Run Kubeadm First command needs to use sudo">
+			<meta name="twitter:site" content="@example">
 
-        <meta property="og:title" content="Setup SingleNode Kubernetes Cluster using kubeadm" />
-<meta property="og:description" content="Goal Setup simple kubernetes cluster for test purposes.
+        <meta property="og:url" content="https://jbrette.github.io/kubedge/2018-06-21-a/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Setup SingleNode Kubernetes Cluster using kubeadm">
+	<meta property="og:description" content="Goal Setup simple kubernetes cluster for test purposes.
 Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
-sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false sudo kubeadm version kubeadm version: &amp;version." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-06-21-a/" /><meta property="article:section" content="kubedge" />
-<meta property="article:published_time" content="2018-06-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-06-21T00:00:00+00:00" />
-
+sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false sudo kubeadm version kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;11&#34;, GitVersion:&#34;v1.11.0&#34;, GitCommit:&#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-27T20:14:41Z&#34;, GoVersion:&#34;go1.10.2&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Run Kubeadm First command needs to use sudo">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="kubedge">
+		<meta property="article:published_time" content="2018-06-21T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-06-21T00:00:00+00:00">
+		<meta property="article:tag" content="Kubedge">
+		<meta property="article:tag" content="Kubernetes">
+		<meta property="article:tag" content="Kubeadm">
 
         <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Setup SingleNode Kubernetes Cluster using kubeadm">
-<meta itemprop="description" content="Goal Setup simple kubernetes cluster for test purposes.
-Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
-sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false sudo kubeadm version kubeadm version: &amp;version."><meta itemprop="datePublished" content="2018-06-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-06-21T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1020">
-<meta itemprop="keywords" content="kubedge,kubernetes,kubeadm," />
         
+	<meta itemprop="name" content="Setup SingleNode Kubernetes Cluster using kubeadm">
+	<meta itemprop="description" content="Goal Setup simple kubernetes cluster for test purposes.
+Add Kubernetes APT Repo If you are still running Ubuntu 16.04 LTS
+sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo docker version Client: Version: 1.13.1 API version: 1.26 Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Server: Version: 1.13.1 API version: 1.26 (minimum version 1.12) Go version: go1.6.2 Git commit: 092cba3 Built: Thu Nov 2 20:40:23 2017 OS/Arch: linux/amd64 Experimental: false sudo kubeadm version kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;11&#34;, GitVersion:&#34;v1.11.0&#34;, GitCommit:&#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-27T20:14:41Z&#34;, GoVersion:&#34;go1.10.2&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Run Kubeadm First command needs to use sudo">
+	<meta itemprop="datePublished" content="2018-06-21T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2018-06-21T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1020">
+	<meta itemprop="keywords" content="Kubedge,Kubernetes,Kubeadm">
 
         
             
@@ -108,18 +115,6 @@ sudo xxx sudo apt-get update sudo apt-get install kubeadm kubelet kubectl sudo d
 
 
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
     </head>
     <body>
 
@@ -318,11 +313,23 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
                             </header>
                             
 
@@ -360,46 +367,7 @@ if (!doNotTrack) {
         
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/102018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-28'>
-                                    September 28, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/092018/09/rolling-upgrade.jpg" alt="">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -629,6 +597,7 @@ if (!doNotTrack) {
   
 
   
+
   <div id="content">
     <h1 id="goal">Goal</h1>
 <p>Setup simple kubernetes cluster for test purposes.</p>
@@ -656,7 +625,7 @@ Server:
  Experimental: false
 </code></pre><pre tabindex="0"><code>sudo kubeadm version
 
-kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;11&quot;, GitVersion:&quot;v1.11.0&quot;, GitCommit:&quot;91e7b4fd31fcd3d5f436da26c980becec37ceefe&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-06-27T20:14:41Z&quot;, GoVersion:&quot;go1.10.2&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;11&#34;, GitVersion:&#34;v1.11.0&#34;, GitCommit:&#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-27T20:14:41Z&#34;, GoVersion:&#34;go1.10.2&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
 </code></pre><h2 id="run-kubeadm">Run Kubeadm</h2>
 <p>First command needs to use sudo</p>
 <pre tabindex="0"><code>sudo kubeadm config images pull
@@ -774,7 +743,7 @@ replicaset.apps/tiller-deploy-759cb9df9              1         1         1      
 </code></pre><p>Update the repo</p>
 <pre tabindex="0"><code>helm repo add stable https://kubernetes-charts.storage.googleapis.com
 
-&quot;stable&quot; has been added to your repositories
+&#34;stable&#34; has been added to your repositories
 </code></pre><p>Install and remove nginx</p>
 <pre tabindex="0"><code>helm install stable/nginx-ingress
 
@@ -832,7 +801,7 @@ messy-snake-nginx-ingress  1s
 NOTES:
 The nginx-ingress controller has been installed.
 It may take a few minutes for the LoadBalancer IP to be available.
-You can watch the status by running 'kubectl --namespace default get services -o wide -w messy-snake-nginx-ingress-controller'
+You can watch the status by running &#39;kubectl --namespace default get services -o wide -w messy-snake-nginx-ingress-controller&#39;
 
 An example Ingress that makes use of the controller:
 
@@ -892,7 +861,7 @@ replicaset.apps/messy-snake-nginx-ingress-controller-5db5f96774        1        
 replicaset.apps/messy-snake-nginx-ingress-default-backend-7f877996b6   1         1         1         1m
 </code></pre><p>Remove the test chart</p>
 <pre tabindex="0"><code>helm delete messy-snake
-release &quot;messy-snake&quot; deleted
+release &#34;messy-snake&#34; deleted
 </code></pre><h2 id="use-kubeadm-to-remove-everything">Use kubeadm to remove everything</h2>
 <pre tabindex="0"><code>sudo kubeadm reset
 sudo docker rm $(sudo docker ps -qa)
@@ -934,6 +903,17 @@ sudo docker image rm -f $(sudo docker image list -qa)
 
   </footer>
 </article>
+<ul class="actions pagination">
+    
+        <li><a href="https://jbrette.github.io/kubedge/2018-06-20-a/"
+                class="button big previous">Create a Rapsberry PI Rescue Dongle</a></li>
+    
+
+    
+        <li><a href="https://jbrette.github.io/kubedge/2018-07-03-a/"
+                class="button big next">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></li>
+    
+</ul>
 
 
     </div>
@@ -958,7 +938,10 @@ sudo docker image rm -f $(sudo docker image list -qa)
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1067,11 +1050,25 @@ sudo docker image rm -f $(sudo docker image list -qa)
           <article class="mini-post">
             <header>
               <h3>
+                <a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a>
+              </h3>
+              
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="https://jbrette.github.io/post/">Post</a>
               </h3>
               
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
               </time>
             </header>
             
@@ -1102,43 +1099,8 @@ sudo docker image rm -f $(sudo docker image list -qa)
 
 
   
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/date2018/10/load-node-stack1.png" alt="">
-        </a>
+  
     
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-28'>
-                September 28, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
   
 
 
@@ -1146,8 +1108,8 @@ sudo docker image rm -f $(sudo docker image list -qa)
         
         
 
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/date2018/09/rolling-upgrade.jpg" alt="">
+        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -1248,6 +1210,17 @@ sudo docker image rm -f $(sudo docker image list -qa)
           </article>
         </p>
         
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/news/">news</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
     </section>
   
   
@@ -1267,7 +1240,10 @@ sudo docker image rm -f $(sudo docker image list -qa)
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1359,7 +1335,7 @@ sudo docker image rm -f $(sudo docker image list -qa)
     
     <p class="copyright">
       
-        &copy; 2018
+        &copy; 2026
         
           Jerome Brette&#39;s Blog
         

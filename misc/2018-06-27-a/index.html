@@ -13,7 +13,7 @@
         "articleSection" : "misc",
         "name" : "Manual Update of CoreOS",
         "headline" : "Manual Update of CoreOS",
-        "description" : "Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.\nSetup of the cluster TBD\nUpdate of the cluster I found the following link\nsudo bash -c \u0027mkdir -p \/etc\/systemd\/system\/docker.service.d\/; cat \u0026lt;\u0026lt;EOF \u0026gt; \/etc\/systemd\/system\/docker.service.d\/50-insecure-registry.conf [Service] Environment=\u0026quot;DOCKER_OPTS=--insecure-registry 10.0.0.0\/8 --insecure-registry 172.16.0.0\/12 --insecure-registry 192.168.0.0\/16\u0026quot; EOF \u0027 sudo bash -ec \u0027uname -a \u0026amp;\u0026amp; cat \/etc\/lsb-release \u0026amp;\u0026amp; \\ echo GROUP=stable \u0026gt; \/etc\/coreos\/update.",
+        "description" : "\u003ch1 id=\u0022goal\u0022\u003eGoal\u003c\/h1\u003e\n\u003cp\u003eTo create kubernetes multi nodes environments on Windows, one of the option\nis to create a cluster using CoreOS since the foot print is quite reduced.\u003c\/p\u003e\n\u003ch2 id=\u0022setup-of-the-cluster\u0022\u003eSetup of the cluster\u003c\/h2\u003e\n\u003cp\u003eTBD\u003c\/p\u003e\n\u003ch3 id=\u0022update-of-the-cluster\u0022\u003eUpdate of the cluster\u003c\/h3\u003e\n\u003cp\u003eI found the following \u003ca href=\u0022https:\/\/gist.github.com\/ianblenke\/4256e61a812327416dd9\u0022\u003elink\u003c\/a\u003e\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo bash -c \u0026#39;mkdir -p \/etc\/systemd\/system\/docker.service.d\/; cat \u0026lt;\u0026lt;EOF \u0026gt; \/etc\/systemd\/system\/docker.service.d\/50-insecure-registry.conf\n[Service]\nEnvironment=\u0026#34;DOCKER_OPTS=--insecure-registry 10.0.0.0\/8 --insecure-registry 172.16.0.0\/12 --insecure-registry 192.168.0.0\/16\u0026#34;\nEOF\n\u0026#39;\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo bash -ec \u0026#39;uname -a \u0026amp;\u0026amp; cat \/etc\/lsb-release \u0026amp;\u0026amp; \\\necho GROUP=stable \u0026gt; \/etc\/coreos\/update.conf \u0026amp;\u0026amp; \\\nsystemctl unmask update-engine.service \u0026amp;\u0026amp; \\\nsystemctl start update-engine.service \u0026amp;\u0026amp; \\\nupdate_engine_client -update \u0026amp;\u0026amp; \\\nreboot\u0026#39;\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo journalctl -u update-engine.service | grep \u0026#34;boot flags\u0026#34;\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo bash -ec \u0026#39;systemctl stop update-engine.service \u0026amp;\u0026amp; \\\nsystemctl mask update-engine.service\u0026#39;\n\u003c\/code\u003e\u003c\/pre\u003e\u003ch2 id=\u0022usefull-links\u0022\u003eUsefull Links\u003c\/h2\u003e\n\u003cp\u003eTBD\u003c\/p\u003e",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.92.2" />
+        <meta name="generator" content="Hugo 0.165.0">
         
 
 
@@ -47,38 +47,43 @@
             
         
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Manual Update of CoreOS"/>
-<meta name="twitter:description" content="Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
+        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Manual Update of CoreOS">
+	<meta name="twitter:description" content="Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
 Setup of the cluster TBD
 Update of the cluster I found the following link
-sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&quot; EOF &#39; sudo bash -ec &#39;uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update."/>
-<meta name="twitter:site" content="@example"/>
+sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&#34;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&#34; EOF &#39; sudo bash -ec &#39;uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update.conf &amp;&amp; \ systemctl unmask update-engine.service &amp;&amp; \ systemctl start update-engine.service &amp;&amp; \ update_engine_client -update &amp;&amp; \ reboot&#39; sudo journalctl -u update-engine.service | grep &#34;boot flags&#34; sudo bash -ec &#39;systemctl stop update-engine.service &amp;&amp; \ systemctl mask update-engine.service&#39; Usefull Links TBD">
+			<meta name="twitter:site" content="@example">
 
-        <meta property="og:title" content="Manual Update of CoreOS" />
-<meta property="og:description" content="Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
+        <meta property="og:url" content="https://jbrette.github.io/misc/2018-06-27-a/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Manual Update of CoreOS">
+	<meta property="og:description" content="Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
 Setup of the cluster TBD
 Update of the cluster I found the following link
-sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&quot; EOF &#39; sudo bash -ec &#39;uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/misc/2018-06-27-a/" /><meta property="article:section" content="misc" />
-<meta property="article:published_time" content="2018-06-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-06-27T00:00:00+00:00" />
-
+sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&#34;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&#34; EOF &#39; sudo bash -ec &#39;uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update.conf &amp;&amp; \ systemctl unmask update-engine.service &amp;&amp; \ systemctl start update-engine.service &amp;&amp; \ update_engine_client -update &amp;&amp; \ reboot&#39; sudo journalctl -u update-engine.service | grep &#34;boot flags&#34; sudo bash -ec &#39;systemctl stop update-engine.service &amp;&amp; \ systemctl mask update-engine.service&#39; Usefull Links TBD">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="misc">
+		<meta property="article:published_time" content="2018-06-27T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-06-27T00:00:00+00:00">
+		<meta property="article:tag" content="Coreos">
 
         <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Manual Update of CoreOS">
-<meta itemprop="description" content="Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
+        
+	<meta itemprop="name" content="Manual Update of CoreOS">
+	<meta itemprop="description" content="Goal To create kubernetes multi nodes environments on Windows, one of the option is to create a cluster using CoreOS since the foot print is quite reduced.
 Setup of the cluster TBD
 Update of the cluster I found the following link
-sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&quot; EOF &#39; sudo bash -ec &#39;uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update."><meta itemprop="datePublished" content="2018-06-27T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-06-27T00:00:00+00:00" />
-<meta itemprop="wordCount" content="113">
-<meta itemprop="keywords" content="coreos," />
-        
+sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf [Service] Environment=&#34;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&#34; EOF &#39; sudo bash -ec &#39;uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \ echo GROUP=stable &gt; /etc/coreos/update.conf &amp;&amp; \ systemctl unmask update-engine.service &amp;&amp; \ systemctl start update-engine.service &amp;&amp; \ update_engine_client -update &amp;&amp; \ reboot&#39; sudo journalctl -u update-engine.service | grep &#34;boot flags&#34; sudo bash -ec &#39;systemctl stop update-engine.service &amp;&amp; \ systemctl mask update-engine.service&#39; Usefull Links TBD">
+	<meta itemprop="datePublished" content="2018-06-27T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2018-06-27T00:00:00+00:00">
+	<meta itemprop="wordCount" content="113">
+	<meta itemprop="keywords" content="Coreos">
 
         
             
@@ -109,18 +114,6 @@ sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EO
 
 
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
     </head>
     <body>
 
@@ -319,11 +312,23 @@ if (!doNotTrack) {
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
+                                    '2026-01-16'>
+                                    January 16, 2026</time>
                             </header>
                             
 
@@ -362,45 +367,6 @@ if (!doNotTrack) {
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
             <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-28'>
-                                    September 28, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -643,20 +609,20 @@ is to create a cluster using CoreOS since the foot print is quite reduced.</p>
 <p>TBD</p>
 <h3 id="update-of-the-cluster">Update of the cluster</h3>
 <p>I found the following <a href="https://gist.github.com/ianblenke/4256e61a812327416dd9">link</a></p>
-<pre tabindex="0"><code>sudo bash -c 'mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf
+<pre tabindex="0"><code>sudo bash -c &#39;mkdir -p /etc/systemd/system/docker.service.d/; cat &lt;&lt;EOF &gt; /etc/systemd/system/docker.service.d/50-insecure-registry.conf
 [Service]
-Environment=&quot;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&quot;
+Environment=&#34;DOCKER_OPTS=--insecure-registry 10.0.0.0/8 --insecure-registry 172.16.0.0/12 --insecure-registry 192.168.0.0/16&#34;
 EOF
-'
-</code></pre><pre tabindex="0"><code>sudo bash -ec 'uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \
+&#39;
+</code></pre><pre tabindex="0"><code>sudo bash -ec &#39;uname -a &amp;&amp; cat /etc/lsb-release &amp;&amp; \
 echo GROUP=stable &gt; /etc/coreos/update.conf &amp;&amp; \
 systemctl unmask update-engine.service &amp;&amp; \
 systemctl start update-engine.service &amp;&amp; \
 update_engine_client -update &amp;&amp; \
-reboot'
-</code></pre><pre tabindex="0"><code>sudo journalctl -u update-engine.service | grep &quot;boot flags&quot;
-</code></pre><pre tabindex="0"><code>sudo bash -ec 'systemctl stop update-engine.service &amp;&amp; \
-systemctl mask update-engine.service'
+reboot&#39;
+</code></pre><pre tabindex="0"><code>sudo journalctl -u update-engine.service | grep &#34;boot flags&#34;
+</code></pre><pre tabindex="0"><code>sudo bash -ec &#39;systemctl stop update-engine.service &amp;&amp; \
+systemctl mask update-engine.service&#39;
 </code></pre><h2 id="usefull-links">Usefull Links</h2>
 <p>TBD</p>
 
@@ -700,8 +666,8 @@ systemctl mask update-engine.service'
 
     <article class="post">
         <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+<script>
+    window.disqus_config = function () {
     
     
     
@@ -717,8 +683,9 @@ systemctl mask update-engine.service'
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
     </article>
 
 
@@ -757,7 +724,10 @@ systemctl mask update-engine.service'
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -866,11 +836,25 @@ systemctl mask update-engine.service'
           <article class="mini-post">
             <header>
               <h3>
+                <a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a>
+              </h3>
+              
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="https://jbrette.github.io/post/">Post</a>
               </h3>
               
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
+              <time class="published" datetime='2026-01-16'>
+                January 16, 2026
               </time>
             </header>
             
@@ -911,45 +895,7 @@ systemctl mask update-engine.service'
         
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/102018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-28'>
-                September 28, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
         </a>
     
 
@@ -1050,6 +996,17 @@ systemctl mask update-engine.service'
           </article>
         </p>
         
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/news/">news</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
     </section>
   
   
@@ -1069,7 +1026,10 @@ systemctl mask update-engine.service'
       <ul class="icons">
         
           
+
+    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    
 
 
         
@@ -1161,7 +1121,7 @@ systemctl mask update-engine.service'
     
     <p class="copyright">
       
-        &copy; 2018
+        &copy; 2026
         
           Jerome Brette&#39;s Blog
         
