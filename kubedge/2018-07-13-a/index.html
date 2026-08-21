@@ -1,72 +1,633 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Deploy Helm and Tiller on Rasberry PI Cluster - Jerome Brette&#39;s Blog</title>
-<meta name="description" content="Jerome Brette&#39;s Blog">
-<meta name="generator" content="Hugo 0.165.0">
-<link href="https://jbrette.github.io/index.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="https://jbrette.github.io/kubedge/2018-07-13-a/">
-<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
-<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
-<script defer src="https://jbrette.github.io/js/fontawesome6/all.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
-<script src="https://jbrette.github.io/js/bundle.js"></script><style>
-:root {}
-</style>
-<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-13-a/">
-	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
-	<meta property="og:title" content="Deploy Helm and Tiller on Rasberry PI Cluster">
-	<meta property="og:description" content="Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.
-Key Aspects The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide…and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller. This will be usefull to setup CI/CD pipeline with Travis-CI. Build Tiller executable and Docker image Cross Compiling from Ubuntu Machine First check the go setup. Fetch the code">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="kubedge">
-		<meta property="article:published_time" content="2018-07-13T00:00:00+00:00">
-		<meta property="article:modified_time" content="2018-07-13T00:00:00+00:00">
-		<meta property="article:tag" content="Kubedge">
-		<meta property="article:tag" content="Kubernetes">
-		<meta property="article:tag" content="Helm">
+<!DOCTYPE HTML>
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Deploy Helm and Tiller on Rasberry PI Cluster">
-	<meta name="twitter:description" content="Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.
-Key Aspects The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide…and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller. This will be usefull to setup CI/CD pipeline with Travis-CI. Build Tiller executable and Docker image Cross Compiling from Ubuntu Machine First check the go setup. Fetch the code">
-			<meta name="twitter:site" content="@example">
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/jbrette.github.io\/"
+        },
+        "articleSection" : "kubedge",
+        "name" : "Deploy Helm and Tiller on Rasberry PI Cluster",
+        "headline" : "Deploy Helm and Tiller on Rasberry PI Cluster",
+        "description" : "Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.\nKey Aspects  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide\u0026hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-07-13 00:00:00 \u002b0000 UTC",
+        "dateModified" : "2018-07-13 00:00:00 \u002b0000 UTC",
+        "url" : "https:\/\/jbrette.github.io\/kubedge\/2018-07-13-a\/",
+        "wordCount" : "1887",
+        "keywords" : [ "kubedge","kubernetes","helm","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Deploy Helm and Tiller on Rasberry PI Cluster</title>
+            
+        
 
-	<meta itemprop="name" content="Deploy Helm and Tiller on Rasberry PI Cluster">
-	<meta itemprop="description" content="Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.
-Key Aspects The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide…and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller. This will be usefull to setup CI/CD pipeline with Travis-CI. Build Tiller executable and Docker image Cross Compiling from Ubuntu Machine First check the go setup. Fetch the code">
-	<meta itemprop="datePublished" content="2018-07-13T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2018-07-13T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1887">
-	<meta itemprop="keywords" content="Kubedge,Kubernetes,Helm"></head>
-<body><div class="container"><header>
-<h1>Jerome Brette&#39;s Blog</h1>
-<p class="description">Jerome Brette&#39;s Blog</p>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.92.2" />
+        
 
+
+        
+            <meta name="author" content="Jerome Brette">
+        
+        
+            
+                <meta name="description" content="Jerome Brette&#39;s Blog">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deploy Helm and Tiller on Rasberry PI Cluster"/>
+<meta name="twitter:description" content="Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.
+Key Aspects  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide&hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller."/>
+<meta name="twitter:site" content="@example"/>
+
+        <meta property="og:title" content="Deploy Helm and Tiller on Rasberry PI Cluster" />
+<meta property="og:description" content="Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.
+Key Aspects  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide&hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-13-a/" /><meta property="article:section" content="kubedge" />
+<meta property="article:published_time" content="2018-07-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-13T00:00:00+00:00" />
+
+
+        <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Deploy Helm and Tiller on Rasberry PI Cluster">
+<meta itemprop="description" content="Goal The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.
+Key Aspects  The goal is to setup helm and tiller on the Raspberry PI cluster Having the golang, glide&hellip;and related libraries setup in a PI for compilation is kind of complicated. I started but encounter too many issues (even small), had to install too many compilation related packages on my PI system, hence decided to use an Ubuntu VM to compile and prepare the binaries for image for helm and tiller."><meta itemprop="datePublished" content="2018-07-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1887">
+<meta itemprop="keywords" content="kubedge,kubernetes,helm," />
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/main.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/add-on.css">
+            <link rel="stylesheet" href="https://jbrette.github.io/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123357787-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="https://jbrette.github.io/">kubedge</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="https://jbrette.github.io/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/post/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/kubedge/">
+                            <i class="fas fa-atom">&nbsp;</i>Kubedge
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/iot/">
+                            <i class="">&nbsp;</i>IoT
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/ai_ml/">
+                            <i class="">&nbsp;</i>AI &amp; ML
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/blockchain/">
+                            <i class="">&nbsp;</i>BlockChain
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/misc/">
+                            <i class="">&nbsp;</i>Other
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://jbrette.github.io/tags/">
+                            <i class="fa fa-list">&nbsp;</i>Tags
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
 </header>
-<div class="global-menu">
-<nav>
-<ul>
-<li id="fa fa-home" class=""><a href="https://jbrette.github.io/">Home</a></li>
-<li id="fa fa-id-card-o" class=""><a href="https://jbrette.github.io/about/">About</a></li>
-<li id="fa fa-newspaper-o" class=""><a href="https://jbrette.github.io/post/">Blog</a></li>
-<li id="fas fa-atom" class=""><a href="https://jbrette.github.io/kubedge/">Kubedge</a></li>
-<li class=""><a href="https://jbrette.github.io/iot/">IoT</a></li>
-<li class=""><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML</a></li>
-<li class=""><a href="https://jbrette.github.io/blockchain/">BlockChain</a></li>
-<li class=""><a href="https://jbrette.github.io/misc/">Other</a></li>
-<li id="fa fa-list" class=""><a href="https://jbrette.github.io/tags/">Tags</a></li></ul>
-</nav>
-</div>
 
-<div class="content-container">
-<main><h1>Deploy Helm and Tiller on Rasberry PI Cluster</h1>
-<h1 id="goal">Goal</h1>
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="https://jbrette.github.io/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/post/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/kubedge/">
+                            <h3>
+                                <i class="fas fa-atom">&nbsp;</i>Kubedge
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/iot/">
+                            <h3>
+                                <i class="">&nbsp;</i>IoT
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/ai_ml/">
+                            <h3>
+                                <i class="">&nbsp;</i>AI &amp; ML
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/blockchain/">
+                            <h3>
+                                <i class="">&nbsp;</i>BlockChain
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/misc/">
+                            <h3>
+                                <i class="">&nbsp;</i>Other
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jbrette.github.io/tags/">
+                            <h3>
+                                <i class="fa fa-list">&nbsp;</i>Tags
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-03'>
+                                    October 3, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-10-03'>
+                                    October 3, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-09-28'>
+                                    September 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /post/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;text=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster&amp;via=example" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;title=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;title=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;title=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;description=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Jerome%20Brette&amp;body=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="https://jbrette.github.io/kubedge/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+
+      <span class="author">Jerome Brette</span>
+      <span class="author">deprecated</span>
+      
+        <a href="https://kubedge.cloud/pi_cluster/" target="_blank">Moved to KUBEDGE</a>
+      
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;text=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster&amp;via=example" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;title=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;title=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;title=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f&amp;description=Deploy%20Helm%20and%20Tiller%20on%20Rasberry%20PI%20Cluster" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by Jerome%20Brette&amp;body=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-13-a%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+  <div id="content">
+    <h1 id="goal">Goal</h1>
 <p>The main purpose of this exercise is to be able to use Helm on the Rapsberry PI Cluster.</p>
 <h2 id="key-aspects">Key Aspects</h2>
 <ul>
@@ -98,7 +659,7 @@ make clean bootstrap build-cross dist APP=helm VERSION=2.9 TARGETS=linux/arm
 ...
 
 go build -o bin/protoc-gen-go ./vendor/github.com/golang/protobuf/protoc-gen-go
-CGO_ENABLED=0 gox -parallel=3 -output=&#34;_dist/{{.OS}}-{{.Arch}}/{{.Dir}}&#34; -osarch=&#39;linux/arm&#39;  -tags &#39;&#39; -ldflags &#39;-w -s -X k8s.io/helm/pkg/version.Version=2.9 -X k8s.io/helm/pkg/version.BuildMetadata= -X k8s.io/helm/pkg/version.GitCommit=20adb27c7c5868466912eebdf6664e7390ebe710 -X k8s.io/helm/pkg/version.GitTreeState=clean -extldflags &#34;-static&#34;&#39; k8s.io/helm/cmd/helm
+CGO_ENABLED=0 gox -parallel=3 -output=&quot;_dist/{{.OS}}-{{.Arch}}/{{.Dir}}&quot; -osarch='linux/arm'  -tags '' -ldflags '-w -s -X k8s.io/helm/pkg/version.Version=2.9 -X k8s.io/helm/pkg/version.BuildMetadata= -X k8s.io/helm/pkg/version.GitCommit=20adb27c7c5868466912eebdf6664e7390ebe710 -X k8s.io/helm/pkg/version.GitTreeState=clean -extldflags &quot;-static&quot;' k8s.io/helm/cmd/helm
 Number of parallel builds: 3
 
 --&gt;       linux/arm: k8s.io/helm/cmd/helm
@@ -126,7 +687,7 @@ Number of parallel builds: 3
 
 ...
 go build -o bin/protoc-gen-go ./vendor/github.com/golang/protobuf/protoc-gen-go
-CGO_ENABLED=0 gox -parallel=3 -output=&#34;_dist/{{.OS}}-{{.Arch}}/{{.Dir}}&#34; -osarch=&#39;linux/arm&#39;  -tags &#39;&#39; -ldflags &#39;-w -s -X k8s.io/helm/pkg/version.Version=2.9 -X k8s.io/helm/pkg/version.BuildMetadata= -X k8s.io/helm/pkg/version.GitCommit=20adb27c7c5868466912eebdf6664e7390ebe710 -X k8s.io/helm/pkg/version.GitTreeState=clean -extldflags &#34;-static&#34;&#39; k8s.io/helm/cmd/tiller
+CGO_ENABLED=0 gox -parallel=3 -output=&quot;_dist/{{.OS}}-{{.Arch}}/{{.Dir}}&quot; -osarch='linux/arm'  -tags '' -ldflags '-w -s -X k8s.io/helm/pkg/version.Version=2.9 -X k8s.io/helm/pkg/version.BuildMetadata= -X k8s.io/helm/pkg/version.GitCommit=20adb27c7c5868466912eebdf6664e7390ebe710 -X k8s.io/helm/pkg/version.GitTreeState=clean -extldflags &quot;-static&quot;' k8s.io/helm/cmd/tiller
 Number of parallel builds: 3
 
 --&gt;       linux/arm: k8s.io/helm/cmd/tiller
@@ -155,7 +716,7 @@ COPY _dist/linux-arm /
 
 EXPOSE 44134
 
-CMD [&#34;/tiller&#34;]
+CMD [&quot;/tiller&quot;]
 </code></pre><pre tabindex="0"><code>export DHUBREPO=jbrette/tiller-arm32v7
 export VERSION=2.9
 docker build -t $DHUBREPO:$VERSION -f rootfs/Dockerfile.arm32v7 .
@@ -205,7 +766,7 @@ debconf: unable to initialize frontend: Dialog
 debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
 debconf: unable to initialize frontend: Readline
-debconf: (Can&#39;t locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/arm-linux-gnueabi/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/arm-linux-gnueabi/perl5/5.20 /usr/share/perl5 /usr/lib/arm-linux-gnueabi/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/arm-linux-gnueabi/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/arm-linux-gnueabi/perl5/5.20 /usr/share/perl5 /usr/lib/arm-linux-gnueabi/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
 debconf: falling back to frontend: Teletype
 Setting up openssl (1.0.1t-1+deb8u8) ...
 Setting up ca-certificates (20141019+deb8u4) ...
@@ -213,7 +774,7 @@ debconf: unable to initialize frontend: Dialog
 debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
 debconf: unable to initialize frontend: Readline
-debconf: (Can&#39;t locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/arm-linux-gnueabi/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/arm-linux-gnueabi/perl5/5.20 /usr/share/perl5 /usr/lib/arm-linux-gnueabi/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/arm-linux-gnueabi/perl/5.20.2 /usr/local/share/perl/5.20.2 /usr/lib/arm-linux-gnueabi/perl5/5.20 /usr/share/perl5 /usr/lib/arm-linux-gnueabi/perl/5.20 /usr/share/perl/5.20 /usr/local/lib/site_perl .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
 debconf: falling back to frontend: Teletype
 Updating certificates in /etc/ssl/certs... 152 added, 0 removed; done.
 Processing triggers for libc-bin (2.19-18+deb8u10) ...
@@ -232,7 +793,7 @@ Step 5/6 : EXPOSE 44134
  ---&gt; Running in d2c6d9b3a3bc
 Removing intermediate container d2c6d9b3a3bc
  ---&gt; 28a331217c52
-Step 6/6 : CMD [&#34;/tiller&#34;]
+Step 6/6 : CMD [&quot;/tiller&quot;]
  ---&gt; Running in 9760ea4dc6c5
 Removing intermediate container 9760ea4dc6c5
  ---&gt; 9384b4f39ab3
@@ -255,29 +816,29 @@ docker push jbrette/tiller-arm32v7:2.9
 <pre tabindex="0"><code>mkdir -p ~/kube-deployments/tiller
 cd  ~/kube-deployments/tiller
 </code></pre><p>Create the kubectl file for tiller service account</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat tiller-serviceaccount.yaml
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1beta1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRoleBinding</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">roleRef</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRole</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cluster-admin</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">subjects</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
-</span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>Create the tiller service account</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cat tiller-serviceaccount.yaml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
+...
+---
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1beta1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRoleBinding</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
+<span style="color:#f92672">roleRef</span>:
+  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
+  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRole</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cluster-admin</span>
+<span style="color:#f92672">subjects</span>:
+  - <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
+    <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
+...
+</code></pre></div><p>Create the tiller service account</p>
 <pre tabindex="0"><code>kubectl create -f tiller-serviceaccount.yaml
 
 serviceaccount/tiller created
@@ -285,55 +846,55 @@ clusterrolebinding.rbac.authorization.k8s.io/tiller created
 </code></pre><p>Create manually the tiller deployment file and leverage the tiller service account</p>
 <pre tabindex="0"><code>helm init --service-account tiller --output yaml &gt; tiller.yaml
 </code></pre><p>Edit the image and replace <code>gcr.io/kubernetes-helm/tiller:2.9</code> by <code>jbrette/tiller-arm32v7:2.9</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">extensions/v1beta1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">helm</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller-deploy</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">strategy</span>: {}
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">helm</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">TILLER_NAMESPACE</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">value</span>: <span style="color:#ae81ff">kube-system</span>
-</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">TILLER_HISTORY_MAX</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;0&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gcr.io/kubernetes-helm/tiller:2.9</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">IfNotPresent</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">livenessProbe</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">httpGet</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/liveness</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">44135</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">44134</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">44135</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">http</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">readinessProbe</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">httpGet</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/readiness</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">44135</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">resources</span>: {}
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">serviceAccountName</span>: <span style="color:#ae81ff">tiller</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">status</span>: {}
-</span></span></code></pre></div><p>Deploy tiller in the kubernetes cluster</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">extensions/v1beta1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">helm</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller-deploy</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">kube-system</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672">strategy</span>: {}
+  <span style="color:#f92672">template</span>:
+    <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+      <span style="color:#f92672">labels</span>:
+        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">helm</span>
+        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">containers</span>:
+      - <span style="color:#f92672">env</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">TILLER_NAMESPACE</span>
+          <span style="color:#f92672">value</span>: <span style="color:#ae81ff">kube-system</span>
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">TILLER_HISTORY_MAX</span>
+          <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">gcr.io/kubernetes-helm/tiller:2.9</span>
+        <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">IfNotPresent</span>
+        <span style="color:#f92672">livenessProbe</span>:
+          <span style="color:#f92672">httpGet</span>:
+            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/liveness</span>
+            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">44135</span>
+          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
+        <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
+        <span style="color:#f92672">ports</span>:
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">44134</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">tiller</span>
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">44135</span>
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">http</span>
+        <span style="color:#f92672">readinessProbe</span>:
+          <span style="color:#f92672">httpGet</span>:
+            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/readiness</span>
+            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">44135</span>
+          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
+        <span style="color:#f92672">resources</span>: {}
+      <span style="color:#f92672">serviceAccountName</span>: <span style="color:#ae81ff">tiller</span>
+<span style="color:#f92672">status</span>: {}
+</code></pre></div><p>Deploy tiller in the kubernetes cluster</p>
 <pre tabindex="0"><code>kubectl create -f tiller.yaml
 </code></pre><p>Check the deployment state</p>
 <pre tabindex="0"><code>kubectl get all -n kube-system
@@ -368,7 +929,7 @@ Creating /home/rpiuser/.helm/repository/repositories.yaml
 Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com
 Adding local repo with URL: http://127.0.0.1:8879/charts
 $HELM_HOME has been configured at /home/rpiuser/.helm.
-Not installing Tiller due to &#39;client-only&#39; flag having been set
+Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 </code></pre><p>Check helm commands are working properly</p>
 <pre tabindex="0"><code>helm ls
@@ -376,7 +937,7 @@ helm search stable/nginx-ingress
 helm inspect stable/nginx-ingress
 </code></pre><h2 id="use-helm-on-rpi">Use helm on RPI</h2>
 <p>Let&rsquo;s access the simple helm repo designed for</p>
-<pre tabindex="0"><code>helm repo add kubeplay &#39;https://raw.githubusercontent.com/jbrette/kubeplay/arm32v7/helmrepo/&#39;
+<pre tabindex="0"><code>helm repo add kubeplay 'https://raw.githubusercontent.com/jbrette/kubeplay/arm32v7/helmrepo/'
 </code></pre><pre tabindex="0"><code>helm repo list
 
 NAME            URL
@@ -427,7 +988,7 @@ replicaset.apps/helm-rpi-kubeplay-arm32v7-58567c4756   1         1         0    
 Let&rsquo;s use helm upgrade to change the value</p>
 <pre tabindex="0"><code>helm upgrade --set service.internalPort=80 helm-rpi kubeplay/kubeplay-arm32v7
 
-Release &#34;helm-rpi&#34; has been upgraded. Happy Helming!
+Release &quot;helm-rpi&quot; has been upgraded. Happy Helming!
 LAST DEPLOYED: Sun Jul 15 20:39:17 2018
 NAMESPACE: default
 STATUS: DEPLOYED
@@ -509,8 +1070,8 @@ Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
   Normal  Scheduled  10m   default-scheduler  Successfully assigned default/helm-rpi-kubeplay-arm32v7-6cb66496c6-9w97m to nas-pi
-  Normal  Pulling    10m   kubelet, nas-pi    pulling image &#34;jbrette/kubeplay-arm32v7:0.1.0&#34;
-  Normal  Pulled     10m   kubelet, nas-pi    Successfully pulled image &#34;jbrette/kubeplay-arm32v7:0.1.0&#34;
+  Normal  Pulling    10m   kubelet, nas-pi    pulling image &quot;jbrette/kubeplay-arm32v7:0.1.0&quot;
+  Normal  Pulled     10m   kubelet, nas-pi    Successfully pulled image &quot;jbrette/kubeplay-arm32v7:0.1.0&quot;
   Normal  Created    10m   kubelet, nas-pi    Created container
   Normal  Started    10m   kubelet, nas-pi    Started container
 </code></pre><p>Let&rsquo;s open a browser towards the URL:</p>
@@ -525,33 +1086,529 @@ Events:
 <ul>
 <li><a href="https://github.com/jonaseck2/rpi-helm">Usage of remote API</a></li>
 </ul>
-<div class="edit-meta">
-Last updated on 13 Jul 2018
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='https://jbrette.github.io/categories/wiki'>wiki</a></li>
+    
+        <li><a href='https://jbrette.github.io/categories/kubedge'>kubedge</a></li>
+    
+</ul>
+
+  </footer>
+</article>
 
 
-<br>
-Published on 13 Jul 2018
-<br></div><nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/kubedge/2018-07-14-a/" title="Deploy Flannel in Raspberry PI cluster"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Deploy Flannel in Raspberry PI cluster</a>
-<a class="nav nav-next" href="https://jbrette.github.io/kubedge/2018-07-12-a/" title="Enable docker remote API">Next - Enable docker remote API <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
-</footer>
-</main>
-<div class="sidebar">
+    </div>
+    
+<section id="sidebar">
 
-<div class="sidebar-footer"></div>
-</div>
+  
+  <section id="intro">
+    
+    
+      
+        <a href='https://jbrette.github.io/'><img src="https://jbrette.github.io/images/logo.png" class="intro-circle" width="" alt="avatar" /></a>
+      
+    
+    
+      <header>
+        <h2>Jerome&#39;s Blog</h2>
+        <p>Building my edge cloud using Raspberry PI, keep learning from the opensource community</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
-</div><a href="#" id="backtothetop-fixed" class="backtothetop"
- data-backtothetop-duration="600"
- data-backtothetop-easing="easeOutQuart"
- data-backtothetop-fixed-fadeIn="1000"
- data-backtothetop-fixed-fadeOut="1000"
- data-backtothetop-fixed-bottom="10"
- data-backtothetop-fixed-right="20">
-<span class="fa-layers fa-fw">
-<i class="fas fa-circle"></i>
-<i class="fas fa-arrow-circle-up"></i>
-</span></a>
-</div>
-</body>
+
+        
+        
+  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://jbrette.github.io/post/">Post</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-03'>
+                October 3, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a>
+              </h3>
+              
+              <time class="published" datetime='2018-10-03'>
+                October 3, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-09-28'>
+                September 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /post/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="https://jbrette.github.io/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/wiki/">wiki</a>
+                <span style="float:right;">36</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/kubedge/">kubedge</a>
+                <span style="float:right;">18</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/wip/">wip</a>
+                <span style="float:right;">14</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/iot/">iot</a>
+                <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/ai/">ai</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="https://jbrette.github.io/categories/blockchain/">blockchain</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>About the author</p>
+      <a href="https://jbrette.github.io/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          Jerome Brette&#39;s Blog
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/python.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/golang.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="https://jbrette.github.io/js/util.js"></script>
+      <script src="https://jbrette.github.io/js/main.js"></script>
+      <script src="https://jbrette.github.io/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
 </html>
+
