@@ -1,367 +1,198 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
-    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-
-    <style>
-     * {
-         -moz-box-sizing:border-box;
-         -webkit-box-sizing:border-box;
-         box-sizing:border-box;
-     }
-
-     html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-     abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
-     small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
-     fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
-     menu, nav, section, summary, time, mark, audio, video {
-         margin:0;
-         padding:0;
-         border:0;
-         outline:0;
-         vertical-align:baseline;
-         background:transparent;
-     }
-
-     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-         display: block;
-     }
-
-     html {
-         font-size: 16px;
-         line-height: 24px;
-         width:100%;
-         height:100%;
-         -webkit-text-size-adjust: 100%;
-         -ms-text-size-adjust: 100%;
-         overflow-y:scroll;
-         overflow-x:hidden;
-     }
-
-     img {
-         vertical-align:middle;
-         max-width: 100%;
-         height: auto;
-         border: 0;
-         -ms-interpolation-mode: bicubic;
-     }
-
-     body {
-         min-height:100%;
-         -webkit-font-smoothing: subpixel-antialiased;
-     }
-
-     .clearfix {
-	       clear:both;
-	       zoom: 1;
-     }
-     .clearfix:before, .clearfix:after {
-         content: "\0020";
-         display: block;
-         height: 0;
-         visibility: hidden;
-     }
-     .clearfix:after {
-         clear: both;
-     }
-    </style>
-    <style>
-  .plain.error-page-wrapper {
-    font-family: 'Source Sans Pro', sans-serif;
-    background-color:#6355bc;
-    padding:0 5%;
-    position:relative;
-  }
-
-  .plain.error-page-wrapper .content-container {
-    -webkit-transition: left .5s ease-out, opacity .5s ease-out;
-    -moz-transition: left .5s ease-out, opacity .5s ease-out;
-    -ms-transition: left .5s ease-out, opacity .5s ease-out;
-    -o-transition: left .5s ease-out, opacity .5s ease-out;
-    transition: left .5s ease-out, opacity .5s ease-out;
-    max-width:400px;
-    position:relative;
-    left:-30px;
-    opacity:0;
-  }
-
-  .plain.error-page-wrapper .content-container.in {
-    left: 0px;
-    opacity:1;
-  }
-
-  .plain.error-page-wrapper .head-line {
-    transition: color .2s linear;
-    font-size:48px;
-    line-height:60px;
-    color:rgba(255,255,255,.2);
-    letter-spacing: -1px;
-    margin-bottom: 5px;
-  }
-  .plain.error-page-wrapper .subheader {
-    transition: color .2s linear;
-    font-size:36px;
-    line-height:46px;
-    color:#fff;
-  }
-  .plain.error-page-wrapper hr {
-    height:1px;
-    background-color: rgba(255,255,255,.2);
-    border:none;
-    width:250px;
-    margin:35px 0;
-  }
-  .plain.error-page-wrapper .context {
-    transition: color .2s linear;
-    font-size:18px;
-    line-height:27px;
-    color:#fff;
-  }
-  .plain.error-page-wrapper .context p {
-    margin:0;
-  }
-  .plain.error-page-wrapper .context p:nth-child(n+2) {
-    margin-top:12px;
-  }
-  .plain.error-page-wrapper .buttons-container {
-    margin-top: 45px;
-    overflow: hidden;
-  }
-  .plain.error-page-wrapper .buttons-container a {
-    transition: color .2s linear, border-color .2s linear;
-    font-size:14px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color:#fff;
-    border:2px solid white;
-    border-radius: 99px;
-    padding:8px 30px 9px;
-    display: inline-block;
-    float:left;
-  }
-  .plain.error-page-wrapper .buttons-container a:hover {
-    background-color:rgba(255,255,255,.05);
-  }
-  .plain.error-page-wrapper .buttons-container a:first-child {
-    margin-right:25px;
-  }
-
-  @media screen and (max-width: 485px) {
-    .plain.error-page-wrapper .header {
-      font-size:36px;
-     }
-    .plain.error-page-wrapper .subheader {
-      font-size:27px;
-      line-height:38px;
-     }
-    .plain.error-page-wrapper hr {
-      width:185px;
-      margin:25px 0;
-     }
-
-    .plain.error-page-wrapper .context {
-      font-size:16px;
-      line-height: 24px;
-     }
-    .plain.error-page-wrapper .buttons-container {
-      margin-top:35px;
-    }
-
-    .plain.error-page-wrapper .buttons-container a {
-      font-size:13px;
-      padding:8px 0 7px;
-      width:45%;
-      text-align: center;
-    }
-    .plain.error-page-wrapper .buttons-container a:first-child {
-      margin-right:10%;
-    }
-  }
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>404 Page not found - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="Jerome Brette&#39;s Blog">
+<meta name="generator" content="Hugo 0.92.2" />
+<link href="https://jbrette.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/404.html">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123357787-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-123357787-1');
+</script>
+<style>
+:root {}
 </style>
-    <style>
+<meta property="og:title" content="404 Page not found" />
+<meta property="og:description" content="Jerome Brette&#39;s Blog" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jbrette.github.io/404.html" /><meta property="og:image" content="https://jbrette.github.io/images/og-image.png"/><meta property="og:site_name" content="Hugo Techdoc Theme" />
 
-    .background-color {
-      background-color: rgba(244, 244, 244, 1) !important;
-    }
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jbrette.github.io/images/og-image.png"/>
 
+<meta name="twitter:title" content="404 Page not found"/>
+<meta name="twitter:description" content="Jerome Brette&#39;s Blog"/>
+<meta itemprop="name" content="404 Page not found">
+<meta itemprop="description" content="Jerome Brette&#39;s Blog"></head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
 
-    .primary-text-color {
-      color: rgba(171, 171, 171, 1) !important;
-    }
-
-    .secondary-text-color {
-      color: rgba(0, 0, 0, 1) !important;
-    }
-
-    .sign-text-color {
-      color: #FFBA00 !important;
-    }
-
-    .sign-frame-color {
-      color: #343C3F;
-    }
-
-    .pane {
-      background-color: #FFFFFF !important;
-    }
-
-    .border-button {
-      color: rgba(46, 186, 174, 1) !important;
-      border-color: rgba(46, 186, 174, 1) !important;
-    }
-    .button {
-      background-color: rgba(46, 186, 174, 1) !important;
-      color: #FFFFFF !important;
-    }
-
-    .shadow {
-      box-shadow: 0 0 60px #000000;
-    }
-
-</style>
-  </head>
-  <body class="plain error-page-wrapper background-color background-image">
-    <div class="content-container">
-	<div class="head-line secondary-text-color">
-		404
-	</div>
-	<div class="subheader primary-text-color">
-		Oops, the page you're <br>
-		looking for does not exist.
-	</div>
-	<hr>
-	<div class="clearfix"></div>
-	<div class="context primary-text-color">
-		
-    <p>
-      You may want to head back to the homepage.<br />
-      If you think something is broken, report a problem.
-    </p>
-	</div>
-	<div class="buttons-container">
-		<a class="border-button" href="https://jbrette.github.io/">Go To Homepage</a>
-		<a class="border-button" href="mailto:">Report A Problem</a>
-	</div>
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/"><i class='fa fa-heart'></i>&nbsp;Home</a></li>
+<li id="medium" class="twitter-menu-item"><a href="https://medium.com/@jbrette">Medium</a></li>
+<li id="linkedin" class="twitter-menu-item"><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li>
+<li class=""><a href="/about/">About</a></li><li class="parent "><a href="">Tutorials<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu">
+<li class="child "><a href="/post/2018-09-26-a/">Blinkt</a></li>
+</ul>
+</li></ul>
+</nav>
 </div>
 
-    <script>
-     function ErrorPage(container, pageType, templateName) {
-       this.$container = $(container);
-       this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
-       this.pageType = pageType;
-       this.templateName = templateName;
-     }
+<div class="content-container">
+<main><h1>404 Not Found</h1><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
 
-     ErrorPage.prototype.centerContent = function () {
-       var containerHeight = this.$container.outerHeight()
-         , contentContainerHeight = this.$contentContainer.outerHeight()
-         , top = (containerHeight - contentContainerHeight) / 2
-         , offset = this.templateName == 'sign' ? -100 : 0;
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://jbrette.github.io/">Home</a></li>
 
-       this.$contentContainer.css('top', top + offset);
-     };
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/ai_ml/2018-07-19-a/">Kubeflow</a></li>
+</ul>
+  
+</li>
 
-     ErrorPage.prototype.initialize = function () {
-       var self = this;
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/iot/">IOT<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-06-a/">ZWave/ZigBee</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-05-a/">OpenHAB</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-04-a/">HomeAssistant</a></li>
+</ul>
+  
+</li>
 
-       this.centerContent();
-       this.$container.on('resize', function (e) {
-         e.preventDefault();
-         e.stopPropagation();
-         self.centerContent();
-       });
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/">Kubernetes<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
 
-       
-       if (this.templateName == 'plain') {
-         window.setTimeout(function () {
-           self.$contentContainer.addClass('in');
-         }, 500);
-       }
+<li class=""><a href="https://jbrette.github.io/kubernetes/operators/">Kubernetes Operators</a>
+  
+</li>
 
-       
-       if (this.templateName == 'sign') {
-         $('.sign-container').animate({textIndent : 0}, {
-           step : function (now) {
-             $(this).css({
-               transform : 'rotate(' + now + 'deg)',
-               'transform-origin' : 'top center'
-             });
-           },
-           duration : 1000,
-           easing : 'easeOutBounce'
-         });
-       }
-     };
+<li class=""><a href="https://jbrette.github.io/kubernetes/kustomize/">Kustomize</a>
+  
+</li>
 
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/devops/">DEVOPS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-07-11-a/">Use github repo as helm chart repository</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-25-a/">Setup github/gerrit behind a corporate http proxy</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-24-a/">docker.io versus docker-ce</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-23-a/">Setup multiple GitHub account on a single machine</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-22-a/">Setup your GOLANG environment</a></li>
+</ul>
+  
+</li>
 
-     ErrorPage.prototype.createTimeRangeTag = function(start, end) {
-       return (
-         '<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
-       )
-     };
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/rpi/">RASPBERRY PI<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/">Upgrade RPI Kubernetes cluster to 1.12</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-16-a/">Rebuild Hyperkube images</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-12-a/">Enable docker remote API</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-08-a/">Add Persistency Volume to PI Clusters</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/">Using Ansible to manage Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-03-a/">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-20-a/">Create a Rapsberry PI Rescue Dongle</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-19-a/">Add Raspberry PI node to Kubernetes Cluster in 10 min</a></li>
+</ul>
+  
+</li>
 
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/sdk/">SDK<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-30-a/">Update Kubernetes to 1.11 on Ubuntu</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-27-a/">Manual Update of CoreOS</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/">Setup SingleNode Kubernetes Cluster using kubeadm</a></li>
+</ul>
+  
+</li>
 
-     ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
-       if (pageType == '503') {
-         $('#replace-with-fetched-data').html(data.status.description);
-       } else {
-         if (!!data.scheduled_maintenances.length) {
-           var maint = data.scheduled_maintenances[0];
-           $('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
-           $.fn.localizeTime();
-         }
-         else {
-           $('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
-         }
-       }
-     };
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/apps/">APPS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-07-01-a/">Creating simple Python server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-29-a/">Creating simple GO server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-28-a/">Creating simple Java 10 server container</a></li>
+</ul>
+  
+</li>
 
-
-     ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
-       $('#replace-with-fetched-data').html('<em>(enter a valid StatusPage.io url)</em>');
-     };
-
-
-     ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
-       
-       if (!pageUrl || !pageType || pageType == '404') return;
-
-       var url = ''
-         , self = this;
-
-       if (pageType == '503') {
-         url = pageUrl + '/api/v2/status.json';
-       }
-       else {
-         url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
-       }
-
-       $.ajax({
-         type : "GET",
-         url : url,
-       }).success(function (data, status) {
-         
-         self.handleStatusFetchSuccess(pageType, data);
-       }).fail(function (xhr, msg) {
-         
-         self.handleStatusFetchFail(pageType);
-       });
-
-     };
-     var ep = new ErrorPage('body', "404", "plain");
-     ep.initialize();
-
-     
-     $(window).on('resize', function() {
-       $('body').trigger('resize')
-     });
-
-    </script>
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/misc/">MISC<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-31-a/">Build and Deploy Kubernetes Istio</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-18-a/">Compile and Test Portieris</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-02-a/">Compile and Test SONOBUOY</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-06-26-a/">Zuul</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
 
 
-  </body>
+
+
+
+
+
+
+
+
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
 </html>

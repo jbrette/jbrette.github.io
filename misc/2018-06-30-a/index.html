@@ -13,7 +13,7 @@
         "articleSection" : "misc",
         "name" : "Update Kubernetes to 1.11 on Ubuntu",
         "headline" : "Update Kubernetes to 1.11 on Ubuntu",
-        "description" : "\u003ch1 id=\u0022goal\u0022\u003eGoal\u003c\/h1\u003e\n\u003cp\u003eKubeadm is coming with an upgrade option. The goal of this study is to leverage the option.\u003c\/p\u003e\n\u003ch2 id=\u0022initial-set-up\u0022\u003eInitial set up\u003c\/h2\u003e\n\u003cp\u003eKubernetes 1.10.4 is installed\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003ecat \/etc\/apt\/sources.list.d\/kubernetes.list\ndeb http:\/\/apt.kubernetes.io\/ kubernetes-xenial main\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo dpkg -l kubeadm\n\nDesired=Unknown\/Install\/Remove\/Purge\/Hold\n| Status=Not\/Inst\/Conf-files\/Unpacked\/halF-conf\/Half-inst\/trig-aWait\/Trig-pend\n|\/ Err?=(none)\/Reinst-required (Status,Err: uppercase=bad)\n||\/ Name                                   Version                  Architecture             Description\n\u002b\u002b\u002b-======================================-========================-========================-=================================================================================\nii  kubeadm                                1.10.4-00                amd64                    Kubernetes Cluster Bootstrapping Tool\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo dpkg -l kubelet\n\nDesired=Unknown\/Install\/Remove\/Purge\/Hold\n| Status=Not\/Inst\/Conf-files\/Unpacked\/halF-conf\/Half-inst\/trig-aWait\/Trig-pend\n|\/ Err?=(none)\/Reinst-required (Status,Err: uppercase=bad)\n||\/ Name                                   Version                  Architecture             Description\n\u002b\u002b\u002b-======================================-========================-========================-=================================================================================\nii  kubelet                                1.10.4-00                amd64                    Kubernetes Node Agent\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003esudo dpkg -l kubectl\n\nDesired=Unknown\/Install\/Remove\/Purge\/Hold\n| Status=Not\/Inst\/Conf-files\/Unpacked\/halF-conf\/Half-inst\/trig-aWait\/Trig-pend\n|\/ Err?=(none)\/Reinst-required (Status,Err: uppercase=bad)\n||\/ Name                                   Version                  Architecture             Description\n\u002b\u002b\u002b-======================================-========================-========================-=================================================================================\nii  kubectl                                1.10.4-00                amd64                    Kubernetes Command Line Tool\n\u003c\/code\u003e\u003c\/pre\u003e\u003cpre tabindex=\u00220\u0022\u003e\u003ccode\u003ekubectl version\n\nClient Version: version.Info{Major:\u0026#34;1\u0026#34;, Minor:\u0026#34;10\u0026#34;, GitVersion:\u0026#34;v1.10.4\u0026#34;, GitCommit:\u0026#34;5ca598b4ba5abb89bb773071ce452e33fb66339d\u0026#34;, GitTreeState:\u0026#34;clean\u0026#34;, BuildDate:\u0026#34;2018-06-06T08:13:03Z\u0026#34;, GoVersion:\u0026#34;go1.9.3\u0026#34;, Compiler:\u0026#34;gc\u0026#34;, Platform:\u0026#34;linux\/amd64\u0026#34;}\nServer Version: version.Info{Major:\u0026#34;1\u0026#34;, Minor:\u0026#34;10\u0026#34;, GitVersion:\u0026#34;v1.10.4\u0026#34;, GitCommit:\u0026#34;5ca598b4ba5abb89bb773071ce452e33fb66339d\u0026#34;, GitTreeState:\u0026#34;clean\u0026#34;, BuildDate:\u0026#34;2018-06-06T08:00:59Z\u0026#34;, GoVersion:\u0026#34;go1.9.3\u0026#34;, Compiler:\u0026#34;gc\u0026#34;, Platform:\u0026#34;linux\/amd64\u0026#34;}\n\u003c\/code\u003e\u003c\/pre\u003e\u003ch2 id=\u0022update-kubelet-and-kubectl\u0022\u003eUpdate kubelet and kubectl\u003c\/h2\u003e\n\u003cp\u003eUpdate aptitude\u003c\/p\u003e",
+        "description" : "Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.\nInitial set up Kubernetes 1.10.4 is installed\ncat \/etc\/apt\/sources.list.d\/kubernetes.list deb http:\/\/apt.kubernetes.io\/ kubernetes-xenial main sudo dpkg -l kubeadm Desired=Unknown\/Install\/Remove\/Purge\/Hold | Status=Not\/Inst\/Conf-files\/Unpacked\/halF-conf\/Half-inst\/trig-aWait\/Trig-pend |\/ Err?=(none)\/Reinst-required (Status,Err: uppercase=bad) ||\/ Name Version Architecture Description \u002b\u002b\u002b-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool sudo dpkg -l kubelet Desired=Unknown\/Install\/Remove\/Purge\/Hold | Status=Not\/Inst\/Conf-files\/Unpacked\/halF-conf\/Half-inst\/trig-aWait\/Trig-pend |\/ Err?=(none)\/Reinst-required (Status,Err: uppercase=bad) ||\/ Name Version Architecture Description \u002b\u002b\u002b-======================================-========================-========================-================================================================================= ii kubelet 1.",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.165.0">
+        <meta name="generator" content="Hugo 0.92.2" />
         
 
 
@@ -47,40 +47,35 @@
             
         
 
-        
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Update Kubernetes to 1.11 on Ubuntu">
-	<meta name="twitter:description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Update Kubernetes to 1.11 on Ubuntu"/>
+<meta name="twitter:description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
 Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubectl 1.10.4-00 amd64 Kubernetes Command Line Tool kubectl version Client Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:13:03Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Server Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:00:59Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Update kubelet and kubectl Update aptitude">
-			<meta name="twitter:site" content="@example">
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1."/>
+<meta name="twitter:site" content="@example"/>
 
-        <meta property="og:url" content="https://jbrette.github.io/misc/2018-06-30-a/">
-	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
-	<meta property="og:title" content="Update Kubernetes to 1.11 on Ubuntu">
-	<meta property="og:description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+        <meta property="og:title" content="Update Kubernetes to 1.11 on Ubuntu" />
+<meta property="og:description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
 Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubectl 1.10.4-00 amd64 Kubernetes Command Line Tool kubectl version Client Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:13:03Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Server Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:00:59Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Update kubelet and kubectl Update aptitude">
-	<meta property="og:locale" content="en_us">
-	<meta property="og:type" content="article">
-		<meta property="article:section" content="misc">
-		<meta property="article:published_time" content="2018-06-30T00:00:00+00:00">
-		<meta property="article:modified_time" content="2018-06-30T00:00:00+00:00">
-		<meta property="article:tag" content="Kubernetes">
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jbrette.github.io/misc/2018-06-30-a/" /><meta property="article:section" content="misc" />
+<meta property="article:published_time" content="2018-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-30T00:00:00+00:00" />
+
 
         <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        
-	<meta itemprop="name" content="Update Kubernetes to 1.11 on Ubuntu">
-	<meta itemprop="description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
+        <meta itemprop="name" content="Update Kubernetes to 1.11 on Ubuntu">
+<meta itemprop="description" content="Goal Kubeadm is coming with an upgrade option. The goal of this study is to leverage the option.
 Initial set up Kubernetes 1.10.4 is installed
-cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1.10.4-00 amd64 Kubernetes Node Agent sudo dpkg -l kubectl Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubectl 1.10.4-00 amd64 Kubernetes Command Line Tool kubectl version Client Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:13:03Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Server Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:00:59Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} Update kubelet and kubectl Update aptitude">
-	<meta itemprop="datePublished" content="2018-06-30T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2018-06-30T00:00:00+00:00">
-	<meta itemprop="wordCount" content="1010">
-	<meta itemprop="keywords" content="Kubernetes">
+cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubernetes-xenial main sudo dpkg -l kubeadm Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubeadm 1.10.4-00 amd64 Kubernetes Cluster Bootstrapping Tool sudo dpkg -l kubelet Desired=Unknown/Install/Remove/Purge/Hold | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad) ||/ Name Version Architecture Description &#43;&#43;&#43;-======================================-========================-========================-================================================================================= ii kubelet 1."><meta itemprop="datePublished" content="2018-06-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-06-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1010">
+<meta itemprop="keywords" content="kubernetes," />
+        
 
         
             
@@ -111,6 +106,18 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
 
 
       
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-123357787-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
     </head>
     <body>
 
@@ -309,23 +316,11 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
                 
                         <article class="mini-post">
                             <header>
-                                <h3><a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2026-01-16'>
-                                    January 16, 2026</time>
-                            </header>
-                            
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
                                 <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
                                 
                                 <time class="published" datetime=
-                                    '2026-01-16'>
-                                    January 16, 2026</time>
+                                    '2018-10-03'>
+                                    October 3, 2018</time>
                             </header>
                             
 
@@ -353,6 +348,9 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
 
 
   
+  
+    
+  
 
 
         
@@ -360,7 +358,46 @@ cat /etc/apt/sources.list.d/kubernetes.list deb http://apt.kubernetes.io/ kubern
         
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/date2018/10/load-node-stack1.png" alt="">
+            <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-09-28'>
+                                    September 28, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -628,8 +665,8 @@ Desired=Unknown/Install/Remove/Purge/Hold
 ii  kubectl                                1.10.4-00                amd64                    Kubernetes Command Line Tool
 </code></pre><pre tabindex="0"><code>kubectl version
 
-Client Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:13:03Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
-Server Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:00:59Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
+Client Version: version.Info{Major:&quot;1&quot;, Minor:&quot;10&quot;, GitVersion:&quot;v1.10.4&quot;, GitCommit:&quot;5ca598b4ba5abb89bb773071ce452e33fb66339d&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-06-06T08:13:03Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+Server Version: version.Info{Major:&quot;1&quot;, Minor:&quot;10&quot;, GitVersion:&quot;v1.10.4&quot;, GitCommit:&quot;5ca598b4ba5abb89bb773071ce452e33fb66339d&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-06-06T08:00:59Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
 </code></pre><h2 id="update-kubelet-and-kubectl">Update kubelet and kubectl</h2>
 <p>Update aptitude</p>
 <pre tabindex="0"><code>sudo apt-get update
@@ -680,7 +717,7 @@ Reading state information... Done
 Calculating upgrade... Done
 The following packages were automatically installed and are no longer required:
   linux-headers-4.13.0-26 linux-headers-4.13.0-26-generic linux-image-4.13.0-26-generic linux-image-extra-4.13.0-26-generic
-Use &#39;sudo apt autoremove&#39; to remove them.
+Use 'sudo apt autoremove' to remove them.
 The following packages have been kept back:
   kubeadm
 The following packages will be upgraded:
@@ -715,8 +752,8 @@ Desired=Unknown/Install/Remove/Purge/Hold
 +++-======================================-========================-========================-=================================================================================
 ii  kubelet                                1.11.0-00                amd64                    Kubernetes Node Agent
 </code></pre><pre tabindex="0"><code>kubectl version
-Client Version: version.Info{Major:&#34;1&#34;, Minor:&#34;11&#34;, GitVersion:&#34;v1.11.0&#34;, GitCommit:&#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-27T20:17:28Z&#34;, GoVersion:&#34;go1.10.2&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
-Server Version: version.Info{Major:&#34;1&#34;, Minor:&#34;10&#34;, GitVersion:&#34;v1.10.4&#34;, GitCommit:&#34;5ca598b4ba5abb89bb773071ce452e33fb66339d&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-06T08:00:59Z&#34;, GoVersion:&#34;go1.9.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
+Client Version: version.Info{Major:&quot;1&quot;, Minor:&quot;11&quot;, GitVersion:&quot;v1.11.0&quot;, GitCommit:&quot;91e7b4fd31fcd3d5f436da26c980becec37ceefe&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-06-27T20:17:28Z&quot;, GoVersion:&quot;go1.10.2&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+Server Version: version.Info{Major:&quot;1&quot;, Minor:&quot;10&quot;, GitVersion:&quot;v1.10.4&quot;, GitCommit:&quot;5ca598b4ba5abb89bb773071ce452e33fb66339d&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-06-06T08:00:59Z&quot;, GoVersion:&quot;go1.9.3&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
 </code></pre><h2 id="upgrading-kubeadm">Upgrading kubeadm</h2>
 <p>Install new kubeadm and associated new cri-tools</p>
 <pre tabindex="0"><code>sudo apt-get install kubeadm
@@ -747,7 +784,7 @@ Setting up kubeadm (1.11.0-00) ...
 Installing new version of config file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf ...
 </code></pre><pre tabindex="0"><code>kubeadm version
 
-kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;11&#34;, GitVersion:&#34;v1.11.0&#34;, GitCommit:&#34;91e7b4fd31fcd3d5f436da26c980becec37ceefe&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2018-06-27T20:14:41Z&#34;, GoVersion:&#34;go1.10.2&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
+kubeadm version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;11&quot;, GitVersion:&quot;v1.11.0&quot;, GitCommit:&quot;91e7b4fd31fcd3d5f436da26c980becec37ceefe&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2018-06-27T20:14:41Z&quot;, GoVersion:&quot;go1.10.2&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
 </code></pre><h2 id="upgrading-your-kubernetes-cluster">Upgrading your Kubernetes cluster</h2>
 <p>Cluster does not seems be in such a great shape</p>
 <pre tabindex="0"><code>NAME                                           READY     STATUS    RESTARTS   AGE
@@ -828,8 +865,8 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
 
     <article class="post">
         <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
+<script type="application/javascript">
+    var disqus_config = function () {
     
     
     
@@ -845,9 +882,8 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
         (d.head || d.body).appendChild(s);
     })();
 </script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-	
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </article>
 
 
@@ -886,10 +922,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
       <ul class="icons">
         
           
-
-    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-    
 
 
         
@@ -998,25 +1031,11 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
           <article class="mini-post">
             <header>
               <h3>
-                <a href="https://jbrette.github.io/post/2026-01-16-keepalive/">Another Test Post</a>
-              </h3>
-              
-              <time class="published" datetime='2026-01-16'>
-                January 16, 2026
-              </time>
-            </header>
-            
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
                 <a href="https://jbrette.github.io/post/">Post</a>
               </h3>
               
-              <time class="published" datetime='2026-01-16'>
-                January 16, 2026
+              <time class="published" datetime='2018-10-03'>
+                October 3, 2018
               </time>
             </header>
             
@@ -1058,6 +1077,47 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
 
         <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
             <img src="https://jbrette.github.io/img/2018/10/load-node-stack1.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
+              </h3>
+              
+              <time class="published" datetime='2018-09-28'>
+                September 28, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
+            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
         </a>
     
 
@@ -1158,17 +1218,6 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
           </article>
         </p>
         
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/news/">news</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
     </section>
   
   
@@ -1188,10 +1237,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
       <ul class="icons">
         
           
-
-    
     <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-    
 
 
         
@@ -1283,7 +1329,7 @@ replicaset.apps/tiller-deploy-5c688d5f9b             1         1         0      
     
     <p class="copyright">
       
-        &copy; 2026
+        &copy; 2018
         
           Jerome Brette&#39;s Blog
         

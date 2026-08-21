@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Upgrade RPI Kubernetes cluster to 1.12 - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="Jerome Brette&#39;s Blog">
+<meta name="generator" content="Hugo 0.92.2" />
+<link href="https://jbrette.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123357787-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-123357787-1');
+</script>
+<style>
+:root {}
+</style>
+<meta property="og:title" content="Upgrade RPI Kubernetes cluster to 1.12" />
+<meta property="og:description" content="Goal The new Kubernetes 1.12 is out. THe goal is to update my two clusters to 1.12 using kubeadm 1.12
+Master node upgrade using kubeadm # apt-mark unhold kubeadm &amp;&amp; \ &gt; apt-get update &amp;&amp; apt-get install -y kubeadm &amp;&amp; \ &gt; apt-mark hold kubeadm kubeadm was already not hold. Hit:2 http://raspbian.raspberrypi.org/raspbian stretch InRelease Hit:3 https://download.docker.com/linux/raspbian stretch InRelease Hit:1 https://packages.cloud.google.com/apt kubernetes-xenial InRelease Hit:5 http://archive.raspberrypi.org/debian stretch InRelease Hit:4 https://packagecloud.io/Hypriot/rpi/debian stretch InRelease Reading package lists." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/" /><meta property="og:image" content="https://jbrette.github.io/images/og-image.png"/><meta property="article:section" content="kubernetes" />
+<meta property="article:published_time" content="2018-09-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-29T00:00:00+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://jbrette.github.io/images/og-image.png"/>
+
+<meta name="twitter:title" content="Upgrade RPI Kubernetes cluster to 1.12"/>
+<meta name="twitter:description" content="Goal The new Kubernetes 1.12 is out. THe goal is to update my two clusters to 1.12 using kubeadm 1.12
+Master node upgrade using kubeadm # apt-mark unhold kubeadm &amp;&amp; \ &gt; apt-get update &amp;&amp; apt-get install -y kubeadm &amp;&amp; \ &gt; apt-mark hold kubeadm kubeadm was already not hold. Hit:2 http://raspbian.raspberrypi.org/raspbian stretch InRelease Hit:3 https://download.docker.com/linux/raspbian stretch InRelease Hit:1 https://packages.cloud.google.com/apt kubernetes-xenial InRelease Hit:5 http://archive.raspberrypi.org/debian stretch InRelease Hit:4 https://packagecloud.io/Hypriot/rpi/debian stretch InRelease Reading package lists."/>
+<meta itemprop="name" content="Upgrade RPI Kubernetes cluster to 1.12">
+<meta itemprop="description" content="Goal The new Kubernetes 1.12 is out. THe goal is to update my two clusters to 1.12 using kubeadm 1.12
+Master node upgrade using kubeadm # apt-mark unhold kubeadm &amp;&amp; \ &gt; apt-get update &amp;&amp; apt-get install -y kubeadm &amp;&amp; \ &gt; apt-mark hold kubeadm kubeadm was already not hold. Hit:2 http://raspbian.raspberrypi.org/raspbian stretch InRelease Hit:3 https://download.docker.com/linux/raspbian stretch InRelease Hit:1 https://packages.cloud.google.com/apt kubernetes-xenial InRelease Hit:5 http://archive.raspberrypi.org/debian stretch InRelease Hit:4 https://packagecloud.io/Hypriot/rpi/debian stretch InRelease Reading package lists."><meta itemprop="datePublished" content="2018-09-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-09-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2039"><meta itemprop="image" content="https://jbrette.github.io/images/og-image.png"/>
+<meta itemprop="keywords" content="kubedge,kubernetes,rpi," /></head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li id="home" class=""><a href="/"><i class='fa fa-heart'></i>&nbsp;Home</a></li>
+<li id="medium" class="twitter-menu-item"><a href="https://medium.com/@jbrette">Medium</a></li>
+<li id="linkedin" class="twitter-menu-item"><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li>
+<li class=""><a href="/about/">About</a></li><li class="parent "><a href="">Tutorials<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu">
+<li class="child "><a href="/post/2018-09-26-a/">Blinkt</a></li>
+</ul>
+</li></ul>
+</nav>
+</div>
+
+<div class="content-container">
+<main><h1>Upgrade RPI Kubernetes cluster to 1.12</h1>
+<h1 id="goal">Goal</h1>
+<p>The new Kubernetes 1.12 is out. THe goal is to update my two clusters to 1.12
+using kubeadm 1.12</p>
+<h2 id="master-node-upgrade-using-kubeadm">Master node upgrade using kubeadm</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-mark unhold kubeadm &amp;&amp; \</span>
+&gt; apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y kubeadm <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>&gt; apt-mark hold kubeadm
+kubeadm was already not hold.
+Hit:2 http://raspbian.raspberrypi.org/raspbian stretch InRelease
+Hit:3 https://download.docker.com/linux/raspbian stretch InRelease
+Hit:1 https://packages.cloud.google.com/apt kubernetes-xenial InRelease
+Hit:5 http://archive.raspberrypi.org/debian stretch InRelease
+Hit:4 https://packagecloud.io/Hypriot/rpi/debian stretch InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be upgraded:
+  kubeadm
+<span style="color:#ae81ff">1</span> upgraded, <span style="color:#ae81ff">0</span> newly installed, <span style="color:#ae81ff">0</span> to remove and <span style="color:#ae81ff">38</span> not upgraded.
+Need to get 8,095 kB of archives.
+After this operation, 3,100 kB disk space will be freed.
+Get:1 https://packages.cloud.google.com/apt kubernetes-xenial/main armhf kubeadm armhf 1.12.0-00 <span style="color:#f92672">[</span>8,095 kB<span style="color:#f92672">]</span>
+Fetched 8,095 kB in 4s <span style="color:#f92672">(</span>1,962 kB/s<span style="color:#f92672">)</span>
+<span style="color:#f92672">(</span>Reading database ... <span style="color:#ae81ff">30574</span> files and directories currently installed.<span style="color:#f92672">)</span>
+Preparing to unpack .../kubeadm_1.12.0-00_armhf.deb ...
+Unpacking kubeadm <span style="color:#f92672">(</span>1.12.0-00<span style="color:#f92672">)</span> over <span style="color:#f92672">(</span>1.11.1-00<span style="color:#f92672">)</span> ...
+Setting up kubeadm <span style="color:#f92672">(</span>1.12.0-00<span style="color:#f92672">)</span> ...
+kubeadm set on hold.
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo kubeadm upgrade plan
+<span style="color:#f92672">[</span>preflight<span style="color:#f92672">]</span> Running pre-flight checks.
+<span style="color:#f92672">[</span>upgrade<span style="color:#f92672">]</span> Making sure the cluster is healthy:
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> Making sure the configuration is correct:
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> Reading configuration from the cluster...
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> FYI: You can look at this config file with <span style="color:#e6db74">&#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;</span>
+<span style="color:#f92672">[</span>upgrade<span style="color:#f92672">]</span> Fetching available versions to upgrade to
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> Cluster version: v1.11.0
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> kubeadm version: v1.12.0
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> Latest stable version: v1.12.0
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> Latest version in the v1.11 series: v1.11.3
+
+Components that must be upgraded manually after you have upgraded the control plane with <span style="color:#e6db74">&#39;kubeadm upgrade apply&#39;</span>:
+COMPONENT   CURRENT       AVAILABLE
+Kubelet     <span style="color:#ae81ff">3</span> x v1.11.1   v1.11.3
+
+Upgrade to the latest version in the v1.11 series:
+
+COMPONENT            CURRENT   AVAILABLE
+API Server           v1.11.0   v1.11.3
+Controller Manager   v1.11.0   v1.11.3
+Scheduler            v1.11.0   v1.11.3
+Kube Proxy           v1.11.0   v1.11.3
+CoreDNS              1.1.3     1.2.2
+Etcd                 3.2.18    3.2.18
+
+You can now apply the upgrade by executing the following command:
+
+        kubeadm upgrade apply v1.11.3
+
+_____________________________________________________________________
+
+Components that must be upgraded manually after you have upgraded the control plane with <span style="color:#e6db74">&#39;kubeadm upgrade apply&#39;</span>:
+COMPONENT   CURRENT       AVAILABLE
+Kubelet     <span style="color:#ae81ff">3</span> x v1.11.1   v1.12.0
+
+Upgrade to the latest stable version:
+
+COMPONENT            CURRENT   AVAILABLE
+API Server           v1.11.0   v1.12.0
+Controller Manager   v1.11.0   v1.12.0
+Scheduler            v1.11.0   v1.12.0
+Kube Proxy           v1.11.0   v1.12.0
+CoreDNS              1.1.3     1.2.2
+Etcd                 3.2.18    3.2.24
+
+You can now apply the upgrade by executing the following command:
+
+        kubeadm upgrade apply v1.12.0
+
+_____________________________________________________________________
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo kubeadm upgrade apply v1.12.0
+<span style="color:#f92672">[</span>preflight<span style="color:#f92672">]</span> Running pre-flight checks.
+<span style="color:#f92672">[</span>upgrade<span style="color:#f92672">]</span> Making sure the cluster is healthy:
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> Making sure the configuration is correct:
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> Reading configuration from the cluster...
+<span style="color:#f92672">[</span>upgrade/config<span style="color:#f92672">]</span> FYI: You can look at this config file with <span style="color:#e6db74">&#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;</span>
+<span style="color:#f92672">[</span>upgrade/apply<span style="color:#f92672">]</span> Respecting the --cri-socket flag that is set with higher priority than the config file.
+<span style="color:#f92672">[</span>upgrade/version<span style="color:#f92672">]</span> You have chosen to change the cluster version to <span style="color:#e6db74">&#34;v1.12.0&#34;</span>
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> Cluster version: v1.11.0
+<span style="color:#f92672">[</span>upgrade/versions<span style="color:#f92672">]</span> kubeadm version: v1.12.0
+<span style="color:#f92672">[</span>upgrade/confirm<span style="color:#f92672">]</span> Are you sure you want to proceed with the upgrade? <span style="color:#f92672">[</span>y/N<span style="color:#f92672">]</span>: y
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Will prepull images <span style="color:#66d9ef">for</span> components <span style="color:#f92672">[</span>kube-apiserver kube-controller-manager kube-scheduler etcd<span style="color:#f92672">]</span>
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulling image <span style="color:#66d9ef">for</span> component kube-apiserver.
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulling image <span style="color:#66d9ef">for</span> component kube-controller-manager.
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulling image <span style="color:#66d9ef">for</span> component kube-scheduler.
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulling image <span style="color:#66d9ef">for</span> component etcd.
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">0</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-kube-apiserver
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">0</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-etcd
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">0</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-kube-controller-manager
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">0</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-kube-scheduler
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-kube-scheduler
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-kube-apiserver
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-kube-controller-manager
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector k8s-app<span style="color:#f92672">=</span>upgrade-prepull-etcd
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulled image <span style="color:#66d9ef">for</span> component etcd.
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulled image <span style="color:#66d9ef">for</span> component kube-apiserver.
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulled image <span style="color:#66d9ef">for</span> component kube-controller-manager.
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Prepulled image <span style="color:#66d9ef">for</span> component kube-scheduler.
+<span style="color:#f92672">[</span>upgrade/prepull<span style="color:#f92672">]</span> Successfully prepulled the images <span style="color:#66d9ef">for</span> all the control plane components
+<span style="color:#f92672">[</span>upgrade/apply<span style="color:#f92672">]</span> Upgrading your Static Pod-hosted control plane to version <span style="color:#e6db74">&#34;v1.12.0&#34;</span>...
+Static pod: kube-apiserver-master-pi hash: c30b2fa49c49e091538b2ce8e4dae186
+Static pod: kube-controller-manager-master-pi hash: 22f67939f8b1abea8ba99666b78b5c93
+Static pod: kube-scheduler-master-pi hash: 0e545194d6b033abd681f02dfd11f4c8
+Static pod: etcd-master-pi hash: 00575b778fb80d4e48241f80ceb2ac0f
+<span style="color:#f92672">[</span>etcd<span style="color:#f92672">]</span> Wrote Static Pod manifest <span style="color:#66d9ef">for</span> a local etcd instance to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests040184315/etcd.yaml&#34;</span>
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Moved new manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/manifests/etcd.yaml&#34;</span> and backed up old manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2018-09-30-00-46-56/etcd.yaml&#34;</span>
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> the kubelet to restart the component
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> This might take a minute or longer depending on the component/version gap <span style="color:#f92672">(</span>timeout 5m0s
+Static pod: etcd-master-pi hash: 00575b778fb80d4e48241f80ceb2ac0f
+Static pod: etcd-master-pi hash: 00575b778fb80d4e48241f80ceb2ac0f
+Static pod: etcd-master-pi hash: 00575b778fb80d4e48241f80ceb2ac0f
+Static pod: etcd-master-pi hash: 77c6076a4d6ee044b744b041125cf918
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector component<span style="color:#f92672">=</span>etcd
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Component <span style="color:#e6db74">&#34;etcd&#34;</span> upgraded successfully!
+<span style="color:#f92672">[</span>upgrade/etcd<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> etcd to become available
+<span style="color:#f92672">[</span>util/etcd<span style="color:#f92672">]</span> Waiting 0s <span style="color:#66d9ef">for</span> initial delay
+<span style="color:#f92672">[</span>util/etcd<span style="color:#f92672">]</span> Attempting to see <span style="color:#66d9ef">if</span> all cluster endpoints are available 1/10
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Writing new Static Pod manifests to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests040184315&#34;</span>
+<span style="color:#f92672">[</span>controlplane<span style="color:#f92672">]</span> wrote Static Pod manifest <span style="color:#66d9ef">for</span> component kube-apiserver to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests040184315/kube-apiserver.yaml&#34;</span>
+<span style="color:#f92672">[</span>controlplane<span style="color:#f92672">]</span> wrote Static Pod manifest <span style="color:#66d9ef">for</span> component kube-controller-manager to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests040184315/kube-controller-manager.yaml&#34;</span>
+<span style="color:#f92672">[</span>controlplane<span style="color:#f92672">]</span> wrote Static Pod manifest <span style="color:#66d9ef">for</span> component kube-scheduler to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests040184315/kube-scheduler.yaml&#34;</span>
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Moved new manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/manifests/kube-apiserver.yaml&#34;</span> and backed up old manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2018-09-30-00-46-56/kube-apiserver.yaml&#34;</span>
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> the kubelet to restart the component
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> This might take a minute or longer depending on the component/version gap <span style="color:#f92672">(</span>timeout 5m0s
+Static pod: kube-apiserver-master-pi hash: c30b2fa49c49e091538b2ce8e4dae186
+Static pod: kube-apiserver-master-pi hash: a92106d6db4c8b5835a47f5f56c33fdb
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector component<span style="color:#f92672">=</span>kube-apiserver
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Component <span style="color:#e6db74">&#34;kube-apiserver&#34;</span> upgraded successfully!
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Moved new manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/manifests/kube-controller-manager.yaml&#34;</span> and backed up old manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2018-09-30-00-46-56/kube-controller-manager.yaml&#34;</span>
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> the kubelet to restart the component
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> This might take a minute or longer depending on the component/version gap <span style="color:#f92672">(</span>timeout 5m0s
+Static pod: kube-controller-manager-master-pi hash: 22f67939f8b1abea8ba99666b78b5c93
+Static pod: kube-controller-manager-master-pi hash: 980b4156606df8caafd0ad8abacc1485
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector component<span style="color:#f92672">=</span>kube-controller-manager
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Component <span style="color:#e6db74">&#34;kube-controller-manager&#34;</span> upgraded successfully!
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Moved new manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/manifests/kube-scheduler.yaml&#34;</span> and backed up old manifest to <span style="color:#e6db74">&#34;/etc/kubernetes/tmp/kubeadm-backup-manifests-2018-09-30-00-46-56/kube-scheduler.yaml&#34;</span>
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Waiting <span style="color:#66d9ef">for</span> the kubelet to restart the component
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> This might take a minute or longer depending on the component/version gap <span style="color:#f92672">(</span>timeout 5m0s
+Static pod: kube-scheduler-master-pi hash: 0e545194d6b033abd681f02dfd11f4c8
+Static pod: kube-scheduler-master-pi hash: 1b5ec5be325bf29f60be62789416a99e
+<span style="color:#f92672">[</span>apiclient<span style="color:#f92672">]</span> Found <span style="color:#ae81ff">1</span> Pods <span style="color:#66d9ef">for</span> label selector component<span style="color:#f92672">=</span>kube-scheduler
+<span style="color:#f92672">[</span>upgrade/staticpods<span style="color:#f92672">]</span> Component <span style="color:#e6db74">&#34;kube-scheduler&#34;</span> upgraded successfully!
+<span style="color:#f92672">[</span>uploadconfig<span style="color:#f92672">]</span> storing the configuration used in ConfigMap <span style="color:#e6db74">&#34;kubeadm-config&#34;</span> in the <span style="color:#e6db74">&#34;kube-system&#34;</span> Namespace
+<span style="color:#f92672">[</span>kubelet<span style="color:#f92672">]</span> Creating a ConfigMap <span style="color:#e6db74">&#34;kubelet-config-1.12&#34;</span> in namespace kube-system with the configuration <span style="color:#66d9ef">for</span> the kubelets in the cluster
+<span style="color:#f92672">[</span>kubelet<span style="color:#f92672">]</span> Downloading configuration <span style="color:#66d9ef">for</span> the kubelet from the <span style="color:#e6db74">&#34;kubelet-config-1.12&#34;</span> ConfigMap in the kube-system namespace
+<span style="color:#f92672">[</span>kubelet<span style="color:#f92672">]</span> Writing kubelet configuration to file <span style="color:#e6db74">&#34;/var/lib/kubelet/config.yaml&#34;</span>
+<span style="color:#f92672">[</span>patchnode<span style="color:#f92672">]</span> Uploading the CRI Socket information <span style="color:#e6db74">&#34;/var/run/dockershim.sock&#34;</span> to the Node API object <span style="color:#e6db74">&#34;master-pi&#34;</span> as an annotation
+<span style="color:#f92672">[</span>bootstraptoken<span style="color:#f92672">]</span> configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order <span style="color:#66d9ef">for</span> nodes to get long term certificate credentials
+<span style="color:#f92672">[</span>bootstraptoken<span style="color:#f92672">]</span> configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+<span style="color:#f92672">[</span>bootstraptoken<span style="color:#f92672">]</span> configured RBAC rules to allow certificate rotation <span style="color:#66d9ef">for</span> all node client certificates in the cluster
+<span style="color:#f92672">[</span>addons<span style="color:#f92672">]</span> Applied essential addon: CoreDNS
+<span style="color:#f92672">[</span>addons<span style="color:#f92672">]</span> Applied essential addon: kube-proxy
+
+<span style="color:#f92672">[</span>upgrade/successful<span style="color:#f92672">]</span> SUCCESS! Your cluster was upgraded to <span style="color:#e6db74">&#34;v1.12.0&#34;</span>. Enjoy!
+
+<span style="color:#f92672">[</span>upgrade/kubelet<span style="color:#f92672">]</span> Now that your control plane is upgraded, please proceed with upgrading your kubelets <span style="color:#66d9ef">if</span> you haven<span style="color:#960050;background-color:#1e0010">&#39;</span>t already <span style="color:#66d9ef">done</span> so.
+</code></pre></div><p>Kubernetes servers are running v1.12</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl version
+Client Version: version.Info<span style="color:#f92672">{</span>Major:<span style="color:#e6db74">&#34;1&#34;</span>, Minor:<span style="color:#e6db74">&#34;11&#34;</span>, GitVersion:<span style="color:#e6db74">&#34;v1.11.1&#34;</span>, GitCommit:<span style="color:#e6db74">&#34;b1b29978270dc22fecc592ac55d903350454310a&#34;</span>, GitTreeState:<span style="color:#e6db74">&#34;clean&#34;</span>, BuildDate:<span style="color:#e6db74">&#34;2018-07-17T18:53:20Z&#34;</span>, GoVersion:<span style="color:#e6db74">&#34;go1.10.3&#34;</span>, Compiler:<span style="color:#e6db74">&#34;gc&#34;</span>, Platform:<span style="color:#e6db74">&#34;linux/arm&#34;</span><span style="color:#f92672">}</span>
+Server Version: version.Info<span style="color:#f92672">{</span>Major:<span style="color:#e6db74">&#34;1&#34;</span>, Minor:<span style="color:#e6db74">&#34;12&#34;</span>, GitVersion:<span style="color:#e6db74">&#34;v1.12.0&#34;</span>, GitCommit:<span style="color:#e6db74">&#34;0ed33881dc4355495f623c6f22e7dd0b7632b7c0&#34;</span>, GitTreeState:<span style="color:#e6db74">&#34;clean&#34;</span>, BuildDate:<span style="color:#e6db74">&#34;2018-09-27T16:55:41Z&#34;</span>, GoVersion:<span style="color:#e6db74">&#34;go1.10.4&#34;</span>, Compiler:<span style="color:#e6db74">&#34;gc&#34;</span>, Platform:<span style="color:#e6db74">&#34;linux/arm&#34;</span><span style="color:#f92672">}</span>
+</code></pre></div><p>my kubelets are still running kubernetes v1.11.1</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes
+NAME        STATUS    ROLES     AGE       VERSION
+home-pi     Ready     &lt;none&gt;    86d       v1.11.1
+master-pi   Ready     master    86d       v1.11.1
+nas-pi      Ready     &lt;none&gt;    85d       v1.11.1
+</code></pre></div><h2 id="upgrade-kubectl">Upgrade kubectl</h2>
+<p>Install newer version of kubectl using apt-get</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get install kubectl
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be upgraded:
+  kubectl
+<span style="color:#ae81ff">1</span> upgraded, <span style="color:#ae81ff">0</span> newly installed, <span style="color:#ae81ff">0</span> to remove and <span style="color:#ae81ff">37</span> not upgraded.
+Need to get 8,639 kB of archives.
+After this operation, 1,783 kB of additional disk space will be used.
+Get:1 https://packages.cloud.google.com/apt kubernetes-xenial/main armhf kubectl armhf 1.12.0-00 <span style="color:#f92672">[</span>8,639 kB<span style="color:#f92672">]</span>
+Fetched 8,639 kB in 6s <span style="color:#f92672">(</span>1,270 kB/s<span style="color:#f92672">)</span>
+<span style="color:#f92672">(</span>Reading database ... <span style="color:#ae81ff">30574</span> files and directories currently installed.<span style="color:#f92672">)</span>
+Preparing to unpack .../kubectl_1.12.0-00_armhf.deb ...
+Unpacking kubectl <span style="color:#f92672">(</span>1.12.0-00<span style="color:#f92672">)</span> over <span style="color:#f92672">(</span>1.11.1-00<span style="color:#f92672">)</span> ...
+Setting up kubectl <span style="color:#f92672">(</span>1.12.0-00<span style="color:#f92672">)</span> ...
+</code></pre></div><p>Check that kubectl is now 1.12</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl version
+Client Version: version.Info<span style="color:#f92672">{</span>Major:<span style="color:#e6db74">&#34;1&#34;</span>, Minor:<span style="color:#e6db74">&#34;12&#34;</span>, GitVersion:<span style="color:#e6db74">&#34;v1.12.0&#34;</span>, GitCommit:<span style="color:#e6db74">&#34;0ed33881dc4355495f623c6f22e7dd0b7632b7c0&#34;</span>, GitTreeState:<span style="color:#e6db74">&#34;clean&#34;</span>, BuildDate:<span style="color:#e6db74">&#34;2018-09-27T17:05:32Z&#34;</span>, GoVersion:<span style="color:#e6db74">&#34;go1.10.4&#34;</span>, Compiler:<span style="color:#e6db74">&#34;gc&#34;</span>, Platform:<span style="color:#e6db74">&#34;linux/arm&#34;</span><span style="color:#f92672">}</span>
+Server Version: version.Info<span style="color:#f92672">{</span>Major:<span style="color:#e6db74">&#34;1&#34;</span>, Minor:<span style="color:#e6db74">&#34;12&#34;</span>, GitVersion:<span style="color:#e6db74">&#34;v1.12.0&#34;</span>, GitCommit:<span style="color:#e6db74">&#34;0ed33881dc4355495f623c6f22e7dd0b7632b7c0&#34;</span>, GitTreeState:<span style="color:#e6db74">&#34;clean&#34;</span>, BuildDate:<span style="color:#e6db74">&#34;2018-09-27T16:55:41Z&#34;</span>, GoVersion:<span style="color:#e6db74">&#34;go1.10.4&#34;</span>, Compiler:<span style="color:#e6db74">&#34;gc&#34;</span>, Platform:<span style="color:#e6db74">&#34;linux/arm&#34;</span><span style="color:#f92672">}</span>
+</code></pre></div><h2 id="upgrade-kubelet-on-master-node">Upgrade kubelet on master node</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get upgrade -y kubelet
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following packages will be upgraded:
+...
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl restart kubelet
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes
+NAME        STATUS   ROLES    AGE   VERSION
+home-pi     Ready    &lt;none&gt;   86d   v1.11.1
+master-pi   Ready    master   86d   v1.12.0
+nas-pi      Ready    &lt;none&gt;   85d   v1.11.1
+</code></pre></div><p>Looks that as useual something is wrong with flannel CNI</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get all --all-namespaces
+NAMESPACE     NAME                                             READY   STATUS    RESTARTS   AGE
+default       pod/helm-rpi-kubeplay-arm32v7-6cb66496c6-6gvf6   1/1     Running   <span style="color:#ae81ff">0</span>          60d
+kube-system   pod/coredns-576cbf47c7-nzhfj                     1/1     Running   <span style="color:#ae81ff">0</span>          37m
+kube-system   pod/coredns-576cbf47c7-wkmhr                     1/1     Running   <span style="color:#ae81ff">0</span>          37m
+kube-system   pod/etcd-master-pi                               1/1     Running   <span style="color:#ae81ff">0</span>          3m43s
+kube-system   pod/kube-apiserver-master-pi                     1/1     Running   <span style="color:#ae81ff">2</span>          3m43s
+kube-system   pod/kube-controller-manager-master-pi            1/1     Running   <span style="color:#ae81ff">1</span>          3m43s
+kube-system   pod/kube-flannel-ds-4495g                        1/1     Running   <span style="color:#ae81ff">4</span>          75d
+kube-system   pod/kube-flannel-ds-52ssk                        0/1     Error     <span style="color:#ae81ff">10</span>         75d
+kube-system   pod/kube-flannel-ds-gj65n                        1/1     Running   <span style="color:#ae81ff">4</span>          75d
+
+Investigation shows:
+
+<span style="color:#e6db74">```</span>bash
+$ kubectl logs pod/kube-flannel-ds-52ssk -n kube-system
+I0930 01:34:13.768925       <span style="color:#ae81ff">1</span> main.go:475<span style="color:#f92672">]</span> Determining IP address of default interface
+I0930 01:34:13.778622       <span style="color:#ae81ff">1</span> main.go:488<span style="color:#f92672">]</span> Using interface with name wlan0 and address 192.168.1.95
+I0930 01:34:13.778716       <span style="color:#ae81ff">1</span> main.go:505<span style="color:#f92672">]</span> Defaulting external address to interface address <span style="color:#f92672">(</span>192.168.1.95<span style="color:#f92672">)</span>
+I0930 01:34:14.168318       <span style="color:#ae81ff">1</span> kube.go:131<span style="color:#f92672">]</span> Waiting 10m0s <span style="color:#66d9ef">for</span> node controller to sync
+I0930 01:34:14.168890       <span style="color:#ae81ff">1</span> kube.go:294<span style="color:#f92672">]</span> Starting kube subnet manager
+I0930 01:34:15.169929       <span style="color:#ae81ff">1</span> kube.go:138<span style="color:#f92672">]</span> Node controller sync successful
+I0930 01:34:15.170035       <span style="color:#ae81ff">1</span> main.go:235<span style="color:#f92672">]</span> Created subnet manager: Kubernetes Subnet Manager - master-pi
+I0930 01:34:15.170064       <span style="color:#ae81ff">1</span> main.go:238<span style="color:#f92672">]</span> Installing signal handlers
+I0930 01:34:15.170415       <span style="color:#ae81ff">1</span> main.go:353<span style="color:#f92672">]</span> Found network config - Backend type: vxlan
+I0930 01:34:15.170797       <span style="color:#ae81ff">1</span> vxlan.go:120<span style="color:#f92672">]</span> VXLAN config: VNI<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> Port<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> GBP<span style="color:#f92672">=</span>false DirectRouting<span style="color:#f92672">=</span>false
+E0930 01:34:15.256843       <span style="color:#ae81ff">1</span> main.go:280<span style="color:#f92672">]</span> Error registering network: failed to configure interface flannel.1: failed to ensure address of interface flannel.1: link has incompatible addresses. Remove additional addresses and try again. &amp;netlink.Vxlan<span style="color:#f92672">{</span>LinkAttrs:netlink.LinkAttrs<span style="color:#f92672">{</span>Index:5, MTU:1450, TxQLen:0, Name:<span style="color:#e6db74">&#34;flannel.1&#34;</span>, HardwareAddr:net.HardwareAddr<span style="color:#f92672">{</span>0x26, 0xd5, 0xd0, 0xdd, 0x56, 0x1a<span style="color:#f92672">}</span>,
+...
+</code></pre></div><p>Let&rsquo;s apply usual receipe
+``bash
+sudo ip link delete flannel.1</p>
+<pre tabindex="0"><code>
+Brute force fix seems to have done the fix....This is lucky we don't have production traffic on that node.
+```bash
+$ kubectl get pods -n kube-system
+NAME                                    READY   STATUS    RESTARTS   AGE
+coredns-576cbf47c7-nzhfj                1/1     Running   0          51m
+coredns-576cbf47c7-wkmhr                1/1     Running   0          51m
+etcd-master-pi                          1/1     Running   0          17m
+kube-apiserver-master-pi                1/1     Running   2          17m
+kube-controller-manager-master-pi       1/1     Running   1          17m
+kube-flannel-ds-4495g                   1/1     Running   4          75d
+kube-flannel-ds-52ssk                   1/1     Running   13         75d
+kube-flannel-ds-gj65n                   1/1     Running   4          75d
+kube-proxy-c2264                        1/1     Running   0          51m
+kube-proxy-snjsg                        1/1     Running   0          49m
+kube-proxy-zgqjb                        1/1     Running   1          50m
+kube-scheduler-master-pi                1/1     Running   1          17m
+kubernetes-dashboard-7d59788d44-rchkk   1/1     Running   25         83d
+tiller-deploy-b59fcc885-dbvlv           1/1     Running   0          60d
+</code></pre><h2 id="update-first-slave-node">Update first slave node</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get clean
+sudo apt-get update
+sudo apt-get install kubeadm
+sudo apt-get install kubelet
+sudo kubeadm upgrade node config --kubelet-version <span style="color:#66d9ef">$(</span>kubelet --version | cut -d <span style="color:#e6db74">&#39; &#39;</span> -f 2<span style="color:#66d9ef">)</span>
+sudo systemctl restart kubelet
+</code></pre></div><p>Same flannel issue</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get pods -n kube-system
+NAME                                    READY   STATUS             RESTARTS   AGE
+coredns-576cbf47c7-nzhfj                1/1     Running            <span style="color:#ae81ff">0</span>          87m
+coredns-576cbf47c7-wkmhr                1/1     Running            <span style="color:#ae81ff">1</span>          87m
+etcd-master-pi                          1/1     Running            <span style="color:#ae81ff">0</span>          53m
+kube-apiserver-master-pi                1/1     Running            <span style="color:#ae81ff">2</span>          53m
+kube-controller-manager-master-pi       1/1     Running            <span style="color:#ae81ff">1</span>          53m
+kube-flannel-ds-4495g                   0/1     CrashLoopBackOff   <span style="color:#ae81ff">10</span>         75d
+...
+</code></pre></div><p>same hack to fix the issue</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link delete flannel.1
+</code></pre></div><p>same hack seems to be effective</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get pods -n kube-system
+NAME                                    READY   STATUS    RESTARTS   AGE
+coredns-576cbf47c7-nzhfj                1/1     Running   <span style="color:#ae81ff">0</span>          111m
+coredns-576cbf47c7-wkmhr                1/1     Running   <span style="color:#ae81ff">1</span>          111m
+etcd-master-pi                          1/1     Running   <span style="color:#ae81ff">0</span>          77m
+kube-apiserver-master-pi                1/1     Running   <span style="color:#ae81ff">2</span>          77m
+kube-controller-manager-master-pi       1/1     Running   <span style="color:#ae81ff">1</span>          77m
+kube-flannel-ds-4495g                   1/1     Running   <span style="color:#ae81ff">11</span>         75d
+...
+</code></pre></div><h3 id="other-slave-node">Other slave node</h3>
+<pre tabindex="0"><code>sudo apt-get clean
+sudo apt-get update
+sudo apt-get install kubeadm
+sudo apt-get install kubelet
+sudo kubeadm upgrade node config --kubelet-version $(kubelet --version | cut -d ' ' -f 2)
+sudo systemctl restart kubelet
+sudo ip link delete flannel.1
+</code></pre><h2 id="check-consistency-of-the-cluster">Check consistency of the cluster</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get pods -n kube-system
+NAME                                    READY   STATUS    RESTARTS   AGE
+coredns-576cbf47c7-nzhfj                1/1     Running   <span style="color:#ae81ff">1</span>          143m
+coredns-576cbf47c7-wkmhr                1/1     Running   <span style="color:#ae81ff">1</span>          143m
+etcd-master-pi                          1/1     Running   <span style="color:#ae81ff">0</span>          109m
+kube-apiserver-master-pi                1/1     Running   <span style="color:#ae81ff">2</span>          109m
+kube-controller-manager-master-pi       1/1     Running   <span style="color:#ae81ff">1</span>          109m
+kube-flannel-ds-4495g                   1/1     Running   <span style="color:#ae81ff">11</span>         76d
+kube-flannel-ds-52ssk                   1/1     Running   <span style="color:#ae81ff">13</span>         76d
+kube-flannel-ds-gj65n                   1/1     Running   <span style="color:#ae81ff">13</span>         76d
+kube-proxy-c2264                        1/1     Running   <span style="color:#ae81ff">1</span>          143m
+kube-proxy-snjsg                        1/1     Running   <span style="color:#ae81ff">1</span>          141m
+kube-proxy-zgqjb                        1/1     Running   <span style="color:#ae81ff">1</span>          142m
+kube-scheduler-master-pi                1/1     Running   <span style="color:#ae81ff">1</span>          109m
+kubernetes-dashboard-7d59788d44-rchkk   1/1     Running   <span style="color:#ae81ff">25</span>         83d
+tiller-deploy-b59fcc885-dbvlv           1/1     Running   <span style="color:#ae81ff">0</span>          60d
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes
+NAME        STATUS   ROLES    AGE   VERSION
+home-pi     Ready    &lt;none&gt;   86d   v1.12.0
+master-pi   Ready    master   86d   v1.12.0
+nas-pi      Ready    &lt;none&gt;   86d   v1.12.0
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>At a glance, the cluster seems to be healthy</li>
+<li>I still need to find sometool like sonobuoy to validate that the cluster is healthy</li>
+</ul>
+<h2 id="reference-links">Reference Links</h2>
+<ul>
+<li><a href="https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-12/">Official Upgrade documentation</a></li>
+</ul>
+<div class="edit-meta">
+Last updated on 29 Sep 2018
+
+
+<br>
+Published on 29 Sep 2018
+<br><a href="https://github.com/jbrette/blog/edit/master/kubernetes/rpi/2018-09-28-a.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/kubernetes/rpi/" title="RASPBERRY PI"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - RASPBERRY PI</a>
+<a class="nav nav-next" href="https://jbrette.github.io/kubernetes/rpi/2018-07-28-a/" title="Deploy Cassandra on Raspberry-PI 3">Next - Deploy Cassandra on Raspberry-PI 3 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://jbrette.github.io/">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/ai_ml/2018-07-19-a/">Kubeflow</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/iot/">IOT<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-06-a/">ZWave/ZigBee</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-05-a/">OpenHAB</a></li>
+<li class=""><a href="https://jbrette.github.io/iot/2018-07-04-a/">HomeAssistant</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://jbrette.github.io/kubernetes/">Kubernetes<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://jbrette.github.io/kubernetes/operators/">Kubernetes Operators</a>
+  
+</li>
+
+<li class=""><a href="https://jbrette.github.io/kubernetes/kustomize/">Kustomize</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/devops/">DEVOPS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-07-11-a/">Use github repo as helm chart repository</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-25-a/">Setup github/gerrit behind a corporate http proxy</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-24-a/">docker.io versus docker-ce</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-23-a/">Setup multiple GitHub account on a single machine</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-22-a/">Setup your GOLANG environment</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://jbrette.github.io/kubernetes/rpi/">RASPBERRY PI<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/">Upgrade RPI Kubernetes cluster to 1.12</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-16-a/">Rebuild Hyperkube images</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-12-a/">Enable docker remote API</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-08-a/">Add Persistency Volume to PI Clusters</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/">Using Ansible to manage Raspberry PI cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-03-a/">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-20-a/">Create a Rapsberry PI Rescue Dongle</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-19-a/">Add Raspberry PI node to Kubernetes Cluster in 10 min</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/sdk/">SDK<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-30-a/">Update Kubernetes to 1.11 on Ubuntu</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-27-a/">Manual Update of CoreOS</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/">Setup SingleNode Kubernetes Cluster using kubeadm</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/apps/">APPS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-07-01-a/">Creating simple Python server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-29-a/">Creating simple GO server container</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-28-a/">Creating simple Java 10 server container</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/misc/">MISC<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-31-a/">Build and Deploy Kubernetes Istio</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-18-a/">Compile and Test Portieris</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-02-a/">Compile and Test SONOBUOY</a></li>
+<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-06-26-a/">Zuul</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
