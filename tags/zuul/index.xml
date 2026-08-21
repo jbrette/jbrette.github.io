@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>zuul on Jerome Brette&#39;s Blog</title>
-    <link>https://jbrette.github.io/tags/zuul/</link>
-    <description>Recent content in zuul on Jerome Brette&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 26 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/zuul/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Zuul</title>
-      <link>https://jbrette.github.io/kubernetes/misc/2018-06-26-a/</link>
-      <pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/kubernetes/misc/2018-06-26-a/</guid>
-      <description>Goal OpenStack project are using Zuul for CI/CD process. Zuul itself is based on Ansible to perform the tasks. This post is the collection of notes and tips used during the couple of update I did to some openstack projects.
-Understanding Zuul  WIP  Usefull Links  WIP  </description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Zuul on Jerome Brette&#39;s Blog</title>
+		<link>https://jbrette.github.io/tags/zuul/</link>
+		<description>Recent content in Zuul on Jerome Brette&#39;s Blog</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 26 Jun 2018 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://jbrette.github.io/tags/zuul/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Zuul</title>
+				<link>https://jbrette.github.io/misc/2018-06-26-a/</link>
+				<pubDate>Tue, 26 Jun 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/misc/2018-06-26-a/</guid>
+				<description>&lt;h1 id=&#34;goal&#34;&gt;Goal&lt;/h1&gt;&#xA;&lt;p&gt;OpenStack project are using Zuul for CI/CD process. Zuul itself is based on Ansible to perform the tasks.&#xA;This post is the collection of notes and tips used during the couple of update I did to some openstack projects.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-zuul&#34;&gt;Understanding Zuul&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WIP&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;usefull-links&#34;&gt;Usefull Links&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WIP&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+	</channel>
 </rss>
