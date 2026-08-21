@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>zwave on Jerome Brette&#39;s Blog</title>
-    <link>https://jbrette.github.io/tags/zwave/</link>
-    <description>Recent content in zwave on Jerome Brette&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 06 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jbrette.github.io/tags/zwave/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ZWave/ZigBee</title>
-      <link>https://jbrette.github.io/iot/2018-07-06-a/</link>
-      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jbrette.github.io/iot/2018-07-06-a/</guid>
-      <description>Goal In order to transforme a PI into a home automation controller, it is necessary to add Zwave and ZigBee capabilities to the the Wifi and Bluetooth capabilities of the PI.
-Key  Transform Raspberry-PI + Dongle into a SUC ZWave controller Try to use with OpenHAB or HomeAssistant  Testing on the OpenHAB Container The OpenHAB architecture is Java based.
-Testing on the HomeAssistant Container HomeAssistant is Python based and relies on OpenZWave.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Zwave on Jerome Brette&#39;s Blog</title>
+		<link>https://jbrette.github.io/tags/zwave/</link>
+		<description>Recent content in Zwave on Jerome Brette&#39;s Blog</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 06 Jul 2018 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://jbrette.github.io/tags/zwave/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>ZWave/ZigBee</title>
+				<link>https://jbrette.github.io/iot/2018-07-06-a/</link>
+				<pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+				<guid>https://jbrette.github.io/iot/2018-07-06-a/</guid>
+				<description>&lt;h1 id=&#34;goal&#34;&gt;Goal&lt;/h1&gt;&#xA;&lt;p&gt;In order to transforme a PI into a home automation controller, it is necessary&#xA;to add Zwave and ZigBee capabilities to the the Wifi and Bluetooth capabilities&#xA;of the PI.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key&#34;&gt;Key&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Transform Raspberry-PI + Dongle into a SUC ZWave controller&lt;/li&gt;&#xA;&lt;li&gt;Try to use with OpenHAB or HomeAssistant&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;testing-on-the-openhab-container&#34;&gt;Testing on the OpenHAB Container&lt;/h2&gt;&#xA;&lt;p&gt;The OpenHAB architecture is Java based.&lt;/p&gt;&#xA;&lt;h2 id=&#34;testing-on-the-homeassistant-container&#34;&gt;Testing on the HomeAssistant Container&lt;/h2&gt;&#xA;&lt;p&gt;HomeAssistant is Python based and relies on OpenZWave. Some of the data&#xA;is also saved in SQLite. In both cases developping small Python scripts&#xA;to investigate the setup seems to be the easiest way.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
