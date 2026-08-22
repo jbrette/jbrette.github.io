@@ -1,633 +1,81 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Creating a Raspberry 3 B&#43; Kubernetes Cluster - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="Jerome Brette&#39;s Blog">
+<meta name="generator" content="Hugo 0.165.0">
+<link href="https://jbrette.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/kubedge/2018-07-03-a/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-03-a/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Creating a Raspberry 3 B&#43; Kubernetes Cluster">
+	<meta property="og:description" content="Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.
+Key Aspects Build a Raspberry 3B&#43; Cluster Deploy Kubernetes on that Cluster Hardware Reference Links Video Procedure Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B&#43; (1Gb card instead of 100Mb card) Result Cluster 1: 5 nodes cluster">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="kubedge">
+		<meta property="article:published_time" content="2018-07-03T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-07-03T00:00:00+00:00">
+		<meta property="article:tag" content="Kubedge">
+		<meta property="article:tag" content="Kubernetes">
+		<meta property="article:tag" content="Rpi">
 
-<html>
-    <head>
-        <script type="application/ld+json">
-    {
-        "@context" : "http://schema.org",
-        "@type" : "BlogPosting",
-        "mainEntityOfPage": {
-             "@type": "WebPage",
-             "@id": "https:\/\/jbrette.github.io\/"
-        },
-        "articleSection" : "kubedge",
-        "name" : "Creating a Raspberry 3 B\u002b Kubernetes Cluster",
-        "headline" : "Creating a Raspberry 3 B\u002b Kubernetes Cluster",
-        "description" : "Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.\nKey Aspects  Build a Raspberry 3B\u002b Cluster Deploy Kubernetes on that Cluster  Hardware Reference Links  Video  Procedure  Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B\u002b (1Gb card instead of 100Mb card)  Result Cluster 1: 5 nodes cluster Cluster 2: 3 nodes cluster OS Reference Links  Video HypriotOS  Procedure  Use HypriotOS because the quickest to set up.",
-        "inLanguage" : "en",
-        "author" : "",
-        "creator" : "",
-        "publisher": "",
-        "accountablePerson" : "",
-        "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-07-03 00:00:00 \u002b0000 UTC",
-        "dateModified" : "2018-07-03 00:00:00 \u002b0000 UTC",
-        "url" : "https:\/\/jbrette.github.io\/kubedge\/2018-07-03-a\/",
-        "wordCount" : "1455",
-        "keywords" : [ "kubedge","kubernetes","rpi","Blog" ]
-    }
-    </script>
-        
-            
-                <title>Creating a Raspberry 3 B&#43; Kubernetes Cluster</title>
-            
-        
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Creating a Raspberry 3 B&#43; Kubernetes Cluster">
+	<meta name="twitter:description" content="Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.
+Key Aspects Build a Raspberry 3B&#43; Cluster Deploy Kubernetes on that Cluster Hardware Reference Links Video Procedure Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B&#43; (1Gb card instead of 100Mb card) Result Cluster 1: 5 nodes cluster">
+			<meta name="twitter:site" content="@example">
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.92.2" />
-        
-
-
-        
-            <meta name="author" content="Jerome Brette">
-        
-        
-            
-                <meta name="description" content="Jerome Brette&#39;s Blog">
-            
-        
-
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Creating a Raspberry 3 B&#43; Kubernetes Cluster"/>
-<meta name="twitter:description" content="Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.
-Key Aspects  Build a Raspberry 3B&#43; Cluster Deploy Kubernetes on that Cluster  Hardware Reference Links  Video  Procedure  Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B&#43; (1Gb card instead of 100Mb card)  Result Cluster 1: 5 nodes cluster Cluster 2: 3 nodes cluster OS Reference Links  Video HypriotOS  Procedure  Use HypriotOS because the quickest to set up."/>
-<meta name="twitter:site" content="@example"/>
-
-        <meta property="og:title" content="Creating a Raspberry 3 B&#43; Kubernetes Cluster" />
-<meta property="og:description" content="Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.
-Key Aspects  Build a Raspberry 3B&#43; Cluster Deploy Kubernetes on that Cluster  Hardware Reference Links  Video  Procedure  Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B&#43; (1Gb card instead of 100Mb card)  Result Cluster 1: 5 nodes cluster Cluster 2: 3 nodes cluster OS Reference Links  Video HypriotOS  Procedure  Use HypriotOS because the quickest to set up." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/kubedge/2018-07-03-a/" /><meta property="article:section" content="kubedge" />
-<meta property="article:published_time" content="2018-07-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-07-03T00:00:00+00:00" />
-
-
-        <meta property="og:image" content="https://jbrette.github.io//images/logo.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="512">
-        <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Creating a Raspberry 3 B&#43; Kubernetes Cluster">
-<meta itemprop="description" content="Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.
-Key Aspects  Build a Raspberry 3B&#43; Cluster Deploy Kubernetes on that Cluster  Hardware Reference Links  Video  Procedure  Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B&#43; (1Gb card instead of 100Mb card)  Result Cluster 1: 5 nodes cluster Cluster 2: 3 nodes cluster OS Reference Links  Video HypriotOS  Procedure  Use HypriotOS because the quickest to set up."><meta itemprop="datePublished" content="2018-07-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-07-03T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1455">
-<meta itemprop="keywords" content="kubedge,kubernetes,rpi," />
-        
-
-        
-            
-        
-
-        
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/main.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/add-on.css">
-            <link rel="stylesheet" href="https://jbrette.github.io/css/academicons.min.css">
-        
-
-        
-            
-                
-            
-        
-
-
-  
-    
-    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-  
-
-
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-123357787-1', 'auto');
-	
-	ga('send', 'pageview');
+	<meta itemprop="name" content="Creating a Raspberry 3 B&#43; Kubernetes Cluster">
+	<meta itemprop="description" content="Goal Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning, from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.
+Key Aspects Build a Raspberry 3B&#43; Cluster Deploy Kubernetes on that Cluster Hardware Reference Links Video Procedure Kind of followed the video Used a premade rack instead. Adapt to Raspberry 3B&#43; (1Gb card instead of 100Mb card) Result Cluster 1: 5 nodes cluster">
+	<meta itemprop="datePublished" content="2018-07-03T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2018-07-03T00:00:00+00:00">
+	<meta itemprop="wordCount" content="1455">
+	<meta itemprop="keywords" content="Kubedge,Kubernetes,Rpi"><style>
+ 
+.global-menu ul.sub-menu ul.sub-menu {
+  top: 0;
+  left: 100%;
 }
-</script>
-    </head>
-    <body>
+ 
+@media screen and (max-width: 480px) {
+  .global-menu ul.sub-menu ul.sub-menu {
+    left: 0;
+  }
+  .global-menu ul.sub-menu ul.sub-menu li {
+    padding-left: 1.2rem;
+  }
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
 
-      
-      <div id="wrapper">
-
-    
-    
-<header id="header">
-    
-      <h1><a href="https://jbrette.github.io/">kubedge</a></h1>
-    
-
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="https://jbrette.github.io/">
-                            <i class="fa fa-home">&nbsp;</i>Home
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>About
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/post/">
-                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/kubedge/">
-                            <i class="fas fa-atom">&nbsp;</i>Kubedge
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/iot/">
-                            <i class="">&nbsp;</i>IoT
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/ai_ml/">
-                            <i class="">&nbsp;</i>AI &amp; ML
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/blockchain/">
-                            <i class="">&nbsp;</i>BlockChain
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/misc/">
-                            <i class="">&nbsp;</i>Other
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://jbrette.github.io/tags/">
-                            <i class="fa fa-list">&nbsp;</i>Tags
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
 </header>
-
-
-<section id="menu">
-
-    
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="https://jbrette.github.io/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                
-                    <li>
-                        <a href="https://jbrette.github.io/">
-                            <h3>
-                                <i class="fa fa-home">&nbsp;</i>Home
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/about/">
-                            <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>About
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/post/">
-                            <h3>
-                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/kubedge/">
-                            <h3>
-                                <i class="fas fa-atom">&nbsp;</i>Kubedge
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/iot/">
-                            <h3>
-                                <i class="">&nbsp;</i>IoT
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/ai_ml/">
-                            <h3>
-                                <i class="">&nbsp;</i>AI &amp; ML
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/blockchain/">
-                            <h3>
-                                <i class="">&nbsp;</i>BlockChain
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/misc/">
-                            <h3>
-                                <i class="">&nbsp;</i>Other
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://jbrette.github.io/tags/">
-                            <h3>
-                                <i class="fa fa-list">&nbsp;</i>Tags
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section class="recent-posts">
-            <div class="mini-posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-
-                
-                    
-                
-
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/">Post</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
-                            </header>
-                            
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-10-03'>
-                                    October 3, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/102018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-09-28'>
-                                    September 28, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/img/2018/09/rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-
-                
-                    <a href=
-                        
-                            /post/
-                        
-                        class="button">View more posts</a>
-                
-            </div>
-        </section>
-
-    
-        
-</section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-
-<li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;text=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster&amp;via=example" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;title=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;title=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;title=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;description=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by Jerome%20Brette&amp;body=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-        </ul>
-    </section>
-</section>
-
-    
-    <div id="main">
-        
-        
-        <article class="post">
-  <header>
-    <div class="title">
-        
-            <h1><a href="https://jbrette.github.io/kubedge/2018-07-03-a/">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></h1>
-            
-        
-        
-    </div>
-    <div class="meta">
-
-      <span class="author">Jerome Brette</span>
-      <span class="author">deprecated</span>
-      
-        <a href="https://kubedge.cloud/pi_cluster/" target="_blank">Moved to KUBEDGE</a>
-      
-    </div>
-</header>
-
-
-  
-    <section id="social-share">
-      <ul class="icons">
-        
-
-
-
-<li>
-  <a href="//twitter.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;text=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster&amp;via=example" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;title=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;title=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;title=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f&amp;description=Creating%20a%20Raspberry%203%20B%2b%20Kubernetes%20Cluster" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by Jerome%20Brette&amp;body=https%3a%2f%2fjbrette.github.io%2fkubedge%2f2018-07-03-a%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-      </ul>
-    </section>
-  
-
-  
-  <div id="content">
-    <h1 id="goal">Goal</h1>
+<div class="global-menu">
+<nav>
+<ul><li id="fa fa-home" class=""><a href="https://jbrette.github.io/">Home</a></li><li id="fas fa-robot" class=""><a href="https://jbrette.github.io/agentic/">Agentic</a></li><li id="fas fa-server" class=""><a href="https://jbrette.github.io/infra/">Infrastructure</a></li><li id="fas fa-sync" class=""><a href="https://jbrette.github.io/ops/">Operations</a></li><li id="fas fa-code-branch" class=""><a href="https://jbrette.github.io/sdlc/">SDLC</a></li><li id="medium" class=""><a href="https://medium.com/@jbrette">Medium</a></li><li id="linkedin" class=""><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li><li id="myorgs" class="parent"><a href="">My Orgs<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="org-auletes" class="child"><a href="https://auletes.github.io/">Auletes</a></li><li id="org-cloudison" class="child"><a href="https://cloudison.github.io/">Cloudison</a></li><li id="org-edgenetwork" class="child"><a href="https://edgenetwork.github.io/">Edgenetwork</a></li><li id="org-keleustes" class="child"><a href="https://keleustes.github.io/">Keleustes</a></li><li id="org-kubedge" class="child"><a href="https://kubedge.github.io/">Kubedge</a></li><li id="org-kubefwk" class="child"><a href="https://kubefwk.github.io/">Kubefwk</a></li><li id="org-kubekit99" class="child"><a href="https://kubekit99.github.io/">Kubekit99</a></li><li id="org-kubepnp" class="child"><a href="https://kubepnp.github.io/">Kubepnp</a></li><li id="org-lichtpunkt" class="child"><a href="https://lichtpunkt.github.io/">Lichtpunkt</a></li><li id="org-lightreader" class="child"><a href="https://lightreader.github.io/">Lightreader</a></li><li id="org-prorates" class="child"><a href="https://prorates.github.io/">Prorates</a></li><li id="misc" class="parent child"><a href="">Misc<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="sec-iot" class="child"><a href="https://jbrette.github.io/iot/">IoT</a></li><li id="sec-ai-ml" class="child"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML</a></li><li id="sec-blockchain" class="child"><a href="https://jbrette.github.io/blockchain/">BlockChain</a></li><li id="sec-other" class="child"><a href="https://jbrette.github.io/misc/">Other</a></li></ul>
+</li></ul>
+</li><li id="fa fa-list" class=""><a href="https://jbrette.github.io/tags/">Tags</a></li><li id="fa fa-id-card-o" class=""><a href="https://jbrette.github.io/about/">About</a></li></ul>
+</nav>
+</div><div class="content-container">
+<main><h1>Creating a Raspberry 3 B&#43; Kubernetes Cluster</h1>
+<h1 id="goal">Goal</h1>
 <p>Also GCE is perfect to learn Kubernetes, building Kubernetes on top of PI Cluster brings another dimension to the learning,
 from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the ARM32V7.</p>
 <h2 id="key-aspects">Key Aspects</h2>
@@ -680,7 +128,7 @@ from setting up the OS, partitionning the OS, DHCP, NAT, cross compiling for the
 </ul>
 <pre tabindex="0"><code>sudo -i
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-echo &quot;deb http://apt.kubernetes.io/ kubernetes-xenial main&quot; &gt; /etc/apt/sources.list.d/kubernetes.list
+echo &#34;deb http://apt.kubernetes.io/ kubernetes-xenial main&#34; &gt; /etc/apt/sources.list.d/kubernetes.list
 apt-get update &amp;&amp; apt-get install -y kubeadm
 </code></pre><pre tabindex="0"><code># kubeadm init --pod-network-cidr 10.244.0.0/16 --apiserver-advertise-address 192.168.1.95
 I0706 00:35:34.429323   14024 feature_gate.go:230] feature gates: &amp;{map[]}
@@ -691,11 +139,11 @@ I0706 00:35:34.657051   14024 kernel_validator.go:96] Validating kernel config
         [WARNING SystemVerification]: docker version is greater than the most recently validated version. Docker version: 18.05.0-ce. Max validated version: 17.03
 [preflight/images] Pulling images required for setting up a Kubernetes cluster
 [preflight/images] This might take a minute or two, depending on the speed of your internet connection
-[preflight/images] You can also perform this action in beforehand using 'kubeadm config images pull'
+[preflight/images] You can also perform this action in beforehand using &#39;kubeadm config images pull&#39;
 
 
-[kubelet] Writing kubelet environment file with flags to file &quot;/var/lib/kubelet/kubeadm-flags.env&quot;
-[kubelet] Writing kubelet configuration to file &quot;/var/lib/kubelet/config.yaml&quot;
+[kubelet] Writing kubelet environment file with flags to file &#34;/var/lib/kubelet/kubeadm-flags.env&#34;
+[kubelet] Writing kubelet configuration to file &#34;/var/lib/kubelet/config.yaml&#34;
 [preflight] Activating the kubelet service
 [certificates] Generated ca certificate and key.
 [certificates] Generated apiserver certificate and key.
@@ -711,28 +159,28 @@ I0706 00:35:34.657051   14024 kernel_validator.go:96] Validating kernel config
 [certificates] etcd/peer serving cert is signed for DNS names [master-pi localhost] and IPs [192.168.1.95 127.0.0.1 ::1]
 [certificates] Generated etcd/healthcheck-client certificate and key.
 [certificates] Generated apiserver-etcd-client certificate and key.
-[certificates] valid certificates and keys now exist in &quot;/etc/kubernetes/pki&quot;
-[kubeconfig] Wrote KubeConfig file to disk: &quot;/etc/kubernetes/admin.conf&quot;
-[kubeconfig] Wrote KubeConfig file to disk: &quot;/etc/kubernetes/kubelet.conf&quot;
-[kubeconfig] Wrote KubeConfig file to disk: &quot;/etc/kubernetes/controller-manager.conf&quot;
-[kubeconfig] Wrote KubeConfig file to disk: &quot;/etc/kubernetes/scheduler.conf&quot;
-[controlplane] wrote Static Pod manifest for component kube-apiserver to &quot;/etc/kubernetes/manifests/kube-apiserver.yaml&quot;
-[controlplane] wrote Static Pod manifest for component kube-controller-manager to &quot;/etc/kubernetes/manifests/kube-controller-manager.yaml&quot;
-[controlplane] wrote Static Pod manifest for component kube-scheduler to &quot;/etc/kubernetes/manifests/kube-scheduler.yaml&quot;
-[etcd] Wrote Static Pod manifest for a local etcd instance to &quot;/etc/kubernetes/manifests/etcd.yaml&quot;
-[init] waiting for the kubelet to boot up the control plane as Static Pods from directory &quot;/etc/kubernetes/manifests&quot;
+[certificates] valid certificates and keys now exist in &#34;/etc/kubernetes/pki&#34;
+[kubeconfig] Wrote KubeConfig file to disk: &#34;/etc/kubernetes/admin.conf&#34;
+[kubeconfig] Wrote KubeConfig file to disk: &#34;/etc/kubernetes/kubelet.conf&#34;
+[kubeconfig] Wrote KubeConfig file to disk: &#34;/etc/kubernetes/controller-manager.conf&#34;
+[kubeconfig] Wrote KubeConfig file to disk: &#34;/etc/kubernetes/scheduler.conf&#34;
+[controlplane] wrote Static Pod manifest for component kube-apiserver to &#34;/etc/kubernetes/manifests/kube-apiserver.yaml&#34;
+[controlplane] wrote Static Pod manifest for component kube-controller-manager to &#34;/etc/kubernetes/manifests/kube-controller-manager.yaml&#34;
+[controlplane] wrote Static Pod manifest for component kube-scheduler to &#34;/etc/kubernetes/manifests/kube-scheduler.yaml&#34;
+[etcd] Wrote Static Pod manifest for a local etcd instance to &#34;/etc/kubernetes/manifests/etcd.yaml&#34;
+[init] waiting for the kubelet to boot up the control plane as Static Pods from directory &#34;/etc/kubernetes/manifests&#34;
 [init] this might take a minute or longer if the control plane images have to be pulled
 [apiclient] All control plane components are healthy after 77.506994 seconds
-[uploadconfig] storing the configuration used in ConfigMap &quot;kubeadm-config&quot; in the &quot;kube-system&quot; Namespace
-[kubelet] Creating a ConfigMap &quot;kubelet-config-1.11&quot; in namespace kube-system with the configuration for the kubelets in the cluster
-[markmaster] Marking the node master-pi as master by adding the label &quot;node-role.kubernetes.io/master=''&quot;
+[uploadconfig] storing the configuration used in ConfigMap &#34;kubeadm-config&#34; in the &#34;kube-system&#34; Namespace
+[kubelet] Creating a ConfigMap &#34;kubelet-config-1.11&#34; in namespace kube-system with the configuration for the kubelets in the cluster
+[markmaster] Marking the node master-pi as master by adding the label &#34;node-role.kubernetes.io/master=&#39;&#39;&#34;
 [markmaster] Marking the node master-pi as master by adding the taints [node-role.kubernetes.io/master:NoSchedule]
-[patchnode] Uploading the CRI Socket information &quot;/var/run/dockershim.sock&quot; to the Node API object &quot;master-pi&quot; as an annotation
+[patchnode] Uploading the CRI Socket information &#34;/var/run/dockershim.sock&#34; to the Node API object &#34;master-pi&#34; as an annotation
 [bootstraptoken] using token: 120d6b.yyyyyyy
 [bootstraptoken] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
 [bootstraptoken] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
 [bootstraptoken] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
-[bootstraptoken] creating the &quot;cluster-info&quot; ConfigMap in the &quot;kube-public&quot; namespace
+[bootstraptoken] creating the &#34;cluster-info&#34; ConfigMap in the &#34;kube-public&#34; namespace
 [addons] Applied essential addon: CoreDNS
 [addons] Applied essential addon: kube-proxy
 
@@ -745,7 +193,7 @@ To start using your cluster, you need to run the following as a regular user:
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 You should now deploy a pod network to the cluster.
-Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
+Run &#34;kubectl apply -f [podnetwork].yaml&#34; with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
 
 You can now join any number of machines by running the following on each node
@@ -757,7 +205,7 @@ as root:
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl get nodes
-</code></pre><pre tabindex="0"><code>curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &quot;s/amd64/arm/g&quot; | kubectl create -f -
+</code></pre><pre tabindex="0"><code>curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed &#34;s/amd64/arm/g&#34; | kubectl create -f -
 </code></pre><p>on first node</p>
 <pre tabindex="0"><code>kubeadm join 192.168.1.95:6443 --token 120d6b.yyyyyyy --discovery-token-ca-cert-hash sha256:xxxxxx
 </code></pre><p>on second node</p>
@@ -881,529 +329,33 @@ kube-system   replicaset.apps/coredns-78fcdf6894   2         2         2        
 sudo docker rm $(sudo docker ps -qa)
 sudo docker image rm $(sudo docker image list -qa)
 sudo apt-get upgrade
-</code></pre>
-  </div>
-
-  <footer>
-    <ul class="stats">
-    
-        
-
-        
-        
-            <li>
-                
-                
-                    
-
-                    
-                        Categories
-                    
-                
-            </li>
-        
-    
-
-    
-    
-        <li><a href='https://jbrette.github.io/categories/wiki'>wiki</a></li>
-    
-        <li><a href='https://jbrette.github.io/categories/kubedge'>kubedge</a></li>
-    
-</ul>
-
-  </footer>
-</article>
-
-
-    </div>
-    
-<section id="sidebar">
-
-  
-  <section id="intro">
-    
-    
-      
-        <a href='https://jbrette.github.io/'><img src="https://jbrette.github.io/images/logo.png" class="intro-circle" width="" alt="avatar" /></a>
-      
-    
-    
-      <header>
-        <h2>Jerome&#39;s Blog</h2>
-        <p>Building my edge cloud using Raspberry PI, keep learning from the opensource community</p>
-      </header>
-    
-    
-      <ul class="icons">
-        
-          
-    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
-        
-        
-  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-  </section>
-
-  
-  <section class="recent-posts">
-    <div class="mini-posts">
-      <header>
-        <h3>Recent Posts</h3>
-      </header>
-      <div class="posts-container">
-        
-
-        
-          
-        
-
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/">Post</a>
-              </h3>
-              
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
-              </time>
-            </header>
-            
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-10-03-a/">Prometheus</a>
-              </h3>
-              
-              <time class="published" datetime='2018-10-03'>
-                October 3, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-10-03-a/" class="image featured">
-            <img src="https://jbrette.github.io/date2018/10/load-node-stack1.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="https://jbrette.github.io/post/2018-09-28-a/">Rolling Upgrade</a>
-              </h3>
-              
-              <time class="published" datetime='2018-09-28'>
-                September 28, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="https://jbrette.github.io/post/2018-09-28-a/" class="image featured">
-            <img src="https://jbrette.github.io/date2018/09/rolling-upgrade.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-      </div>
-
-      
-        <a href=
-          
-            /post/
-          
-        class="button">View more posts</a>
-      
-    </div>
-  </section>
-
-  
-  
-  
-  
-  
-    <section id="categories">
-      <header>
-        <h3>
-          <a href="https://jbrette.github.io/categories/">Categories</a>
-        </h3>
-      </header>
-        
-          
-        
-
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/wiki/">wiki</a>
-                <span style="float:right;">36</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/kubedge/">kubedge</a>
-                <span style="float:right;">18</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/wip/">wip</a>
-                <span style="float:right;">14</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/iot/">iot</a>
-                <span style="float:right;">3</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/ai/">ai</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="https://jbrette.github.io/categories/blockchain/">blockchain</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-    </section>
-  
-  
-
-  
-  
-    <section id="mini-bio">
-      <h3>About</h3>
-      <p>About the author</p>
-      <a href="https://jbrette.github.io/about/" class="button">Learn More</a>
-    </section>
-  
-
-  
-  <section id="footer">
-    
-      <ul class="icons">
-        
-          
-    <li><a href="https://jbrette.github.io/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
-        
-        
-  <li><a href="//github.com/jbrette" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//linkedin.com/in/jerome-brette-109b8711" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//twitter.com/example" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-    <p class="copyright">
-      
-        &copy; 2018
-        
-          Jerome Brette&#39;s Blog
-        
-      .
-      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
-    </p>
-  </section>
-</section>
-
-    </div>
-    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-    
-
-    
-      
-    
-
-    
-      
-      
-      
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
-        
-        
-        
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/bash.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/python.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/golang.min.js"></script>
-        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-      
-    
-    
-    
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="https://jbrette.github.io/js/util.js"></script>
-      <script src="https://jbrette.github.io/js/main.js"></script>
-      <script src="https://jbrette.github.io/js/backToTop.js"></script>
-    
-
-    
-      
-        
-      
-    
-
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-      <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-
-  </body>
+</code></pre><div class="edit-meta">
+Last updated on 3 Jul 2018
+
+
+<br>
+Published on 3 Jul 2018
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/kubedge/2018-07-07-a/" title="Using Ansible to manage Raspberry PI cluster"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Using Ansible to manage Raspberry PI cluster</a>
+<a class="nav nav-next" href="https://jbrette.github.io/kubedge/2018-06-21-a/" title="Setup SingleNode Kubernetes Cluster using kubeadm">Next - Setup SingleNode Kubernetes Cluster using kubeadm <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
 </html>
-

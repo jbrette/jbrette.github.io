@@ -5,43 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>OpenHAB - Jerome Brette&#39;s Blog</title>
 <meta name="description" content="Install OpenHAB on docker &#43; Raspberry PI3">
-<meta name="generator" content="Hugo 0.92.2" />
-<link href="https://jbrette.github.io//index.xml" rel="alternate" type="application/rss+xml">
+<meta name="generator" content="Hugo 0.165.0">
+<link href="https://jbrette.github.io/index.xml" rel="alternate" type="application/rss+xml">
 <link rel="canonical" href="https://jbrette.github.io/iot/2018-07-05-a/">
 <link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
 <link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
-<script defer src="https://jbrette.github.io//js/fontawesome6/all.min.js"></script>
+<script defer src="https://jbrette.github.io/js/fontawesome6/all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
-<script src="https://jbrette.github.io/js/bundle.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123357787-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-123357787-1');
-</script>
-<style>
+<script src="https://jbrette.github.io/js/bundle.js"></script><style>
 :root {}
 </style>
-<meta property="og:title" content="OpenHAB" />
-<meta property="og:description" content="Install OpenHAB on docker &#43; Raspberry PI3" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jbrette.github.io/iot/2018-07-05-a/" /><meta property="og:image" content="https://jbrette.github.io/images/og-image.png"/><meta property="article:section" content="iot" />
-<meta property="article:published_time" content="2018-07-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-07-05T00:00:00+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme" />
+<meta property="og:url" content="https://jbrette.github.io/iot/2018-07-05-a/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="OpenHAB">
+	<meta property="og:description" content="Install OpenHAB on docker &#43; Raspberry PI3">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="iot">
+		<meta property="article:published_time" content="2018-07-05T00:00:00+00:00">
+		<meta property="article:modified_time" content="2018-07-05T00:00:00+00:00">
+		<meta property="article:tag" content="Docker">
+		<meta property="article:tag" content="Rpi">
+		<meta property="article:tag" content="Homeautomation">
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jbrette.github.io/images/og-image.png"/>
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="OpenHAB">
+	<meta name="twitter:description" content="Install OpenHAB on docker &#43; Raspberry PI3">
+			<meta name="twitter:site" content="@example">
 
-<meta name="twitter:title" content="OpenHAB"/>
-<meta name="twitter:description" content="Install OpenHAB on docker &#43; Raspberry PI3"/>
-<meta itemprop="name" content="OpenHAB">
-<meta itemprop="description" content="Install OpenHAB on docker &#43; Raspberry PI3"><meta itemprop="datePublished" content="2018-07-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-07-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3149"><meta itemprop="image" content="https://jbrette.github.io/images/og-image.png"/>
-<meta itemprop="keywords" content="docker,rpi,homeautomation," /></head>
+	<meta itemprop="name" content="OpenHAB">
+	<meta itemprop="description" content="Install OpenHAB on docker &#43; Raspberry PI3">
+	<meta itemprop="datePublished" content="2018-07-05T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2018-07-05T00:00:00+00:00">
+	<meta itemprop="wordCount" content="3149">
+	<meta itemprop="keywords" content="Docker,Rpi,Homeautomation"><style>
+ 
+.global-menu ul.sub-menu ul.sub-menu {
+  top: 0;
+  left: 100%;
+}
+ 
+@media screen and (max-width: 480px) {
+  .global-menu ul.sub-menu ul.sub-menu {
+    left: 0;
+  }
+  .global-menu ul.sub-menu ul.sub-menu li {
+    padding-left: 1.2rem;
+  }
+}
+</style>
+</head>
 <body><div class="container"><header>
 <h1>Jerome Brette&#39;s Blog</h1>
 <p class="description">Jerome Brette&#39;s Blog</p>
@@ -49,19 +64,13 @@
 </header>
 <div class="global-menu">
 <nav>
-<ul>
-<li id="home" class=""><a href="/"><i class='fa fa-heart'></i>&nbsp;Home</a></li>
-<li id="medium" class="twitter-menu-item"><a href="https://medium.com/@jbrette">Medium</a></li>
-<li id="linkedin" class="twitter-menu-item"><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li>
-<li class=""><a href="/about/">About</a></li><li class="parent "><a href="">Tutorials<i class="fas fa-angle-right"></i></a>
-<ul class="sub-menu">
-<li class="child "><a href="/post/2018-09-26-a/">Blinkt</a></li>
-</ul>
+<ul><li id="fa fa-home" class=""><a href="https://jbrette.github.io/">Home</a></li><li id="fas fa-robot" class=""><a href="https://jbrette.github.io/agentic/">Agentic</a></li><li id="fas fa-server" class=""><a href="https://jbrette.github.io/infra/">Infrastructure</a></li><li id="fas fa-sync" class=""><a href="https://jbrette.github.io/ops/">Operations</a></li><li id="fas fa-code-branch" class=""><a href="https://jbrette.github.io/sdlc/">SDLC</a></li><li id="medium" class=""><a href="https://medium.com/@jbrette">Medium</a></li><li id="linkedin" class=""><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li><li id="myorgs" class="parent"><a href="">My Orgs<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="org-auletes" class="child"><a href="https://auletes.github.io/">Auletes</a></li><li id="org-cloudison" class="child"><a href="https://cloudison.github.io/">Cloudison</a></li><li id="org-edgenetwork" class="child"><a href="https://edgenetwork.github.io/">Edgenetwork</a></li><li id="org-keleustes" class="child"><a href="https://keleustes.github.io/">Keleustes</a></li><li id="org-kubedge" class="child"><a href="https://kubedge.github.io/">Kubedge</a></li><li id="org-kubefwk" class="child"><a href="https://kubefwk.github.io/">Kubefwk</a></li><li id="org-kubekit99" class="child"><a href="https://kubekit99.github.io/">Kubekit99</a></li><li id="org-kubepnp" class="child"><a href="https://kubepnp.github.io/">Kubepnp</a></li><li id="org-lichtpunkt" class="child"><a href="https://lichtpunkt.github.io/">Lichtpunkt</a></li><li id="org-lightreader" class="child"><a href="https://lightreader.github.io/">Lightreader</a></li><li id="org-prorates" class="child"><a href="https://prorates.github.io/">Prorates</a></li><li id="misc" class="parent child"><a href="">Misc<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="sec-iot" class="child"><a href="https://jbrette.github.io/iot/">IoT</a></li><li id="sec-ai-ml" class="child"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML</a></li><li id="sec-blockchain" class="child"><a href="https://jbrette.github.io/blockchain/">BlockChain</a></li><li id="sec-other" class="child"><a href="https://jbrette.github.io/misc/">Other</a></li></ul>
 </li></ul>
+</li><li id="fa fa-list" class=""><a href="https://jbrette.github.io/tags/">Tags</a></li><li id="fa fa-id-card-o" class=""><a href="https://jbrette.github.io/about/">About</a></li></ul>
 </nav>
-</div>
-
-<div class="content-container">
+</div><div class="content-container">
 <main><h1>OpenHAB</h1>
 <h1 id="goal">Goal</h1>
 <p>OpenHAB running on Raspberry PI is one of way where you don&rsquo;t have to rely on outside
@@ -75,7 +84,7 @@ a kubernetes cluster to ensure HA of the software</p>
 <li>Leverage the Nortek HUSBZB-1 Zwave and Zigbee dongle.</li>
 <li>Try to install <a href="https://www.openhab.org/">OpenHab</a> on node 3 of the cluster (Picture to be update with Dongle on bottom node).</li>
 </ul>
-<p><img src="/images/raspberrypi/IMG_0344.JPG" alt=""></p>
+<p><img src="https://jbrette.github.io/images/raspberrypi/IMG_0344.JPG" alt=""></p>
 <h2 id="setup-the-host-operating-system">Setup the host operating system</h2>
 <p>Moved the dongle to the third node of the cluster. Check it is present</p>
 <pre tabindex="0"><code>lsusb
@@ -107,7 +116,7 @@ mkdir -p /opt/openhab/userdata
 
 ## Download and Start OpenHAB
 
-Let's download the OpenHAB image
+Let&#39;s download the OpenHAB image
 
 ~~~
 docker pull openhab/openhab:2.3.0-armhf-debian
@@ -126,24 +135,24 @@ docker run -d
            -v /opt/openhab/addons:/openhab/addons \
            -v /opt/openhab/conf:/openhab/conf \
            -v /opt/openhab/userdata:/openhab/userdata \
-           -e EXTRA_JAVA_OPTS='-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSB0:/dev/ttyUSB1'  \
+           -e EXTRA_JAVA_OPTS=&#39;-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSB0:/dev/ttyUSB1&#39;  \
            --device=/dev/ttyUSB0  \
            --device=/dev/ttyUSB1 \
            openhab/openhab:2.3.0-armhf-debian
 ~~~
 
-Run docker ps. Notice that we don't use Kubernetes infrastructure yet for OpenHAB
+Run docker ps. Notice that we don&#39;t use Kubernetes infrastructure yet for OpenHAB
 ~~~
 docker ps
 
 CONTAINER ID        IMAGE                                 COMMAND                  CREATED             STATUS              PORTS               NAMES
-480d13667da3        openhab/openhab:2.3.0-armhf-debian    &quot;/entrypoint.sh gosu…&quot;   9 hours ago         Up 9 hours                              openhab
-bd8761c6d40a        k8s.gcr.io/kubernetes-dashboard-arm   &quot;/dashboard --insecu…&quot;   39 hours ago        Up 39 hours                             k8s_kubernetes-dashboard_kubernetes-dashboard-7d59788d44-x48qg_kube-system_b00d030f-80c6-11e8-acaf-b827ebd5ad4c_0
-9be093b170b6        k8s.gcr.io/pause:3.1                  &quot;/pause&quot;                 39 hours ago        Up 39 hours                             k8s_POD_kubernetes-dashboard-7d59788d44-x48qg_kube-system_b00d030f-80c6-11e8-acaf-b827ebd5ad4c_0
-b0ae3ae6ab1e        184e05022e7f                          &quot;/opt/bin/flanneld -…&quot;   40 hours ago        Up 40 hours                             k8s_kube-flannel_kube-flannel-ds-bhllh_kube-system_3a299b93-80bd-11e8-acaf-b827ebd5ad4c_2
-dfb84f0a4fc0        k8s.gcr.io/kube-proxy-arm             &quot;/usr/local/bin/kube…&quot;   40 hours ago        Up 40 hours                             k8s_kube-proxy_kube-proxy-6r5mn_kube-system_3a2ac36a-80bd-11e8-acaf-b827ebd5ad4c_0
-b19805b62389        k8s.gcr.io/pause:3.1                  &quot;/pause&quot;                 40 hours ago        Up 40 hours                             k8s_POD_kube-flannel-ds-bhllh_kube-system_3a299b93-80bd-11e8-acaf-b827ebd5ad4c_0
-6f633a4fca9b        k8s.gcr.io/pause:3.1                  &quot;/pause&quot;                 40 hours ago        Up 40 hours                             k8s_POD_kube-proxy-6r5mn_kube-system_3a2ac36a-80bd-11e8-acaf-b827ebd5ad4c_0
+480d13667da3        openhab/openhab:2.3.0-armhf-debian    &#34;/entrypoint.sh gosu…&#34;   9 hours ago         Up 9 hours                              openhab
+bd8761c6d40a        k8s.gcr.io/kubernetes-dashboard-arm   &#34;/dashboard --insecu…&#34;   39 hours ago        Up 39 hours                             k8s_kubernetes-dashboard_kubernetes-dashboard-7d59788d44-x48qg_kube-system_b00d030f-80c6-11e8-acaf-b827ebd5ad4c_0
+9be093b170b6        k8s.gcr.io/pause:3.1                  &#34;/pause&#34;                 39 hours ago        Up 39 hours                             k8s_POD_kubernetes-dashboard-7d59788d44-x48qg_kube-system_b00d030f-80c6-11e8-acaf-b827ebd5ad4c_0
+b0ae3ae6ab1e        184e05022e7f                          &#34;/opt/bin/flanneld -…&#34;   40 hours ago        Up 40 hours                             k8s_kube-flannel_kube-flannel-ds-bhllh_kube-system_3a299b93-80bd-11e8-acaf-b827ebd5ad4c_2
+dfb84f0a4fc0        k8s.gcr.io/kube-proxy-arm             &#34;/usr/local/bin/kube…&#34;   40 hours ago        Up 40 hours                             k8s_kube-proxy_kube-proxy-6r5mn_kube-system_3a2ac36a-80bd-11e8-acaf-b827ebd5ad4c_0
+b19805b62389        k8s.gcr.io/pause:3.1                  &#34;/pause&#34;                 40 hours ago        Up 40 hours                             k8s_POD_kube-flannel-ds-bhllh_kube-system_3a299b93-80bd-11e8-acaf-b827ebd5ad4c_0
+6f633a4fca9b        k8s.gcr.io/pause:3.1                  &#34;/pause&#34;                 40 hours ago        Up 40 hours                             k8s_POD_kube-proxy-6r5mn_kube-system_3a2ac36a-80bd-11e8-acaf-b827ebd5ad4c_0
 ~~~
 
 Get into the container. Notice there is no `nano` nor `vi` commands
@@ -184,72 +193,72 @@ sudo docker logs openhab
 ++ echo false
 + interactive=false
 + set -euo pipefail
-+ IFS='
- '
-+ '[' limited = unlimited ']'
++ IFS=&#39;
+ &#39;
++ &#39;[&#39; limited = unlimited &#39;]&#39;
 + rm -f /openhab/runtime/instances/instance.properties
 + rm -f /openhab/userdata/tmp/instances/instance.properties
 + NEW_USER_ID=9001
 + NEW_GROUP_ID=9001
 Starting with openhab user id: 9001 and group id: 9001
-+ echo 'Starting with openhab user id: 9001 and group id: 9001'
++ echo &#39;Starting with openhab user id: 9001 and group id: 9001&#39;
 + id -u openhab
 Create group openhab with id 9001
-+ echo 'Create group openhab with id 9001'
++ echo &#39;Create group openhab with id 9001&#39;
 + groupadd -g 9001 openhab
-+ echo 'Create user openhab with id 9001'
-+ adduser -u 9001 --disabled-password --gecos '' --home /openhab --gid 9001 openhab
++ echo &#39;Create user openhab with id 9001&#39;
++ adduser -u 9001 --disabled-password --gecos &#39;&#39; --home /openhab --gid 9001 openhab
 Create user openhab with id 9001
 Warning: The home dir /openhab you specified already exists.
-Adding user `openhab' ...
-Adding new user `openhab' (9001) with group `openhab' ...
-adduser: Warning: The home directory `/openhab' does not belong to the user you are currently creating.
-The home directory `/openhab' already exists.  Not copying from `/etc/skel'.
+Adding user `openhab&#39; ...
+Adding new user `openhab&#39; (9001) with group `openhab&#39; ...
+adduser: Warning: The home directory `/openhab&#39; does not belong to the user you are currently creating.
+The home directory `/openhab&#39; already exists.  Not copying from `/etc/skel&#39;.
 + groupadd -g 14 uucp2
 + groupadd -g 16 dialout2
 + groupadd -g 18 dialout3
 + groupadd -g 32 uucp3
 + groupadd -g 997 gpio
 + adduser openhab dialout
-Adding user `openhab' to group `dialout' ...
+Adding user `openhab&#39; to group `dialout&#39; ...
 Adding user openhab to group dialout
 Done.
 + adduser openhab uucp
-Adding user `openhab' to group `uucp' ...
+Adding user `openhab&#39; to group `uucp&#39; ...
 Adding user openhab to group uucp
 Done.
 + adduser openhab uucp2
-Adding user `openhab' to group `uucp2' ...
+Adding user `openhab&#39; to group `uucp2&#39; ...
 Adding user openhab to group uucp2
 Done.
 + adduser openhab dialout2
-Adding user `openhab' to group `dialout2' ...
+Adding user `openhab&#39; to group `dialout2&#39; ...
 Adding user openhab to group dialout2
 Done.
 + adduser openhab dialout3
-Adding user `openhab' to group `dialout3' ...
+Adding user `openhab&#39; to group `dialout3&#39; ...
 Adding user openhab to group dialout3
 Done.
 + adduser openhab uucp3
-Adding user `openhab' to group `uucp3' ...
+Adding user `openhab&#39; to group `uucp3&#39; ...
 Adding user openhab to group uucp3
 Done.
 + adduser openhab gpio
-Adding user `openhab' to group `gpio' ...
+Adding user `openhab&#39; to group `gpio&#39; ...
 Adding user openhab to group gpio
 Done.
 + case ${OPENHAB_VERSION} in
 ++ ls -A /openhab/userdata
-+ '[' -z 'cache
++ &#39;[&#39; -z &#39;cache
 config
 etc
 jsondb
 logs
-tmp' ']'
+tmp&#39; &#39;]&#39;
 ++ cmp /openhab/userdata/etc/version.properties /openhab/userdata.dist/etc/version.properties
-+ '[' '!' -z ']'
++ &#39;[&#39; &#39;!&#39; -z &#39;]&#39;
 ++ ls -A /openhab/conf
-+ '[' -z 'html
++ &#39;[&#39; -z &#39;html
 icons
 items
 persistence
@@ -259,12 +268,12 @@ services
 sitemaps
 sounds
 things
-transform' ']'
+transform&#39; &#39;]&#39;
 + chown -R openhab:openhab /openhab
-+ '[' false == false ']'
-++ IFS=' '
++ &#39;[&#39; false == false &#39;]&#39;
+++ IFS=&#39; &#39;
 ++ echo gosu openhab ./start.sh
-+ '[' 'gosu openhab ./start.sh' == 'gosu openhab ./start.sh' ']'
++ &#39;[&#39; &#39;gosu openhab ./start.sh&#39; == &#39;gosu openhab ./start.sh&#39; &#39;]&#39;
 + command=($@ server)
 + exec gosu openhab ./start.sh server
 Launching the openHAB runtime...
@@ -275,7 +284,7 @@ On the PI Host:
 tail -f /opt/openhab/userdata/logs/openhab.log
 
 2018-07-07 09:21:23.913 [INFO ] [er.internal.HomeBuilderDashboardTile] - Started Home Builder at /homebuilder
-2018-07-07 09:21:24.646 [INFO ] [.core.internal.i18n.I18nProviderImpl] - Location set to 'XX.XXXXXXX,-YY.YYYYYYY'.
+2018-07-07 09:21:24.646 [INFO ] [.core.internal.i18n.I18nProviderImpl] - Location set to &#39;XX.XXXXXXX,-YY.YYYYYYY&#39;.
 2018-07-07 09:21:25.889 [WARN ] [g.eclipse.smarthome.core.net.NetUtil] - Found multiple local interfaces - ignoring 169.254.43.59
 2018-07-07 09:21:25.895 [WARN ] [g.eclipse.smarthome.core.net.NetUtil] - Found multiple local interfaces - ignoring 10.244.2.1
 2018-07-07 09:21:25.900 [WARN ] [g.eclipse.smarthome.core.net.NetUtil] - Found multiple local interfaces - ignoring 169.254.185.58
@@ -287,7 +296,7 @@ tail -f /opt/openhab/userdata/logs/openhab.log
 2018-07-07 09:21:40.819 [INFO ] [basic.internal.servlet.WebAppServlet] - Started Basic UI at /basicui/app
 2018-07-07 09:21:41.230 [INFO ] [arthome.ui.paper.internal.PaperUIApp] - Started Paper UI at /paperui
 2018-07-07 09:21:41.397 [INFO ] [panel.internal.HABPanelDashboardTile] - Started HABPanel at /habpanel
-2018-07-07 09:24:33.432 [INFO ] [ing.zwave.handler.ZWaveSerialHandler] - Connecting to serial port '/dev/ttyUSB0'
+2018-07-07 09:24:33.432 [INFO ] [ing.zwave.handler.ZWaveSerialHandler] - Connecting to serial port &#39;/dev/ttyUSB0&#39;
 2018-07-07 09:24:33.468 [INFO ] [ing.zwave.handler.ZWaveSerialHandler] - Serial port is initialized
 2018-07-07 09:24:33.483 [INFO ] [mmandclass.ZWaveSecurityCommandClass] - Update networkKey
 2018-07-07 09:24:33.510 [INFO ] [ve.internal.protocol.ZWaveController] - Starting ZWave controller
@@ -301,7 +310,7 @@ tail -f /opt/openhab/userdata/logs/openhab.log
 2018-07-07 09:26:49.467 [INFO ] [mmandclass.ZWaveSecurityCommandClass] - Update networkKey
 2018-07-07 09:26:49.503 [WARN ] [age.RequestNetworkUpdateMessageClass] - RequestNetworkUpdate not placed on stack.
 2018-07-07 09:26:52.505 [INFO ] [ing.zwave.handler.ZWaveSerialHandler] - Stopped ZWave serial handler
-2018-07-07 09:26:52.567 [INFO ] [ing.zwave.handler.ZWaveSerialHandler] - Connecting to serial port '/dev/ttyUSB0'
+2018-07-07 09:26:52.567 [INFO ] [ing.zwave.handler.ZWaveSerialHandler] - Connecting to serial port &#39;/dev/ttyUSB0&#39;
 2018-07-07 09:26:52.584 [INFO ] [ing.zwave.handler.ZWaveSerialHandler] - Serial port is initialized
 2018-07-07 09:26:52.589 [INFO ] [mmandclass.ZWaveSecurityCommandClass] - Update networkKey
 2018-07-07 09:26:52.593 [INFO ] [ve.internal.protocol.ZWaveController] - Starting ZWave controller
@@ -382,7 +391,7 @@ ExecStart=/usr/bin/docker run --name=%n --net=host --tty \
   -v /opt/openhab/.java:/openhab/.java \
   --device=/dev/ttyUSB0 \
   --device=/dev/ttyUSB1 \
-  -e EXTRA_JAVA_OPTS='-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSB0:/dev/ttyUSB1' \
+  -e EXTRA_JAVA_OPTS=&#39;-Dgnu.io.rxtx.SerialPorts=/dev/ttyUSB0:/dev/ttyUSB1&#39; \
   -e USER_ID=998 \
   -e GROUP_ID=998 \
   openhab/openhab:2.3.0-armhf-debian
@@ -420,9 +429,9 @@ Jul 07 20:22:23 nas-pi docker[17638]: \____/ .___/\___/_/ /_/_/ /_/_/  |_/_____/
 Jul 07 20:22:23 nas-pi docker[17638]:     /_/                        2.3.0
 Jul 07 20:22:23 nas-pi docker[17638]:                                Release Build
 Jul 07 20:22:23 nas-pi docker[17638]: [2B blob data]
-Jul 07 20:22:23 nas-pi docker[17638]: Hit '&lt;tab&gt;' for a list of available commands
-Jul 07 20:22:23 nas-pi docker[17638]: and '[cmd] --help' for help on a specific command.
-Jul 07 20:22:23 nas-pi docker[17638]: Hit '&lt;ctrl-d&gt;' or type 'system:shutdown' or 'logout' to shutdown openHAB.
+Jul 07 20:22:23 nas-pi docker[17638]: Hit &#39;&lt;tab&gt;&#39; for a list of available commands
+Jul 07 20:22:23 nas-pi docker[17638]: and &#39;[cmd] --help&#39; for help on a specific command.
+Jul 07 20:22:23 nas-pi docker[17638]: Hit &#39;&lt;ctrl-d&gt;&#39; or type &#39;system:shutdown&#39; or &#39;logout&#39; to shutdown openHAB.
 Jul 07 20:22:23 nas-pi docker[17638]: [1B blob data]
 ~~~
 
@@ -433,7 +442,7 @@ To check the system, reboot the PI and log back in
 ~~~
 sudo docker ps | grep openhab
 
-d45de7379859        openhab/openhab:2.3.0-armhf-debian   &quot;/entrypoint.sh gosu…&quot;   3 minutes ago        Up 2 minutes                            openhab2.service
+d45de7379859        openhab/openhab:2.3.0-armhf-debian   &#34;/entrypoint.sh gosu…&#34;   3 minutes ago        Up 2 minutes                            openhab2.service
 ~~~
 
 ~~~
@@ -444,73 +453,73 @@ Jul 07 20:36:11 nas-pi docker[828]: ++ test -t 0
 Jul 07 20:36:11 nas-pi docker[828]: ++ echo true
 Jul 07 20:36:11 nas-pi docker[828]: + interactive=true
 Jul 07 20:36:11 nas-pi docker[828]: + set -euo pipefail
-Jul 07 20:36:11 nas-pi docker[828]: + IFS='
-Jul 07 20:36:11 nas-pi docker[828]:         '
-Jul 07 20:36:11 nas-pi docker[828]: + '[' limited = unlimited ']'
+Jul 07 20:36:11 nas-pi docker[828]: + IFS=&#39;
+Jul 07 20:36:11 nas-pi docker[828]:         &#39;
+Jul 07 20:36:11 nas-pi docker[828]: + &#39;[&#39; limited = unlimited &#39;]&#39;
 Jul 07 20:36:11 nas-pi docker[828]: + rm -f /openhab/runtime/instances/instance.properties
 Jul 07 20:36:11 nas-pi docker[828]: + rm -f /openhab/userdata/tmp/instances/instance.properties
 Jul 07 20:36:11 nas-pi docker[828]: + NEW_USER_ID=998
 Jul 07 20:36:11 nas-pi docker[828]: + NEW_GROUP_ID=998
-Jul 07 20:36:11 nas-pi docker[828]: + echo 'Starting with openhab user id: 998 and group id: 998'
+Jul 07 20:36:11 nas-pi docker[828]: + echo &#39;Starting with openhab user id: 998 and group id: 998&#39;
 Jul 07 20:36:11 nas-pi docker[828]: Starting with openhab user id: 998 and group id: 998
 Jul 07 20:36:11 nas-pi docker[828]: + id -u openhab
-Jul 07 20:36:12 nas-pi docker[828]: + echo 'Create group openhab with id 998'
+Jul 07 20:36:12 nas-pi docker[828]: + echo &#39;Create group openhab with id 998&#39;
 Jul 07 20:36:12 nas-pi docker[828]: Create group openhab with id 998
 Jul 07 20:36:12 nas-pi docker[828]: + groupadd -g 998 openhab
-Jul 07 20:36:12 nas-pi docker[828]: + echo 'Create user openhab with id 998'
+Jul 07 20:36:12 nas-pi docker[828]: + echo &#39;Create user openhab with id 998&#39;
 Jul 07 20:36:12 nas-pi docker[828]: Create user openhab with id 998
-Jul 07 20:36:12 nas-pi docker[828]: + adduser -u 998 --disabled-password --gecos '' --home /openhab --gid 998 openhab
+Jul 07 20:36:12 nas-pi docker[828]: + adduser -u 998 --disabled-password --gecos &#39;&#39; --home /openhab --gid 998 openhab
 Jul 07 20:36:13 nas-pi docker[828]: Warning: The home dir /openhab you specified already exists.
-Jul 07 20:36:13 nas-pi docker[828]: Adding user `openhab' ...
-Jul 07 20:36:13 nas-pi docker[828]: Adding new user `openhab' (998) with group `openhab' ...
-Jul 07 20:36:14 nas-pi docker[828]: The home directory `/openhab' already exists.  Not copying from `/etc/skel'.
-Jul 07 20:36:14 nas-pi docker[828]: adduser: Warning: The home directory `/openhab' does not belong to the user you are currently creating.
+Jul 07 20:36:13 nas-pi docker[828]: Adding user `openhab&#39; ...
+Jul 07 20:36:13 nas-pi docker[828]: Adding new user `openhab&#39; (998) with group `openhab&#39; ...
+Jul 07 20:36:14 nas-pi docker[828]: The home directory `/openhab&#39; already exists.  Not copying from `/etc/skel&#39;.
+Jul 07 20:36:14 nas-pi docker[828]: adduser: Warning: The home directory `/openhab&#39; does not belong to the user you are currently creating.
 Jul 07 20:36:14 nas-pi docker[828]: + groupadd -g 14 uucp2
 Jul 07 20:36:14 nas-pi docker[828]: + groupadd -g 16 dialout2
 Jul 07 20:36:15 nas-pi docker[828]: + groupadd -g 18 dialout3
 Jul 07 20:36:15 nas-pi docker[828]: + groupadd -g 32 uucp3
 Jul 07 20:36:15 nas-pi docker[828]: + groupadd -g 997 gpio
 Jul 07 20:36:15 nas-pi docker[828]: + adduser openhab dialout
-Jul 07 20:36:16 nas-pi docker[828]: Adding user `openhab' to group `dialout' ...
+Jul 07 20:36:16 nas-pi docker[828]: Adding user `openhab&#39; to group `dialout&#39; ...
 Jul 07 20:36:16 nas-pi docker[828]: Adding user openhab to group dialout
 Jul 07 20:36:16 nas-pi docker[828]: Done.
 Jul 07 20:36:16 nas-pi docker[828]: + adduser openhab uucp
-Jul 07 20:36:16 nas-pi docker[828]: Adding user `openhab' to group `uucp' ...
+Jul 07 20:36:16 nas-pi docker[828]: Adding user `openhab&#39; to group `uucp&#39; ...
 Jul 07 20:36:16 nas-pi docker[828]: Adding user openhab to group uucp
 Jul 07 20:36:16 nas-pi docker[828]: Done.
 Jul 07 20:36:16 nas-pi docker[828]: + adduser openhab uucp2
-Jul 07 20:36:17 nas-pi docker[828]: Adding user `openhab' to group `uucp2' ...
+Jul 07 20:36:17 nas-pi docker[828]: Adding user `openhab&#39; to group `uucp2&#39; ...
 Jul 07 20:36:17 nas-pi docker[828]: Adding user openhab to group uucp2
 Jul 07 20:36:17 nas-pi docker[828]: Done.
 Jul 07 20:36:17 nas-pi docker[828]: + adduser openhab dialout2
-Jul 07 20:36:17 nas-pi docker[828]: Adding user `openhab' to group `dialout2' ...
+Jul 07 20:36:17 nas-pi docker[828]: Adding user `openhab&#39; to group `dialout2&#39; ...
 Jul 07 20:36:17 nas-pi docker[828]: Adding user openhab to group dialout2
 Jul 07 20:36:17 nas-pi docker[828]: Done.
 Jul 07 20:36:17 nas-pi docker[828]: + adduser openhab dialout3
-Jul 07 20:36:17 nas-pi docker[828]: Adding user `openhab' to group `dialout3' ...
+Jul 07 20:36:17 nas-pi docker[828]: Adding user `openhab&#39; to group `dialout3&#39; ...
 Jul 07 20:36:17 nas-pi docker[828]: Adding user openhab to group dialout3
 Jul 07 20:36:17 nas-pi docker[828]: Done.
 Jul 07 20:36:17 nas-pi docker[828]: + adduser openhab uucp3
-Jul 07 20:36:18 nas-pi docker[828]: Adding user `openhab' to group `uucp3' ...
+Jul 07 20:36:18 nas-pi docker[828]: Adding user `openhab&#39; to group `uucp3&#39; ...
 Jul 07 20:36:18 nas-pi docker[828]: Adding user openhab to group uucp3
 Jul 07 20:36:18 nas-pi docker[828]: Done.
 Jul 07 20:36:18 nas-pi docker[828]: + adduser openhab gpio
-Jul 07 20:36:18 nas-pi docker[828]: Adding user `openhab' to group `gpio' ...
+Jul 07 20:36:18 nas-pi docker[828]: Adding user `openhab&#39; to group `gpio&#39; ...
 Jul 07 20:36:18 nas-pi docker[828]: Adding user openhab to group gpio
 Jul 07 20:36:18 nas-pi docker[828]: Done.
 Jul 07 20:36:18 nas-pi docker[828]: + case ${OPENHAB_VERSION} in
 Jul 07 20:36:18 nas-pi docker[828]: ++ ls -A /openhab/userdata
-Jul 07 20:36:18 nas-pi docker[828]: + '[' -z 'cache
+Jul 07 20:36:18 nas-pi docker[828]: + &#39;[&#39; -z &#39;cache
 Jul 07 20:36:18 nas-pi docker[828]: config
 Jul 07 20:36:18 nas-pi docker[828]: etc
 Jul 07 20:36:18 nas-pi docker[828]: jsondb
 Jul 07 20:36:18 nas-pi docker[828]: logs
 Jul 07 20:36:18 nas-pi docker[828]: tmp
-Jul 07 20:36:18 nas-pi docker[828]: zwave' ']'
+Jul 07 20:36:18 nas-pi docker[828]: zwave&#39; &#39;]&#39;
 Jul 07 20:36:18 nas-pi docker[828]: ++ cmp /openhab/userdata/etc/version.properties /openhab/userdata.dist/etc/version.properties
-Jul 07 20:36:18 nas-pi docker[828]: + '[' '!' -z ']'
+Jul 07 20:36:18 nas-pi docker[828]: + &#39;[&#39; &#39;!&#39; -z &#39;]&#39;
 Jul 07 20:36:18 nas-pi docker[828]: ++ ls -A /openhab/conf
-Jul 07 20:36:18 nas-pi docker[828]: + '[' -z 'html
+Jul 07 20:36:18 nas-pi docker[828]: + &#39;[&#39; -z &#39;html
 Jul 07 20:36:18 nas-pi docker[828]: icons
 Jul 07 20:36:18 nas-pi docker[828]: items
 Jul 07 20:36:18 nas-pi docker[828]: persistence
@@ -520,9 +529,9 @@ Jul 07 20:36:18 nas-pi docker[828]: services
 Jul 07 20:36:18 nas-pi docker[828]: sitemaps
 Jul 07 20:36:18 nas-pi docker[828]: sounds
 Jul 07 20:36:18 nas-pi docker[828]: things
-Jul 07 20:36:18 nas-pi docker[828]: transform' ']'
+Jul 07 20:36:18 nas-pi docker[828]: transform&#39; &#39;]&#39;
 Jul 07 20:36:18 nas-pi docker[828]: + chown -R openhab:openhab /openhab
-Jul 07 20:37:01 nas-pi docker[828]: + '[' true == false ']'
+Jul 07 20:37:01 nas-pi docker[828]: + &#39;[&#39; true == false &#39;]&#39;
 Jul 07 20:37:01 nas-pi docker[828]: + exec gosu openhab ./start.sh
 Jul 07 20:37:01 nas-pi docker[828]: Launching the openHAB runtime...
 Jul 07 20:37:17 nas-pi docker[828]: [2B blob data]
@@ -534,16 +543,16 @@ Jul 07 20:37:17 nas-pi docker[828]: \____/ .___/\___/_/ /_/_/ /_/_/  |_/_____/
 Jul 07 20:37:17 nas-pi docker[828]:     /_/                        2.3.0
 Jul 07 20:37:17 nas-pi docker[828]:                                Release Build
 Jul 07 20:37:17 nas-pi docker[828]: [2B blob data]
-Jul 07 20:37:17 nas-pi docker[828]: Hit '&lt;tab&gt;' for a list of available commands
-Jul 07 20:37:17 nas-pi docker[828]: and '[cmd] --help' for help on a specific command.
-Jul 07 20:37:17 nas-pi docker[828]: Hit '&lt;ctrl-d&gt;' or type 'system:shutdown' or 'logout' to shutdown openHAB.
+Jul 07 20:37:17 nas-pi docker[828]: Hit &#39;&lt;tab&gt;&#39; for a list of available commands
+Jul 07 20:37:17 nas-pi docker[828]: and &#39;[cmd] --help&#39; for help on a specific command.
+Jul 07 20:37:17 nas-pi docker[828]: Hit &#39;&lt;ctrl-d&gt;&#39; or type &#39;system:shutdown&#39; or &#39;logout&#39; to shutdown openHAB.
 Jul 07 20:37:17 nas-pi docker[828]: [1B blob data]
 ~~~
 
 ## Conclusion
 
 - Installation could not proceed further without solving the ZWave SUC Controller aspect.
-- Not willing to break my Lowe's IRIS based network yet and wanted to used Raspberry PI as a SUC Controller (see other post)
+- Not willing to break my Lowe&#39;s IRIS based network yet and wanted to used Raspberry PI as a SUC Controller (see other post)
 - Also need to understand how to create persistency volume in Kubernetes in the PI Cluster (see other post)
 - Will be able to remove the dedicated the systemctl services since Kubernetes will control thoses.
 
@@ -552,136 +561,18 @@ Jul 07 20:37:17 nas-pi docker[828]: [1B blob data]
 - [Link1](https://community.openhab.org/t/running-openhab-2-in-docker/14267)
 - [Link2](https://docs.openhab.org/installation/docker.html)
 - [GitHUB associated repo](https://github.com/jbrette/openhab-helm)
-
 </code></pre><div class="edit-meta">
 Last updated on 5 Jul 2018
 
 
 <br>
 Published on 5 Jul 2018
-<br><a href="https://github.com/jbrette/blog/edit/master/iot/2018-07-05-a.md" class="edit-page"><i class="fas fa-pen-square"></i>&nbsp;Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/iot/2018-07-06-a/" title="ZWave/ZigBee"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - ZWave/ZigBee</a>
+<br></div><nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/iot/2018-07-06-a/" title="ZWave/ZigBee"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - ZWave/ZigBee</a>
 <a class="nav nav-next" href="https://jbrette.github.io/iot/2018-07-04-a/" title="HomeAssistant">Next - HomeAssistant <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main>
 <div class="sidebar">
-
-<nav class="slide-menu">
-<ul>
-<li class=""><a href="https://jbrette.github.io/">Home</a></li>
-
-<li class=" has-sub-menu"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML<span class="mark closed">+</span></a>
-  
-<ul class="sub-menu">
-<li class=""><a href="https://jbrette.github.io/ai_ml/2018-07-19-a/">Kubeflow</a></li>
-</ul>
-  
-</li>
-
-<li class="parent has-sub-menu"><a href="https://jbrette.github.io/iot/">IOT<span class="mark opened">-</span></a>
-  
-<ul class="sub-menu">
-<li class=""><a href="https://jbrette.github.io/iot/2018-07-06-a/">ZWave/ZigBee</a></li>
-<li class="active"><a href="https://jbrette.github.io/iot/2018-07-05-a/">OpenHAB</a></li>
-<li class=""><a href="https://jbrette.github.io/iot/2018-07-04-a/">HomeAssistant</a></li>
-</ul>
-  
-</li>
-
-<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/">Kubernetes<span class="mark closed">+</span></a>
-  
-<ul class="sub-menu">
-
-<li class=""><a href="https://jbrette.github.io/kubernetes/operators/">Kubernetes Operators</a>
-  
-</li>
-
-<li class=""><a href="https://jbrette.github.io/kubernetes/kustomize/">Kustomize</a>
-  
-</li>
-
-<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/devops/">DEVOPS<span class="mark closed">+</span></a>
-  
-<ul class="sub-menu">
-<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-07-11-a/">Use github repo as helm chart repository</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-25-a/">Setup github/gerrit behind a corporate http proxy</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-24-a/">docker.io versus docker-ce</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-23-a/">Setup multiple GitHub account on a single machine</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/devops/2018-06-22-a/">Setup your GOLANG environment</a></li>
-</ul>
-  
-</li>
-
-<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/rpi/">RASPBERRY PI<span class="mark closed">+</span></a>
-  
-<ul class="sub-menu">
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-09-28-a/">Upgrade RPI Kubernetes cluster to 1.12</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-28-a/">Deploy Cassandra on Raspberry-PI 3</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-17-a/">Rebuild Calico for AMD64 ad ARM32V7</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-16-a/">Rebuild Hyperkube images</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-15-a/">Recompile Kubernetes components for Raspberry PI</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-14-a/">Deploy Flannel in Raspberry PI cluster</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-13-a/">Deploy Helm and Tiller on Rasberry PI Cluster</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-12-a/">Enable docker remote API</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-08-a/">Add Persistency Volume to PI Clusters</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-07-a/">Using Ansible to manage Raspberry PI cluster</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-07-03-a/">Creating a Raspberry 3 B&#43; Kubernetes Cluster</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-20-a/">Create a Rapsberry PI Rescue Dongle</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/rpi/2018-06-19-a/">Add Raspberry PI node to Kubernetes Cluster in 10 min</a></li>
-</ul>
-  
-</li>
-
-<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/sdk/">SDK<span class="mark closed">+</span></a>
-  
-<ul class="sub-menu">
-<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-30-a/">Update Kubernetes to 1.11 on Ubuntu</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-27-a/">Manual Update of CoreOS</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/sdk/2018-06-21-a/">Setup SingleNode Kubernetes Cluster using kubeadm</a></li>
-</ul>
-  
-</li>
-
-<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/apps/">APPS<span class="mark closed">+</span></a>
-  
-<ul class="sub-menu">
-<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-07-01-a/">Creating simple Python server container</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-29-a/">Creating simple GO server container</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/apps/2018-06-28-a/">Creating simple Java 10 server container</a></li>
-</ul>
-  
-</li>
-
-<li class=" has-sub-menu"><a href="https://jbrette.github.io/kubernetes/misc/">MISC<span class="mark closed">+</span></a>
-  
-<ul class="sub-menu">
-<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-08-01-a/">Build and Deploy Kubernetes Hashicorp Vault</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-31-a/">Build and Deploy Kubernetes Istio</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-30-a/">Build and Deploy Kubernetes test-infra</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-29-a/">Build and Deploy Kubernetes Kustomize</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-18-a/">Compile and Test Portieris</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-07-02-a/">Compile and Test SONOBUOY</a></li>
-<li class=""><a href="https://jbrette.github.io/kubernetes/misc/2018-06-26-a/">Zuul</a></li>
-</ul>
-  
-</li>
-</ul>
-  
-</li>
-
-
-
-
-
-
-
-
-
-
-</ul>
-</nav>
-
-
 
 <div class="sidebar-footer"></div>
 </div>

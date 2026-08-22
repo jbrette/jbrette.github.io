@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Agentic - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="GenAI and agentic AI as a cross-cutting method-revolution over infrastructure, operations, and the software lifecycle — LLMs, RAG, tool-using agents, world models.">
+<meta name="generator" content="Hugo 0.165.0">
+<link href="https://jbrette.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/agentic/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="https://jbrette.github.io/agentic/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Agentic">
+	<meta property="og:description" content="GenAI and agentic AI as a cross-cutting method-revolution over infrastructure, operations, and the software lifecycle — LLMs, RAG, tool-using agents, world models.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Agentic">
+	<meta name="twitter:description" content="GenAI and agentic AI as a cross-cutting method-revolution over infrastructure, operations, and the software lifecycle — LLMs, RAG, tool-using agents, world models.">
+			<meta name="twitter:site" content="@example">
+
+	<meta itemprop="name" content="Agentic">
+	<meta itemprop="description" content="GenAI and agentic AI as a cross-cutting method-revolution over infrastructure, operations, and the software lifecycle — LLMs, RAG, tool-using agents, world models.">
+	<meta itemprop="datePublished" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="wordCount" content="625"><style>
+ 
+.global-menu ul.sub-menu ul.sub-menu {
+  top: 0;
+  left: 100%;
+}
+ 
+@media screen and (max-width: 480px) {
+  .global-menu ul.sub-menu ul.sub-menu {
+    left: 0;
+  }
+  .global-menu ul.sub-menu ul.sub-menu li {
+    padding-left: 1.2rem;
+  }
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul><li id="fa fa-home" class=""><a href="https://jbrette.github.io/">Home</a></li><li id="fas fa-robot" class=""><a href="https://jbrette.github.io/agentic/">Agentic</a></li><li id="fas fa-server" class=""><a href="https://jbrette.github.io/infra/">Infrastructure</a></li><li id="fas fa-sync" class=""><a href="https://jbrette.github.io/ops/">Operations</a></li><li id="fas fa-code-branch" class=""><a href="https://jbrette.github.io/sdlc/">SDLC</a></li><li id="medium" class=""><a href="https://medium.com/@jbrette">Medium</a></li><li id="linkedin" class=""><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li><li id="myorgs" class="parent"><a href="">My Orgs<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="org-auletes" class="child"><a href="https://auletes.github.io/">Auletes</a></li><li id="org-cloudison" class="child"><a href="https://cloudison.github.io/">Cloudison</a></li><li id="org-edgenetwork" class="child"><a href="https://edgenetwork.github.io/">Edgenetwork</a></li><li id="org-keleustes" class="child"><a href="https://keleustes.github.io/">Keleustes</a></li><li id="org-kubedge" class="child"><a href="https://kubedge.github.io/">Kubedge</a></li><li id="org-kubefwk" class="child"><a href="https://kubefwk.github.io/">Kubefwk</a></li><li id="org-kubekit99" class="child"><a href="https://kubekit99.github.io/">Kubekit99</a></li><li id="org-kubepnp" class="child"><a href="https://kubepnp.github.io/">Kubepnp</a></li><li id="org-lichtpunkt" class="child"><a href="https://lichtpunkt.github.io/">Lichtpunkt</a></li><li id="org-lightreader" class="child"><a href="https://lightreader.github.io/">Lightreader</a></li><li id="org-prorates" class="child"><a href="https://prorates.github.io/">Prorates</a></li><li id="misc" class="parent child"><a href="">Misc<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="sec-iot" class="child"><a href="https://jbrette.github.io/iot/">IoT</a></li><li id="sec-ai-ml" class="child"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML</a></li><li id="sec-blockchain" class="child"><a href="https://jbrette.github.io/blockchain/">BlockChain</a></li><li id="sec-other" class="child"><a href="https://jbrette.github.io/misc/">Other</a></li></ul>
+</li></ul>
+</li><li id="fa fa-list" class=""><a href="https://jbrette.github.io/tags/">Tags</a></li><li id="fa fa-id-card-o" class=""><a href="https://jbrette.github.io/about/">About</a></li></ul>
+</nav>
+</div><div class="content-container">
+<main><h1>Agentic</h1><p><strong>GenAI, LLMs, RAG, and autonomous agents as the cross-cutting method-revolution
+that multiplies infrastructure, operations, and the software lifecycle.</strong></p>
+<p>This is the newest axis, and the one that behaves differently from the other
+three. It is not a fourth sibling to <a href="https://jbrette.github.io/infra/">infrastructure</a>,
+<a href="https://jbrette.github.io/ops/">operations</a>, and <a href="https://jbrette.github.io/sdlc/">SDLC</a> — it is a method-revolution applied
+<em>across</em> all three. It changes the way the work is done, adding velocity and
+autonomy; it does not change the fundamentals underneath.</p>
+<p>At its core it is hands-on engineering of the model-and-agent machinery: frontier
+and open LLMs and their internals (transformers, mixture-of-experts, diffusion),
+RAG grounding over private knowledge, composition into autonomous tool-using
+agents (MCP, A2A, orchestration frameworks, coding-agent skills), and the
+physical-AI and world-model frontier (Omniverse, OpenUSD, computer vision).</p>
+<p>Unlike the other domains, this one is breadth rather than depth. It is measured in
+a handful of years, not decades — which is exactly why the durable disciplines
+from the other three are what keep it honest.</p>
+<h2 id="the-cross-cut">The cross-cut</h2>
+<p>The same fundamentals, at higher velocity and greater autonomy. What follows is
+the same revolution seen from each of the other three domains.</p>
+<h3 id="in-infrastructure">In infrastructure</h3>
+<p>An engineer designs and stress-tests hardware and network topology as a world
+model before any metal is racked. An accelerated-computing site — Blackwell,
+Grace, BlueField — and its GPU fabric are built inside an OpenUSD scene in NVIDIA
+Omniverse, so that a digital twin of the AI factory validates power, cooling, and
+cabling in simulation.</p>
+<p>The same agent then generates and validates the infrastructure-as-code that
+instantiates it: InfiniBand and Spectrum-X fabric configuration, RDMA and PKey
+setup, NCCL topology, Kubernetes GPU-scheduling manifests — checked against
+congestion and lossless-Ethernet constraints. This catches misconfigurations that
+once took a lab and several weeks to surface.</p>
+<h3 id="in-operations">In operations</h3>
+<p>An engineer investigates and triages incidents by pointing an LLM-backed agent at
+the logs, metrics, and traces flowing through OpenTelemetry and Prometheus,
+correlating telemetry into root-caused findings that previously took manual
+dashboard-spelunking. The fix is then driven through MCP servers that expose
+Ansible playbooks and Kubernetes control planes as callable tools, so remediation
+happens inside the same conversational loop — the pattern behind natural-language
+Day-2 fronts such as OpenShift Lightspeed.</p>
+<p>The net effect pushes the collect→correlate→remediate loop past human-in-the-loop
+dashboards and toward agentic remediation, where the agent both diagnoses and,
+under policy, closes the loop. This is the oldest control loop in
+<a href="https://jbrette.github.io/ops/">operations</a> finally getting the reasoning step it always implied.</p>
+<h3 id="in-software-development">In software development</h3>
+<p>An engineer drives the build-and-deliver loop through a coding agent — describing
+intent in natural language and letting the agent write and refactor code, generate
+tests and configuration as code, and run git itself to stage, branch, and commit —
+while supervising: prompting, reviewing diffs, steering across multi-step tasks.</p>
+<p>The durable discipline does not disappear. It inverts. Version control, CI/CD, and
+code review become the <strong>guardrail</strong> around agent-authored code: the deterministic
+gate that verifies what the non-deterministic agent produced, before it ships.
+That inversion is the single most important thing to understand about this domain
+— the old rigour is not obsolete, it is load-bearing in a new way.</p>
+<h2 id="why-the-other-three-still-matter">Why the other three still matter</h2>
+<p>An agent that generates fabric configuration is only as good as the constraints it
+is checked against, and those constraints come from
+<a href="https://jbrette.github.io/infra/">infrastructure</a>. An agent that closes a remediation loop is safe only
+inside the policy envelope that <a href="https://jbrette.github.io/ops/">operations</a> defines. An agent that writes
+code ships safely only through the gate that <a href="https://jbrette.github.io/sdlc/">SDLC</a> built.</p>
+<p>Agent failure, in practice, is control-loop failure. The discipline that makes
+agents useful is the discipline the other three domains have been accumulating for
+thirty years.</p>
+<hr>
+<p>Agentic transformation sits on top of the other three domains rather than beside
+them. Start with <a href="https://jbrette.github.io/infra/">infrastructure</a> for the substrate,
+<a href="https://jbrette.github.io/ops/">operations</a> for the loop, and <a href="https://jbrette.github.io/sdlc/">SDLC</a> for the gate.</p>
+<nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/" title="Jerome&#39;s Blog"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Jerome&#39;s Blog</a>
+<a class="nav nav-next" href="https://jbrette.github.io/infra/" title="Infrastructure">Next - Infrastructure <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><div class="edit-meta">
+Last updated on 20 Aug 2026
+
+
+<br>
+Published on 20 Aug 2026
+<br></div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

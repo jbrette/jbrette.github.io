@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Operations - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="Operating telco, cloud &amp; AI platforms end-to-end — build/run automation, GitOps, closed-loop AIOps, the MLOps model stack, and Day-2 lifecycle.">
+<meta name="generator" content="Hugo 0.165.0">
+<link href="https://jbrette.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/ops/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="https://jbrette.github.io/ops/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Operations">
+	<meta property="og:description" content="Operating telco, cloud &amp; AI platforms end-to-end — build/run automation, GitOps, closed-loop AIOps, the MLOps model stack, and Day-2 lifecycle.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Operations">
+	<meta name="twitter:description" content="Operating telco, cloud &amp; AI platforms end-to-end — build/run automation, GitOps, closed-loop AIOps, the MLOps model stack, and Day-2 lifecycle.">
+			<meta name="twitter:site" content="@example">
+
+	<meta itemprop="name" content="Operations">
+	<meta itemprop="description" content="Operating telco, cloud &amp; AI platforms end-to-end — build/run automation, GitOps, closed-loop AIOps, the MLOps model stack, and Day-2 lifecycle.">
+	<meta itemprop="datePublished" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="wordCount" content="963"><style>
+ 
+.global-menu ul.sub-menu ul.sub-menu {
+  top: 0;
+  left: 100%;
+}
+ 
+@media screen and (max-width: 480px) {
+  .global-menu ul.sub-menu ul.sub-menu {
+    left: 0;
+  }
+  .global-menu ul.sub-menu ul.sub-menu li {
+    padding-left: 1.2rem;
+  }
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul><li id="fa fa-home" class=""><a href="https://jbrette.github.io/">Home</a></li><li id="fas fa-robot" class=""><a href="https://jbrette.github.io/agentic/">Agentic</a></li><li id="fas fa-server" class=""><a href="https://jbrette.github.io/infra/">Infrastructure</a></li><li id="fas fa-sync" class=""><a href="https://jbrette.github.io/ops/">Operations</a></li><li id="fas fa-code-branch" class=""><a href="https://jbrette.github.io/sdlc/">SDLC</a></li><li id="medium" class=""><a href="https://medium.com/@jbrette">Medium</a></li><li id="linkedin" class=""><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li><li id="myorgs" class="parent"><a href="">My Orgs<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="org-auletes" class="child"><a href="https://auletes.github.io/">Auletes</a></li><li id="org-cloudison" class="child"><a href="https://cloudison.github.io/">Cloudison</a></li><li id="org-edgenetwork" class="child"><a href="https://edgenetwork.github.io/">Edgenetwork</a></li><li id="org-keleustes" class="child"><a href="https://keleustes.github.io/">Keleustes</a></li><li id="org-kubedge" class="child"><a href="https://kubedge.github.io/">Kubedge</a></li><li id="org-kubefwk" class="child"><a href="https://kubefwk.github.io/">Kubefwk</a></li><li id="org-kubekit99" class="child"><a href="https://kubekit99.github.io/">Kubekit99</a></li><li id="org-kubepnp" class="child"><a href="https://kubepnp.github.io/">Kubepnp</a></li><li id="org-lichtpunkt" class="child"><a href="https://lichtpunkt.github.io/">Lichtpunkt</a></li><li id="org-lightreader" class="child"><a href="https://lightreader.github.io/">Lightreader</a></li><li id="org-prorates" class="child"><a href="https://prorates.github.io/">Prorates</a></li><li id="misc" class="parent child"><a href="">Misc<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="sec-iot" class="child"><a href="https://jbrette.github.io/iot/">IoT</a></li><li id="sec-ai-ml" class="child"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML</a></li><li id="sec-blockchain" class="child"><a href="https://jbrette.github.io/blockchain/">BlockChain</a></li><li id="sec-other" class="child"><a href="https://jbrette.github.io/misc/">Other</a></li></ul>
+</li></ul>
+</li><li id="fa fa-list" class=""><a href="https://jbrette.github.io/tags/">Tags</a></li><li id="fa fa-id-card-o" class=""><a href="https://jbrette.github.io/about/">About</a></li></ul>
+</nav>
+</div><div class="content-container">
+<main><h1>Operations</h1><p><strong>Running the platform end-to-end — build and run automation, observability, and
+the closed loop of collect, correlate, remediate.</strong></p>
+<p>Operations is the domain of keeping things running: build/run automation,
+observability, the closed loop that turns telemetry into remediation, plus the
+MLOps model stack and the Day-2 lifecycle. It spans roughly twenty-five years, and
+its oldest discipline is still its core one. Model-driven network management and
+the collect→correlate→remediate loop, inherited from OSS/BSS and TMN, are exactly
+what AIOps is today — the vocabulary changed more than the problem did. As with
+the other domains, what follows leads with the newest work.</p>
+<h2 id="convergence">Convergence</h2>
+<p>Operating the platform now means running GPU-dense AI infrastructure as the
+default workload. That means standing up and scheduling clusters through control
+planes such as BCM, Slurm, and Kubernetes, sharpened by GPU-aware orchestration
+and fractional scheduling (Run:ai). It is inseparable from serving the models:
+inference stacks such as Triton, vLLM, and NIM, optimized down to TensorRT.</p>
+<p>Day-2 discipline has shifted from dashboards to declarative closed loops.
+Intent-based networking, Nephio, and O-RAN&rsquo;s O2 interface pushed GitOps-style
+reconciliation into the telecom edge, while fleet governance (Red Hat ACM) and
+self-healing controllers made <em>declare the desired state and let it converge</em> the
+de-facto operating model.</p>
+<p>Observability remains the non-negotiable substrate — metrics, logs, and traces
+feeding OpenTelemetry and Prometheus — but it increasingly feeds ML-driven
+operations, where anomaly detection, failure prediction, and digital-twin
+simulation mature the long-standing AIOps ambition of proactive, self-remediating
+systems. That is now fronted by LLM copilots such as OpenShift Lightspeed for
+natural-language Day-2 troubleshooting. Multi-tenancy is assumed as the baseline
+for sharing expensive infrastructure, while telecom operating frameworks (TM Forum
+eTOM and Open APIs) persist as standardizing scaffolding beneath the newer
+cloud-native automation.</p>
+<h2 id="transition-to-ai">Transition to AI</h2>
+<p>Operating the platform meant declaring it rather than touching it. The de-facto
+backbone became Git-driven, version-controlled infrastructure: infrastructure as
+code (Terraform, Pulumi, Crossplane) and GitOps reconciliation loops made the repo
+the single source of truth, while zero-touch provisioning pushed the same
+hands-off, first-boot automation down to switches and routers in the field.</p>
+<p>The hardest work carried that discipline into carrier-grade domains, where
+telco-cloud architecture demanded distributed multi-site footprints, deterministic
+low-latency networking, and hardware acceleration (SR-IOV, DPDK, SmartNICs) that
+ordinary IT clouds never had to solve. A parallel model stack matured fast: MLOps
+brought DevOps-style CI/CD, monitoring, and retraining to production models, with
+MLflow handling experiment tracking and registry-based promotion.</p>
+<h2 id="closed-loop-assurance">Closed-loop assurance</h2>
+<p>The platform ran as a closed-loop assurance engine. AIOps sat at the centre,
+applying machine learning over telemetry, logs, and alarm streams to collapse
+alert noise into root-caused incidents and drive automated remediation.</p>
+<p>In the telco domain this loop was concretized by ONAP: its DCAE analytics
+subsystem collected VNF and PNF events and threshold-crossings, then triggered
+policy-driven control across the OSS/BSS stack. Operating end-to-end meant wiring
+orchestration of the underlying services and containers into ServiceNow&rsquo;s ITSM
+workflows, so that detection, ticketing, and fulfillment moved as one — while
+longer-horizon work quietly retired legacy systems onto these modern platforms.</p>
+<h2 id="cloud-native-operations">Cloud-native operations</h2>
+<p>The platform was operated as Kubernetes-native declarative infrastructure. The
+centre of gravity was the operator pattern: CRDs, admission webhooks,
+reconciliation controllers, and operator frameworks (Operator SDK, Kubebuilder)
+that encode install, upgrade, and heal knowledge as code — extended to the
+clusters themselves through Cluster API and kubeadm.</p>
+<p>Delivery ran on GitOps and Kubernetes-native pipelines: Argo CD reconciling to
+Git, Helm and Kustomize for packaged manifests, Tekton for containerized builds,
+atop Ansible for agentless, idempotent configuration management. Run-time
+operations paired Prometheus-led observability with production incident
+management, distributed-systems debugging, and multi-tenant Day-2 support,
+closing the loop from metric to page to reconciled fix. On the telco edge, the same
+machinery carried the NFV MANO stack and its TOSCA descriptors, plus the
+ONAP/ECOMP orchestration lineage, into containerized clouds via OpenStack-Helm.
+MLOps and multi-cluster threads (Kubeflow, Anthos) were the early signals of where
+model-serving and fleet ops would head next.</p>
+<h2 id="distributed-systems">Distributed systems</h2>
+<p>Operating the platform meant the DevOps convergence of development and operations
+taking hold. Fleets were kept in a declared desired state by pull-based
+configuration management such as Puppet, while lifecycle management matured into
+automated onboarding, healing, upgrade, and scaling atop the emerging
+distributed-systems substrate.</p>
+<p>On the telecom side, day-to-day operation still ran through the TMN hierarchy,
+with vendor-specific EMS handling per-element fault, configuration, performance,
+and inventory beneath the NMS. Early self-driving ambitions surfaced as 3GPP SON —
+self-configuration, self-optimization, self-healing — alongside high-volume
+usage-data pipelines feeding billing and analytics.</p>
+<h2 id="network-modeling">Network modeling</h2>
+<p>Operating the network meant running it from a central console. A Network
+Management System collected alarms, performance metrics, and topology across
+vendor equipment so that operators could detect faults and provision devices
+end-to-end. This is the direct root of today&rsquo;s model-driven, telemetry-fed
+operations.</p>
+<p>Interoperability came from CORBA-era common information models, anchored by TM
+Forum&rsquo;s TMF-814 for multi-vendor optical and transport OSS integration, while
+carrier control extended to the data plane through traffic-policy management — the
+lineage that became PCRF and PCF.</p>
+<h2 id="control-loop">Control loop</h2>
+<p>The earliest roots trace to the OSS/BSS split: the foundational division between
+running the infrastructure (inventory, provisioning, fault and performance
+management) and monetizing the subscriber (billing, rating, CRM). That separation
+of concerns still shapes platform operations today.</p>
+<p>Managing the elements ran through two competing lineages: the heavyweight OSI/ITU-T
+TMN stack (CMIS and CMIP over the Q3 interface, modeling network elements as
+managed objects) and the lighter-weight IETF SNMP, whose agent and MIB
+poll-and-trap loop proved durable while the TMN stack faded. Even the first
+closed-loop automation appears here in embryonic form: declarative business-rules
+engines externalized operational decisions from application code, prefiguring the
+policy-driven, event-triggered control loops that later operations eras were built
+on.</p>
+<hr>
+<p>Operations runs on <a href="https://jbrette.github.io/infra/">infrastructure</a>, consumes what the <a href="https://jbrette.github.io/sdlc/">software
+lifecycle</a> delivers, and is where <a href="https://jbrette.github.io/agentic/">agentic transformation</a> is
+landing fastest — the collect→correlate→remediate loop is exactly the shape an
+agent fits into.</p>
+<nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/infra/" title="Infrastructure"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Infrastructure</a>
+<a class="nav nav-next" href="https://jbrette.github.io/sdlc/" title="SDLC">Next - SDLC <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><div class="edit-meta">
+Last updated on 20 Aug 2026
+
+
+<br>
+Published on 20 Aug 2026
+<br></div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

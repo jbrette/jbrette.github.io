@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>SDLC - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="Software development lifecycle for telco, cloud &amp; AI platforms — languages, VCS and CI/CD, testing, enterprise middleware, DevSecOps, and the AI/GPU model stack.">
+<meta name="generator" content="Hugo 0.165.0">
+<link href="https://jbrette.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/sdlc/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="https://jbrette.github.io/sdlc/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="SDLC">
+	<meta property="og:description" content="Software development lifecycle for telco, cloud &amp; AI platforms — languages, VCS and CI/CD, testing, enterprise middleware, DevSecOps, and the AI/GPU model stack.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="SDLC">
+	<meta name="twitter:description" content="Software development lifecycle for telco, cloud &amp; AI platforms — languages, VCS and CI/CD, testing, enterprise middleware, DevSecOps, and the AI/GPU model stack.">
+			<meta name="twitter:site" content="@example">
+
+	<meta itemprop="name" content="SDLC">
+	<meta itemprop="description" content="Software development lifecycle for telco, cloud &amp; AI platforms — languages, VCS and CI/CD, testing, enterprise middleware, DevSecOps, and the AI/GPU model stack.">
+	<meta itemprop="datePublished" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="wordCount" content="725"><style>
+ 
+.global-menu ul.sub-menu ul.sub-menu {
+  top: 0;
+  left: 100%;
+}
+ 
+@media screen and (max-width: 480px) {
+  .global-menu ul.sub-menu ul.sub-menu {
+    left: 0;
+  }
+  .global-menu ul.sub-menu ul.sub-menu li {
+    padding-left: 1.2rem;
+  }
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul><li id="fa fa-home" class=""><a href="https://jbrette.github.io/">Home</a></li><li id="fas fa-robot" class=""><a href="https://jbrette.github.io/agentic/">Agentic</a></li><li id="fas fa-server" class=""><a href="https://jbrette.github.io/infra/">Infrastructure</a></li><li id="fas fa-sync" class=""><a href="https://jbrette.github.io/ops/">Operations</a></li><li id="fas fa-code-branch" class=""><a href="https://jbrette.github.io/sdlc/">SDLC</a></li><li id="medium" class=""><a href="https://medium.com/@jbrette">Medium</a></li><li id="linkedin" class=""><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li><li id="myorgs" class="parent"><a href="">My Orgs<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="org-auletes" class="child"><a href="https://auletes.github.io/">Auletes</a></li><li id="org-cloudison" class="child"><a href="https://cloudison.github.io/">Cloudison</a></li><li id="org-edgenetwork" class="child"><a href="https://edgenetwork.github.io/">Edgenetwork</a></li><li id="org-keleustes" class="child"><a href="https://keleustes.github.io/">Keleustes</a></li><li id="org-kubedge" class="child"><a href="https://kubedge.github.io/">Kubedge</a></li><li id="org-kubefwk" class="child"><a href="https://kubefwk.github.io/">Kubefwk</a></li><li id="org-kubekit99" class="child"><a href="https://kubekit99.github.io/">Kubekit99</a></li><li id="org-kubepnp" class="child"><a href="https://kubepnp.github.io/">Kubepnp</a></li><li id="org-lichtpunkt" class="child"><a href="https://lichtpunkt.github.io/">Lichtpunkt</a></li><li id="org-lightreader" class="child"><a href="https://lightreader.github.io/">Lightreader</a></li><li id="org-prorates" class="child"><a href="https://prorates.github.io/">Prorates</a></li><li id="misc" class="parent child"><a href="">Misc<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="sec-iot" class="child"><a href="https://jbrette.github.io/iot/">IoT</a></li><li id="sec-ai-ml" class="child"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML</a></li><li id="sec-blockchain" class="child"><a href="https://jbrette.github.io/blockchain/">BlockChain</a></li><li id="sec-other" class="child"><a href="https://jbrette.github.io/misc/">Other</a></li></ul>
+</li></ul>
+</li><li id="fa fa-list" class=""><a href="https://jbrette.github.io/tags/">Tags</a></li><li id="fa fa-id-card-o" class=""><a href="https://jbrette.github.io/about/">About</a></li></ul>
+</nav>
+</div><div class="content-container">
+<main><h1>SDLC</h1><p><strong>Turning source into reliably delivered, integrated, and secured software — from
+C/C++ and enterprise Java to today&rsquo;s Python and AI/GPU model stack.</strong></p>
+<p>This is the build-and-deliver axis: anything software. Training a model counts
+too, because it still ships a deliverable. The domain spans more than thirty
+years, and its oldest skills — systems languages and middleware from the
+mid-nineties — are still part of it, because the build-and-deliver fundamentals do
+not age out. Centralized CVS and ClearCase matured into Git and CI/CD; enterprise
+Java gave way to the Python and AI stack. The tools rotate; the discipline does
+not. As with the other domains, what follows leads with the newest work.</p>
+<h2 id="convergence">Convergence</h2>
+<p>Software development has been reshaped by the convergence of general programming
+with AI and GPU-accelerated computing. The Hugging Face ecosystem anchors it — the
+Hub, Transformers, and Datasets as the de-facto substrate for building and
+fine-tuning models — alongside GPU-native training frameworks such as NVIDIA NeMo.</p>
+<p>The everyday craft is Python-centric and notebook-driven: Jupyter over pandas, and
+its GPU-accelerated cousin cuDF. Running in parallel is a reinforcement-learning
+stack — OpenAI Gym, Stable-Baselines3, PPO and SAC over the MDP formalism — whose
+PPO bridges directly into RLHF for language-model fine-tuning. Data engineering,
+deep learning, and sequential decision-making have fused into one GPU-accelerated,
+model-centric practice.</p>
+<h2 id="transition-to-ai">Transition to AI</h2>
+<p>DPUs and the DOCA framework marked the leading edge, extending the CUDA
+programming model to NVIDIA BlueField so that networking, storage, and security
+offloads could be programmed like accelerators.</p>
+<p>Model-building consolidated around PyTorch&rsquo;s define-by-run style and
+TensorFlow/Keras, both on GPU-accelerated autograd. Architectures split by data
+shape: CNNs for vision, RNNs and LSTMs for sequences, GANs for generative
+synthesis. Reinforcement learning began surfacing as the RLHF ingredient for
+aligning language models — even as transformers were already displacing the
+recurrent workhorses for NLP.</p>
+<h2 id="cloud-native-operations">Cloud-native operations</h2>
+<p>The workhorse languages bifurcated by layer. Python became the de-facto
+general-purpose tool for back-end services, scripting, automation, and the rising
+data-science and ML work. Go became the language the cloud-native substrate itself
+was written in — dependency-light static binaries and goroutine concurrency
+powering Kubernetes, Docker, and their operators. Delivery was organized around
+Scrum&rsquo;s fixed-length sprints.</p>
+<h2 id="distributed-systems">Distributed systems</h2>
+<p>Building for scale defined the era. Web functionality was exposed as REST APIs
+over HTTP and JSON, secured through delegated-auth standards (OAuth 2.0, OpenID
+Connect), and engineered for horizontal scaling, load balancing, sharding, and
+caching — with security increasingly integrated into the delivery pipeline rather
+than bolted on after it.</p>
+<p>Datasets outgrew the single machine, pushing work onto distributed big-data
+platforms such as Hadoop and Spark. All of it shipped under a de-facto Agile
+cadence with CI automation via Jenkins. The enterprise-Java and integration
+furniture of the day — Spring, Maven, rules engines, messaging middleware — framed
+the era but has since cooled into legacy context.</p>
+<h2 id="network-modeling">Network modeling</h2>
+<p>Development centred on the Java enterprise stack: multi-tier server-side systems
+on J2EE and Java EE in application servers such as JBoss, with EJB carrying
+transactional logic and Hibernate mapping objects to relational tables.</p>
+<p>System integration ran on XML and heavyweight, WSDL-contracted SOAP web services.
+That discipline seeded the durable habits of deliberate API design that are still
+relevant. On the front end, the browser was pushed toward desktop-grade rich UI
+through JSF, Flash/ActionScript, and applets, while AJAX quietly began updating
+pages without a full reload — the technique that later underwrote single-page
+apps. Most of these specifics are now obsolete, but they mark the enterprise-Java
+and XML-web-services world this era&rsquo;s software was written in.</p>
+<h2 id="control-loop">Control loop</h2>
+<p>The roots. Compiled systems languages — C and C++ for performance-critical and
+embedded work, with Java arriving as portable VM-hosted enterprise plumbing —
+talking to relational data through SQL and desktop tools such as Microsoft Access
+and Visual Basic.</p>
+<p>Distributed systems were wired together by CORBA and its IDL contracts, while
+carrier-grade network management leaned on the OSI/TMN stack: ASN.1, GDMO, and the
+XOM/XMP C APIs driving CMIP and CMIS over Q3. Source and builds were governed by
+centralized configuration management (CVS, enterprise ClearCase) under formal
+release discipline — the roots that the Git, web, and CI/CD-pipeline world would
+later mature into.</p>
+<hr>
+<p>The software lifecycle delivers onto <a href="https://jbrette.github.io/infra/">infrastructure</a>, hands what it
+builds to <a href="https://jbrette.github.io/ops/">operations</a>, and is where <a href="https://jbrette.github.io/agentic/">agentic
+transformation</a> has inverted the oldest discipline in this domain:
+version control, CI/CD, and code review are now the deterministic guardrail around
+non-deterministic, agent-authored code.</p>
+<nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/ops/" title="Operations"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Operations</a>
+<a class="nav nav-next" href="https://jbrette.github.io/post/" title="Post">Next - Post <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><div class="edit-meta">
+Last updated on 20 Aug 2026
+
+
+<br>
+Published on 20 Aug 2026
+<br></div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

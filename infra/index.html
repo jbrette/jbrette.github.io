@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Infrastructure - Jerome Brette&#39;s Blog</title>
+<meta name="description" content="The full infrastructure continuum — carrier telecom through telco-cloud to the GPU-powered AI data center.">
+<meta name="generator" content="Hugo 0.165.0">
+<link href="https://jbrette.github.io/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://jbrette.github.io/infra/">
+<link rel="stylesheet" href="https://jbrette.github.io/css/theme.min.css">
+<link rel="stylesheet" href="https://jbrette.github.io/css/chroma.min.css">
+<script defer src="https://jbrette.github.io/js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="https://jbrette.github.io/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="https://jbrette.github.io/infra/">
+	<meta property="og:site_name" content="Jerome Brette&#39;s Blog">
+	<meta property="og:title" content="Infrastructure">
+	<meta property="og:description" content="The full infrastructure continuum — carrier telecom through telco-cloud to the GPU-powered AI data center.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Infrastructure">
+	<meta name="twitter:description" content="The full infrastructure continuum — carrier telecom through telco-cloud to the GPU-powered AI data center.">
+			<meta name="twitter:site" content="@example">
+
+	<meta itemprop="name" content="Infrastructure">
+	<meta itemprop="description" content="The full infrastructure continuum — carrier telecom through telco-cloud to the GPU-powered AI data center.">
+	<meta itemprop="datePublished" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-08-20T00:00:00+00:00">
+	<meta itemprop="wordCount" content="982"><style>
+ 
+.global-menu ul.sub-menu ul.sub-menu {
+  top: 0;
+  left: 100%;
+}
+ 
+@media screen and (max-width: 480px) {
+  .global-menu ul.sub-menu ul.sub-menu {
+    left: 0;
+  }
+  .global-menu ul.sub-menu ul.sub-menu li {
+    padding-left: 1.2rem;
+  }
+}
+</style>
+</head>
+<body><div class="container"><header>
+<h1>Jerome Brette&#39;s Blog</h1>
+<p class="description">Jerome Brette&#39;s Blog</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul><li id="fa fa-home" class=""><a href="https://jbrette.github.io/">Home</a></li><li id="fas fa-robot" class=""><a href="https://jbrette.github.io/agentic/">Agentic</a></li><li id="fas fa-server" class=""><a href="https://jbrette.github.io/infra/">Infrastructure</a></li><li id="fas fa-sync" class=""><a href="https://jbrette.github.io/ops/">Operations</a></li><li id="fas fa-code-branch" class=""><a href="https://jbrette.github.io/sdlc/">SDLC</a></li><li id="medium" class=""><a href="https://medium.com/@jbrette">Medium</a></li><li id="linkedin" class=""><a href="https://www.linkedin.com/in/jerome-brette-109b8711/">LinkedIn</a></li><li id="myorgs" class="parent"><a href="">My Orgs<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="org-auletes" class="child"><a href="https://auletes.github.io/">Auletes</a></li><li id="org-cloudison" class="child"><a href="https://cloudison.github.io/">Cloudison</a></li><li id="org-edgenetwork" class="child"><a href="https://edgenetwork.github.io/">Edgenetwork</a></li><li id="org-keleustes" class="child"><a href="https://keleustes.github.io/">Keleustes</a></li><li id="org-kubedge" class="child"><a href="https://kubedge.github.io/">Kubedge</a></li><li id="org-kubefwk" class="child"><a href="https://kubefwk.github.io/">Kubefwk</a></li><li id="org-kubekit99" class="child"><a href="https://kubekit99.github.io/">Kubekit99</a></li><li id="org-kubepnp" class="child"><a href="https://kubepnp.github.io/">Kubepnp</a></li><li id="org-lichtpunkt" class="child"><a href="https://lichtpunkt.github.io/">Lichtpunkt</a></li><li id="org-lightreader" class="child"><a href="https://lightreader.github.io/">Lightreader</a></li><li id="org-prorates" class="child"><a href="https://prorates.github.io/">Prorates</a></li><li id="misc" class="parent child"><a href="">Misc<i class="fas fa-angle-right"></i></a>
+<ul class="sub-menu"><li id="sec-iot" class="child"><a href="https://jbrette.github.io/iot/">IoT</a></li><li id="sec-ai-ml" class="child"><a href="https://jbrette.github.io/ai_ml/">AI &amp; ML</a></li><li id="sec-blockchain" class="child"><a href="https://jbrette.github.io/blockchain/">BlockChain</a></li><li id="sec-other" class="child"><a href="https://jbrette.github.io/misc/">Other</a></li></ul>
+</li></ul>
+</li><li id="fa fa-list" class=""><a href="https://jbrette.github.io/tags/">Tags</a></li><li id="fa fa-id-card-o" class=""><a href="https://jbrette.github.io/about/">About</a></li></ul>
+</nav>
+</div><div class="content-container">
+<main><h1>Infrastructure</h1><p><strong>The substrate everything runs on — from carrier radio and optical transport,
+through telco-cloud, to the GPU-powered AI data center.</strong></p>
+<p>If a workload cannot run without the Linux and Kubernetes layer beneath it, that
+layer is infrastructure. This domain spans roughly twenty-five years, from the
+carrier transport and radio plant to today&rsquo;s GPU fabric. The oldest skills are
+still part of it, because the same fundamentals carry forward: optical transport
+became co-packaged optics, and carrier five-nines became data-center resilience.
+What follows leads with the newest work; the earlier eras are context for how the
+substrate got here, not claims about where it is now.</p>
+<h2 id="convergence">Convergence</h2>
+<p>The substrate is now a fusion of AI compute and networking. Rack-scale
+accelerated systems built on data-center GPUs (Blackwell) sit alongside Arm host
+CPUs (Grace) coherently coupled to them, with DPU and SmartNIC offload
+(BlueField, ConnectX) shearing networking, storage, and security off the host
+entirely. These arrive packaged as turnkey AI factories — Dell PowerEdge XE and
+similar — orchestrated through Kubernetes-native ML platforms such as OpenShift
+AI.</p>
+<p>The defining concern of this era is the training fabric. Distributed and LLM
+training scale over collective-communication backbones (NCCL) riding RDMA, either
+on InfiniBand or on purpose-built lossless Ethernet such as Spectrum-X. Congestion
+signalling (ECN) and topology-aware GPU scheduling are what keep an expensive
+fleet saturated; without them the accelerators idle while the network sorts itself
+out.</p>
+<p>In parallel, the telecom substrate has converged onto the same cloud-native base.
+Disaggregated virtualized RAN (CloudRAN, O-RAN 7.2x, SMO) runs on carrier-grade
+Kubernetes distributions such as Sylva and Wind River. AI is being embedded in the
+network itself through GPU-accelerated RAN (NVIDIA ARC) and core analytics
+(NWDAF), with 6G on the horizon. General-purpose x86 silicon persists, but its
+role has changed: it is the control-plane and host layer now, feeding the
+accelerators rather than doing the heavy numeric work. That CPU/GPU/DPU split is
+the thing that frames how this era&rsquo;s data centers are wired.</p>
+<h2 id="transition-to-ai">Transition to AI</h2>
+<p>The substrate straddled telecom and cloud-native compute, with its centre of
+gravity in disaggregated mobile access. vRAN and Open RAN build-outs, and private
+5G, sat on a carrier-grade telco-cloud foundation (Wind River, OpenShift), with
+customer-premises equipment marking the edge.</p>
+<p>Underneath it all was general-purpose iron and open networking: Dell PowerEdge
+hosts under iDRAC management, alongside PowerSwitch leaf-spine fabrics running
+SONiC. These were the physical hosts that the virtualized RAN and the containers
+actually landed on. VMware&rsquo;s software-defined data center and the emerging
+internal-developer-platform pattern sat at the periphery, where operations tooling
+and developer abstraction were beginning to consolidate over the raw substrate.</p>
+<h2 id="closed-loop-assurance">Closed-loop assurance</h2>
+<p>This era is defined by two things: disaggregation of the radio-access network, and
+the cloud-native turn in the core. O-RAN interfaces (E2, A1, O1, O2) and vRAN
+split the monolithic basestation into interoperable CU, DU, and RU components. The
+5G core recast the mobile core as service-based functions running as CNFs on
+carrier-grade Kubernetes.</p>
+<p>Making general-purpose servers carry telecom traffic demanded a hardware-fluent
+plumbing layer that ordinary IT clouds never needed: SR-IOV and Multus for
+line-rate multi-network pods, CPU pinning for deterministic NUMA-aware latency. On
+that foundation ran 5G NR with massive MIMO and network slicing, with compute
+pushed outward to the edge cloud and ETSI MEC to cut backhaul and latency.</p>
+<h2 id="cloud-native-operations">Cloud-native operations</h2>
+<p>The substrate pivoted from virtual machines to containers and declarative
+orchestration. Docker standardized the portable image, while a Kubernetes control
+plane — API server, scheduler, etcd — became the de-facto pattern for reconciling
+cluster state. This layered over OpenStack IaaS and SDN overlays such as Contrail.</p>
+<p>In a telecom and enterprise context, this cloud-native tooling still landed on
+operator-owned iron: self-managed on-premises and bare-metal Kubernetes on
+enterprise data-center platforms, with Ceph providing distributed software-defined
+storage on commodity nodes. The through-line of the era is hyperscaler-style
+declarative orchestration married to private, physically-owned substrate.</p>
+<h2 id="distributed-systems">Distributed systems</h2>
+<p>This is the hinge where dedicated telecom hardware began dissolving into cloud
+primitives that still anchor today&rsquo;s stack. On the radio side, LTE arrived as the
+all-IP flat 4G core, with VoLTE migrating voice onto the IMS packet core and
+retiring the circuit-switched 3G world.</p>
+<p>Underneath, the enduring pieces took shape: commodity COTS blades displacing
+bespoke and mainframe iron, HAProxy and SAN block storage as the load-balancing
+and pooled-storage workhorses, and the private/public/hybrid cloud triad plus CDN
+edge caching establishing the elastic multi-tenant model. Threading through it all
+was the first wave of network programmability — SDN&rsquo;s control/data-plane split,
+seeded by the now-faded OpenFlow.</p>
+<h2 id="network-modeling">Network modeling</h2>
+<p>The carrier transport foundation everything later was built on. Aggregated voice
+and data rode synchronous optical pipes (SONET/SDH) and their managed-wrapper
+successor OTN over DWDM fiber, provisioned through Telcordia&rsquo;s TL1 command
+language from operations-support systems.</p>
+<p>Above the optics, the packet layer took root: Ethernet framing and best-effort IP
+routing, with MPLS label-switched paths adding fast forwarding, traffic
+engineering, and L2/L3 VPNs to the carrier backbone — stitching access,
+aggregation, and core into one transport network. The network elements themselves
+were purpose-built embedded systems on real-time operating systems such as VxWorks
+and QNX; dedicated boxes rather than general-purpose compute. Ethernet and IP
+endure as living substrate. The SONET/TL1/MPLS transport stack is the largely
+superseded rootstock that the packet-optical fabrics grew out of.</p>
+<h2 id="control-loop">Control loop</h2>
+<p>The foundational era was the circuit-switched, standards-defined telecom plant.
+2G GSM digital cellular (TDMA, SIM) carried voice, SMS, and early packet data over
+a SONET/SDH synchronous-TDM transport backbone with sub-50 ms ring protection.</p>
+<p>Network elements were embedded systems on real-time kernels such as pSOS, managed
+through OSI/TMN stacks — CMIP and Q3 interfaces. Even as that was being built, the
+IETF&rsquo;s RFC-driven IP, TCP, and routing work was laying the connectionless,
+packet-oriented groundwork that would eventually subsume all of it.</p>
+<hr>
+<p>Infrastructure is the first of four domains on this site. It is the substrate that
+<a href="https://jbrette.github.io/ops/">operations</a> runs, that the <a href="https://jbrette.github.io/sdlc/">software lifecycle</a> delivers onto, and
+that <a href="https://jbrette.github.io/agentic/">agentic transformation</a> is now changing the way we build.</p>
+<nav class="pagination"><a class="nav nav-prev" href="https://jbrette.github.io/agentic/" title="Agentic"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Agentic</a>
+<a class="nav nav-next" href="https://jbrette.github.io/ops/" title="Operations">Next - Operations <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><div class="edit-meta">
+Last updated on 20 Aug 2026
+
+
+<br>
+Published on 20 Aug 2026
+<br></div><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
